@@ -4,12 +4,11 @@ interface BasicCommandOptions {
   string?: string;
   boolean?: boolean;
   number?: number;
-  [key: string]: any;
 }
 
 @Command({ name: 'basic', description: 'A parameter parse', default: true })
 export class BasicCommand implements CommandRunner {
-  async run(passedParam: string, options?: BasicCommandOptions): Promise<void> {
+  async run(passedParam: string[], options?: BasicCommandOptions): Promise<void> {
     if (options?.boolean !== undefined && options?.boolean !== null) {
       this.runWithBoolean(passedParam, options.boolean);
     } else if (options?.number) {
@@ -51,19 +50,19 @@ export class BasicCommand implements CommandRunner {
     return JSON.parse(val);
   }
 
-  runWithString(param: string, option: string): void {
+  runWithString(param: string[], option: string): void {
     console.log({ param, string: option });
   }
 
-  runWithNumber(param: string, option: number): void {
+  runWithNumber(param: string[], option: number): void {
     console.log({ param, number: option });
   }
 
-  runWithBoolean(param: string, option: boolean): void {
+  runWithBoolean(param: string[], option: boolean): void {
     console.log({ param, boolean: option });
   }
 
-  runWithNone(param: string): void {
+  runWithNone(param: string[]): void {
     console.log({ param });
   }
 }

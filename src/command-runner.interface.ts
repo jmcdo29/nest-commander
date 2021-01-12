@@ -1,7 +1,7 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
 
 export interface CommandRunner {
-  run(...args: any[]): Promise<void>;
+  run(passedParams: string[], options?: Record<string, any>): Promise<void>;
 }
 
 export interface CommandMetadata {

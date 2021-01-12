@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { BasicCommand } from './command';
+import { BasicCommand } from './basic.command';
 
 @Module({
   providers: [BasicCommand],
