@@ -6,7 +6,7 @@ interface BasicCommandOptions {
   number?: number;
 }
 
-@Command({ name: 'basic', description: 'A parameter parse', default: true })
+@Command({ nameAndArgs: 'basic', description: 'A parameter parse' })
 export class BasicCommand implements CommandRunner {
   async run(passedParam: string[], options?: BasicCommandOptions): Promise<void> {
     if (options?.boolean !== undefined && options?.boolean !== null) {
@@ -21,32 +21,26 @@ export class BasicCommand implements CommandRunner {
   }
 
   @Option({
-    flags: ['--number', '-n'],
+    flags: '-n, --number [number]',
     description: 'A basic number parser',
-    required: false,
-    name: 'number',
   })
   parseNumber(val: string): number {
-    return Number.parseInt(val);
+    return Number(val);
   }
 
   @Option({
-    flags: ['--string', '-s'],
+    flags: '-s, --string [string]',
     description: 'A string return',
-    required: false,
-    name: 'string',
   })
   parseString(val: string): string {
     return val;
   }
 
   @Option({
-    flags: ['--boolean', '-b'],
+    flags: '-b, --boolean [boolean]',
     description: 'A boolean parser',
-    required: false,
-    name: 'boolean',
   })
-  parseBool(val: string): boolean {
+  parseBoolean(val: string): boolean {
     return JSON.parse(val);
   }
 

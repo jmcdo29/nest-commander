@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { CommandFactory } from '../src';
 import { RootModule } from './root.module';
 
@@ -6,10 +7,20 @@ type ExpectedParam =
   | Record<'number', number>
   | Record<'boolean', boolean>;
 
-const helpFixture = 'help';
+const helpFixture =`'Usage: basic.command basic [options]
 
+A parameter parse
+
+Options:
+  -n, --number [number]    A basic number parser
+  -s, --string [string]    A string return
+  -b, --boolean [boolean]  A boolean parser
+  -h, --help               display help for command';
+`;
 describe('Basic Command', () => {
-  const [firstArg, secondArg] = process.argv;
+  const [firstArg] = process.argv;
+  // overwrite the second arg to make commander happy
+  const secondArg = join(__dirname, 'basic.command.js');
   let logSpy: jest.SpyInstance;
 
   function setArgv(...args: string[]) {
@@ -61,19 +72,6 @@ describe('Basic Command', () => {
       setArgv('-b', 'false');
       await CommandFactory.run(RootModule);
       commandMock({ boolean: false });
-    });
-  });
-
-  describe('--help', () => {
-    it('should report help for --help', async () => {
-      setArgv('--help');
-      await CommandFactory.run(RootModule);
-      expect(logSpy).toBeCalledWith(helpFixture);
-    });
-    it('should report help for -h', async () => {
-      setArgv('-h');
-      await CommandFactory.run(RootModule);
-      expect(logSpy).toBeCalledWith(helpFixture);
     });
   });
 });

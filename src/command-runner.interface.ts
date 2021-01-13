@@ -1,23 +1,24 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
+import { CommandOptions } from 'commander';
 
 export interface CommandRunner {
   run(passedParams: string[], options?: Record<string, any>): Promise<void>;
 }
 
 export interface CommandMetadata {
-  name?: string;
-  default?: boolean;
+  nameAndArgs: string;
   description?: string;
+  options?: CommandOptions;
 }
 
 export interface OptionMetadata {
-  flags: string[];
+  flags: string;
   description?: string;
-  required?: boolean;
-  name: string;
+  defaultValue?: string | boolean;
 }
 
 export interface RunnerMeta {
   instance: CommandRunner;
+  command: CommandMetadata;
   params: DiscoveredMethodWithMeta<OptionMetadata>[];
 }
