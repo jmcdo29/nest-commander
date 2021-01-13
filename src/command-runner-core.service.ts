@@ -1,94 +1,69 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Inject, OnModuleInit } from '@nestjs/common';
 import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
-import { CommandMeta, OptionMeta } from './constants';
+import { Command } from 'commander';
 import {
   CommandMetadata,
   CommandRunner,
   OptionMetadata,
   RunnerMeta,
 } from './command-runner.interface';
+import { Commander, CommandMeta, OptionMeta } from './constants';
 
-@Injectable()
 export class CommandRunnerCoreService implements OnModuleInit {
-  private commandMap: Record<string, RunnerMeta>;
-  constructor(private readonly discoveryService: DiscoveryService) {
-    this.commandMap = {};
+  private commandMap: Array<RunnerMeta>;
+  constructor(
+    private readonly discoveryService: DiscoveryService,
+    @Inject(Commander) private readonly commander: Command,
+  ) {
+    this.commandMap = [];
+    commander.exitOverride();
   }
 
   async onModuleInit() {
     const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
       CommandMeta,
     );
-    this.verifyOnlyOneDefault(providers);
     await this.populateCommandMapInstances(providers);
-  }
-
-  private verifyOnlyOneDefault(providers: DiscoveredClassWithMeta<CommandMetadata>[]): void {
-    const defaults = providers.filter((provider) => {
-      return provider.meta.default;
-    });
-    if (defaults.length > 1) {
-      throw new Error('Too many default commands');
-    }
   }
 
   private async populateCommandMapInstances(
     providers: DiscoveredClassWithMeta<CommandMetadata>[],
   ): Promise<void> {
     for (const provider of providers) {
-      this.commandMap[provider.meta.name || 'default'] = {
+      const optionProviders = await this.discoveryService.providerMethodsWithMetaAtKey<OptionMetadata>(
+        OptionMeta,
+        (found) => found.name === provider.discoveredClass.name,
+      );
+      this.commandMap.push({
+        command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
-        params: await this.discoveryService.providerMethodsWithMetaAtKey<OptionMetadata>(
-          OptionMeta,
-          (foundProvider) => foundProvider.name === provider.discoveredClass.name,
-        ),
-      };
+        params: optionProviders,
+      });
+    }
+    for (const command of this.commandMap) {
+      const newCommand = this.commander.createCommand(command.command.nameAndArgs);
+      // this.commander.command(command.command.nameAndArgs, command.command.options ?? undefined);
+      newCommand.description(command.command.description ?? '');
+      for (const option of command.params) {
+        newCommand.option(
+          option.meta.flags,
+          option.meta.description ?? '',
+          option.discoveredMethod.handler,
+          option.meta.defaultValue ?? undefined,
+        );
+      }
+      newCommand.action(() =>
+        command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
+      );
+      newCommand.exitOverride();
+      this.commander.addCommand(newCommand, command.command.options);
     }
   }
 
-  async run(...args: string[]): Promise<void> {
-    const { params, remainingArgs: passed } = this.separateArgs(...args.splice(1));
-    const parsedParams: Record<string, any> = {};
-    const commandToRun = this.commandMap[args[0]];
-    if (Object.getOwnPropertyNames(params).some((name) => name === '--help' || name === '-h')) {
-      this.printHelp(commandToRun);
-      return;
-    }
-    Object.keys(params).forEach((param) => {
-      const handler = commandToRun.params.filter((parserHandler) =>
-        parserHandler.meta.flags.includes(param),
-      )[0];
-      parsedParams[handler.meta.name] = handler.discoveredMethod.handler(params[param]);
+  async run(): Promise<void> {
+    await this.commander.parseAsync().catch((err) => {
+      console.error(err);
+      throw err;
     });
-    await commandToRun.instance.run(passed, parsedParams);
-  }
-
-  private printHelp(commandToRun: RunnerMeta) {
-    // implement help command
-    console.log('help');
-  }
-
-  private separateArgs(
-    ...args: string[]
-  ): { params: Record<string, string>; remainingArgs: string[] } {
-    let skipNext = false;
-    const returnMap: Record<string, string> = {};
-    const remaining = [];
-    for (let i = 0; i < args.length; i++) {
-      if (skipNext) {
-        skipNext = false;
-        continue;
-      }
-      if (args[i].includes('--')) {
-        const [key, value] = args[i].split('=');
-        returnMap[key] = value;
-      } else if (args[i].includes('-')) {
-        skipNext = true;
-        returnMap[args[i]] = args[i + 1];
-      } else {
-        remaining.push(args[i]);
-      }
-    }
-    return { params: returnMap, remainingArgs: remaining };
   }
 }

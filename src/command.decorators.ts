@@ -11,7 +11,11 @@ export function Command(options: CommandMetadata): ClassDecorator {
 }
 
 export function Option(options: OptionMetadata): MethodDecorator {
-  return (target, propertyKey, descriptor: any) => {
+  return (
+    target: Record<string, any>,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor,
+  ) => {
     Reflect.defineMetadata(OptionMeta, options, descriptor.value);
     return descriptor;
   };

@@ -12,8 +12,7 @@ export class CommandFactory {
       },
     );
     const runner = app.get(CommandRunnerCoreService);
-    const [, , ...args] = process.argv;
-    await runner.run(...args);
+    await runner.run();
     await app.close();
   }
 }
