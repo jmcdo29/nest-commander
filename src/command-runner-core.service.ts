@@ -55,15 +55,11 @@ export class CommandRunnerCoreService implements OnModuleInit {
       newCommand.action(() =>
         command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
       );
-      newCommand.exitOverride();
       this.commander.addCommand(newCommand, command.command.options);
     }
   }
 
   async run(): Promise<void> {
-    await this.commander.parseAsync().catch((err) => {
-      console.error(err);
-      throw err;
-    });
+    await this.commander.parseAsync();
   }
 }
