@@ -7,16 +7,6 @@ type ExpectedParam =
   | Record<'number', number>
   | Record<'boolean', boolean>;
 
-const helpFixture =`'Usage: basic.command basic [options]
-
-A parameter parse
-
-Options:
-  -n, --number [number]    A basic number parser
-  -s, --string [string]    A string return
-  -b, --boolean [boolean]  A boolean parser
-  -h, --help               display help for command';
-`;
 describe('Basic Command', () => {
   const [firstArg] = process.argv;
   // overwrite the second arg to make commander happy

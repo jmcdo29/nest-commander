@@ -1,7 +1,7 @@
 {
-  "name": "nestjs-command",
+  "name": "nestjs-commander",
   "version": "1.0.0",
-  "description": "A module for making CLI applications with NestJS. Decorators for running cammnds and separating out config parsers included",
+  "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmcdo29/nestjs-command.git"
+    "url": "git+https://github.com/jmcdo29/nestjs-commander.git"
   },
   "keywords": [
     "cli",
@@ -24,9 +24,9 @@
   "author": "Jay McDoniel <jmcdo29@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jmcdo29/nestjs-command/issues"
+    "url": "https://github.com/jmcdo29/nestjs-commander/issues"
   },
-  "homepage": "https://github.com/jmcdo29/nestjs-command#readme",
+  "homepage": "https://github.com/jmcdo29/nestjs-commander#readme",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
