@@ -16,7 +16,6 @@ export class CommandRunnerCoreService implements OnModuleInit {
     @Inject(Commander) private readonly commander: Command,
   ) {
     this.commandMap = [];
-    commander.exitOverride();
   }
 
   async onModuleInit() {
