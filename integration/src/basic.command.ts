@@ -1,4 +1,4 @@
-import { Command, CommandRunner, Option } from '../src';
+import { Command, CommandRunner, Option } from 'nestjs-commander';
 import { LogService } from './log.service';
 
 interface BasicCommandOptions {

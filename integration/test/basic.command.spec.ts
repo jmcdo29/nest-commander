@@ -1,5 +1,5 @@
-import { CommandFactory } from '../src';
-import { RootModule } from './root.module';
+import { CommandFactory } from 'nestjs-commander';
+import { RootModule } from '../src/root.module';
 import { commandMock, setArgv } from './utils';
 
 describe('Basic Command', () => {
