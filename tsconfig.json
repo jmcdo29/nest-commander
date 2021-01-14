@@ -8,10 +8,14 @@
     "target": "es2017",
     "sourceMap": false,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "strict": true,
     "noUnusedLocals": false,
-    "lib": ["ES7"]
+    "lib": ["ES7"],
+    "paths": {
+      "nestjs-commander": ["packages/nestjs-commander/dist/index.d.ts"],
+      "nestjs-commander-testing": ["packages/nestjs-commander-testing/dist/index.d.ts"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }
