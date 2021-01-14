@@ -23,6 +23,7 @@ export class CommandRunnerCoreService implements OnModuleInit {
       CommandMeta,
     );
     await this.populateCommandMapInstances(providers);
+    this.setUpCommander();
   }
 
   private async populateCommandMapInstances(
@@ -39,9 +40,11 @@ export class CommandRunnerCoreService implements OnModuleInit {
         params: optionProviders,
       });
     }
+  }
+
+  private setUpCommander(): void {
     for (const command of this.commandMap) {
       const newCommand = this.commander.createCommand(command.command.nameAndArgs);
-      // this.commander.command(command.command.nameAndArgs, command.command.options ?? undefined);
       newCommand.description(command.command.description ?? '');
       for (const option of command.params) {
         newCommand.option(

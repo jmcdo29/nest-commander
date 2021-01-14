@@ -1,6 +1,6 @@
 # NestJS Commander
 
-Have you been building amazing REST and RPC applications with [NestJS](https://docs.nestjs.com/)? Do you want that same structure for absolutely everything you're working with? Have you always wanted to build up some sweet CLI application but don't really know where to start? This is the solution. A package to bring building CLI applications to the Nest world with the same structure that you already know and love :heart: Built on top of the popular [Commander](https://github.com/tj/commander.js) package. 
+Have you been building amazing REST and RPC applications with [NestJS](https://docs.nestjs.com/)? Do you want that same structure for absolutely everything you're working with? Have you always wanted to build up some sweet CLI application but don't really know where to start? This is the solution. A package to bring building CLI applications to the Nest world with the same structure that you already know and love :heart: Built on top of the popular [Commander](https://github.com/tj/commander.js) package.
 
 ## Installation
 
@@ -24,20 +24,22 @@ Every command is seen as an `@Injectable()` by Nest, so your normal Dependency I
 
 ### @Command()
 
-The `@Command()` decorator is to define what CLI command the class is going to manage and take care of. The decorator takes in an object to define properties of the command.  The options passed here would be the same as the options passed to a new `command` for Commander
+The `@Command()` decorator is to define what CLI command the class is going to manage and take care of. The decorator takes in an object to define properties of the command. The options passed here would be the same as the options passed to a new `command` for Commander
 
-| property | type | required | description | 
-| - | - | - | - |
+| property | type | required | description |
+| --- | --- | --- | --- |
 | nameAndArgs | string | true | the name of the command and args it can tak. Args are optional if you decide to use the decorator approach with `@Option()` |
 | description | string | false | the description of the command. This will be used by the `--help` or `-h` flags to have a formalized way of what to print out |
 | Options | CommandOptions | false | Extra options to pass on down to commander |
+
+For mor information on the `@Command()` and `@Option()` parameters, check out the [Commander docs](https://github.com/tj/commander.js). 
 
 ### @Option()
 
 Often times you're not just running a single command with a single input, but rather you're running a command with multiple options and flags. Think of something like `git commit`: you can pass a `--amend` flag, a `-m` flag, or even `-a`, all of these change how the command runs. These flags are able to be set for each command using the `@Option()` decorator on a method for how that flag should be parsed. Do note that every command sent in via the command line is a raw string, so if you need to transform that string to a number or a boolean, or any other type, this handler is where it can be done. See the [putting it all together](#putting-it-all-together) for an example. The `@Option()` decorator, like the `@Command()` one, takes in an object of options defined in the table below
 
 | property | type | required | description |
-| - | - | - | - |
+| --- | --- | --- | --- |
 | flags | string | true | a string that represents the option's incoming flag and if the option is required (using <>) or optional (using []) |
 | description | string | false | the description of the option, used if adding a `--help` flag |
 | defaultValue | string or boolean | false | the default value for the flag |
@@ -61,6 +63,102 @@ bootstrap();
 
 And that's it. Under the hood, `CommandFactory` will worry about calling `NestFactory` for you and calling `app.close()` when necessary, so you shouldn't need to worry about memory leaks there. If you need to add in some error handling, there's always `try/catch` wrapping the `run` command, or you can chain on some `.catch()` method to the `bootstrap()` call.
 
+## Testing
+
+So what's the use of writing a super awesome command line script if you can't test it super easily, right? Fortunately, `nestjs-commander` has some utilities you can make use of that fits in perfectly with the NestJS ecosystem, it'll feel right at home to any Nestlings out there. Instead of using the `CommandFactory` for building the command in test mode, you can use `CommandTestFactory` and pass in your metadata, very similarly to how `Test.createTestingModule` from `@nestjs/testing` works. In fact, it uses this package under the hood. You're also still able to chain on the `overrideProvider` methods before calling `compile()` so you can swap out DI pieces right in the test. [A nice example of this can be seen in the basic.command.factory.spec.ts file](./test/basic.command.factory.spec.ts).
+
 ## Putting it All Together
 
-I will make this section soon, I promise. 
+The following class would equate to having a CLI command that can take in the subcommand `basic` or be called directly, with `-n`, `-s`, and `-b` (along with their long flags) all being supported and with custom parsers for each option. The `--help` flag is also supported, as is customary with commander.
+
+```ts
+import { Command, CommandRunner, Option } from 'nestjs-commander';
+import { LogService } from './log.service';
+
+interface BasicCommandOptions {
+  string?: string;
+  boolean?: boolean;
+  number?: number;
+}
+
+@Command({ nameAndArgs: 'basic', description: 'A parameter parse' })
+export class BasicCommand implements CommandRunner {
+  constructor(private readonly logService: LogService) {}
+
+  async run(passedParam: string[], options?: BasicCommandOptions): Promise<void> {
+    if (options?.boolean !== undefined && options?.boolean !== null) {
+      this.runWithBoolean(passedParam, options.boolean);
+    } else if (options?.number) {
+      this.runWithNumber(passedParam, options.number);
+    } else if (options?.string) {
+      this.runWithString(passedParam, options.string);
+    } else {
+      this.runWithNone(passedParam);
+    }
+  }
+
+  @Option({
+    flags: '-n, --number [number]',
+    description: 'A basic number parser',
+  })
+  parseNumber(val: string): number {
+    return Number(val);
+  }
+
+  @Option({
+    flags: '-s, --string [string]',
+    description: 'A string return',
+  })
+  parseString(val: string): string {
+    return val;
+  }
+
+  @Option({
+    flags: '-b, --boolean [boolean]',
+    description: 'A boolean parser',
+  })
+  parseBoolean(val: string): boolean {
+    return JSON.parse(val);
+  }
+
+  runWithString(param: string[], option: string): void {
+    this.logService.log({ param, string: option });
+  }
+
+  runWithNumber(param: string[], option: number): void {
+    this.logService.log({ param, number: option });
+  }
+
+  runWithBoolean(param: string[], option: boolean): void {
+    this.logService.log({ param, boolean: option });
+  }
+
+  runWithNone(param: string[]): void {
+    this.logService.log({ param });
+  }
+}
+```
+
+Make sure the command class is added to a module
+
+```ts
+@Module({
+  providers: [
+    LogService,
+    BasicCommand
+  ]
+})
+export class AppModule {}
+```
+
+And now to be able to run the CLI in your main.ts you can do the following
+
+```ts
+async function bootstrap() {
+  await CommandFactory.run(AppModule);
+}
+
+bootstrap();
+```
+
+And just like that, you've got a command line application.
