@@ -1,7 +1,7 @@
 import { TestingModule } from '@nestjs/testing';
-import { CommandTestFactory } from '../src';
-import { LogService } from './log.service';
-import { RootModule } from './root.module';
+import { CommandTestFactory } from 'nestjs-commander-testing';
+import { LogService } from '../src/log.service';
+import { RootModule } from '../src/root.module';
 import { commandMock, setArgv } from './utils';
 
 describe('Basic Command', () => {
