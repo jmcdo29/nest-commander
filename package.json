@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "nest build",
-    "test": "jest -c test/jest.config.js test"
+    "test": "jest -c jest.config.js test"
   },
   "repository": {
     "type": "git",

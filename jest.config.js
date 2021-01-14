@@ -6,4 +6,6 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
   },
   testEnvironment: 'node',
+  collectCoverageFrom: ['src/*'],
+  collectCoverage: true
 };
