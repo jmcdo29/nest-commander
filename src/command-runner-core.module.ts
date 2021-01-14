@@ -6,10 +6,10 @@ import { Commander } from './constants';
 
 @Module({})
 export class CommandRunnerCoreModule {
-  static forModule(module: Type<any>): DynamicModule {
+  static forModule(module?: Type<any>): DynamicModule {
     return {
       module: CommandRunnerCoreModule,
-      imports: [module, DiscoveryModule],
+      imports: module ? [module, DiscoveryModule] : [DiscoveryModule],
       providers: [
         CommandRunnerCoreService,
         {
