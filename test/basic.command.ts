@@ -1,4 +1,5 @@
 import { Command, CommandRunner, Option } from '../src';
+import { LogService } from './log.service';
 
 interface BasicCommandOptions {
   string?: string;
@@ -8,6 +9,8 @@ interface BasicCommandOptions {
 
 @Command({ nameAndArgs: 'basic', description: 'A parameter parse' })
 export class BasicCommand implements CommandRunner {
+  constructor(private readonly logService: LogService) {}
+
   async run(passedParam: string[], options?: BasicCommandOptions): Promise<void> {
     if (options?.boolean !== undefined && options?.boolean !== null) {
       this.runWithBoolean(passedParam, options.boolean);
@@ -45,18 +48,18 @@ export class BasicCommand implements CommandRunner {
   }
 
   runWithString(param: string[], option: string): void {
-    console.log({ param, string: option });
+    this.logService.log({ param, string: option });
   }
 
   runWithNumber(param: string[], option: number): void {
-    console.log({ param, number: option });
+    this.logService.log({ param, number: option });
   }
 
   runWithBoolean(param: string[], option: boolean): void {
-    console.log({ param, boolean: option });
+    this.logService.log({ param, boolean: option });
   }
 
   runWithNone(param: string[]): void {
-    console.log({ param });
+    this.logService.log({ param });
   }
 }
