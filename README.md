@@ -4,19 +4,19 @@ Have you been building amazing REST and RPC applications with [NestJS](https://d
 
 ## Installation
 
-Before you get started, you'll need to install a few packages. First and foremost, this one: `nestjs-commander` (name pending). You'll also need to install `@nestjs/common` and `@nestjs/core` as this package makes use of them under the hood, but doesn't want to tie you down to a specific version, yay peerDependencies!
+Before you get started, you'll need to install a few packages. First and foremost, this one: `nest-commander` (name pending). You'll also need to install `@nestjs/common` and `@nestjs/core` as this package makes use of them under the hood, but doesn't want to tie you down to a specific version, yay peerDependencies!
 
 ```sh
-npm i nestjs-commander @nestjs/common @nestjs/core
+npm i nest-commander @nestjs/common @nestjs/core
 # OR
-yarn add nestjs-commander @nestjs/common @nestjs/core
+yarn add nest-commander @nestjs/common @nestjs/core
 # OR
-pnpm i nestjs-commander @nestjs/common @nestjs/core
+pnpm i nest-commander @nestjs/common @nestjs/core
 ```
 
 ## A Command File
 
-`nestjs-commander` makes it easy to write new command line applications with [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) via the `@Command()` decorator for classes and the `@Option()` decorator for methods of that class. Every command file _should_ implement the `CommandRunner` interface and _should_ be decorated with a `@Command()` decorator.
+`nest-commander` makes it easy to write new command line applications with [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) via the `@Command()` decorator for classes and the `@Option()` decorator for methods of that class. Every command file _should_ implement the `CommandRunner` interface and _should_ be decorated with a `@Command()` decorator.
 
 ### CommandRunner
 
@@ -50,10 +50,10 @@ Under the hood, the method that the`@Option()` is decorating is the custom parse
 
 ## Running the Command
 
-Similar to how in a NestJS application we can use the `NestFactory` to create a server for us, and run it using `listen`, the `nestjs-commander` package exposes a simple to use API to run your server. Import the `CommandFactory` and use the `static` method `run` and pass in the root module of your application. This would probably look like below
+Similar to how in a NestJS application we can use the `NestFactory` to create a server for us, and run it using `listen`, the `nest-commander` package exposes a simple to use API to run your server. Import the `CommandFactory` and use the `static` method `run` and pass in the root module of your application. This would probably look like below
 
 ```ts
-import { CommandFactory } from 'nestjs-commander';
+import { CommandFactory } from 'nest-commander';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -67,14 +67,14 @@ And that's it. Under the hood, `CommandFactory` will worry about calling `NestFa
 
 ## Testing
 
-So what's the use of writing a super awesome command line script if you can't test it super easily, right? Fortunately, `nestjs-commander` has some utilities you can make use of that fits in perfectly with the NestJS ecosystem, it'll feel right at home to any Nestlings out there. Instead of using the `CommandFactory` for building the command in test mode, you can use `CommandTestFactory` and pass in your metadata, very similarly to how `Test.createTestingModule` from `@nestjs/testing` works. In fact, it uses this package under the hood. You're also still able to chain on the `overrideProvider` methods before calling `compile()` so you can swap out DI pieces right in the test. [A nice example of this can be seen in the basic.command.factory.spec.ts file](./integration/test/basic.command.factory.spec.ts).
+So what's the use of writing a super awesome command line script if you can't test it super easily, right? Fortunately, `nest-commander` has some utilities you can make use of that fits in perfectly with the NestJS ecosystem, it'll feel right at home to any Nestlings out there. Instead of using the `CommandFactory` for building the command in test mode, you can use `CommandTestFactory` and pass in your metadata, very similarly to how `Test.createTestingModule` from `@nestjs/testing` works. In fact, it uses this package under the hood. You're also still able to chain on the `overrideProvider` methods before calling `compile()` so you can swap out DI pieces right in the test. [A nice example of this can be seen in the basic.command.factory.spec.ts file](./integration/test/basic.command.factory.spec.ts).
 
 ## Putting it All Together
 
 The following class would equate to having a CLI command that can take in the subcommand `basic` or be called directly, with `-n`, `-s`, and `-b` (along with their long flags) all being supported and with custom parsers for each option. The `--help` flag is also supported, as is customary with commander.
 
 ```ts
-import { Command, CommandRunner, Option } from 'nestjs-commander';
+import { Command, CommandRunner, Option } from 'nest-commander';
 import { LogService } from './log.service';
 
 interface BasicCommandOptions {

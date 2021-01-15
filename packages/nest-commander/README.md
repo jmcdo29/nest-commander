@@ -4,19 +4,19 @@ Have you been building amazing REST and RPC applications with [NestJS](https://d
 
 ## Installation
 
-Before you get started, you'll need to install a few packages. First and foremost, this one: `nestjs-commander` (name pending). You'll also need to install `@nestjs/common` and `@nestjs/core` as this package makes use of them under the hood, but doesn't want to tie you down to a specific version, yay peerDependencies!
+Before you get started, you'll need to install a few packages. First and foremost, this one: `nest-commander` (name pending). You'll also need to install `@nestjs/common` and `@nestjs/core` as this package makes use of them under the hood, but doesn't want to tie you down to a specific version, yay peerDependencies!
 
 ```sh
-npm i nestjs-commander @nestjs/common @nestjs/core
+npm i nest-commander @nestjs/common @nestjs/core
 # OR
-yarn add nestjs-commander @nestjs/common @nestjs/core
+yarn add nest-commander @nestjs/common @nestjs/core
 # OR
-pnpm i nestjs-commander @nestjs/common @nestjs/core
+pnpm i nest-commander @nestjs/common @nestjs/core
 ```
 
 ## A Command File
 
-`nestjs-commander` makes it easy to write new command line applications with [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) via the `@Command()` decorator for classes and the `@Option()` decorator for methods of that class. Every command file _should_ implement the `CommandRunner` interface and _should_ be decorated with a `@Command()` decorator.
+`nest-commander` makes it easy to write new command line applications with [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html) via the `@Command()` decorator for classes and the `@Option()` decorator for methods of that class. Every command file _should_ implement the `CommandRunner` interface and _should_ be decorated with a `@Command()` decorator.
 
 ### CommandRunner
 
@@ -50,10 +50,10 @@ Under the hood, the method that the`@Option()` is decorating is the custom parse
 
 ## Running the Command
 
-Similar to how in a NestJS application we can use the `NestFactory` to create a server for us, and run it using `listen`, the `nestjs-commander` package exposes a simple to use API to run your server. Import the `CommandFactory` and use the `static` method `run` and pass in the root module of your application. This would probably look like below
+Similar to how in a NestJS application we can use the `NestFactory` to create a server for us, and run it using `listen`, the `nest-commander` package exposes a simple to use API to run your server. Import the `CommandFactory` and use the `static` method `run` and pass in the root module of your application. This would probably look like below
 
 ```ts
-import { CommandFactory } from 'nestjs-commander';
+import { CommandFactory } from 'nest-commander';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -67,14 +67,14 @@ And that's it. Under the hood, `CommandFactory` will worry about calling `NestFa
 
 ## Testing
 
-There is a testing helper package called [`nestjs-commander-testing`](./../nestjs-commander-testing/README.md) that works very similarly to `@nestjs/testing`. Check out it's documentation and examples for help.
+There is a testing helper package called [`nest-commander-testing`](./../nest-commander-testing/README.md) that works very similarly to `@nestjs/testing`. Check out it's documentation and examples for help.
 
 ## Putting it All Together
 
 The following class would equate to having a CLI command that can take in the subcommand `basic` or be called directly, with `-n`, `-s`, and `-b` (along with their long flags) all being supported and with custom parsers for each option. The `--help` flag is also supported, as is customary with commander.
 
 ```ts
-import { Command, CommandRunner, Option } from 'nestjs-commander';
+import { Command, CommandRunner, Option } from 'nest-commander';
 import { LogService } from './log.service';
 
 interface BasicCommandOptions {

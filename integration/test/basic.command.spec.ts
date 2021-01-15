@@ -1,4 +1,4 @@
-import { CommandFactory } from 'nestjs-commander';
+import { CommandFactory } from 'nest-commander';
 import { RootModule } from '../src/root.module';
 import { commandMock, setArgv } from './utils';
 
