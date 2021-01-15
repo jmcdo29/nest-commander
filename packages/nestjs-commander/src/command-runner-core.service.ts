@@ -44,8 +44,9 @@ export class CommandRunnerCoreService implements OnModuleInit {
 
   private setUpCommander(): void {
     for (const command of this.commandMap) {
-      const newCommand = this.commander.createCommand(command.command.nameAndArgs);
-      newCommand.description(command.command.description ?? '');
+      const newCommand = this.commander.createCommand(command.command.name);
+      command.command.arguments && newCommand.arguments(command.command.arguments);
+      newCommand.description(command.command.description ?? '', command.command.argsDescription);
       for (const option of command.params) {
         newCommand.option(
           option.meta.flags,

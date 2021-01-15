@@ -6,8 +6,10 @@ export interface CommandRunner {
 }
 
 export interface CommandMetadata {
-  nameAndArgs: string;
+  name: string;
+  arguments?: string;
   description?: string;
+  argsDescription?: Record<string, string>;
   options?: CommandOptions;
 }
 

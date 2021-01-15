@@ -28,8 +28,10 @@ The `@Command()` decorator is to define what CLI command the class is going to m
 
 | property | type | required | description |
 | --- | --- | --- | --- |
-| nameAndArgs | string | true | the name of the command and args it can tak. Args are optional if you decide to use the decorator approach with `@Option()` |
+| name | string | true | the name of the command |
+| arguments | string | false | Named arguments for the command to work with. These can be required `<>` or optional `[]`, but do not map to an option like a flag does |
 | description | string | false | the description of the command. This will be used by the `--help` or `-h` flags to have a formalized way of what to print out |
+| argsDescription | Record<string, string> | false | An object containing the description of each argument. This will be used by `-h` or `--help` |
 | Options | CommandOptions | false | Extra options to pass on down to commander |
 
 For mor information on the `@Command()` and `@Option()` parameters, check out the [Commander docs](https://github.com/tj/commander.js).
@@ -81,7 +83,7 @@ interface BasicCommandOptions {
   number?: number;
 }
 
-@Command({ nameAndArgs: 'basic', description: 'A parameter parse' })
+@Command({ name: 'basic', description: 'A parameter parse' })
 export class BasicCommand implements CommandRunner {
   constructor(private readonly logService: LogService) {}
 
