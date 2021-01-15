@@ -3,4 +3,5 @@ module.exports = {
   ...baseConfig,
   testRegex: 'integration/.*.spec.ts$',
   collectCoverage: false,
+  verbose: true,
 };

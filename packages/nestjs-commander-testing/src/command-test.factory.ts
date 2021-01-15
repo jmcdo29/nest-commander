@@ -8,10 +8,10 @@ export class CommandTestFactory {
     return Test.createTestingModule(moduleMetadata);
   }
 
-  static async run(app: TestingModule) {
+  static async run(app: TestingModule, args?: string[]) {
     await app.init();
     const runner = app.get(CommandRunnerCoreService);
-    await runner.run();
+    await runner.run(args);
     await app.close();
   }
 }
