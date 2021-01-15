@@ -7,7 +7,7 @@ interface BasicCommandOptions {
   number?: number;
 }
 
-@Command({ nameAndArgs: 'basic', description: 'A parameter parse' })
+@Command({ name: 'basic', description: 'A parameter parse' })
 export class BasicCommand implements CommandRunner {
   constructor(private readonly logService: LogService) {}
 
