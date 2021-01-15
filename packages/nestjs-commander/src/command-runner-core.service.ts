@@ -61,7 +61,7 @@ export class CommandRunnerCoreService implements OnModuleInit {
     }
   }
 
-  async run(): Promise<void> {
-    await this.commander.parseAsync();
+  async run(args?: string[]): Promise<void> {
+    await this.commander.parseAsync(args || process.argv);
   }
 }

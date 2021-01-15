@@ -2,6 +2,8 @@ import { CommandFactory } from 'nestjs-commander';
 import { RootModule } from '../src/root.module';
 import { commandMock, setArgv } from './utils';
 
+console.log = jest.fn();
+
 describe('Basic Command', () => {
   let logSpy: jest.SpyInstance;
 

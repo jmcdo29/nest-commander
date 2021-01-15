@@ -2,11 +2,13 @@ import { TestingModule } from '@nestjs/testing';
 import { CommandTestFactory } from 'nestjs-commander-testing';
 import { LogService } from '../src/log.service';
 import { RootModule } from '../src/root.module';
-import { commandMock, setArgv } from './utils';
+import { commandMock } from './utils';
 
 describe('Basic Command', () => {
   const logMock = jest.fn();
   let commandInstance: TestingModule;
+
+  const args = ['node', '/some/file.js', 'basic', 'test'];
 
   beforeAll(async () => {
     commandInstance = await CommandTestFactory.createTestingCommand({
@@ -17,40 +19,21 @@ describe('Basic Command', () => {
       .compile();
   });
 
-  describe('--string', () => {
-    it('should work for basic --string', async () => {
-      setArgv('--string=hello');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ string: 'hello' }, logMock);
-    });
-    it('should work for basic -s', async () => {
-      setArgv('-s', 'goodbye');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ string: 'goodbye' }, logMock);
-    });
-  });
-  describe('--number', () => {
-    it('should work for basic --number', async () => {
-      setArgv('--number=10');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ number: 10 }, logMock);
-    });
-    it('should work for basic -n', async () => {
-      setArgv('-n', '5');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ number: 5 }, logMock);
-    });
-  });
-  describe('--boolean', () => {
-    it('should work for basic --boolean', async () => {
-      setArgv('--boolean=true');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ boolean: true }, logMock);
-    });
-    it('should work for basic -b', async () => {
-      setArgv('-b', 'false');
-      await CommandTestFactory.run(commandInstance);
-      commandMock({ boolean: false }, logMock);
-    });
+  describe.only('flags', () => {
+    it.each`
+      flagAndVal            | expected
+      ${['--string=hello']} | ${{ string: 'hello' }}
+      ${['-s', 'goodbye']}  | ${{ string: 'goodbye' }}
+      ${['--number=10']}    | ${{ number: 10 }}
+      ${['-n', '5']}        | ${{ number: 5 }}
+      ${['--boolean=true']} | ${{ boolean: true }}
+      ${['-b', 'false']}    | ${{ boolean: false }}
+    `(
+      '$flagAndVal \tlogs $expected',
+      async ({ flagAndVal, expected }: { flagAndVal: string[]; expected: Record<string, any> }) => {
+        await CommandTestFactory.run(commandInstance, [...args, ...flagAndVal]);
+        commandMock(expected, logMock);
+      },
+    );
   });
 });
