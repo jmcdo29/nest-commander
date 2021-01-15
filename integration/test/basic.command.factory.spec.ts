@@ -1,5 +1,5 @@
 import { TestingModule } from '@nestjs/testing';
-import { CommandTestFactory } from 'nestjs-commander-testing';
+import { CommandTestFactory } from 'nest-commander-testing';
 import { LogService } from '../src/log.service';
 import { RootModule } from '../src/root.module';
 import { commandMock } from './utils';

@@ -13,8 +13,8 @@
     "noUnusedLocals": false,
     "lib": ["ES7"],
     "paths": {
-      "nestjs-commander": ["packages/nestjs-commander/dist/index.d.ts"],
-      "nestjs-commander-testing": ["packages/nestjs-commander-testing/dist/index.d.ts"]
+      "nest-commander": ["packages/nest-commander/dist/index.d.ts"],
+      "nest-commander-testing": ["packages/nest-commander-testing/dist/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "dist"]

@@ -1,6 +1,6 @@
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
-import { CommandRunnerCoreModule, CommandRunnerCoreService } from 'nestjs-commander';
+import { CommandRunnerCoreModule, CommandRunnerCoreService } from 'nest-commander';
 
 export class CommandTestFactory {
   static createTestingCommand(moduleMetadata: ModuleMetadata): TestingModuleBuilder {
