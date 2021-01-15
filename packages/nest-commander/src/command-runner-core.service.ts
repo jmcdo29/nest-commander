@@ -51,7 +51,7 @@ export class CommandRunnerCoreService implements OnModuleInit {
         newCommand.option(
           option.meta.flags,
           option.meta.description ?? '',
-          option.discoveredMethod.handler,
+          option.discoveredMethod.handler.bind(command.instance),
           option.meta.defaultValue ?? undefined,
         );
       }
