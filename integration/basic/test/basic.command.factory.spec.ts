@@ -2,7 +2,6 @@ import { TestingModule } from '@nestjs/testing';
 import { CommandTestFactory } from 'nest-commander-testing';
 import { LogService } from '../src/log.service';
 import { RootModule } from '../src/root.module';
-import { commandMock } from './utils';
 
 describe('Basic Command', () => {
   const logMock = jest.fn();
@@ -32,7 +31,7 @@ describe('Basic Command', () => {
       '$flagAndVal \tlogs $expected',
       async ({ flagAndVal, expected }: { flagAndVal: string[]; expected: Record<string, any> }) => {
         await CommandTestFactory.run(commandInstance, [...args, ...flagAndVal]);
-        commandMock(expected, logMock);
+        expect(logMock).toBeCalledWith({ params: ['test'], ...expected });
       },
     );
   });
