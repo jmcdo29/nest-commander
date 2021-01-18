@@ -1,5 +1,6 @@
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
+import { randomBytes } from 'crypto';
 import { CommandRunnerCoreModule, CommandRunnerCoreService } from 'nest-commander';
 
 export class CommandTestFactory {
@@ -9,6 +10,9 @@ export class CommandTestFactory {
   }
 
   static async run(app: TestingModule, args?: string[]) {
+    if (args?.length && args[0] !== 'node') {
+      args = ['node', randomBytes(8).toString('utf-8') + '.js'].concat(args);
+    }
     await app.init();
     const runner = app.get(CommandRunnerCoreService);
     await runner.run(args);
