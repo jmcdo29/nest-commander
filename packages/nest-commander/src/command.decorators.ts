@@ -1,9 +1,10 @@
+import { Type } from '@nestjs/common';
 import { CommandMeta, OptionMeta } from './constants';
 import { CommandMetadata, CommandRunner, OptionMetadata } from './command-runner.interface';
 
 export function Command(
   options: CommandMetadata,
-): <TFunction extends CommandRunner>(target: TFunction) => void | TFunction {
+): <TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction {
   return (target) => {
     Reflect.defineMetadata(CommandMeta, options, target);
     return target;
