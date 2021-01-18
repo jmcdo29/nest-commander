@@ -35,6 +35,8 @@ jobs:
       run: pnpm build -r
     - name: integration test
       run: pnpm test:int
+    env:
+     HUSKY: 0
   
   analyze:
     name: Analyze
