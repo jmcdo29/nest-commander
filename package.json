@@ -7,7 +7,9 @@
   "scripts": {
     "test": "jest -c jest.config.js test",
     "lint": "eslint --ext .ts .",
-    "format": "prettier --write \"{packages,integration}/**/{src,test}/*.ts\"",
+    "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
+    "format:check": "pnpm format -- --check",
+    "format:write": "pnpm format -- --write",
     "test:int": "jest -c jest.integration.config.js",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
