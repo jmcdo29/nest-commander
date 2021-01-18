@@ -1,11 +1,11 @@
-// import { SCOPE_OPTIONS_METADATA } from '@nestjs/common/constants';
 import { CommandMeta, OptionMeta } from './constants';
-import { CommandMetadata, OptionMetadata } from './command-runner.interface';
+import { CommandMetadata, CommandRunner, OptionMetadata } from './command-runner.interface';
 
-export function Command(options: CommandMetadata): ClassDecorator {
+export function Command(
+  options: CommandMetadata,
+): <TFunction extends CommandRunner>(target: TFunction) => void | TFunction {
   return (target) => {
     Reflect.defineMetadata(CommandMeta, options, target);
-    // Reflect.defineMetadata(SCOPE_OPTIONS_METADATA, null, target);
     return target;
   };
 }
