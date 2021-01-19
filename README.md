@@ -62,6 +62,23 @@ async function bootstrap() {
 bootstrap();
 ```
 
+By default, Nest's logger is disabled when using the `CommandFactory`. It's possible to provide it though, as the second argument to the `run` function. You can either provide a custom NestJS logger, or an array of log levels you want to keep - it might be useful to at least provide `['error']` here, if you only want to print out Nest's error logs.
+
+```ts
+import { CommandFactory } from 'nest-commander';
+import { AppModule } from './app.module';
+import { LogService } './log.service';
+
+async function bootstrap() {
+  await CommandFactory.run(AppModule, new LogService());
+
+  // or, if you only want to print Nest's warnings and errors
+  await CommandFactory.run(AppModule, ['warn', 'error']);
+}
+
+bootstrap();
+```
+
 And that's it. Under the hood, `CommandFactory` will worry about calling `NestFactory` for you and calling `app.close()` when necessary, so you shouldn't need to worry about memory leaks there. If you need to add in some error handling, there's always `try/catch` wrapping the `run` command, or you can chain on some `.catch()` method to the `bootstrap()` call.
 
 ## Testing
