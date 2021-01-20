@@ -1,3 +1,9 @@
+<div align="center">
+  
+![CI](https://github.com/jmcdo29/nestjs-commander/workflows/CI/badge.svg)[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Coffee](https://badgen.net/badge/Buy%20Me/A%20Coffee/purple?icon=kofi)](https://www.buymeacoffee.com/jmcdo29)[![codebeat badge](https://codebeat.co/badges/886435cf-0ace-403b-8f9c-3e4eb99fbd5d)](https://codebeat.co/projects/github-com-jmcdo29-nestjs-commander-main)
+  
+</div>
+
 # NestJS Commander
 
 Have you been building amazing REST and RPC applications with [NestJS](https://docs.nestjs.com/)? Do you want that same structure for absolutely everything you're working with? Have you always wanted to build up some sweet CLI application but don't really know where to start? This is the solution. A package to bring building CLI applications to the Nest world with the same structure that you already know and love :heart: Built on top of the popular [Commander](https://github.com/tj/commander.js) package.
