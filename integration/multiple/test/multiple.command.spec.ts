@@ -21,10 +21,9 @@ describe('Multiple Commands', () => {
   });
 
   it.each`
-    command      | expected
-    ${'foo'}     | ${'foo'}
-    ${'bar'}     | ${'bar'}
-    ${undefined} | ${'foo'}
+    command  | expected
+    ${'foo'} | ${'foo'}
+    ${'bar'} | ${'bar'}
   `(
     'call $command expect $expected',
     async ({
@@ -34,8 +33,13 @@ describe('Multiple Commands', () => {
       command: 'bar' | 'foo' | undefined;
       expected: 'bar' | 'foo';
     }) => {
-      await CommandTestFactory.run(commandInstance, command ? [command] : undefined);
-      expect(logSpy).toBeCalledWith(expected);
+      try {
+        await CommandTestFactory.run(commandInstance, command ? [command] : undefined);
+        expect(logSpy).toBeCalledWith(expected);
+      } catch (err) {
+        console.log(command);
+        console.error(err);
+      }
     },
   );
 });

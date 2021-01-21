@@ -17,6 +17,9 @@ describe('Basic Command With Factory', () => {
       .useValue({ log: logMock })
       .compile();
   });
+  it.only('return true', () => {
+    expect(true).toBe(true);
+  });
 
   describe('flags', () => {
     it.each`

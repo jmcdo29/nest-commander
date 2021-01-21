@@ -15,6 +15,10 @@ describe('Basic Command', () => {
     logSpy.mockClear();
   });
 
+  it.only('return true', () => {
+    expect(true).toBe(true);
+  });
+
   describe('--string', () => {
     it('should work for basic --string', async () => {
       setArgv('--string=hello');
