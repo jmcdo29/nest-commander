@@ -1,7 +1,16 @@
 const baseConfig = require('./jest.config');
 module.exports = {
   ...baseConfig,
-  testRegex: 'integration/.*.spec.ts$',
-  collectCoverage: false,
+  testMatch: ['<rootDir>/integration/**/*.spec.ts'],
+  collectCoverage: true,
   verbose: true,
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.test.json',
+    },
+  },
+  moduleNameMapper: {
+    '^nest-commander$': ['<rootDir>/packages/nest-commander/src'],
+    '^nest-commander-testing$': ['<rootDir>/packages/nest-commander-testing/src'],
+  },
 };
