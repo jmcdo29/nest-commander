@@ -3,9 +3,13 @@ import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
 import { randomBytes } from 'crypto';
 import { CommandRunnerCoreModule, CommandRunnerCoreService } from 'nest-commander';
 
+export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
+  imports: NonNullable<ModuleMetadata['imports']>;
+};
+
 export class CommandTestFactory {
-  static createTestingCommand(moduleMetadata: ModuleMetadata): TestingModuleBuilder {
-    moduleMetadata.imports?.push(CommandRunnerCoreModule.forModule());
+  static createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder {
+    moduleMetadata.imports.push(CommandRunnerCoreModule.forModule());
     return Test.createTestingModule(moduleMetadata);
   }
 
