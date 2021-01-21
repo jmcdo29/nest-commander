@@ -1,5 +1,5 @@
 import { Command, CommandRunner, Option } from 'nest-commander';
-import { LogService } from './log.service';
+import { LogService } from './../../common/log.service';
 
 interface BasicCommandOptions {
   string?: string;
