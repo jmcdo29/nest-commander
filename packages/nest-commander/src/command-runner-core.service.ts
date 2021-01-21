@@ -15,6 +15,9 @@ export class CommandRunnerCoreService implements OnModuleInit {
     private readonly discoveryService: DiscoveryService,
     @Inject(Commander) private readonly commander: Command,
   ) {
+    commander.exitOverride((err) => {
+      throw err;
+    });
     this.commandMap = [];
   }
 
@@ -63,6 +66,7 @@ export class CommandRunnerCoreService implements OnModuleInit {
   }
 
   async run(args?: string[]): Promise<void> {
+    console.log(args);
     await this.commander.parseAsync(args || process.argv);
   }
 }

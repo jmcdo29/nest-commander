@@ -18,7 +18,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-    needs: analyze
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
