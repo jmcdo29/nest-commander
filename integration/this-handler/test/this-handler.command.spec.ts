@@ -17,6 +17,9 @@ describe('This Handler', () => {
   afterEach(() => {
     logMock.mockClear();
   });
+  it.only('return true', () => {
+    expect(true).toBe(true);
+  });
 
   it.each`
     flagVal            | expected
