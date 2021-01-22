@@ -1,6 +1,6 @@
 {
   "name": "nestjs-commander-monorepo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
