@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "pnpm build -r",
     "test": "jest -c jest.config.js test",
     "lint": "eslint --ext .ts .",
     "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
@@ -13,6 +14,7 @@
     "test:int": "jest -c jest.integration.config.js",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
+    "publish": "pnpm -r publish --dry-run",
     "postpublish": "pinst --enable"
   },
   "private": true,
@@ -58,25 +60,5 @@
     "rxjs": "^6.6.3",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "eslint --ext ts"
-    ],
-    "*.{md,html,json,js}": [
-      "prettier --write"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
