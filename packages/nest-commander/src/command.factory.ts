@@ -1,7 +1,7 @@
 import { LoggerService, LogLevel, Type } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { CommandRunnerCoreModule } from './command-runner-core.module';
-import { CommandRunnerCoreService } from './command-runner-core.service';
+import { CommandRunnerModule } from './command-runner.module';
+import { CommandRunnerService } from './command-runner.service';
 
 export class CommandFactory {
   static async run(
@@ -9,12 +9,12 @@ export class CommandFactory {
     logger: LoggerService | LogLevel[] | boolean = false,
   ): Promise<void> {
     const app = await NestFactory.createApplicationContext(
-      CommandRunnerCoreModule.forModule(rootModule),
+      CommandRunnerModule.forModule(rootModule),
       {
         logger,
       },
     );
-    const runner = app.get(CommandRunnerCoreService);
+    const runner = app.get(CommandRunnerService);
     await runner.run();
     await app.close();
   }

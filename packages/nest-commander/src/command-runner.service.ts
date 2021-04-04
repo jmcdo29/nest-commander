@@ -9,7 +9,7 @@ import {
 } from './command-runner.interface';
 import { Commander, CommandMeta, OptionMeta } from './constants';
 
-export class CommandRunnerCoreService implements OnModuleInit {
+export class CommandRunnerService implements OnModuleInit {
   private commandMap: Array<RunnerMeta>;
   constructor(
     private readonly discoveryService: DiscoveryService,
@@ -66,7 +66,6 @@ export class CommandRunnerCoreService implements OnModuleInit {
   }
 
   async run(args?: string[]): Promise<void> {
-    console.log(args);
     await this.commander.parseAsync(args || process.argv);
   }
 }
