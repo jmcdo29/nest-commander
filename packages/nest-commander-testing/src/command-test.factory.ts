@@ -1,7 +1,7 @@
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
 import { randomBytes } from 'crypto';
-import { CommandRunnerCoreModule, CommandRunnerCoreService } from 'nest-commander';
+import { CommandRunnerModule, CommandRunnerService } from 'nest-commander';
 
 export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
   imports: NonNullable<ModuleMetadata['imports']>;
@@ -9,7 +9,7 @@ export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
 
 export class CommandTestFactory {
   static createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder {
-    moduleMetadata.imports.push(CommandRunnerCoreModule.forModule());
+    moduleMetadata.imports.push(CommandRunnerModule.forModule());
     return Test.createTestingModule(moduleMetadata);
   }
 
@@ -18,7 +18,7 @@ export class CommandTestFactory {
       args = ['node', randomBytes(8).toString('utf-8') + '.js'].concat(args);
     }
     await app.init();
-    const runner = app.get(CommandRunnerCoreService);
+    const runner = app.get(CommandRunnerService);
     await runner.run(args);
     await app.close();
   }

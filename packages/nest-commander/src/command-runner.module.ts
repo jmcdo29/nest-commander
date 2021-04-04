@@ -1,17 +1,17 @@
 import { DynamicModule, Module, Type } from '@nestjs/common';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
-import { CommandRunnerCoreService } from './command-runner-core.service';
+import { CommandRunnerService } from './command-runner.service';
 import { Commander } from './constants';
 
 @Module({})
-export class CommandRunnerCoreModule {
+export class CommandRunnerModule {
   static forModule(module?: Type<any>): DynamicModule {
     return {
-      module: CommandRunnerCoreModule,
+      module: CommandRunnerModule,
       imports: module ? [module, DiscoveryModule] : [DiscoveryModule],
       providers: [
-        CommandRunnerCoreService,
+        CommandRunnerService,
         {
           provide: Commander,
           useClass: Command,
