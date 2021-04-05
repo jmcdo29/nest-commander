@@ -22,10 +22,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'sort-imports': [
-      'error',
-      { ignoreDeclarationSort: true, ignoreCase: true },
-    ],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
     'prettier/prettier': 'warn',
   },
   ignorePatterns: ['*.d.ts', 'dist/*', '**/node_modules/*', '*.js'],
