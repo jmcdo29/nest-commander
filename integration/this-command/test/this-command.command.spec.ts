@@ -17,9 +17,6 @@ describe('This Handler', () => {
   afterEach(() => {
     logMock.mockClear();
   });
-  it.only('return true', () => {
-    expect(true).toBe(true);
-  });
 
   it('should call this-handler with arg hello', async () => {
     await CommandTestFactory.run(commandModule, ['this-command', 'hello']);
