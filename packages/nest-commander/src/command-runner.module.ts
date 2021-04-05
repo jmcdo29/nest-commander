@@ -1,8 +1,9 @@
 import { DynamicModule, Module, Type } from '@nestjs/common';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
+import * as inquirer from 'inquirer';
 import { CommandRunnerService } from './command-runner.service';
-import { Commander } from './constants';
+import { Commander, Inquirer } from './constants';
 
 @Module({})
 export class CommandRunnerModule {
@@ -15,6 +16,10 @@ export class CommandRunnerModule {
         {
           provide: Commander,
           useClass: Command,
+        },
+        {
+          provide: Inquirer,
+          useValue: inquirer,
         },
       ],
     };

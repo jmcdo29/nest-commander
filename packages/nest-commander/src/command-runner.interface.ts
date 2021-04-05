@@ -1,5 +1,6 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
 import { CommandOptions } from 'commander';
+import type { DistinctQuestion } from 'inquirer';
 
 export interface CommandRunner {
   run(passedParams: string[], options?: Record<string, any>): Promise<void>;
@@ -24,3 +25,12 @@ export interface RunnerMeta {
   command: CommandMetadata;
   params: DiscoveredMethodWithMeta<OptionMetadata>[];
 }
+
+export interface QuestionNameMetadata {
+  name: string;
+}
+
+export type QuestionMetadata = Omit<
+  DistinctQuestion,
+  'transformer' | 'validate' | 'when' | 'filter'
+> & { index?: number };
