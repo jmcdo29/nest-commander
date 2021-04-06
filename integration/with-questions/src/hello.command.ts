@@ -1,9 +1,10 @@
 import { Command, CommandRunner, InquirerService, Option } from 'nest-commander';
+import { LogService } from '../../common/log.service';
 import { HelloOptions } from './hello.interface';
 
 @Command({ name: 'hello', options: { isDefault: true } })
 export class HelloCommand implements CommandRunner {
-  constructor(private readonly inquirer: InquirerService) {}
+  constructor(private readonly inquirer: InquirerService, private readonly logger: LogService) {}
 
   async run(_inputs: string[], options?: HelloOptions): Promise<void> {
     options = await this.inquirer.ask('hello', options);
@@ -18,6 +19,6 @@ export class HelloCommand implements CommandRunner {
   }
 
   sayHello(options: HelloOptions): void {
-    console.log(`Hello ${options.username}`);
+    this.logger.log(`Hello ${options.username}`);
   }
 }
