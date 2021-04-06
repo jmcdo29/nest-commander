@@ -18,11 +18,20 @@ export class InquirerService {
     private readonly discoveryService: DiscoveryService,
   ) {}
 
-  private readonly additionalMetadata = [TransformMeta, WhenMeta, ValidateMeta];
+  private readonly inquirerKeyToMetadataKeyMap: {
+    transformer: string;
+    when: string;
+    validate: string;
+    [key: string]: string;
+  } = {
+    transformer: TransformMeta,
+    when: WhenMeta,
+    validate: ValidateMeta,
+  };
 
   async ask<T>(questionSetName: string, options: Partial<T> | undefined): Promise<T> {
     const rawQuestions = await this.findQuestionSet(questionSetName);
-    const questions = this.mapMetaQuestionToQuestion(rawQuestions);
+    const questions = await this.mapMetaQuestionToQuestion(rawQuestions);
     const answers = await this.inquirer.prompt<T>(questions, options);
     return answers;
   }
@@ -41,22 +50,38 @@ export class InquirerService {
     return questions;
   }
 
-  private mapMetaQuestionToQuestion(
+  private async mapMetaQuestionToQuestion(
     rawQuestions: DiscoveredMethodWithMeta<QuestionMetadata>[],
-  ): ReadonlyArray<DistinctQuestion> {
-    // change this to a regular for loop to use `await`
-    // loop through questions, get additional metas if they exist
-    // and add to the `retQ` meta object, for inquirer to take care of
-    // the rest of the calls. Everything else should be managed already
-    const questions = rawQuestions
-      .map((q) => {
-        const { meta, discoveredMethod: methodInfo } = q;
-        const retQ = {
-          ...meta,
-        };
-        return retQ;
-      })
-      .sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
-    return questions;
+  ): Promise<ReadonlyArray<DistinctQuestion>> {
+    const extraMetas: Record<string, DiscoveredMethodWithMeta<QuestionNameMetadata>[]> = {};
+    for (const iKey of Object.keys(this.inquirerKeyToMetadataKeyMap)) {
+      const metaKey = this.inquirerKeyToMetadataKeyMap[iKey];
+      const foundMeta = await this.discoveryService.providerMethodsWithMetaAtKey<QuestionNameMetadata>(
+        metaKey,
+        (found) => found.name === rawQuestions[0].discoveredMethod.parentClass.name,
+      );
+      extraMetas[iKey] = foundMeta ?? [];
+    }
+
+    const questions: Array<DistinctQuestion & { index?: number }> = [];
+    for (const q of rawQuestions) {
+      const { meta, discoveredMethod } = q;
+
+      const retQ: DistinctQuestion & { index?: number; [key: string]: any } = {
+        ...meta,
+        filter: discoveredMethod.handler.bind(discoveredMethod.parentClass.instance),
+      };
+      for (const iKey of Object.keys(this.inquirerKeyToMetadataKeyMap)) {
+        const metas = extraMetas[iKey];
+        const iKeyMetaForQuestion = metas.find((extraMeta) => extraMeta.meta.name === meta.name);
+        if (iKeyMetaForQuestion) {
+          retQ[iKey as any] = iKeyMetaForQuestion.discoveredMethod.handler.bind(
+            iKeyMetaForQuestion.discoveredMethod.parentClass.instance,
+          );
+        }
+      }
+      questions.push(retQ);
+    }
+    return questions.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
   }
 }

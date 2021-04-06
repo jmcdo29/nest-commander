@@ -1,3 +1,3 @@
 export interface HelloOptions {
-  name?: string;
+  username?: string;
 }
