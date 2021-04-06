@@ -4,7 +4,7 @@ import { Question, QuestionSet } from 'nest-commander';
 export class WhoQuestion {
   @Question({
     message: 'What is your name?',
-    name: 'name',
+    name: 'username',
   })
   parseName(val: string) {
     return val;

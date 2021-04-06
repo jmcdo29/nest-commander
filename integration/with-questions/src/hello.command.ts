@@ -11,13 +11,13 @@ export class HelloCommand implements CommandRunner {
   }
 
   @Option({
-    flags: '-n --name [name]',
+    flags: '-n --username [username]',
   })
   parseName(val: string) {
     return val;
   }
 
   sayHello(options: HelloOptions): void {
-    console.log(`Hello ${options.name}`);
+    console.log(`Hello ${options.username}`);
   }
 }

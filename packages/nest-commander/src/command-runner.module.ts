@@ -4,15 +4,18 @@ import { Command } from 'commander';
 import * as inquirer from 'inquirer';
 import { CommandRunnerService } from './command-runner.service';
 import { Commander, Inquirer } from './constants';
+import { InquirerService } from './inquirer.service';
 
 @Module({})
 export class CommandRunnerModule {
   static forModule(module?: Type<any>): DynamicModule {
     return {
+      global: true,
       module: CommandRunnerModule,
       imports: module ? [module, DiscoveryModule] : [DiscoveryModule],
       providers: [
         CommandRunnerService,
+        InquirerService,
         {
           provide: Commander,
           useClass: Command,
@@ -22,6 +25,7 @@ export class CommandRunnerModule {
           useValue: inquirer,
         },
       ],
+      exports: [InquirerService],
     };
   }
 }
