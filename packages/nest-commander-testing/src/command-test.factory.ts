@@ -13,7 +13,7 @@ export class CommandTestFactory {
     return Test.createTestingModule(moduleMetadata);
   }
 
-  static async run(app: TestingModule, args?: string[]) {
+  static async run(app: TestingModule, args: string[] = []) {
     if (args?.length && args[0] !== 'node') {
       args = ['node', randomBytes(8).toString('utf-8') + '.js'].concat(args);
     }
@@ -21,5 +21,10 @@ export class CommandTestFactory {
     const runner = app.get(CommandRunnerService);
     await runner.run(args);
     await app.close();
+  }
+
+  static setAnswer(value: any): void {
+    process.stdin.push(value);
+    process.stdin.push('\n');
   }
 }
