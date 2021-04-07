@@ -8,6 +8,10 @@ import { InquirerService } from './inquirer.service';
 
 @Module({})
 export class CommandRunnerModule {
+  static inquirerOptions: { input: NodeJS.ReadStream; output: NodeJS.WriteStream } = {
+    input: process.stdin,
+    output: process.stdout,
+  };
   static forModule(module?: Type<any>): DynamicModule {
     return {
       global: true,
@@ -23,6 +27,10 @@ export class CommandRunnerModule {
         {
           provide: Inquirer,
           useValue: inquirer,
+        },
+        {
+          provide: 'InquirerOptions',
+          useValue: this.inquirerOptions,
         },
       ],
       exports: [InquirerService],
