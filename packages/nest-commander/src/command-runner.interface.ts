@@ -1,6 +1,22 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
 import { CommandOptions } from 'commander';
-import type { DistinctQuestion } from 'inquirer';
+import type {
+  Answers,
+  CheckboxQuestion,
+  ConfirmQuestion,
+  EditorQuestion,
+  ExpandQuestion,
+  InputQuestion,
+  ListQuestion,
+  NumberQuestion,
+  PasswordQuestion,
+  RawListQuestion,
+} from 'inquirer';
+
+type InquirerWithoutFunctions<T extends Answers> = Omit<
+  T,
+  'transformer' | 'validate' | 'when' | 'filter'
+> & { index?: number };
 
 export interface CommandRunner {
   run(passedParams: string[], options?: Record<string, any>): Promise<void>;
@@ -30,7 +46,13 @@ export interface QuestionNameMetadata {
   name: string;
 }
 
-export type QuestionMetadata = Omit<
-  DistinctQuestion,
-  'transformer' | 'validate' | 'when' | 'filter'
-> & { index?: number };
+export type QuestionMetadata =
+  | InquirerWithoutFunctions<CheckboxQuestion>
+  | InquirerWithoutFunctions<ConfirmQuestion>
+  | InquirerWithoutFunctions<ExpandQuestion>
+  | InquirerWithoutFunctions<EditorQuestion>
+  | InquirerWithoutFunctions<InputQuestion>
+  | InquirerWithoutFunctions<ListQuestion>
+  | InquirerWithoutFunctions<NumberQuestion>
+  | InquirerWithoutFunctions<PasswordQuestion>
+  | InquirerWithoutFunctions<RawListQuestion>;
