@@ -1,7 +1,6 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
 import { CommandOptions } from 'commander';
 import type {
-  Answers,
   CheckboxQuestion,
   ConfirmQuestion,
   EditorQuestion,

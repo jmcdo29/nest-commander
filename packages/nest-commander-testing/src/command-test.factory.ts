@@ -76,7 +76,7 @@ export class CommandTestFactory {
     await app.close();
   }
 
-  static setAnswer(value: any | any[]): void {
+  static setAnswers(value: any | any[]): void {
     if (!Array.isArray(value)) {
       value = [value];
     }

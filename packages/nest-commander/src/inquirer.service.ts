@@ -1,6 +1,6 @@
 import { DiscoveredMethodWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
 import { Inject, Injectable } from '@nestjs/common';
-import type { DistinctQuestion, Inquirer as InquirerType } from 'inquirer';
+import { DistinctQuestion, Inquirer as InquirerType } from 'inquirer';
 import {
   InquirerKeysWithPossibleFunctionTypes,
   QuestionMetadata,
@@ -37,7 +37,8 @@ export class InquirerService {
     choices: ChoicesMeta,
   };
 
-  async ask<T>(questionSetName: string, options: Partial<T> | undefined): Promise<T> {
+  ask = this.prompt;
+  async prompt<T>(questionSetName: string, options: Partial<T> | undefined): Promise<T> {
     const rawQuestions = await this.findQuestionSet(questionSetName);
     const questions = await this.mapMetaQuestionToQuestion(rawQuestions);
     const answers = await this.inquirer.prompt<T>(questions, options);
