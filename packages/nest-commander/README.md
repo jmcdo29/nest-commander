@@ -58,7 +58,7 @@ nest-commander also can integrate with [`inquirer`](https://www.npmjs.com/packag
 
 ### QuestionSet
 
-A class decorated with `@QuestionSet()` is a class that represents a related set of questions. Looking at inquirer's own examples, this could be like the [pizza example](https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/pizza.js). There's nothing too special about this decorator, all it does is allow the underlying engine to find the appropriate question set when it is needed. The `@QuestionSet()` decorator take an object of options defined below
+A class decorated with `@QuestionSet()` is a class that represents a related set of questions. Looking at inquirer's own examples, this could be like the [pizza example](https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/pizza.js). There's nothing too special about this decorator, all it does is allow the underlying engine to find the appropriate question set when it is needed. The `@QuestionSet()` decorator takes an object of options defined below
 
 | property | type | required | description |
 | --- | --- | --- | --- |
@@ -133,7 +133,7 @@ As you can see, the `name` of both `@Question()` and `@ValidateFor()` align, all
 
 ### InquirerService
 
-The `InquirerService` is an injectable provider that allows you to call inquirer for a specific set of questions (named with `@QuestionSet()`). When calling the question set, you can pass in the already obtained options as well, and inquirer will skip over the options that are already answered, unless the `askAnswered` property is set to `true` ass mentioned in their docs. You can use either `InquirerService#ask` or `InquirerService#prompt`, as they are aliases for each other. The return from the `InquirerService#prompt` method is the non-partial variant of the options passed in; in other words, the return is the answers that the user provided, mapping appropriately in the cases where necessary, such as lists. For an example usage, please check the [pizza integration test](../../integration/pizza/src/pizza.command.ts).
+The `InquirerService` is an injectable provider that allows you to call inquirer for a specific set of questions (named with `@QuestionSet()`). When calling the question set, you can pass in the already obtained options as well, and inquirer will skip over the options that are already answered, unless the `askAnswered` property is set to `true` as mentioned in their docs. You can use either `InquirerService#ask` or `InquirerService#prompt`, as they are aliases for each other. The return from the `InquirerService#prompt` method is the non-partial variant of the options passed in; in other words, the return is the answers that the user provided, mapping appropriately in the cases where necessary, such as lists. For an example usage, please check the [pizza integration test](../../integration/pizza/src/pizza.command.ts).
 
 ## Running the Command
 
