@@ -12,7 +12,15 @@ describe('Pizza Command', () => {
   });
 
   it('should allow for each option to come from inquirer', async () => {
-    CommandTestFactory.setAnswer(['p', true, '9999999999', 'Large', 42, 'Coke', 'Nope, all good!']);
+    CommandTestFactory.setAnswers([
+      'p',
+      true,
+      '9999999999',
+      'Large',
+      42,
+      'Coke',
+      'Nope, all good!',
+    ]);
     const logMock = jest.fn();
     console.log = logMock;
     await CommandTestFactory.run(command);

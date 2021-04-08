@@ -26,7 +26,7 @@ describe('Hello Command', () => {
   `(
     'should call the hello command with arg $username populated from inquirer',
     async ({ username, expected }: { username: string; expected: string }) => {
-      CommandTestFactory.setAnswer(username);
+      CommandTestFactory.setAnswers(username);
       await CommandTestFactory.run(commandModule);
       expect(logMock).toBeCalledWith(expected);
     },

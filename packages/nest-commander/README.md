@@ -48,6 +48,93 @@ Often times you're not just running a single command with a single input, but ra
 
 Under the hood, the method that the`@Option()` is decorating is the custom parser passed to commander for how the value should be parsed. This means if you want to parse a boolean value, the best way to do so would be to use `JSON.parse(val)` as `Boolean('false')` actually returns `true` instead of the expected `false`.
 
+### Inquirer Integration
+
+nest-commander also can integrate with [`inquirer`](https://www.npmjs.com/package/inquirer) to allow for user input during your CLI run. I tried to keep this integration as smooth as possible, but there are some caveats to watch for:
+
+1. Whatever inputs you want to handle via inquirer, must be omitted from commander if you don't want them passed in at all, or they must be optional if you want them to be passable from the command line. If you use a required option and it is not passed from the command line, commander will fail the CLI call.
+2. Inquirer plugins are not yet supported. I do have an idea for this, but they are out of scope for the initial integration.
+3. You, as the developer, have options on how to set up the inquirer integration. The details will come later, but know that you are given power here. Use it wisely.
+
+### QuestionSet
+
+A class decorated with `@QuestionSet()` is a class that represents a related set of questions. Looking at inquirer's own examples, this could be like the [pizza example](https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/pizza.js). There's nothing too special about this decorator, all it does is allow the underlying engine to find the appropriate question set when it is needed. The `@QuestionSet()` decorator take an object of options defined below
+
+| property | type | required | description |
+| --- | --- | --- | --- |
+| name | string | true | The name that will be used by the `InquirerService` when getting a prompt to run. |
+
+### Question
+
+Here's where the options start to open up. Each `@Question()` should decorate a class method. This method will essentially become the `filter` property for `inquirer`. If you don't need any filtering done, simply return the value that comes into the method. All of the other properties come from, and adhere to the types of, [`Inquirer`](https://www.npmjs.com/package/inquirer) and their documentation can better illustrate what values are needed when and where.
+
+#### Question Functional Properties
+
+With Inquirer, several of the properties can have functions instead of simple types. For these properties, you can do one of two things: 1) pass the function to the decorator or 2) use the `@*For()`^ decorator. Each `@*For()` decorator takes in an object similar to the `@Question()` decorator as described below
+
+| property | type | required | description |
+| --- | --- | --- | --- |
+| name | string | true | The name that will be used to determine which `@Question()` this decorator belongs to. |
+
+##### Passing to the `@Question()` decorator
+
+Below is an example of using the `validate` method in the `@Question()` decorator
+
+```ts
+@Question({
+  type: 'input',
+  name: 'phone',
+  message: "What's your phone number?",
+  validate: function(value: string) {
+    const pass = value.match(
+      /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i,
+    );
+    if (pass) {
+      return true;
+    }
+    return 'Please enter a valid phone number';
+  }
+})
+parsePhone(val: string) {
+  return val;
+}
+```
+
+##### Using the `@*For()` decorator
+
+Below is an example of a `@Question()` and `@ValidateFor()` decorator in use
+
+```ts
+@Question({
+  type: 'input',
+  name: 'phone',
+  message: "What's your phone number?",
+})
+parsePhone(val: string) {
+  return val;
+}
+
+@ValidateFor({ name: 'phone' })
+validatePhone(value: string) {
+  const pass = value.match(
+    /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i,
+  );
+  if (pass) {
+    return true;
+  }
+
+  return 'Please enter a valid phone number';
+}
+```
+
+As you can see, the `name` of both `@Question()` and `@ValidateFor()` align, allowing the underlying engine to properly map the `validatePhone` method to the `phone`'s property set.
+
+^ Please note that `@*For()` is shorthand for `@ValidateFor()`, `@ChoicesFor()`, `@MessageFor()`, `@DefaultFor()`, and `@WhenFor()`.
+
+### InquirerService
+
+The `InquirerService` is an injectable provider that allows you to call inquirer for a specific set of questions (named with `@QuestionSet()`). When calling the question set, you can pass in the already obtained options as well, and inquirer will skip over the options that are already answered, unless the `askAnswered` property is set to `true` ass mentioned in their docs. You can use either `InquirerService#ask` or `InquirerService#prompt`, as they are aliases for each other. The return from the `InquirerService#prompt` method is the non-partial variant of the options passed in; in other words, the return is the answers that the user provided, mapping appropriately in the cases where necessary, such as lists. For an example usage, please check the [pizza integration test](../../integration/pizza/src/pizza.command.ts).
+
 ## Running the Command
 
 Similar to how in a NestJS application we can use the `NestFactory` to create a server for us, and run it using `listen`, the `nest-commander` package exposes a simple to use API to run your server. Import the `CommandFactory` and use the `static` method `run` and pass in the root module of your application. This would probably look like below
