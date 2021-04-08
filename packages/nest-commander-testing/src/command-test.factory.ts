@@ -55,6 +55,12 @@ export class CommandTestFactory {
       } else {
         answer = this.testAnswers[i];
       }
+      if (question.default && typeof question.default === 'function') {
+        await question.default(this.testAnswers);
+      }
+      if (question.message && typeof question.message === 'function') {
+        await question.message(this.testAnswers);
+      }
       answers[question.name ?? 'default'] = (await question.filter?.(answer, answers)) ?? answer;
     }
     return answers;
