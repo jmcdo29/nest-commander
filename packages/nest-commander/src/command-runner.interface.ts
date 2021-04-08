@@ -13,10 +13,15 @@ import type {
   RawListQuestion,
 } from 'inquirer';
 
-type InquirerWithoutFunctions<T extends Answers> = Omit<
-  T,
-  'transformer' | 'validate' | 'when' | 'filter'
-> & { index?: number };
+export type InquirerKeysWithPossibleFunctionTypes =
+  | 'transformer'
+  | 'validate'
+  | 'when'
+  | 'choices'
+  | 'message'
+  | 'default';
+
+type InquirerQuestionWithoutFilter<T> = Omit<T, 'filter'>;
 
 export interface CommandRunner {
   run(passedParams: string[], options?: Record<string, any>): Promise<void>;
@@ -47,12 +52,12 @@ export interface QuestionNameMetadata {
 }
 
 export type QuestionMetadata =
-  | InquirerWithoutFunctions<CheckboxQuestion>
-  | InquirerWithoutFunctions<ConfirmQuestion>
-  | InquirerWithoutFunctions<ExpandQuestion>
-  | InquirerWithoutFunctions<EditorQuestion>
-  | InquirerWithoutFunctions<InputQuestion>
-  | InquirerWithoutFunctions<ListQuestion>
-  | InquirerWithoutFunctions<NumberQuestion>
-  | InquirerWithoutFunctions<PasswordQuestion>
-  | InquirerWithoutFunctions<RawListQuestion>;
+  | InquirerQuestionWithoutFilter<CheckboxQuestion>
+  | InquirerQuestionWithoutFilter<ConfirmQuestion>
+  | InquirerQuestionWithoutFilter<EditorQuestion>
+  | InquirerQuestionWithoutFilter<ExpandQuestion>
+  | InquirerQuestionWithoutFilter<InputQuestion>
+  | InquirerQuestionWithoutFilter<ListQuestion>
+  | InquirerQuestionWithoutFilter<NumberQuestion>
+  | InquirerQuestionWithoutFilter<PasswordQuestion>
+  | InquirerQuestionWithoutFilter<RawListQuestion>;

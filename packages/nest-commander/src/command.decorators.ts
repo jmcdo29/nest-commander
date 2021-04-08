@@ -1,6 +1,9 @@
 import { Type } from '@nestjs/common';
 import {
+  ChoicesMeta,
   CommandMeta,
+  DefaultMeta,
+  MessageMeta,
   OptionMeta,
   QuestionMeta,
   QuestionSetMeta,
@@ -15,6 +18,7 @@ import {
   QuestionMetadata,
   QuestionNameMetadata,
 } from './command-runner.interface';
+import { Question } from 'inquirer';
 
 function applyMethodMetadata(options: any, metadataKey: string): MethodDecorator {
   return (
@@ -61,4 +65,16 @@ export function TransformFor(options: QuestionNameMetadata): MethodDecorator {
 
 export function WhenFor(options: QuestionNameMetadata): MethodDecorator {
   return applyMethodMetadata(options, WhenMeta);
+}
+
+export function MessageFor(options: QuestionNameMetadata): MethodDecorator {
+  return applyMethodMetadata(options, MessageMeta);
+}
+
+export function ChoicesFor(options: QuestionNameMetadata): MethodDecorator {
+  return applyMethodMetadata(options, ChoicesMeta);
+}
+
+export function DefaultFor(options: QuestionNameMetadata): MethodDecorator {
+  return applyMethodMetadata(options, DefaultMeta);
 }

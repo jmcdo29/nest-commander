@@ -1,9 +1,16 @@
 import { DiscoveredMethodWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
 import { Inject, Injectable } from '@nestjs/common';
 import type { DistinctQuestion, Inquirer as InquirerType } from 'inquirer';
-import { QuestionMetadata, QuestionNameMetadata } from './command-runner.interface';
 import {
+  InquirerKeysWithPossibleFunctionTypes,
+  QuestionMetadata,
+  QuestionNameMetadata,
+} from './command-runner.interface';
+import {
+  ChoicesMeta,
+  DefaultMeta,
   Inquirer,
+  MessageMeta,
   QuestionMeta,
   QuestionSetMeta,
   TransformMeta,
@@ -18,15 +25,16 @@ export class InquirerService {
     private readonly discoveryService: DiscoveryService,
   ) {}
 
-  private readonly inquirerKeyToMetadataKeyMap: {
-    transformer: string;
-    when: string;
-    validate: string;
-    [key: string]: string;
-  } = {
+  private readonly inquirerKeyToMetadataKeyMap: Record<
+    InquirerKeysWithPossibleFunctionTypes,
+    string
+  > = {
     transformer: TransformMeta,
     when: WhenMeta,
     validate: ValidateMeta,
+    message: MessageMeta,
+    default: DefaultMeta,
+    choices: ChoicesMeta,
   };
 
   async ask<T>(questionSetName: string, options: Partial<T> | undefined): Promise<T> {
@@ -54,7 +62,9 @@ export class InquirerService {
     rawQuestions: DiscoveredMethodWithMeta<QuestionMetadata>[],
   ): Promise<ReadonlyArray<DistinctQuestion>> {
     const extraMetas: Record<string, DiscoveredMethodWithMeta<QuestionNameMetadata>[]> = {};
-    for (const iKey of Object.keys(this.inquirerKeyToMetadataKeyMap)) {
+    for (const iKey of Object.keys(
+      this.inquirerKeyToMetadataKeyMap,
+    ) as Array<InquirerKeysWithPossibleFunctionTypes>) {
       const metaKey = this.inquirerKeyToMetadataKeyMap[iKey];
       const foundMeta = await this.discoveryService.providerMethodsWithMetaAtKey<QuestionNameMetadata>(
         metaKey,
@@ -63,25 +73,43 @@ export class InquirerService {
       extraMetas[iKey] = foundMeta ?? [];
     }
 
-    const questions: Array<DistinctQuestion & { index?: number }> = [];
+    const questions: Array<
+      DistinctQuestion & { index?: number }
+    > = await this.parseRawQuestionMetadata(rawQuestions, extraMetas);
+    return questions.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+  }
+
+  private async parseRawQuestionMetadata(
+    rawQuestions: DiscoveredMethodWithMeta<QuestionMetadata>[],
+    extraMetas: Record<string, DiscoveredMethodWithMeta<QuestionNameMetadata>[]>,
+  ): Promise<Array<DistinctQuestion & { index?: number; [key: string]: any }>> {
+    const questions = [];
+
     for (const q of rawQuestions) {
       const { meta, discoveredMethod } = q;
 
-      const retQ: DistinctQuestion & { index?: number; [key: string]: any } = {
-        ...meta,
-        filter: discoveredMethod.handler.bind(discoveredMethod.parentClass.instance),
-      };
-      for (const iKey of Object.keys(this.inquirerKeyToMetadataKeyMap)) {
+      const retQ: DistinctQuestion & { index?: number; [key: string]: any } = {};
+      for (const key of Object.keys(meta) as Array<keyof typeof meta>) {
+        if (typeof meta[key] === 'function') {
+          retQ[key] = meta[key].bind(discoveredMethod.parentClass.instance);
+        } else {
+          retQ[key] = meta[key];
+        }
+      }
+      retQ.filter = discoveredMethod.handler.bind(discoveredMethod.parentClass.instance);
+      for (const iKey of Object.keys(
+        this.inquirerKeyToMetadataKeyMap,
+      ) as Array<InquirerKeysWithPossibleFunctionTypes>) {
         const metas = extraMetas[iKey];
         const iKeyMetaForQuestion = metas.find((extraMeta) => extraMeta.meta.name === meta.name);
         if (iKeyMetaForQuestion) {
-          retQ[iKey as any] = iKeyMetaForQuestion.discoveredMethod.handler.bind(
+          retQ[iKey] = iKeyMetaForQuestion.discoveredMethod.handler.bind(
             iKeyMetaForQuestion.discoveredMethod.parentClass.instance,
           );
         }
       }
       questions.push(retQ);
     }
-    return questions.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+    return questions;
   }
 }
