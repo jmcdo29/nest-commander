@@ -1,4 +1,5 @@
 {
+  "name": "nest-commander-integration-with-questions",
   "private": "true",
   "dependencies": {
     "nest-commander": "workspace:*",
