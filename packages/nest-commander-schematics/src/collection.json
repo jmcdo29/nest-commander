@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "command": {
+      "description": "A schematic to generate a command file",
+      "factory": "./command/index#command",
+      "schema": "./command/schema.json"
+    },
+    "question": {
+      "description": "A schematic to generate a question file",
+      "factory": "./question/index#question",
+      "schema": "./question/schema.json"
+    }
+  }
+}
