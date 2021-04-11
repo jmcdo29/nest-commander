@@ -1,12 +1,4 @@
-import { Path } from '@angular-devkit/core';
+import { CommonOptions } from '../common/common-options.interface';
 
-export interface QuestionOptions {
-  name: string;
-  spec: boolean;
-  flat: boolean;
-  sourceRoot: string;
-  path?: string | Path;
-  type?: string;
-  metadata?: string;
-  module?: Path | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface QuestionOptions extends CommonOptions {}
