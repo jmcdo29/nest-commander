@@ -15,7 +15,8 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "publish": "pnpm -r publish --dry-run",
-    "postpublish": "pinst --enable"
+    "postpublish": "pinst --enable",
+    "release": "pnpm build && changeset release"
   },
   "private": true,
   "repository": {
