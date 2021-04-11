@@ -1,0 +1,11 @@
+import { Command, CommandRunner, InquirerService } from 'nest-commander';
+
+@Command({ name: '<%= lowercase(name) %>', options: { isDefault: <%= (isDefault) %> } })
+export class <%= classify(name) %>Command implements CommandRunner {
+  constructor(private readonly inquirerService: InquirerService) {}
+
+  async run(inputs: string[], options?: Record<string, any>) {
+    options = await this.inquirerService.prompt('<%= (question) %>', options);
+    console.log({ inputs, options });
+  }
+}
