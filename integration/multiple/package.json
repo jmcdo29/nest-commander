@@ -1,4 +1,5 @@
 {
+  "name": "nest-commander-integration-multiple",
   "private": "true",
   "dependencies": {
     "nest-commander": "workspace:*",

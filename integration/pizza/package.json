@@ -1,4 +1,5 @@
 {
+  "name": "nest-commander-integration-pizza",
   "private": "true",
   "dependencies": {
     "nest-commander": "workspace:*",
