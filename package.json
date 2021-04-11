@@ -16,7 +16,7 @@
     "prepublishOnly": "pinst --disable",
     "publish": "pnpm -r publish --dry-run",
     "postpublish": "pinst --enable",
-    "release": "pnpm build && changeset release"
+    "release": "pnpm build && changeset publish"
   },
   "private": true,
   "repository": {
