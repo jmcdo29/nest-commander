@@ -1,0 +1,11 @@
+import { QuestionSet, Question } from 'nest-commander';
+
+@QuestionSet({ name: '<%= name %>' })
+export class <%= classify(name) %>Questions {
+  @Question({
+    name: 'default',
+  })
+  praseDefault(str: string): string {
+    return str;
+  }
+}
