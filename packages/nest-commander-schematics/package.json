@@ -4,7 +4,7 @@
   "description": "A set of schematics for generating questions and commands with the NestJS CLI.",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "pnpm prebuild && tsc -p tsconfig.build.json && pnpm postbuild",
+    "build": "tsc -p tsconfig.build.json",
     "postbuild": "scripts/postbuild",
     "test": "jest"
   },
