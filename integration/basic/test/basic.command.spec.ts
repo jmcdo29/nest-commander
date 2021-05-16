@@ -1,8 +1,21 @@
+import { exec } from 'child_process';
 import { CommandFactory } from 'nest-commander';
+import { join } from 'path';
 import { RootModule } from '../src/root.module';
 import { commandMock, setArgv } from './utils';
 
 console.log = jest.fn();
+
+const outputHelp = `Usage: main-error-handler [options] [command]
+
+Options:
+  -h, --help       display help for command
+
+Commands:
+  basic [options]  A parameter parse
+  help [command]   display help for command
+(outputHelp)
+`;
 
 describe('Basic Command', () => {
   let logSpy: jest.SpyInstance;
@@ -49,6 +62,38 @@ describe('Basic Command', () => {
       setArgv('-b', 'false');
       await CommandFactory.run(RootModule);
       commandMock({ boolean: false }, logSpy);
+    });
+  });
+  describe('Unknown command/print help', () => {
+    it('should not throw an error', (done) => {
+      exec(
+        `${join(__dirname, '..', 'node_modules', '.bin', 'ts-node')} ${join(
+          __dirname,
+          '..',
+          'src',
+          'main.ts',
+        )} --help`,
+        (err) => {
+          process.stdout.write(err?.message || '');
+          expect(err?.code).toBeFalsy();
+          done();
+        },
+      );
+    });
+    it('should not throw an error', (done) => {
+      exec(
+        `${join(__dirname, '..', 'node_modules', '.bin', 'ts-node')} ${join(
+          __dirname,
+          '..',
+          'src',
+          'main-error-handler.ts',
+        )} --help`,
+        (err, stdout) => {
+          expect(err?.code).toBeFalsy();
+          expect(stdout).toEqual(outputHelp);
+          done();
+        },
+      );
     });
   });
 });

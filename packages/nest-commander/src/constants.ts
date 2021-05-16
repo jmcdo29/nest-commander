@@ -17,4 +17,5 @@ export const ChoicesMeta = questionMetaBuilder('Choices');
 export const DefaultMeta = questionMetaBuilder('Default');
 export const MessageMeta = questionMetaBuilder('Message');
 export const Commander = Symbol('Commander');
+export const CommanderOptions = Symbol('CommanderOptions');
 export const Inquirer = Symbol('Inquirer');

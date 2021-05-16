@@ -152,6 +152,26 @@ bootstrap();
 
 And that's it. Under the hood, `CommandFactory` will worry about calling `NestFactory` for you and calling `app.close()` when necessary, so you shouldn't need to worry about memory leaks there. If you need to add in some error handling, there's always `try/catch` wrapping the `run` command, or you can chain on some `.catch()` method to the `bootstrap()` call.
 
+## Error Handling
+
+By default, `nest-commander` does not add in any error handling, other that the default that `commander` itself does. If you would like to use commander's `exitOverride` you can pass an `errorHandler` property to the `options` object of the `CommandFactory.run` method. This error handler should take in an error object, and return void.
+
+```ts
+import { CommandFactory } from 'nest-commander';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  await CommandFactory.run(AppModule, {
+    errorHandler: (err) => {
+      console.error(err);
+      process.exit(1); // this could also be a 0 depending on how you want to handle the exit code
+    }
+  });
+}
+
+bootstrap();
+```
+
 ## Testing
 
 There is a testing helper package called [`nest-commander-testing`](./../nest-commander-testing/README.md) that works very similarly to `@nestjs/testing`. Check out it's documentation and examples for help.
@@ -250,4 +270,4 @@ async function bootstrap() {
 bootstrap();
 ```
 
-And just like that, you've got a command line application.
+And just like that, you've got a command line application. All that's left is to run your build command (usually `nest build`) and run start like normal (`node dist/main`). If you're looking to package the command line app for other devs consumption (making somethng like the `@nestjs/cli` or `jest`), then you can add the `bin` property to the `package.json` and map the command appropriately.

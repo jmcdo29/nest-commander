@@ -3,8 +3,9 @@ import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
 import * as inquirer from 'inquirer';
 import { CommandRunnerService } from './command-runner.service';
-import { Commander, Inquirer } from './constants';
+import { Commander, CommanderOptions, Inquirer } from './constants';
 import { InquirerService } from './inquirer.service';
+import { CommanderOptionsType } from './command-factory.interface';
 
 @Module({})
 export class CommandRunnerModule {
@@ -12,7 +13,7 @@ export class CommandRunnerModule {
     input: process.stdin,
     output: process.stdout,
   };
-  static forModule(module?: Type<any>): DynamicModule {
+  static forModule(module?: Type<any>, options?: CommanderOptionsType): DynamicModule {
     return {
       global: true,
       module: CommandRunnerModule,
@@ -27,6 +28,10 @@ export class CommandRunnerModule {
         {
           provide: Inquirer,
           useValue: inquirer,
+        },
+        {
+          provide: CommanderOptions,
+          useValue: options ?? {},
         },
         {
           provide: 'InquirerOptions',
