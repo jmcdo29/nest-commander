@@ -7,17 +7,19 @@ import {
   OptionMetadata,
   RunnerMeta,
 } from './command-runner.interface';
-import { Commander, CommandMeta, OptionMeta } from './constants';
+import { Commander, CommanderOptions, CommandMeta, OptionMeta } from './constants';
+import { CommanderOptionsType } from './command-factory.interface';
 
 export class CommandRunnerService implements OnModuleInit {
   private commandMap: Array<RunnerMeta>;
   constructor(
     private readonly discoveryService: DiscoveryService,
     @Inject(Commander) private readonly commander: Command,
+    @Inject(CommanderOptions) options: CommanderOptionsType,
   ) {
-    commander.exitOverride((err) => {
-      throw err;
-    });
+    if (options.errorHandler) {
+      commander.exitOverride(options.errorHandler);
+    }
     this.commandMap = [];
   }
 

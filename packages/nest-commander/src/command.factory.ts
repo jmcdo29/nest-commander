@@ -4,30 +4,31 @@ import { CommandFactoryRunOptions, NestLogger } from './command-factory.interfac
 import { CommandRunnerModule } from './command-runner.module';
 import { CommandRunnerService } from './command-runner.service';
 
+const isNil = (val: any) => {
+  return val === undefined || val === null;
+};
+
 export class CommandFactory {
   static async run(
     rootModule: Type<any>,
     optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
   ): Promise<void> {
     let logger: NestLogger;
-    let errorHandler: ((err: Error) => void) | undefined;
+    let tempHandler: ((err: Error) => void) | undefined;
     if (this.isFactoryOptionsObject(optionsOrLogger)) {
       logger = optionsOrLogger.logger ?? false;
-      errorHandler = optionsOrLogger.errorHandler;
+      tempHandler = optionsOrLogger.errorHandler;
     } else {
       logger = optionsOrLogger;
     }
-    errorHandler ||= (_err: Error) => {
-      /* no op */
-    };
     const app = await NestFactory.createApplicationContext(
-      CommandRunnerModule.forModule(rootModule),
+      CommandRunnerModule.forModule(rootModule, { errorHandler: tempHandler }),
       {
         logger,
       },
     );
     const runner = app.get(CommandRunnerService);
-    await runner.run().catch(errorHandler);
+    await runner.run();
     await app.close();
   }
 
@@ -36,8 +37,8 @@ export class CommandFactory {
   ): loggerOrOptions is CommandFactoryRunOptions {
     return (
       loggerOrOptions &&
-      (loggerOrOptions as CommandFactoryRunOptions).logger !== null &&
-      (loggerOrOptions as CommandFactoryRunOptions).logger !== undefined
+      (!isNil((loggerOrOptions as CommandFactoryRunOptions).logger) ||
+        !isNil((loggerOrOptions as CommandFactoryRunOptions).errorHandler))
     );
   }
 }
