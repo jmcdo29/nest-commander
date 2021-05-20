@@ -1,6 +1,6 @@
 {
   "name": "nest-commander-testing",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -50,6 +50,6 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
-    "nest-commander": "*"
+    "nest-commander": "^*"
   }
 }

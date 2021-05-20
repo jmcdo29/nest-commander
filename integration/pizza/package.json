@@ -1,7 +1,7 @@
 {
   "name": "nest-commander-integration-pizza",
   "private": "true",
-  "dependencies": {
+  "devDependencies": {
     "nest-commander": "workspace:*",
     "nest-commander-testing": "workspace:*",
     "commander": "^6.2.1",
@@ -13,5 +13,5 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1"
   },
-  "version": null
+  "version": "0.0.0"
 }
