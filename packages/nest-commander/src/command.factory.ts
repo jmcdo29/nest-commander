@@ -1,4 +1,4 @@
-import { Type } from '@nestjs/common';
+import { INestApplicationContext, Type } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { CommandFactoryRunOptions, NestLogger } from './command-factory.interface';
 import { CommandRunnerModule } from './command-runner.module';
@@ -11,8 +11,23 @@ const isNil = (val: any) => {
 export class CommandFactory {
   static async run(
     rootModule: Type<any>,
-    optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
+    optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<void> {
+    const app = await this.runApplication(rootModule, optionsOrLogger);
+    await app.close();
+  }
+
+  static async runWithoutClosing(
+    rootModule: Type<any>,
+    optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
+  ): Promise<INestApplicationContext> {
+    return this.runApplication(rootModule, optionsOrLogger);
+  }
+
+  private static async runApplication(
+    rootModule: Type<any>,
+    optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
+  ): Promise<INestApplicationContext> {
     let logger: NestLogger;
     let tempHandler: ((err: Error) => void) | undefined;
     if (this.isFactoryOptionsObject(optionsOrLogger)) {
@@ -29,7 +44,7 @@ export class CommandFactory {
     );
     const runner = app.get(CommandRunnerService);
     await runner.run();
-    await app.close();
+    return app;
   }
 
   private static isFactoryOptionsObject(
