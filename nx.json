@@ -1,0 +1,38 @@
+{
+  "npmScope": "nest-commander",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint", "package", "prepare"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "integration": {
+      "implicitDependencies": ["nest-commander", "nest-commander-testing"]
+    },
+    "nest-commander": {
+      "implicitDependencies": []
+    },
+    "nest-commander-schematics": {
+      "implicitDependencies": []
+    },
+    "nest-commander-testing": {
+      "implicitDependencies": ["nest-commander"]
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}
