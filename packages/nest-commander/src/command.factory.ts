@@ -32,7 +32,7 @@ export class CommandFactory {
     let tempHandler: ((err: Error) => void) | undefined;
     if (this.isFactoryOptionsObject(optionsOrLogger)) {
       logger = optionsOrLogger.logger ?? false;
-      tempHandler = optionsOrLogger.errorHandler;
+      tempHandler = optionsOrLogger.errorHandler ?? tempHandler;
     } else {
       logger = optionsOrLogger;
     }
