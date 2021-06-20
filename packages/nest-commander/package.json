@@ -2,20 +2,6 @@
   "name": "nest-commander",
   "version": "1.2.0",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "nest build",
-    "test": "jest -c jest.config.js test"
-  },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
-  },
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jmcdo29/nestjs-commander.git"

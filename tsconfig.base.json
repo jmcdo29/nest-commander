@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "sourceMap": false,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "strict": true,
+    "noUnusedLocals": false,
+    "lib": ["ES7"],
+    "paths": {
+      "nest-commander": ["packages/nest-commander/src/index.ts"],
+      "nest-commander-testing": ["packages/nest-commander-testing/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

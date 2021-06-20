@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "projects": {
+    "integration": {
+      "root": "integration",
+      "type": "library",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "jest.integration.config.js"
+          }
+        }
+      }
+    },
+    "nest-commander": {
+      "root": "packages/nest-commander",
+      "type": "library",
+      "sourceRoot": "packages/nest-commander/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "deleteOutputPath": true,
+            "main": "packages/nest-commander/src/index.ts",
+            "outputPath": "dist/nest-commander",
+            "packageJson": "packages/nest-commander/package.json",
+            "tsConfig": "packages/nest-commander/tsconfig.build.json"
+          }
+        }
+      }
+    },
+    "nest-commander-schematics": {
+      "root": "packages/nest-commander-schematics",
+      "type": "library",
+      "targets": {
+        "build_something_else": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "deleteOutputPath": true,
+            "main": "packages/nest-commander-schematics/src/collection.json",
+            "outputPath": "dist/nest-commander-schematics",
+            "packageJson": "packages/nest-commander-schematics/package.json",
+            "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json"
+          }
+        }
+      }
+    },
+    "nest-commander-testing": {
+      "root": "packages/nest-commander-testing",
+      "type": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "options": {
+            "deleteOutputPath": true,
+            "main": "packages/nest-commander-testing/src/index.ts",
+            "outputPath": "dist/nest-commander-testing",
+            "packageJson": "packages/nest-commander-testing/package.json",
+            "tsConfig": "packages/nest-commander-testing/tsconfig.build.json"
+          }
+        }
+      }
+    }
+  }
+}

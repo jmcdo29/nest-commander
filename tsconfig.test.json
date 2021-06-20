@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "nest-commander": ["packages/nest-commander/src/index.ts"],
-      "nest-commander-testing": ["packages/nest-commander-testing/src/index.ts"]
-    }
-  }
-}
