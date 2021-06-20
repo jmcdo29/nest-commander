@@ -1,22 +1,21 @@
 {
-  "name": "nestjs-commander-monorepo",
-  "version": "1.0.3",
+  "name": "nest-commander-monorepo",
+  "version": "0.0.0",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "pnpm build -r",
+    "build": "nx affected:build",
     "test": "jest -c jest.config.js test",
     "lint": "eslint --ext .ts .",
     "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
     "format:check": "pnpm format -- --check",
     "format:write": "pnpm format -- --write",
-    "test:int": "jest -c jest.integration.config.js",
+    "test:int": "nx affected:e2e",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "publish": "pnpm -r publish --dry-run",
     "postpublish": "pinst --enable",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish",
+    "nx": "nx"
   },
   "private": true,
   "repository": {
