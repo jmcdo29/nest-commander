@@ -1,6 +1,25 @@
 {
   "version": 2,
   "projects": {
+    "docs": {
+      "projectType": "application",
+      "root": "apps/docs",
+      "sourceRoot": "apps/docs/src",
+      "targets": {
+        "build": {
+          "executor": "@nx-plus/docusaurus:browser",
+          "options": {
+            "outputPath": "dist/apps/docs"
+          }
+        },
+        "serve": {
+          "executor": "@nx-plus/docusaurus:dev-server",
+          "options": {
+            "port": 3000
+          }
+        }
+      }
+    },
     "integration": {
       "root": "integration",
       "type": "library",
@@ -21,11 +40,11 @@
         "build": {
           "executor": "@nrwl/node:package",
           "options": {
-            "deleteOutputPath": true,
-            "main": "packages/nest-commander/src/index.ts",
             "outputPath": "dist/nest-commander",
-            "packageJson": "packages/nest-commander/package.json",
-            "tsConfig": "packages/nest-commander/tsconfig.build.json"
+            "main": "packages/nest-commander/src/index.ts",
+            "tsConfig": "packages/nest-commander/tsconfig.build.json",
+            "deleteOutputPath": true,
+            "packageJson": "packages/nest-commander/package.json"
           }
         }
       }

@@ -19,8 +19,11 @@
     }
   },
   "projects": {
+    "docs": {
+      "tags": []
+    },
     "integration": {
-      "implicitDependencies": ["nest-commander", "nest-commander-testing"]
+      "implicitDependencies": []
     },
     "nest-commander": {
       "implicitDependencies": []
@@ -29,7 +32,7 @@
       "implicitDependencies": []
     },
     "nest-commander-testing": {
-      "implicitDependencies": ["nest-commander"]
+      "implicitDependencies": []
     }
   },
   "affected": {
