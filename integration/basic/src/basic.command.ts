@@ -1,4 +1,4 @@
-import { Command, CommandRunner, Option } from 'nest-commander';
+import { Command, CommandRunner, Option } from '@nest-commander/nest-commander';
 import { LogService } from './../../common/log.service';
 
 interface BasicCommandOptions {

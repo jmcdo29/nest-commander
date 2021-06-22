@@ -1,4 +1,4 @@
-import { Question, QuestionSet } from 'nest-commander';
+import { Question, QuestionSet } from '@nest-commander/nest-commander';
 
 @QuestionSet({ name: 'hello' })
 export class WhoQuestion {
