@@ -9,6 +9,9 @@ module.exports = {
   organizationName: 'jmcdo29', // Usually your GitHub org/user name.
   projectName: 'nestjs-commander', // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+    },
     navbar: {
       title: 'Nest Commander',
       logo: {

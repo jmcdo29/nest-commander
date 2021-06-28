@@ -9,8 +9,8 @@ module.exports = {
       Features: setPrefix('features', ['commander', 'inquirer', 'factory']),
       Testing: setPrefix('testing', ['installation', 'factory']),
       Schematics: setPrefix('schematics', ['installation', 'usage']),
-      Executing: setPrefix('executing', ['local', 'npm', 'ts-node', 'nest-cli']),
     },
+    'executing/local',
     'api',
   ],
 };
