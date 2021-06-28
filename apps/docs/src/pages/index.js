@@ -9,12 +9,10 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: <>Use the same dependency injection patterns you're used to with Nest.</>,
   },
   {
     title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
         Worry less about how to wire up your commander application and more about what the logic of
@@ -23,8 +21,7 @@ const features = [
     ),
   },
   {
-    title: 'Re-Use your Provider',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: 'Re-Use your Providers',
     description: (
       <>
         Because you're able to make use of Nest's DI patterns, you can re-use your existing
@@ -53,12 +50,14 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title={`${siteConfig.title}`} description="The documentation site for nest-commander">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
+          <img
+            className={styles.featureImage}
+            src="img/nest-commander-final.svg"
+            alt="nest-commander logo"
+          />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
