@@ -13,7 +13,7 @@ module.exports = {
       title: 'Nest Commander',
       logo: {
         alt: 'Nest Commander Logo',
-        src: 'img/logo.svg',
+        src: 'img/nest-commander-final.svg',
       },
       items: [
         {
