@@ -1,4 +1,4 @@
-import { Command, CommandRunner } from '@nest-commander/nest-commander';
+import { Command, CommandRunner } from 'nest-commander';
 import { LogService } from './../../common/log.service';
 
 @Command({ name: 'bar', options: { isDefault: false } })

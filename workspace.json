@@ -59,7 +59,7 @@
       "root": "packages/nest-commander-schematics",
       "type": "library",
       "targets": {
-        "build_something_else": {
+        "build": {
           "executor": "@nrwl/node:package",
           "options": {
             "deleteOutputPath": true,
