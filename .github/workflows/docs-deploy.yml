@@ -9,7 +9,7 @@ jobs:
   docs-changed:
     runs-on: ubuntu-latest
     outputs:
-      files: ${{ contains(files.outputs.added_modified, '/apps/docs/docs/') }}
+      files: ${{ contains(steps.files.outputs.added_modified, '/apps/docs/docs/') }}
     steps:
       - name: Get All Added and Modified Field
         id: files
