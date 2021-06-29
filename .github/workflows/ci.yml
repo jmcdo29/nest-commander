@@ -13,7 +13,7 @@ on:
 env:
   NX_BRANCH: ${{ github.event.pull_request.head.ref }}
   NX_RUN_GROUP: ${{ github.run_id }}
-  NX_CLOUD_DISTRIBUTED_EXECUTION: true
+  NX_CLOUD_DISTRIBUTED_EXECUTION: ${{ !contains(github.event.pull_request.user.login, 'dependabot') }}
   NX_VERBOSE_LOGGING: true
   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_TOKEN }}
 
@@ -106,3 +106,23 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         MERGE_LABELS: ""
         MERGE_METHOD: rebase
+
+  agent_1:
+    runs-on: ubuntu-latest
+    name: Agent 1
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Install deps
+        run: pnpm i --frozen-lockfile=false
+      - name: Start Agent
+        run: pnpx -y nx-cloud start-agent

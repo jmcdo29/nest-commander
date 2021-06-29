@@ -3,19 +3,20 @@
   "version": "0.0.0",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "scripts": {
-    "build": "nx affected:build",
+    "build": "nx run-many --target=build --all",
     "test": "jest -c jest.config.js test",
     "lint": "eslint --ext .ts .",
     "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
     "format:check": "pnpm format -- --check",
     "format:write": "pnpm format -- --write",
-    "test:int": "nx affected:e2e",
+    "test:int": "nx run-many --target=e2e --all",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "publish": "pnpm -r publish --dry-run",
     "postpublish": "pinst --enable",
     "release": "pnpm build && changeset publish",
-    "nx": "nx"
+    "nx": "nx",
+    "deploy": "nx deploy docs"
   },
   "private": true,
   "repository": {
@@ -64,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "clsx": "^1.1.1",
-    "commander": "^7.2.0",
+    "commander": "^8.0.0",
     "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.17.0",

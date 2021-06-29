@@ -6,7 +6,7 @@ import { HelloCommandModule } from '../src/root.module';
 describe('Hello Command', () => {
   const logMock = jest.fn();
   let commandModule: TestingModule;
-  beforeAll(async () => {
+  beforeEach(async () => {
     commandModule = await CommandTestFactory.createTestingCommand({
       imports: [HelloCommandModule],
     })
@@ -20,13 +20,13 @@ describe('Hello Command', () => {
   });
 
   it.each`
-    username  | expected
+    name      | expected
     ${'Jay'}  | ${'Hello Jay'}
     ${'Test'} | ${'Hello Test'}
   `(
     'should call the hello command with arg $username populated from inquirer',
-    async ({ username, expected }: { username: string; expected: string }) => {
-      CommandTestFactory.setAnswers(username);
+    async ({ name, expected }: { name: string; expected: string }) => {
+      CommandTestFactory.setAnswers(name);
       await CommandTestFactory.run(commandModule);
       expect(logMock).toBeCalledWith(expected);
     },

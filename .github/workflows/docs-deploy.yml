@@ -1,0 +1,44 @@
+name: Documentation Deployment
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docs-changed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get All Added and Modified Field
+        id: files
+        uses: jitterbit/get-changed/files@v1
+      - name: Set Output
+        run: echo "::set-output name=docs-changed::${{ contains(steps.files.outputs.added_modified, 'apps/docs/docs/') }}"
+  docs-deploy:
+    runs-on: ubuntu-latest
+    if: ${{ jobs.docs-changed.outputs.docs-changed }}
+    steps:
+      - name: Get All Changed Files
+        id: files
+        uses: jitterbit/get-changed-files@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Dependencies Install
+        run: pnpm i --frozen-lockfile=false
+      - name: Build Docs
+        run: pnpm nx build docs
+      - uses: webfactory/ssh-agent@v.0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Release to GH Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
+        run: |
+          git config --global user.email "jmcdo29@gmal.com"
+          git config --global user.name "Jay McDoniel"
+          pnpm deploy

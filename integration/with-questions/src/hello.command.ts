@@ -12,13 +12,13 @@ export class HelloCommand implements CommandRunner {
   }
 
   @Option({
-    flags: '-n --username [username]',
+    flags: '-n --name [name]',
   })
   parseName(val: string) {
     return val;
   }
 
   sayHello(options: HelloOptions): void {
-    this.logger.log(`Hello ${options.username}`);
+    this.logger.log(`Hello ${options.name}`);
   }
 }

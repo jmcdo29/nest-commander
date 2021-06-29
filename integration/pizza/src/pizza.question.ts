@@ -1,4 +1,4 @@
-import { Question, QuestionSet, ValidateFor, WhenFor } from '@nest-commander/nest-commander';
+import { Question, QuestionSet, ValidateFor, WhenFor } from 'nest-commander';
 
 @QuestionSet({ name: 'pizza' })
 export class PizzaQuestion {
