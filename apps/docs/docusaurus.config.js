@@ -1,13 +1,14 @@
 module.exports = {
   title: 'Nest Commander',
   tagline: 'A CLI builder using NestJS',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://jmcdo29.github.io',
+  baseUrl: '/nest-commander/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'jmcdo29', // Usually your GitHub org/user name.
   projectName: 'nestjs-commander', // Usually your repo name.
+  trailingSlash: true,
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
