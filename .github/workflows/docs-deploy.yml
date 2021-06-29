@@ -8,15 +8,17 @@ on:
 jobs:
   docs-changed:
     runs-on: ubuntu-latest
+    outputs:
+      files: ${{ contains(files.outputs.added_modified, '/apps/docs/docs/') }}
     steps:
       - name: Get All Added and Modified Field
         id: files
         uses: jitterbit/get-changed/files@v1
-      - name: Set Output
-        run: echo "::set-output name=docs-changed::${{ contains(steps.files.outputs.added_modified, 'apps/docs/docs/') }}"
   docs-deploy:
     runs-on: ubuntu-latest
-    if: ${{ job.docs-changed.outputs.docs-changed }}
+    needs:
+      - docs-changed
+    if: ${{ needs.docs-changed.outputs.docs-changed }}
     steps:
       - name: Get All Changed Files
         id: files
