@@ -17,6 +17,12 @@
           "options": {
             "port": 3000
           }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "pnpm docusaurus deploy --out-dir dist/apps/docs --config apps/docs/docusaurus.config.js --skip-build"
+          }
         }
       }
     },
