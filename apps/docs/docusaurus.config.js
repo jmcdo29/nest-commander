@@ -2,12 +2,12 @@ module.exports = {
   title: 'Nest Commander',
   tagline: 'A CLI builder using NestJS',
   url: 'https://jmcdo29.github.io',
-  baseUrl: '/nestjs-commander/',
+  baseUrl: '/nest-commander/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'jmcdo29', // Usually your GitHub org/user name.
-  projectName: 'nestjs-commander', // Usually your repo name.
+  projectName: 'nest-commander', // Usually your repo name.
   trailingSlash: true,
   themeConfig: {
     colorMode: {
@@ -27,7 +27,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/jmcdo29/nestjs-commander',
+          href: 'https://github.com/jmcdo29/nest-commander',
           label: 'GitHub',
           position: 'right',
         },
@@ -41,7 +41,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/jmcdo29/nestjs-commander',
+              href: 'https://github.com/jmcdo29/nest-commander',
             },
           ],
         },
@@ -56,7 +56,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/jmcdo29/nestjs-commander/edit/main/apps/docs/',
+          editUrl: 'https://github.com/jmcdo29/nest-commander/edit/main/apps/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

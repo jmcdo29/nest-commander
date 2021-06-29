@@ -1,6 +1,6 @@
 <div align="center">
   
-![CI](https://github.com/jmcdo29/nestjs-commander/workflows/CI/badge.svg) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Coffee](https://badgen.net/badge/Buy%20Me/A%20Coffee/purple?icon=kofi)](https://www.buymeacoffee.com/jmcdo29) [![codebeat badge](https://codebeat.co/badges/886435cf-0ace-403b-8f9c-3e4eb99fbd5d)](https://codebeat.co/projects/github-com-jmcdo29-nestjs-commander-main)
+![CI](https://github.com/jmcdo29/nest-commander/workflows/CI/badge.svg) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Coffee](https://badgen.net/badge/Buy%20Me/A%20Coffee/purple?icon=kofi)](https://www.buymeacoffee.com/jmcdo29) [![codebeat badge](https://codebeat.co/badges/886435cf-0ace-403b-8f9c-3e4eb99fbd5d)](https://codebeat.co/projects/github-com-jmcdo29-nest-commander-main)
   
 </div>
 
@@ -27,6 +27,7 @@ pnpm i nest-commander @nestjs/common @nestjs/core
 ### CommandRunner
 
 Every command is seen as an `@Injectable()` by Nest, so your normal Dependency Injection still works as you would expect it to (woohoo!). The only thing to take note of is the interface `CommandRunner`, which should be implemented by each command. The `CommandRunner` interface ensures that all commands have a `run` method that return a `Promise<void>` and takes in the parameters `string[], Record<string, any>`. The `run` command is where you can kick all of your logic off from, it will take in whatever parameters did not match option flags and pass them in as an array, just in case you are really meaning to work with multiple parameters. As for the options, the `Record<string, any>`, the names of these properties match the `name` property given to the `@Option()` decorators, while their value matches the return of the option handler. If you'd like better type safety, you are welcome to create an interface for your options as well. You can view how the [Basic Command test](integration/src/basic.command.ts) manages that if interested.
+
 ### @Command()
 
 The `@Command()` decorator is to define what CLI command the class is going to manage and take care of. The decorator takes in an object to define properties of the command. The options passed here would be the same as the options passed to a new `command` for Commander

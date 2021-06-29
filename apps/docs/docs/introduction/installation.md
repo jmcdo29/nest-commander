@@ -10,7 +10,11 @@ npm i nest-commander
 # OR
 yarn add nest-commander
 # OR
-pnpm i nestjs-commander
+pnpm i nest-commander
 ```
 
-:::note Soon there will be a schematic for scaffolding an entire CLI application. Keep an eye out for it. :::
+:::note
+
+Soon there will be a schematic for scaffolding an entire CLI application. Keep an eye out for it.
+
+:::
