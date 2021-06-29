@@ -41,6 +41,8 @@ jobs:
       run: pnpm build
     - name: integration test
       run: pnpm test:int
+      env:
+        NX_CLOUD_DISTRIBUTED_EXECUTION: false
     env:
      HUSKY: 0
   
