@@ -13,4 +13,5 @@ module.exports = {
     '^nest-commander$': ['<rootDir>/packages/nest-commander/src'],
     '^nest-commander-testing$': ['<rootDir>/packages/nest-commander-testing/src'],
   },
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
 };
