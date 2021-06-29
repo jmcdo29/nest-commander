@@ -2,7 +2,7 @@ module.exports = {
   title: 'Nest Commander',
   tagline: 'A CLI builder using NestJS',
   url: 'https://jmcdo29.github.io',
-  baseUrl: '/nest-commander/',
+  baseUrl: '/nestjs-commander/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
