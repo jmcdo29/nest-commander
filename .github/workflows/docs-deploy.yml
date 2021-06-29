@@ -16,7 +16,7 @@ jobs:
         run: echo "::set-output name=docs-changed::${{ contains(steps.files.outputs.added_modified, 'apps/docs/docs/') }}"
   docs-deploy:
     runs-on: ubuntu-latest
-    if: ${{ jobs.docs-changed.outputs.docs-changed }}
+    if: ${{ job.docs-changed.outputs.docs-changed }}
     steps:
       - name: Get All Changed Files
         id: files
