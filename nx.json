@@ -23,7 +23,7 @@
       "tags": []
     },
     "integration": {
-      "implicitDependencies": []
+      "implicitDependencies": ["nest-commander", "nest-commander-testing"]
     },
     "nest-commander": {
       "implicitDependencies": []
@@ -32,7 +32,7 @@
       "implicitDependencies": []
     },
     "nest-commander-testing": {
-      "implicitDependencies": []
+      "implicitDependencies": ["nest-commander"]
     }
   },
   "affected": {
