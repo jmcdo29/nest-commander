@@ -15,37 +15,56 @@ env:
   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_TOKEN }}
 
 jobs:
-  test:
-
+  main:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
+    if: ${{ github.event_name != 'pull_request' }}
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 0
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install pnpm
-      run: npm i -g pnpm
-    - name: install
-      run: pnpm i --frozen-lockfile=false
-    - name: lint
-      run: pnpm lint
-    - name: build
-      run: pnpm build
-    - name: integration test
-      run: pnpm test:int
-      env:
-        NX_CLOUD_DISTRIBUTED_EXECUTION: false
-    - name: Stop Nx Cloud Agents
-      run: pnpx -y nx-cloud stop-all-agents
-    env:
-     HUSKY: 0
+      - uses: actions/checkout@v2
+        name: Checkout [main]
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Lint
+        run: pnpm lint
+      - name: Install deps
+        run: pnpm i --frozen-lockfile=false
+      - name: Build Projects
+        run: pnpm nx affected -- --target=build --parallel --max-parallel=3
+      - name: Test Projects
+        run: pnpm nx affected -- --target=test --parallel --max-parallel=2
+      - run: pnpm nx-cloud stop-all-agents
+      - name: Tag main branch if all jobs succeed
+        uses: nrwl/nx-tag-successful-ci-run@v1
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Lint
+        run: pnpm lint
+      - name: Install deps
+        run: pnpm i --frozen-lockfile=false
+      - name: Build Projects
+        run: pnpm nx affected -- --target=build --parallel --max-parallel=3
+      - name: Test Projects
+        run: pnpm nx affected -- --target=test --parallel --max-parallel=2
+      - run: pnpm nx-cloud stop-all-agents
   
   analyze:
     name: Analyze
