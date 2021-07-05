@@ -103,6 +103,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ],
           "options": {
             "deleteOutputPath": true,
             "main": "packages/nest-commander-testing/src/index.ts",
