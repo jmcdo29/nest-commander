@@ -35,6 +35,14 @@
       "implicitDependencies": ["nest-commander"]
     }
   },
+  "targetDependencies": {
+    "publish": [
+      {
+        "target": "build",
+        "projects": "self"
+      }
+    ]
+  },
   "affected": {
     "defaultBase": "main"
   }
