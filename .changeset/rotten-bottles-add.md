@@ -1,5 +1,6 @@
 ---
 'nest-commander': minor
+'nest-commander-testing': minor
 ---
 
 Allow for commands to be run indefinitely
