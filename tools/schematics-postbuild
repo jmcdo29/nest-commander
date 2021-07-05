@@ -1,0 +1,8 @@
+#! /usr/bin/sh
+
+packageName=nest-commander-schematics
+
+cd packages/$packageName/src
+cp --parents $(find -name "*.json") ../../../dist/$packageName/src
+cp --parents $(find -name "*.template") ../../../dist/$packageName/src
+cd ../../../

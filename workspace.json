@@ -50,7 +50,15 @@
             "main": "packages/nest-commander/src/index.ts",
             "tsConfig": "packages/nest-commander/tsconfig.build.json",
             "deleteOutputPath": true,
-            "packageJson": "packages/nest-commander/package.json"
+            "packageJson": "packages/nest-commander/package.json",
+            "assets": ["packages/nest-commander/*.md"]
+          }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/nest-commander",
+            "command": "pnpm publish"
           }
         }
       }
@@ -60,13 +68,31 @@
       "type": "library",
       "targets": {
         "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "./node_modules/.bin/nx package nest-commander-schematics",
+              "tools/schematics-postbuild"
+            ],
+            "parallel": false
+          }
+        },
+        "package": {
           "executor": "@nrwl/node:package",
           "options": {
             "deleteOutputPath": true,
             "main": "packages/nest-commander-schematics/src/collection.json",
             "outputPath": "dist/nest-commander-schematics",
             "packageJson": "packages/nest-commander-schematics/package.json",
-            "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json"
+            "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json",
+            "assets": ["packages/nest-commander-schematics/*.md"]
+          }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/nest-commander-schematics",
+            "command": "pnpm publish"
           }
         }
       }
@@ -82,7 +108,15 @@
             "main": "packages/nest-commander-testing/src/index.ts",
             "outputPath": "dist/nest-commander-testing",
             "packageJson": "packages/nest-commander-testing/package.json",
-            "tsConfig": "packages/nest-commander-testing/tsconfig.build.json"
+            "tsConfig": "packages/nest-commander-testing/tsconfig.build.json",
+            "assets": ["packages/nest-commander-testing/*.md"]
+          }
+        },
+        "publish": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/nest-commander-testing",
+            "command": "pnpm publish"
           }
         }
       }
