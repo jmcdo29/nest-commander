@@ -14,7 +14,7 @@
     "prepublishOnly": "pinst --disable",
     "run:publish": "nx affected:publish",
     "postpublish": "pinst --enable",
-    "release": "pnpm build && pnpm run:publish",
+    "release": "pnpm run:publish",
     "nx": "nx",
     "deploy": "nx deploy docs"
   },
