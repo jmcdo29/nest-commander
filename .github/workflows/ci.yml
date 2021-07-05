@@ -30,10 +30,10 @@ jobs:
           node-version: 14.x
       - name: Install pnpm
         run: npm i -g pnpm
-      - name: Lint
-        run: pnpm lint
       - name: Install deps
         run: pnpm i --frozen-lockfile=false
+      - name: Lint
+        run: pnpm lint
       - name: Build Projects
         run: pnpm nx affected -- --target=build --parallel --max-parallel=3
       - name: Test Projects
@@ -56,10 +56,10 @@ jobs:
           node-version: 14.x
       - name: Install pnpm
         run: npm i -g pnpm
-      - name: Lint
-        run: pnpm lint
       - name: Install deps
         run: pnpm i --frozen-lockfile=false
+      - name: Lint
+        run: pnpm lint
       - name: Build Projects
         run: pnpm nx affected -- --target=build --parallel --max-parallel=3
       - name: Test Projects
