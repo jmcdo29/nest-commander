@@ -12,9 +12,8 @@
     "test:int": "nx run-many --target=e2e --all",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
-    "run:publish": "nx affected:publish",
     "postpublish": "pinst --enable",
-    "release": "pnpm run:publish",
+    "release": "nx affected --target=publish",
     "nx": "nx",
     "deploy": "nx deploy docs"
   },
