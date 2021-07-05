@@ -36,6 +36,6 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
-    "nest-commander": "workspace:^*"
+    "nest-commander": "^1.0.0"
   }
 }
