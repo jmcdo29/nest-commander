@@ -96,7 +96,7 @@ jobs:
       uses: github/codeql-action/analyze@v1
   
   auto-merge:
-    needs: test
+    needs: pr
     if: contains(github.event.pull_request.user.login, 'dependabot')
     runs-on: ubuntu-latest
     steps:
