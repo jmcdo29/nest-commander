@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "scripts": {
-    "build": "nx affected:build",
-    "test": "jest -c jest.config.js test",
+    "build": "nx affected:build --with-deps",
+    "test": "nx affected:test",
     "lint": "eslint --ext .ts .",
     "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
     "format:check": "pnpm format -- --check",
