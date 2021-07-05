@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "x-prompt": "What is the questions set name?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the service."
+    },
+    "sourceRoot": {
+      "type": "string",
+      "description": "Nest service source root directory."
+    },
+    "flat": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag to indicate if a directory is created."
+    },
+    "spec": {
+      "type": "boolean",
+      "default": true,
+      "description": "Specifies if a spec file is generated."
+    }
+  }
+}

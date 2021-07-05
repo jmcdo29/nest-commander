@@ -1,6 +1,0 @@
-#! /usr/bin/sh
-
-cd src
-cp --parents $(find -name "*.json") ../dist
-cp --parents $(find -name "*.template") ../dist
-cd ..
