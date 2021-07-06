@@ -6,7 +6,7 @@
 
 # NestJS Commander
 
-Have you been building amazing REST and RPC applications with [NestJS](https://docs.nestjs.com/)? Do you want that same structure for absolutely everything you're working with? Have you always wanted to build up some sweet CLI application but don't really know where to start? This is the solution. A package to bring building CLI applications to the Nest world with the same structure that you already know and love :heart: Built on top of the popular [Commander](https://github.com/tj/commander.js) package.
+Have you been building amazing applications with [NestJS](https://docs.nestjs.com/)? Do you want that same structure for absolutely everything you're working with? Have you always wanted to build up some sweet CLI application but don't really know where to start? This is the solution. A package to bring building CLI applications to the Nest world with the same structure that you already know and love :heart: Built on top of the popular [Commander](https://github.com/tj/commander.js) package.
 
 ## Installation
 
