@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 2.0.1
+
+### Patch Changes
+
+- b3c16cd: Fix the directory that the pnpm publish command looks at
+
 ## 2.0.0
 
 ### Major Changes
