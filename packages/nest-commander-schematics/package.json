@@ -20,9 +20,9 @@
   "author": "Jay McDoniel <jmcdo29@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist"
+    "src"
   ],
-  "schematics": "./dist/collection.json",
+  "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "12.0.5",
     "@angular-devkit/schematics": "12.0.5",
