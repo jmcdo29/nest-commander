@@ -14,6 +14,8 @@ jobs:
       - name: Get All Added and Modified Field
         id: files
         uses: jitterbit/get-changed-files@v1
+      - name: Echo contains
+        run: echo ${{ contains(steps.files.outputs.added_modified, '/apps/docs/')  }}
   docs-deploy:
     runs-on: ubuntu-latest
     needs:
