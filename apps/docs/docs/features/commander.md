@@ -72,6 +72,12 @@ The `description` is used when the `--help` flag is passed, and will help provid
 
 You can add as many of these `@Option()` methods as necessary for your command, so long as they do not duplicate option names. Each method may only have one `@Option()` decorator as well.
 
+:::info
+
+For more details on everything that is possible with options, take a look at [`commander`'s Options documentation](https://www.npmjs.com/package/commander#options).
+
+:::
+
 ## The Full Command
 
 Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
