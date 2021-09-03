@@ -78,6 +78,8 @@ For more details on everything that is possible with options, take a look at [`c
 
 :::
 
+You can also make an option completely required, like an argument, by setting `required: true` in the metadata for the option.
+
 ## The Full Command
 
 Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so

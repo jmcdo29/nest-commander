@@ -28,6 +28,7 @@ This method decorator allows for users to pass in extra options for commands def
 | flags | `string` | true | The flags that should work for this option. Multiple flags can exist for a single option, so long as they are separated by a comma, space, or pipe character. Just like with arguments, `<>` for required, `[]` for optional. |
 | description | `string` | false | The description of the flags and option. Used with the `--help` output |
 | defaultValue | `string or boolean` | false | The default value, if any, for the option |
+| required | `boolean` | false | Make the option required like an argument and the command fail if the option is not provided |
 
 ### InquirerService
 
