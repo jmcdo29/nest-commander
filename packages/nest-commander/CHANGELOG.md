@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.1.0
+
+### Minor Changes
+
+- 6df8964: Adds in a new metadata option for the @Option() decorator to make the option required, just like a required argument
+
 ## 2.0.0
 
 ### Major Changes
