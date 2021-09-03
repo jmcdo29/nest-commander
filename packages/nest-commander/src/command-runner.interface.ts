@@ -38,6 +38,7 @@ export interface OptionMetadata {
   flags: string;
   description?: string;
   defaultValue?: string | boolean;
+  required?: boolean;
 }
 
 export interface RunnerMeta {
