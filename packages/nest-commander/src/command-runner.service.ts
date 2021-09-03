@@ -50,23 +50,44 @@ export class CommandRunnerService implements OnModuleInit {
   private setUpCommander(): void {
     for (const command of this.commandMap) {
       const newCommand = this.commander.createCommand(command.command.name);
-      command.command.arguments && newCommand.argument(command.command.arguments);
-      newCommand.description(
-        command.command.description ?? '',
-        command.command.argsDescription ?? {},
-      );
-      for (const option of command.params) {
-        newCommand.option(
-          option.meta.flags,
-          option.meta.description ?? '',
-          option.discoveredMethod.handler.bind(command.instance),
-          option.meta.defaultValue ?? undefined,
+      if (command.command.arguments) {
+        this.mapArgumentDescriptions(
+          newCommand,
+          command.command.arguments,
+          command.command.argsDescription,
         );
+      }
+      newCommand.description(command.command.description ?? '');
+      for (const option of command.params) {
+        const { flags, description, defaultValue = undefined, required = false } = option.meta;
+        const handler = option.discoveredMethod.handler.bind(command.instance);
+        const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
+        newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
       }
       newCommand.action(() =>
         command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
       );
       this.commander.addCommand(newCommand, command.command.options);
+    }
+  }
+
+  private mapArgumentDescriptions(
+    command: Command,
+    args = '',
+    argDescriptions: Record<string, string> = {},
+  ): void {
+    const trueArgDefs: Record<string, string> = {};
+
+    const splitArgs = args.split(' ');
+    for (const arg of splitArgs) {
+      let added = false;
+      for (const key of Object.keys(argDescriptions)) {
+        if (arg.includes(key)) {
+          added = true;
+          trueArgDefs[arg] = argDescriptions[key];
+        }
+      }
+      command.argument(arg, added ? trueArgDefs[arg] : '');
     }
   }
 
