@@ -32,7 +32,7 @@
       "implicitDependencies": []
     },
     "nest-commander-testing": {
-      "implicitDependencies": ["nest-commander"]
+      "implicitDependencies": []
     }
   },
   "targetDependencies": {
