@@ -11,7 +11,7 @@
     "format:write": "pnpm format -- --write",
     "test:int": "nx run-many --target=e2e --all",
     "postinstall": "husky install",
-    "release": "nx affected --target=publish",
+    "release": "changeset publish",
     "nx": "nx",
     "deploy": "nx deploy docs"
   },
