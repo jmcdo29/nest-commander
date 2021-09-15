@@ -19,3 +19,4 @@ export const MessageMeta = questionMetaBuilder('Message');
 export const Commander = Symbol('Commander');
 export const CommanderOptions = Symbol('CommanderOptions');
 export const Inquirer = Symbol('Inquirer');
+export const HelpMeta = metaKeyBuilder('Command:Help');

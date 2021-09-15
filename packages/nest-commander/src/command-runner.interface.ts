@@ -61,3 +61,5 @@ export type QuestionMetadata =
   | InquirerQuestionWithoutFilter<NumberQuestion>
   | InquirerQuestionWithoutFilter<PasswordQuestion>
   | InquirerQuestionWithoutFilter<RawListQuestion>;
+
+export type HelpOptions = 'before' | 'beforeAll' | 'after' | 'afterAll';

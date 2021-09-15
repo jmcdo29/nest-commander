@@ -67,16 +67,16 @@ export class InquirerService {
       this.inquirerKeyToMetadataKeyMap,
     ) as Array<InquirerKeysWithPossibleFunctionTypes>) {
       const metaKey = this.inquirerKeyToMetadataKeyMap[iKey];
-      const foundMeta = await this.discoveryService.providerMethodsWithMetaAtKey<QuestionNameMetadata>(
-        metaKey,
-        (found) => found.name === rawQuestions[0].discoveredMethod.parentClass.name,
-      );
+      const foundMeta =
+        await this.discoveryService.providerMethodsWithMetaAtKey<QuestionNameMetadata>(
+          metaKey,
+          (found) => found.name === rawQuestions[0].discoveredMethod.parentClass.name,
+        );
       extraMetas[iKey] = foundMeta ?? [];
     }
 
-    const questions: Array<
-      DistinctQuestion & { index?: number }
-    > = await this.parseRawQuestionMetadata(rawQuestions, extraMetas);
+    const questions: Array<DistinctQuestion & { index?: number }> =
+      await this.parseRawQuestionMetadata(rawQuestions, extraMetas);
     return questions.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
   }
 

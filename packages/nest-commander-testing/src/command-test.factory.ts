@@ -68,7 +68,7 @@ export class CommandTestFactory {
 
   static async run(app: TestingModule, args: string[] = []) {
     if (args?.length && args[0] !== 'node') {
-      args = ['node', randomBytes(8).toString('utf-8') + '.js'].concat(args);
+      args = ['node', randomBytes(8).toString('hex') + '.js'].concat(args);
     }
     await app.init();
     const runner = app.get(CommandRunnerService);

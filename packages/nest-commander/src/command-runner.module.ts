@@ -2,10 +2,10 @@ import { DynamicModule, Module, Type } from '@nestjs/common';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
 import * as inquirer from 'inquirer';
+import { CommanderOptionsType } from './command-factory.interface';
 import { CommandRunnerService } from './command-runner.service';
 import { Commander, CommanderOptions, Inquirer } from './constants';
 import { InquirerService } from './inquirer.service';
-import { CommanderOptionsType } from './command-factory.interface';
 
 @Module({})
 export class CommandRunnerModule {
