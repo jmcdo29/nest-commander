@@ -1,6 +1,7 @@
 import { Inject, OnModuleInit } from '@nestjs/common';
 import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
+import { CommanderOptionsType } from './command-factory.interface';
 import {
   CommandMetadata,
   CommandRunner,
@@ -8,7 +9,6 @@ import {
   RunnerMeta,
 } from './command-runner.interface';
 import { Commander, CommanderOptions, CommandMeta, OptionMeta } from './constants';
-import { CommanderOptionsType } from './command-factory.interface';
 
 export class CommandRunnerService implements OnModuleInit {
   private commandMap: Array<RunnerMeta>;
@@ -35,10 +35,11 @@ export class CommandRunnerService implements OnModuleInit {
     providers: DiscoveredClassWithMeta<CommandMetadata>[],
   ): Promise<void> {
     for (const provider of providers) {
-      const optionProviders = await this.discoveryService.providerMethodsWithMetaAtKey<OptionMetadata>(
-        OptionMeta,
-        (found) => found.name === provider.discoveredClass.name,
-      );
+      const optionProviders =
+        await this.discoveryService.providerMethodsWithMetaAtKey<OptionMetadata>(
+          OptionMeta,
+          (found) => found.name === provider.discoveredClass.name,
+        );
       this.commandMap.push({
         command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
