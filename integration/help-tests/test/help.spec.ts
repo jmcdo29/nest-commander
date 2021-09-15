@@ -49,7 +49,9 @@ describe('Commands with Custom Help', () => {
   });
   shouldAddHelp('before', async () => {
     await CommandTestFactory.run(commandModule, argsBuilder('before'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
+    expect(stdoutSpy.mock.calls[0][0]).toEqual(`before help
+`);
+    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
     expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before \[options\]/));
     stdoutCall.shift();
     expect(stdoutCall.join('\n')).toBe(`
@@ -62,7 +64,9 @@ Options:
   });
   shouldAddHelp('beforeAll', async () => {
     await CommandTestFactory.run(commandModule, argsBuilder('before-all'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
+    expect(stdoutSpy).toBeCalledWith(`before all help
+`);
+    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
     expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before-all \[options\]/));
     stdoutCall.shift();
     expect(stdoutCall.join('\n')).toBe(`
@@ -75,7 +79,11 @@ Options:
   });
   shouldAddHelp('beforeAll and before', async () => {
     await CommandTestFactory.run(commandModule, argsBuilder('before-before-all'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
+    expect(stdoutSpy).toBeCalledWith(`before all help
+`);
+    expect(stdoutSpy).toBeCalledWith(`before help
+`);
+    const stdoutCall: string[] = stdoutSpy.mock.calls[2][0].split('\n');
     expect(stdoutCall[0]).toEqual(
       expect.stringMatching(/Usage: .+\w before-before-all \[options\]/),
     );
@@ -90,7 +98,9 @@ Options:
   });
   shouldAddHelp('before and after', async () => {
     await CommandTestFactory.run(commandModule, argsBuilder('before-after'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
+    expect(stdoutSpy).toBeCalledWith(`before help
+`);
+    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
     expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before-after \[options\]/));
     stdoutCall.shift();
     expect(stdoutCall.join('\n')).toBe(`
@@ -98,6 +108,8 @@ before-after
 
 Options:
   -h, --help  display help for command
+`);
+    expect(stdoutSpy).toBeCalledWith(`after help
 `);
     expect(exitSpy).toBeCalledWith(0);
   });
@@ -112,6 +124,9 @@ after
 Options:
   -h, --help  display help for command
 `);
+    expect(stdoutSpy).toBeCalledWith(`after help
+`);
+
     expect(exitSpy).toBeCalledWith(0);
   });
   shouldAddHelp('afterAll', async () => {
@@ -124,6 +139,8 @@ after all
 
 Options:
   -h, --help  display help for command
+`);
+    expect(stdoutSpy).toBeCalledWith(`after all help
 `);
     expect(exitSpy).toBeCalledWith(0);
   });
@@ -138,16 +155,28 @@ after after all
 Options:
   -h, --help  display help for command
 `);
+    expect(stdoutSpy).toBeCalledWith(`after help
+`);
+    expect(stdoutSpy).toBeCalledWith(`after all help
+`);
     expect(exitSpy).toBeCalledWith(0);
   });
   shouldAddHelp('in all places with', async () => {
     await CommandTestFactory.run(commandModule, argsBuilder('foo'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
+    expect(stdoutSpy).toBeCalledWith(`before all help
+`);
+    expect(stdoutSpy).toBeCalledWith(`before help
+`);
+    const stdoutCall: string[] = stdoutSpy.mock.calls[2][0].split('\n');
     expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w foo \[options\]/));
     stdoutCall.shift();
     expect(stdoutCall.join('\n')).toBe(`
 Options:
   -h, --help  display help for command
+`);
+    expect(stdoutSpy).toBeCalledWith(`after help
+`);
+    expect(stdoutSpy).toBeCalledWith(`after all help
 `);
     expect(exitSpy).toBeCalledWith(0);
   });

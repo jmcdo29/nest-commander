@@ -45,6 +45,7 @@ export interface RunnerMeta {
   instance: CommandRunner;
   command: CommandMetadata;
   params: DiscoveredMethodWithMeta<OptionMetadata>[];
+  help?: DiscoveredMethodWithMeta<HelpOptions>[];
 }
 
 export interface QuestionNameMetadata {

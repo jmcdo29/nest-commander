@@ -5,10 +5,11 @@ import { CommanderOptionsType } from './command-factory.interface';
 import {
   CommandMetadata,
   CommandRunner,
+  HelpOptions,
   OptionMetadata,
   RunnerMeta,
 } from './command-runner.interface';
-import { Commander, CommanderOptions, CommandMeta, OptionMeta } from './constants';
+import { Commander, CommanderOptions, CommandMeta, HelpMeta, OptionMeta } from './constants';
 
 export class CommandRunnerService implements OnModuleInit {
   private commandMap: Array<RunnerMeta>;
@@ -40,10 +41,15 @@ export class CommandRunnerService implements OnModuleInit {
           OptionMeta,
           (found) => found.name === provider.discoveredClass.name,
         );
+      const helpProviders = await this.discoveryService.providerMethodsWithMetaAtKey<HelpOptions>(
+        HelpMeta,
+        (found) => found.name === provider.discoveredClass.name,
+      );
       this.commandMap.push({
         command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
         params: optionProviders,
+        help: helpProviders,
       });
     }
   }
@@ -64,6 +70,9 @@ export class CommandRunnerService implements OnModuleInit {
         const handler = option.discoveredMethod.handler.bind(command.instance);
         const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
         newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
+      }
+      for (const help of command.help ?? []) {
+        newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
       }
       newCommand.action(() =>
         command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
