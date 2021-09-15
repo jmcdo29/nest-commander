@@ -6,11 +6,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2017",
-    "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": ".",
     "strict": true,
     "noUnusedLocals": false,
+    "sourceMap": true,
     "lib": ["ES7"],
     "paths": {
       "nest-commander": ["packages/nest-commander/src/index.ts"],
