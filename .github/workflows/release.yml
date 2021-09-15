@@ -29,12 +29,18 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile=false
 
+      - name: Modify Workspace File
+        run: sed -e "s|'packages\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
+      
+      - name: Print pnpm-workspace.yaml
+        run: cat pnpm-workspace.yaml
+      
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@master
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: sed -i -e "s/'packages/'dist/" pnpm-workspace.yaml && pnpm release
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
