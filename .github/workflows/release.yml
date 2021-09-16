@@ -36,7 +36,7 @@ jobs:
         run: pnpm i --frozen-lockfile=false
 
       - name: Build Projects
-        run: pnpm nx run-many -- --target=build --all
+        run: pnpm build
 
       - name: Modify Workspace File
         run: sed -e "s|'packages\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
