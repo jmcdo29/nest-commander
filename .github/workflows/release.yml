@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+env:
+  NX_BRANCH: ${{ github.event.pull_request.head.ref }}
+  NX_RUN_GROUP: ${{ github.run_id }}
+  NX_CLOUD_DISTRIBUTED_EXECUTION: true
+  NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_TOKEN }}
+
 jobs:
   release:
     name: Release
@@ -18,16 +24,19 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v1
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 14.x
         uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 14.x
 
       - name: Install pnpm
         run: npm i -g pnpm
 
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile=false
+
+      - name: Build Projects
+        run: pnpm build:affected
 
       - name: Modify Workspace File
         run: sed -e "s|'packages\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
@@ -44,3 +53,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  nx_agent:
+    runs-on: ubuntu-latest
+    name: Nx Agent
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install pnpm
+        run: npm i -g pnpm
+        
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile=false
+      - run: npx nx-cloud start-agent
