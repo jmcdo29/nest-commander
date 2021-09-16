@@ -80,6 +80,10 @@ For more details on everything that is possible with options, take a look at [`c
 
 You can also make an option completely required, like an argument, by setting `required: true` in the metadata for the option.
 
+## Adding Custom Help
+
+By default, `commander` sets help to the `--help` or `-h` flag. If you need extra help added to the command, you can use the `@Help()` decorator on a class method that returns a string. The valid values for the `@Help()` decorator are `before`, `beforeAll`, `after` and `afterAll`, just like for commander's `addHelpText` method.
+
 ## The Full Command
 
 Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
