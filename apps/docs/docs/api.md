@@ -30,6 +30,14 @@ This method decorator allows for users to pass in extra options for commands def
 | defaultValue | `string or boolean` | false | The default value, if any, for the option |
 | required | `boolean` | false | Make the option required like an argument and the command fail if the option is not provided |
 
+#### @Help()
+
+This method decorator allows you to add custom help text for your command in a specified position with respect to the original help text
+
+```ts
+Help(position: 'before' | 'beforeAll' | 'after' | 'afterAll'): MethodDecorator
+```
+
 ### InquirerService
 
 #### `ask<T>`
