@@ -11,7 +11,7 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  NX_CLOUD_DISTRIBUTED_EXECUTION: ${{ !contains(github.event.pull_request.user.login, 'dependabot') }}
+  NX_CLOUD_DISTRIBUTED_EXECUTION: ${{ !contains(github.event.pull_request.user.login, 'dependabot') && !contains(github.event.pull_request.user.login, 'renovate') }}
   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_TOKEN }}
 
 jobs:
@@ -97,7 +97,7 @@ jobs:
   
   auto-merge:
     needs: pr
-    if: contains(github.event.pull_request.user.login, 'dependabot')
+    if: contains(github.event.pull_request.user.login, 'dependabot') || container(github.event.pull_request.user.login, 'renovate')
     runs-on: ubuntu-latest
     steps:
     - name: automerge
@@ -109,7 +109,7 @@ jobs:
 
   agents:
     runs-on: ubuntu-latest
-    name: Agent 1
+    name: Nx Agent
     timeout-minutes: 60
     strategy:
       matrix:
