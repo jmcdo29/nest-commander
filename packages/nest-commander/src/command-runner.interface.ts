@@ -1,4 +1,5 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
+import { Type } from '@nestjs/common';
 import { CommandOptions } from 'commander';
 import type {
   CheckboxQuestion,
@@ -32,6 +33,7 @@ export interface CommandMetadata {
   description?: string;
   argsDescription?: Record<string, string>;
   options?: CommandOptions;
+  parent?: Array<Type<CommandRunner>>;
 }
 
 export interface OptionMetadata {
