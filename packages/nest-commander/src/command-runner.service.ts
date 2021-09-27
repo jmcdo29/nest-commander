@@ -91,12 +91,12 @@ export class CommandRunnerService implements OnModuleInit {
     newCommand.action(() =>
       command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
     );
-    if (command.command.parent?.length) {
+    if (command.command.subCommands?.length) {
       this.subCommands ??= await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
         SubCommandMeta,
       );
       const subCommandsMetaForCommand = this.subCommands.filter((subMeta) =>
-        command.command.parent
+        command.command.subCommands
           ?.map((subCommand) => subCommand.name)
           .includes(subMeta.discoveredClass.name),
       );

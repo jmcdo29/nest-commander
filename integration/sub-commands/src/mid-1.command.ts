@@ -3,7 +3,7 @@ import { CommandRunner, SubCommand } from 'nest-commander';
 import { LogService } from '../../common/log.service';
 import { BottomCommand } from './bottom.command';
 
-@SubCommand({ name: 'mid-1', parent: [BottomCommand] })
+@SubCommand({ name: 'mid-1', subCommands: [BottomCommand] })
 export class Mid1Command implements CommandRunner {
   constructor(private readonly log: LogService) {}
 

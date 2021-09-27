@@ -33,7 +33,7 @@ export interface CommandMetadata {
   description?: string;
   argsDescription?: Record<string, string>;
   options?: CommandOptions;
-  parent?: Array<Type<CommandRunner>>;
+  subCommands?: Array<Type<CommandRunner>>;
 }
 
 export interface OptionMetadata {
