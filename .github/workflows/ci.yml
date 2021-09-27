@@ -97,7 +97,7 @@ jobs:
   
   auto-merge:
     needs: pr
-    if: contains(github.event.pull_request.user.login, 'dependabot') || container(github.event.pull_request.user.login, 'renovate')
+    if: contains(github.event.pull_request.user.login, 'dependabot') || contains(github.event.pull_request.user.login, 'renovate')
     runs-on: ubuntu-latest
     steps:
     - name: automerge
