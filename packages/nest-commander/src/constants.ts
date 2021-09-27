@@ -1,12 +1,13 @@
-function metaKeyBuilder(suffix: string): string {
+const metaKeyBuilder = (suffix: string): string => {
   return `CommandBuilder:${suffix}`;
-}
+};
 
-function questionMetaBuilder(suffix: string): string {
+const questionMetaBuilder = (suffix: string): string => {
   return metaKeyBuilder(`Question:${suffix}`);
-}
+};
 
 export const CommandMeta = metaKeyBuilder('Command:Meta');
+export const SubCommandMeta = metaKeyBuilder('Subcommand:Meta');
 export const OptionMeta = metaKeyBuilder('Option:Meta');
 export const QuestionSetMeta = metaKeyBuilder('QuestionSet:Meta');
 export const QuestionMeta = questionMetaBuilder('Meta');
