@@ -9,10 +9,17 @@ import {
   OptionMetadata,
   RunnerMeta,
 } from './command-runner.interface';
-import { Commander, CommanderOptions, CommandMeta, HelpMeta, OptionMeta } from './constants';
+import {
+  Commander,
+  CommanderOptions,
+  CommandMeta,
+  HelpMeta,
+  OptionMeta,
+  SubCommandMeta,
+} from './constants';
 
 export class CommandRunnerService implements OnModuleInit {
-  private commandMap: Array<RunnerMeta>;
+  private subCommands?: DiscoveredClassWithMeta<CommandMetadata>[];
   constructor(
     private readonly discoveryService: DiscoveryService,
     @Inject(Commander) private readonly commander: Command,
@@ -21,20 +28,20 @@ export class CommandRunnerService implements OnModuleInit {
     if (options.errorHandler) {
       commander.exitOverride(options.errorHandler);
     }
-    this.commandMap = [];
   }
 
   async onModuleInit() {
     const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
       CommandMeta,
     );
-    await this.populateCommandMapInstances(providers);
-    this.setUpCommander();
+    const commands = await this.populateCommandMapInstances(providers);
+    await this.setUpCommander(commands);
   }
 
   private async populateCommandMapInstances(
     providers: DiscoveredClassWithMeta<CommandMetadata>[],
-  ): Promise<void> {
+  ): Promise<RunnerMeta[]> {
+    const commands: RunnerMeta[] = [];
     for (const provider of providers) {
       const optionProviders =
         await this.discoveryService.providerMethodsWithMetaAtKey<OptionMetadata>(
@@ -45,40 +52,60 @@ export class CommandRunnerService implements OnModuleInit {
         HelpMeta,
         (found) => found.name === provider.discoveredClass.name,
       );
-      this.commandMap.push({
+      commands.push({
         command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
         params: optionProviders,
         help: helpProviders,
       });
     }
+    return commands;
   }
 
-  private setUpCommander(): void {
-    for (const command of this.commandMap) {
-      const newCommand = this.commander.createCommand(command.command.name);
-      if (command.command.arguments) {
-        this.mapArgumentDescriptions(
-          newCommand,
-          command.command.arguments,
-          command.command.argsDescription,
-        );
-      }
-      newCommand.description(command.command.description ?? '');
-      for (const option of command.params) {
-        const { flags, description, defaultValue = undefined, required = false } = option.meta;
-        const handler = option.discoveredMethod.handler.bind(command.instance);
-        const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
-        newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
-      }
-      for (const help of command.help ?? []) {
-        newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
-      }
-      newCommand.action(() =>
-        command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
-      );
+  private async setUpCommander(commands: RunnerMeta[]): Promise<void> {
+    for (const command of commands) {
+      const newCommand = await this.buildCommand(command);
       this.commander.addCommand(newCommand, command.command.options);
     }
+  }
+
+  private async buildCommand(command: RunnerMeta): Promise<Command> {
+    const newCommand = this.commander.createCommand(command.command.name);
+    if (command.command.arguments) {
+      this.mapArgumentDescriptions(
+        newCommand,
+        command.command.arguments,
+        command.command.argsDescription,
+      );
+    }
+    newCommand.description(command.command.description ?? '');
+    for (const option of command.params) {
+      const { flags, description, defaultValue = undefined, required = false } = option.meta;
+      const handler = option.discoveredMethod.handler.bind(command.instance);
+      const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
+      newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
+    }
+    for (const help of command.help ?? []) {
+      newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
+    }
+    newCommand.action(() =>
+      command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
+    );
+    if (command.command.parent?.length) {
+      this.subCommands ??= await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
+        SubCommandMeta,
+      );
+      const subCommandsMetaForCommand = this.subCommands.filter((subMeta) =>
+        command.command.parent
+          ?.map((subCommand) => subCommand.name)
+          .includes(subMeta.discoveredClass.name),
+      );
+      const subCommands = await this.populateCommandMapInstances(subCommandsMetaForCommand);
+      for (const subCommand of subCommands) {
+        newCommand.addCommand(await this.buildCommand(subCommand));
+      }
+    }
+    return newCommand;
   }
 
   private mapArgumentDescriptions(

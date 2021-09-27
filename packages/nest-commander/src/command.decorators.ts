@@ -1,5 +1,4 @@
 import { Type } from '@nestjs/common';
-import { Question } from 'inquirer';
 import {
   CommandMetadata,
   CommandRunner,
@@ -17,12 +16,13 @@ import {
   OptionMeta,
   QuestionMeta,
   QuestionSetMeta,
+  SubCommandMeta,
   TransformMeta,
   ValidateMeta,
   WhenMeta,
 } from './constants';
 
-function applyMethodMetadata(options: any, metadataKey: string): MethodDecorator {
+const applyMethodMetadata = (options: any, metadataKey: string): MethodDecorator => {
   return (
     _target: Record<string, any>,
     _propertyKey: string | symbol,
@@ -31,56 +31,62 @@ function applyMethodMetadata(options: any, metadataKey: string): MethodDecorator
     Reflect.defineMetadata(metadataKey, options, descriptor.value);
     return descriptor;
   };
-}
+};
 
-function applyClassMetadata(options: any, metadataKey: string): ClassDecorator {
+const applyClassMetadata = (options: any, metadataKey: string): ClassDecorator => {
   return (target) => {
     Reflect.defineMetadata(metadataKey, options, target);
     return target;
   };
-}
-export function Command(
+};
+export const Command = (
   options: CommandMetadata,
-): <TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction {
+): (<TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction) => {
   return applyClassMetadata(options, CommandMeta);
-}
+};
 
-export function Option(options: OptionMetadata): MethodDecorator {
+export const SubCommand = (
+  options: CommandMetadata,
+): (<TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction) => {
+  return applyClassMetadata(options, SubCommandMeta);
+};
+
+export const Option = (options: OptionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, OptionMeta);
-}
+};
 
-export function QuestionSet(options: QuestionNameMetadata): ClassDecorator {
+export const QuestionSet = (options: QuestionNameMetadata): ClassDecorator => {
   return applyClassMetadata(options, QuestionSetMeta);
-}
+};
 
-export function Question(options: QuestionMetadata): MethodDecorator {
+export const Question = (options: QuestionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, QuestionMeta);
-}
+};
 
-export function ValidateFor(options: QuestionNameMetadata): MethodDecorator {
+export const ValidateFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, ValidateMeta);
-}
+};
 
-export function TransformFor(options: QuestionNameMetadata): MethodDecorator {
+export const TransformFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, TransformMeta);
-}
+};
 
-export function WhenFor(options: QuestionNameMetadata): MethodDecorator {
+export const WhenFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, WhenMeta);
-}
+};
 
-export function MessageFor(options: QuestionNameMetadata): MethodDecorator {
+export const MessageFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, MessageMeta);
-}
+};
 
-export function ChoicesFor(options: QuestionNameMetadata): MethodDecorator {
+export const ChoicesFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, ChoicesMeta);
-}
+};
 
-export function DefaultFor(options: QuestionNameMetadata): MethodDecorator {
+export const DefaultFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, DefaultMeta);
-}
+};
 
-export function Help(options: HelpOptions): MethodDecorator {
+export const Help = (options: HelpOptions): MethodDecorator => {
   return applyMethodMetadata(options, HelpMeta);
-}
+};
