@@ -84,6 +84,30 @@ You can also make an option completely required, like an argument, by setting `r
 
 By default, `commander` sets help to the `--help` or `-h` flag. If you need extra help added to the command, you can use the `@Help()` decorator on a class method that returns a string. The valid values for the `@Help()` decorator are `before`, `beforeAll`, `after` and `afterAll`, just like for commander's `addHelpText` method.
 
+## Sub Commands
+
+It may also be that you want to add subcommands to your command, similar to `docker compose up`. This is possible with the `@SubCommand()` decorator. Using this decorator, you can have your original implementation for the `@Command()` decorator, with arguments as normal, and you can have sub commands, as specific arguments that take in even more options. With our `run` example above, lets say we wanted to add a subcommand, `foo`. We'd make use of the `parents` option for the `run` command and reference the subcommand class, like so:
+
+```ts
+@Command({
+  name: 'run',
+  arguments: '<task>',
+  subcommands: [FooCommand]
+})
+export class RunCommand implements CommandRunner {}
+```
+
+Now we just make a subcommand with the same metadata options as the `@Command()` decorator
+
+```ts
+@SubCommand({ name: 'foo', arguments: '[phooey]' })
+export class FooCommand implements CommandRunner {
+  // command runner implementation
+}
+```
+
+and now nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
+
 ## The Full Command
 
 Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so

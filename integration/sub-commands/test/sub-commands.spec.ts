@@ -39,6 +39,12 @@ describe('Sub Commands', () => {
     await CommandTestFactory.run(commandModule, [...command]);
     expect(logMock).toBeCalledWith(`${command.join(' ')} command`);
   });
+  it('should still be able to pass arguments', async () => {
+    await CommandTestFactory.run(commandModule, ['top', 'hello!']);
+    expect(logMock).toBeCalledTimes(2);
+    expect(logMock).toHaveBeenNthCalledWith(1, 'top command');
+    expect(logMock).toHaveBeenNthCalledWith(2, ['hello!']);
+  });
   it.each`
     command
     ${'mid-1'}
