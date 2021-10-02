@@ -22,7 +22,7 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v1
+        uses: nrwl/nx-set-shas@v2
 
       - name: Setup Node.js 14.x
         uses: actions/setup-node@master
