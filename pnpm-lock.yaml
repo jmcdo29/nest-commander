@@ -41,7 +41,7 @@ importers:
       eslint: 7.32.0
       eslint-config-prettier: 7.2.0
       eslint-plugin-prettier: 4.0.0
-      husky: 5.2.0
+      husky: 7.0.2
       inquirer: 8.1.5
       jest: 26.6.3
       lint-staged: 11.1.2
@@ -89,7 +89,7 @@ importers:
       eslint: 7.32.0
       eslint-config-prettier: 7.2.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_0a2960bd7a4f04d8d7b91fac9c26a1c0
-      husky: 5.2.0
+      husky: 7.0.2
       inquirer: 8.1.5
       jest: 26.6.3
       lint-staged: 11.1.2
@@ -8737,9 +8737,9 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /husky/5.2.0:
-    resolution: {integrity: sha512-AM8T/auHXRBxlrfPVLKP6jt49GCM2Zz47m8G3FOMsLmTv8Dj/fKVWE0Rh2d4Qrvmy131xEsdQnb3OXRib67PGg==}
-    engines: {node: '>= 10'}
+  /husky/7.0.2:
+    resolution: {integrity: sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==}
+    engines: {node: '>=12'}
     hasBin: true
     dev: true
 
