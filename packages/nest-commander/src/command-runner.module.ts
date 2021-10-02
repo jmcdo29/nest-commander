@@ -13,7 +13,10 @@ export class CommandRunnerModule {
     input: process.stdin,
     output: process.stdout,
   };
-  static forModule(module?: Type<any>, options?: CommanderOptionsType): DynamicModule {
+  static forModule(
+    module?: Type<any> | DynamicModule,
+    options?: CommanderOptionsType,
+  ): DynamicModule {
     return {
       global: true,
       module: CommandRunnerModule,
