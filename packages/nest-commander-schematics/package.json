@@ -26,8 +26,8 @@
   "dependencies": {
     "@angular-devkit/core": "12.0.5",
     "@angular-devkit/schematics": "12.0.5",
-    "@nestjs/schematics": "^8.0.0",
-    "rxjs": "^7.0.0",
-    "typescript": "^4.1.2"
+    "@nestjs/schematics": "8.0.3",
+    "rxjs": "7.3.1",
+    "typescript": "4.4.3"
   }
 }
