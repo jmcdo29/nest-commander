@@ -174,6 +174,8 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 | --- | --- | --- | --- |
 | logger | `NestLogger` | false | A logger instance to use with the CommandFactory. Defaults to `false` to turn off the initialization logs |
 | errorHandler | `Function` | false | A custom error handler that takes in an `Error` and returns `void` synchronously. |
+| usePlugins | `Boolean` | false | The choice of if the built CLI should look for a config file and plugins or not |
+| cliName | `String` | nest-commander | The name of the CLI and the prefix for the config file to be looked for |
 
 ## nest-commander-testing
 
