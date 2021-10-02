@@ -1,5 +1,17 @@
 # nest-commander
 
+## 2.3.0
+
+### Minor Changes
+
+- 6c9eaa3: Commands can now be built with the expectation of reading in plugins to dynamically modify the CLI
+
+  By using the `usePlugins` option for the `CommandFactory`, the built CLI can expect to find a configuration file at `nest-commander.json` (or several others, check the docs) to allow for users to plug commands in after the CLI is built.
+
+- 13723bd: Subcommands can now be created
+
+  There's a new decorator, `@SubCommand()` for creating nested commands like `docker compose up`. There's also a new option on `@Command()` (`subCommands`) for setting up this sub command relationship.
+
 ## 2.2.0
 
 ### Minor Changes
