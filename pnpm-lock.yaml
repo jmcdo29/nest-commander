@@ -44,7 +44,7 @@ importers:
       husky: 7.0.2
       inquirer: 8.1.5
       jest: 26.6.3
-      lint-staged: 11.1.2
+      lint-staged: 11.2.0
       pinst: 2.1.6
       prettier: 2.4.1
       react: 17.0.2
@@ -92,7 +92,7 @@ importers:
       husky: 7.0.2
       inquirer: 8.1.5
       jest: 26.6.3
-      lint-staged: 11.1.2
+      lint-staged: 11.2.0
       pinst: 2.1.6
       prettier: 2.4.1
       react: 17.0.2
@@ -6566,6 +6566,19 @@ packages:
       supports-color: 6.1.0
     dev: true
 
+  /debug/4.3.2_supports-color@8.1.1:
+    resolution: {integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+      supports-color: 8.1.1
+    dev: true
+
   /decamelize-keys/1.1.0:
     resolution: {integrity: sha1-0XGoeTMlKAfrPLYdwcFEXQeN8tk=}
     engines: {node: '>=0.10.0'}
@@ -10560,30 +10573,28 @@ packages:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
     dev: true
 
-  /lint-staged/11.1.2:
-    resolution: {integrity: sha512-6lYpNoA9wGqkL6Hew/4n1H6lRqF3qCsujVT0Oq5Z4hiSAM7S6NksPJ3gnr7A7R52xCtiZMcEUNNQ6d6X5Bvh9w==}
+  /lint-staged/11.2.0:
+    resolution: {integrity: sha512-0KIcRuO4HQS2Su7qWtjrfTXgSklvyIb9Fk9qVWRZkGHa5S81Vj6WBbs+ogQBvHUwLJYq1eQ4R+H82GSak4OM7w==}
     hasBin: true
     dependencies:
-      chalk: 4.1.2
       cli-truncate: 2.1.0
-      commander: 7.2.0
+      colorette: 1.4.0
+      commander: 8.2.0
       cosmiconfig: 7.0.1
-      debug: 4.3.2
+      debug: 4.3.2_supports-color@8.1.1
       enquirer: 2.3.6
       execa: 5.1.1
-      listr2: 3.12.0_enquirer@2.3.6
-      log-symbols: 4.1.0
+      listr2: 3.12.2_enquirer@2.3.6
       micromatch: 4.0.4
       normalize-path: 3.0.0
       please-upgrade-node: 3.2.0
       string-argv: 0.3.1
       stringify-object: 3.3.0
-    transitivePeerDependencies:
-      - supports-color
+      supports-color: 8.1.1
     dev: true
 
-  /listr2/3.12.0_enquirer@2.3.6:
-    resolution: {integrity: sha512-DLaOIhIBXxSDGfAuGyQPsQs6XPIJrUE1MaNYBq8aUS3bulSAEl9RMNNuRbfdxonTizL5ztAYvCZKKnP3gFSvYg==}
+  /listr2/3.12.2_enquirer@2.3.6:
+    resolution: {integrity: sha512-64xC2CJ/As/xgVI3wbhlPWVPx0wfTqbUAkpb7bjDi0thSWMqrf07UFhrfsGoo8YSXmF049Rp9C0cjLC8rZxK9A==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       enquirer: '>= 2.3.0 < 3'
