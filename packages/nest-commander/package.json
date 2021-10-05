@@ -24,7 +24,7 @@
   "dependencies": {
     "@golevelup/nestjs-discovery": "2.3.1",
     "commander": "8.2.0",
-    "inquirer": "8.1.5"
+    "inquirer": "8.2.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0",
