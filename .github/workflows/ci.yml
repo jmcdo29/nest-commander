@@ -70,24 +70,16 @@ jobs:
     name: Analyze
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ['javascript']
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
-    - run: git checkout HEAD^2
-      if: ${{ github.event_name == 'pull_request' }}
-
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
-        languages: ${{ matrix.language }}
+        languages: javascript
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1
@@ -110,7 +102,6 @@ jobs:
   agents:
     runs-on: ubuntu-latest
     name: Nx Agent
-    timeout-minutes: 60
     strategy:
       matrix:
         agent: [ 1, 2, 3 ]
