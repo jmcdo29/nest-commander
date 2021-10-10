@@ -36,9 +36,9 @@
   },
   "homepage": "https://github.com/jmcdo29/nest-commander#readme",
   "devDependencies": {
-    "@angular-devkit/core": "12.2.8",
-    "@angular-devkit/schematics": "12.2.8",
-    "@angular-devkit/schematics-cli": "12.2.8",
+    "@angular-devkit/core": "12.2.9",
+    "@angular-devkit/schematics": "12.2.9",
+    "@angular-devkit/schematics-cli": "12.2.9",
     "@changesets/cli": "2.17.0",
     "@commitlint/cli": "13.2.0",
     "@commitlint/config-conventional": "13.2.0",
