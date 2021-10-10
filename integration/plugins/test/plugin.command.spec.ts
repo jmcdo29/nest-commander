@@ -37,7 +37,7 @@ describe('Plugin Command Runner', () => {
     expect(exitStub).toBeCalledWith(1);
     expect(processSpy).toBeCalledWith(
       expect.stringContaining(
-        'nest-commander is expecting to use plugins, but no configuration file for plugins found. Are you in the right directory?',
+        "nest-commander is expecting a configuration file, but didn't find one. Are you in the right directory?",
       ),
     );
     process.exit = exit;
