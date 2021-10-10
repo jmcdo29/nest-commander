@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 overrides:
-  terser: ^5.0.0
+  terser: ^4.0.0
 
 importers:
 
@@ -8634,7 +8634,7 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.9.0
+      terser: 4.8.0
     dev: true
 
   /html-tags/3.1.0:
@@ -14618,7 +14618,7 @@ packages:
       schema-utils: 1.0.0
       serialize-javascript: 4.0.0
       source-map: 0.6.1
-      terser: 5.9.0
+      terser: 4.8.0
       webpack: 4.46.0
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
@@ -14645,7 +14645,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 5.9.0
+      terser: 4.8.0
       webpack: 5.45.1
     dev: true
 
@@ -14670,17 +14670,17 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 5.9.0
+      terser: 4.8.0
       webpack: 5.52.1
     dev: true
 
-  /terser/5.9.0:
-    resolution: {integrity: sha512-h5hxa23sCdpzcye/7b8YqbE5OwKca/ni0RQz1uRX3tGh8haaGHqcuSqbGRybuAKNdntZ0mDgFNXPJ48xQ2RXKQ==}
-    engines: {node: '>=10'}
+  /terser/4.8.0:
+    resolution: {integrity: sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==}
+    engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
       commander: 2.20.3
-      source-map: 0.7.3
+      source-map: 0.6.1
       source-map-support: 0.5.20
     dev: true
 
