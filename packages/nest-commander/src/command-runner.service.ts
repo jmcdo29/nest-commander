@@ -21,17 +21,12 @@ import {
 
 export class CommandRunnerService implements OnModuleInit {
   private subCommands?: DiscoveredClassWithMeta<CommandMetadata>[];
-  private readonly commander: Command;
-  private readonly options: CommanderOptionsType;
 
   constructor(
     private readonly discoveryService: DiscoveryService,
-    @Inject(Commander) commander: Command,
-    @Inject(CommanderOptions) options: CommanderOptionsType,
-  ) {
-    this.commander = commander;
-    this.options = options;
-  }
+    @Inject(Commander) private readonly commander: Command,
+    @Inject(CommanderOptions) private readonly options: CommanderOptionsType,
+  ) {}
 
   async onModuleInit() {
     const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
