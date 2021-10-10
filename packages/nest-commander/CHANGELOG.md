@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.3.1
+
+### Patch Changes
+
+- 478c0d9: Make commands built with `usePlugins: true` not exit on non-found config file, just log extra data when an error happens
+
 ## 2.3.0
 
 ### Minor Changes
