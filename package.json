@@ -9,11 +9,11 @@
     "format": "prettier \"{packages,integration}/**/{src,test}/*.ts\"",
     "format:check": "pnpm format -- --check",
     "format:write": "pnpm format -- --write",
-    "test:int": "nx run-many --target=e2e --all",
     "postinstall": "husky install",
     "release": "changeset publish",
     "nx": "nx",
-    "deploy": "nx deploy docs"
+    "deploy": "nx deploy docs",
+    "e2e": "nx e2e integration"
   },
   "private": true,
   "repository": {
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/jmcdo29/nest-commander/issues"
   },
-  "homepage": "https://github.com/jmcdo29/nest-commander#readme",
+  "homepage": "https://jmcdo29.github.io/nest-commander",
   "devDependencies": {
     "@angular-devkit/core": "12.2.8",
     "@angular-devkit/schematics": "12.2.8",
