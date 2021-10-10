@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.17.0
-      '@commitlint/cli': 13.2.0
+      '@commitlint/cli': 13.2.1
       '@commitlint/config-conventional': 13.2.0
       '@docusaurus/core': 2.0.0-beta.6
       '@docusaurus/preset-classic': 2.0.0-beta.6
@@ -59,7 +59,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.17.0
-      '@commitlint/cli': 13.2.0_typescript@4.4.3
+      '@commitlint/cli': 13.2.1
       '@commitlint/config-conventional': 13.2.0
       '@docusaurus/core': 2.0.0-beta.6_react-dom@17.0.2+react@17.0.2
       '@docusaurus/preset-classic': 2.0.0-beta.6_react-dom@17.0.2+react@17.0.2
@@ -85,7 +85,7 @@ importers:
       commander: 8.2.0
       conventional-changelog-cli: 2.1.1
       cosmiconfig: 7.0.1
-      cz-conventional-changelog: 3.3.0_typescript@4.4.3
+      cz-conventional-changelog: 3.3.0
       eslint: 7.32.0
       eslint-config-prettier: 7.2.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_0a2960bd7a4f04d8d7b91fac9c26a1c0
@@ -1883,22 +1883,20 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@commitlint/cli/13.2.0_typescript@4.4.3:
-    resolution: {integrity: sha512-RqG0cxxiwaL9OgQbA2ZEfZaVIRJmbtsZgnj5G07AjN7///s/40grSN4/kDl8YjUgvAZskPfJRoGGYNvHJ4zHWA==}
+  /@commitlint/cli/13.2.1:
+    resolution: {integrity: sha512-JGzYk2ay5JkRS5w+FLQzr0u/Kih52ds4HPpa3vnwVOQN8Q+S1VYr8Nk/6kRm6uNYsAcC1nejtuDxRdLcLh/9TA==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
       '@commitlint/format': 13.2.0
       '@commitlint/lint': 13.2.0
-      '@commitlint/load': 13.2.0_typescript@4.4.3
+      '@commitlint/load': 13.2.1
       '@commitlint/read': 13.2.0
       '@commitlint/types': 13.2.0
       lodash: 4.17.21
       resolve-from: 5.0.0
       resolve-global: 1.0.0
       yargs: 17.2.1
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /@commitlint/config-conventional/13.2.0:
@@ -1947,8 +1945,8 @@ packages:
       '@commitlint/types': 13.2.0
     dev: true
 
-  /@commitlint/load/13.2.0_typescript@4.4.3:
-    resolution: {integrity: sha512-Nhkv+hwWCCxWGjmE9jd1U8kfGGCkZVpwzlTtdKxpY+Aj2VCFg3BjY+qA81pMF3oAsIpxchSaZG5llb8kduVjYg==}
+  /@commitlint/load/13.2.1:
+    resolution: {integrity: sha512-qlaJkj0hfa9gtWRfCfbgFBTK3GYQRmjZhba4l9mUu4wV9lEZ4ICFlrLtd/8kaLXf/8xbrPhkAPkVFOAqM0YwUQ==}
     engines: {node: '>=v12'}
     dependencies:
       '@commitlint/execute-rule': 13.2.0
@@ -1959,8 +1957,7 @@ packages:
       cosmiconfig: 7.0.1
       lodash: 4.17.21
       resolve-from: 5.0.0
-    transitivePeerDependencies:
-      - typescript
+      typescript: 4.4.3
     dev: true
 
   /@commitlint/message/13.2.0:
@@ -5775,13 +5772,13 @@ packages:
     resolution: {integrity: sha512-LLKxDvHeL91/8MIyTAD5BFMNtoIwztGPMiM/7Bl8rIPmHCZXRxmSWr91h57dpOpnQ6jIUqEWdXE/uBYMfiVZDA==}
     engines: {node: '>= 12'}
 
-  /commitizen/4.2.4_typescript@4.4.3:
+  /commitizen/4.2.4:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
     engines: {node: '>= 10'}
     hasBin: true
     dependencies:
       cachedir: 2.2.0
-      cz-conventional-changelog: 3.2.0_typescript@4.4.3
+      cz-conventional-changelog: 3.2.0
       dedent: 0.7.0
       detect-indent: 6.0.0
       find-node-modules: 2.1.2
@@ -5794,8 +5791,6 @@ packages:
       minimist: 1.2.5
       strip-bom: 4.0.0
       strip-json-comments: 3.0.1
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /commondir/1.0.1:
@@ -6515,36 +6510,32 @@ packages:
     resolution: {integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=}
     dev: true
 
-  /cz-conventional-changelog/3.2.0_typescript@4.4.3:
+  /cz-conventional-changelog/3.2.0:
     resolution: {integrity: sha512-yAYxeGpVi27hqIilG1nh4A9Bnx4J3Ov+eXy4koL3drrR+IO9GaWPsKjik20ht608Asqi8TQPf0mczhEeyAtMzg==}
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.2.4_typescript@4.4.3
+      commitizen: 4.2.4
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 13.2.0_typescript@4.4.3
-    transitivePeerDependencies:
-      - typescript
+      '@commitlint/load': 13.2.1
     dev: true
 
-  /cz-conventional-changelog/3.3.0_typescript@4.4.3:
+  /cz-conventional-changelog/3.3.0:
     resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.2.4_typescript@4.4.3
+      commitizen: 4.2.4
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 13.2.0_typescript@4.4.3
-    transitivePeerDependencies:
-      - typescript
+      '@commitlint/load': 13.2.1
     dev: true
 
   /dargs/7.0.0:
