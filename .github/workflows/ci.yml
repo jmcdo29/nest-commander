@@ -37,7 +37,7 @@ jobs:
       - name: Build Projects
         run: pnpm build
       - name: Test Projects
-        run: pnpm test:int
+        run: pnpm e2e
       - run: pnpm nx-cloud stop-all-agents
       - name: Tag main branch if all jobs succeed
         uses: nrwl/nx-tag-successful-ci-run@v1
@@ -63,7 +63,7 @@ jobs:
       - name: Build Projects
         run: pnpm build
       - name: Test Projects
-        run: pnpm test:int
+        run: pnpm e2e
       - run: pnpm nx-cloud stop-all-agents
   
   analyze:
