@@ -52,8 +52,8 @@ import { PluginModule } from './plugin.module';
 export default PluginModule;
 ```
 
-:::warning
+:::info
 
-If the users of your CLI do not have a config file, an error will be thrown. `nest-commander` expects that if `usePlugins` is `true` that there **will** be a config file.
+If the command you've built uses `usePlugins: true` and a config file is not found, commander will still be allowed to try and execute the command given. If an error ends up being thrown, such as a command not found error, then the user of the CLI will get a warning about a possible config file missing, along with commander's standard help message.
 
 :::
