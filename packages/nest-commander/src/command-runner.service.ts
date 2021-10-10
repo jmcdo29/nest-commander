@@ -21,20 +21,16 @@ import {
 
 export class CommandRunnerService implements OnModuleInit {
   private subCommands?: DiscoveredClassWithMeta<CommandMetadata>[];
+  private readonly commander: Command;
+  private readonly options: CommanderOptionsType;
+
   constructor(
     private readonly discoveryService: DiscoveryService,
-    @Inject(Commander) private readonly commander: Command,
+    @Inject(Commander) commander: Command,
     @Inject(CommanderOptions) options: CommanderOptionsType,
   ) {
-    if (options.usePlugins) {
-      commander.showHelpAfterError(`
-${commander.helpInformation()}
-${cliPluginError(options.cliName ?? 'nest-commander')}
-`);
-    }
-    if (options.errorHandler) {
-      commander.exitOverride(options.errorHandler);
-    }
+    this.commander = commander;
+    this.options = options;
   }
 
   async onModuleInit() {
@@ -43,6 +39,16 @@ ${cliPluginError(options.cliName ?? 'nest-commander')}
     );
     const commands = await this.populateCommandMapInstances(providers);
     await this.setUpCommander(commands);
+    
+    if (this.options.usePlugins) {
+      this.commander.showHelpAfterError(`
+      ${this.commander.helpInformation()}
+${cliPluginError(this.options.cliName ?? 'nest-commander')}
+      `);     
+    }
+    if (this.options.errorHandler) {
+      this.commander.exitOverride(this.options.errorHandler);
+    }
   }
 
   private async populateCommandMapInstances(
