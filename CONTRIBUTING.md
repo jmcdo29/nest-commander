@@ -26,7 +26,7 @@ And now you should be good to go
 
 ### Making changes
 
-Generally changes and improvements are appreciated, especially if they make logic less complex or they end up causing [codebeat](https://codebeat.co/) report a major (greater than .2) loss in code GPA. Other than that, follow the lint rules set up in the project, and make sure the git hooks run before [opening a Pull Request](https://github.com/jmcdo29/nest-commander/compare). Also, make sure if it's a new feature or a bug fix that a test is added to the integration tests.
+Generally changes and improvements are appreciated, especially if they make logic less complex or they end up causing [codebeat](https://codebeat.co/) report a major (greater than .2) loss in code GPA. Other than that, follow the lint rules set up in the project, and make sure the git hooks run before [opening a Pull Request](https://github.com/jmcdo29/nest-commander/compare). Also, make sure if it's a new feature or a bug fix that a test is added to the integration tests. Lastly, please resolve any merge conflicts by [rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). The easiest way to go about this is to use `git pull --rebase upstream main` where `upstream` is a remote set to `https://github.com/jmcdo29/nest-commander.git` or `git@github.com:jmcdo29/nest-commander.git` depending on if you use HTTPS or SSH with your git client.
 
 #### Adding a Changeset
 
