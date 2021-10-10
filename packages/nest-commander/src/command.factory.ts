@@ -1,4 +1,4 @@
-import { INestApplicationContext, Type } from '@nestjs/common';
+import { INestApplicationContext, LoggerService, Type } from '@nestjs/common';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { NestFactory } from '@nestjs/core';
 import { cosmiconfig } from 'cosmiconfig';
@@ -6,11 +6,6 @@ import { CommandFactoryRunOptions, NestLogger } from './command-factory.interfac
 import { CommandRootModule } from './command-root.module';
 import { CommandRunnerModule } from './command-runner.module';
 import { CommandRunnerService } from './command-runner.service';
-import { cliPluginError } from './constants';
-
-const isNil = (val: any) => {
-  return val === undefined || val === null;
-};
 
 export class CommandFactory {
   static async run(
@@ -53,7 +48,7 @@ export class CommandFactory {
     const app = await NestFactory.createApplicationContext(
       CommandRunnerModule.forModule(
         { module: CommandRootModule, imports },
-        { errorHandler: tempHandler },
+        { errorHandler: tempHandler, usePlugins: usePlugins, cliName },
       ),
       {
         logger,
@@ -67,11 +62,10 @@ export class CommandFactory {
   private static isFactoryOptionsObject(
     loggerOrOptions: CommandFactoryRunOptions | NestLogger,
   ): loggerOrOptions is CommandFactoryRunOptions {
-    return (
-      loggerOrOptions &&
-      (!isNil((loggerOrOptions as CommandFactoryRunOptions).logger) ||
-        !isNil((loggerOrOptions as CommandFactoryRunOptions).errorHandler) ||
-        !isNil((loggerOrOptions as CommandFactoryRunOptions).usePlugins))
+    return !(
+      Array.isArray(loggerOrOptions) ||
+      loggerOrOptions === false ||
+      !!(loggerOrOptions as LoggerService).log
     );
   }
 
@@ -91,9 +85,6 @@ export class CommandFactory {
       ],
     });
     const pluginConfig = await pluginExplorer.search();
-    if (!pluginConfig || pluginConfig?.isEmpty) {
-      throw new Error(cliPluginError(cliName));
-    }
     for (const pluginPath of pluginConfig?.config.plugins ?? []) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const plugin = require(require.resolve(pluginPath, { paths: [process.cwd()] }));
