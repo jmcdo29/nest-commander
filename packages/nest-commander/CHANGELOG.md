@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.3.2
+
+### Patch Changes
+
+- 3c43005: fix: move plugin error code to onModuleInit
+
 ## 2.3.1
 
 ### Patch Changes
