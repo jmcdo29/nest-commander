@@ -27,4 +27,19 @@ describe('Plugin Command Runner', () => {
     await CommandFactory.run(FooModule, { usePlugins: true, cliName: 'custom-name' });
     expect(processSpy).toBeCalledWith('This is from the plugin!');
   });
+  it('should write a message about not being able to find the config', async () => {
+    const processSpy = jest.spyOn(process.stderr, 'write');
+    const exit = process.exit;
+    const exitStub = jest.fn();
+    process.exit = exitStub as any;
+    process.argv = [process.argv0, join(__dirname, 'plugin.command.js'), 'foo'];
+    await CommandFactory.run(FooModule, { usePlugins: true });
+    expect(exitStub).toBeCalledWith(1);
+    expect(processSpy).toBeCalledWith(
+      expect.stringContaining(
+        'nest-commander is expecting to use plugins, but no configuration file for plugins found. Are you in the right directory?',
+      ),
+    );
+    process.exit = exit;
+  });
 });

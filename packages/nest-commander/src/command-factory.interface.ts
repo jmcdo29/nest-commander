@@ -12,4 +12,6 @@ export interface CommandFactoryRunOptions {
 
 export interface CommanderOptionsType {
   errorHandler?: ErrorHandler;
+  usePlugins?: boolean;
+  cliName?: string;
 }

@@ -10,6 +10,7 @@ import {
   RunnerMeta,
 } from './command-runner.interface';
 import {
+  cliPluginError,
   Commander,
   CommanderOptions,
   CommandMeta,
@@ -25,6 +26,12 @@ export class CommandRunnerService implements OnModuleInit {
     @Inject(Commander) private readonly commander: Command,
     @Inject(CommanderOptions) options: CommanderOptionsType,
   ) {
+    if (options.usePlugins) {
+      commander.showHelpAfterError(`
+${commander.helpInformation()}
+${cliPluginError(options.cliName ?? 'nest-commander')}
+`);
+    }
     if (options.errorHandler) {
       commander.exitOverride(options.errorHandler);
     }
