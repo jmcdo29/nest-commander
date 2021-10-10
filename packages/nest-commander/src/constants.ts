@@ -22,4 +22,4 @@ export const CommanderOptions = Symbol('CommanderOptions');
 export const Inquirer = Symbol('Inquirer');
 export const HelpMeta = metaKeyBuilder('Command:Help');
 export const cliPluginError = (cliName = 'nest-commander') =>
-  `${cliName} is expecting to use plugins, but no configuration file for plugins found. Are you in the right directory?`;
+  `${cliName} is expecting a configuration file, but didn't find one. Are you in the right directory?`;
