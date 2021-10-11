@@ -25,5 +25,4 @@ export const cliPluginError = (cliName = 'nest-commander', pluginsAvailable = tr
   return pluginsAvailable
     ? ''
     : `${cliName} is expecting a configuration file, but didn't find one. Are you in the right directory?`;
-}
- 
+};
