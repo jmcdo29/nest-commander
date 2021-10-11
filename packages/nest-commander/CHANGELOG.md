@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.3.3
+
+### Patch Changes
+
+- 8285a98: missing config file warning doesn't show
+
 ## 2.3.2
 
 ### Patch Changes
