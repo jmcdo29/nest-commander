@@ -8,6 +8,8 @@ on:
 jobs:
   changes:
     runs-on: ubuntu-latest
+    outputs:
+      - files
     steps:
       - name: Get All Added and Modified Field
         id: files
