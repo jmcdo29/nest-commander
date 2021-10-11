@@ -1,8 +1,13 @@
 import { INestApplicationContext, LoggerService, Type } from '@nestjs/common';
-import { ModuleMetadata } from '@nestjs/common/interfaces';
+import { DynamicModule, ModuleMetadata } from '@nestjs/common/interfaces';
 import { NestFactory } from '@nestjs/core';
 import { cosmiconfig } from 'cosmiconfig';
-import { CommandFactoryRunOptions, NestLogger } from './command-factory.interface';
+import {
+  CommanderOptionsType,
+  CommandFactoryRunOptions,
+  DefinedCommandFactoryRunOptions,
+  NestLogger,
+} from './command-factory.interface';
 import { CommandRootModule } from './command-root.module';
 import { CommandRunnerModule } from './command-runner.module';
 import { CommandRunnerService } from './command-runner.service';
@@ -27,6 +32,32 @@ export class CommandFactory {
     rootModule: Type<any>,
     optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
   ): Promise<INestApplicationContext> {
+    const options = this.getOptions(optionsOrLogger);
+
+    const imports: ModuleMetadata['imports'] = [rootModule];
+    let pluginsAvailable = false;
+    if (options.usePlugins) {
+      pluginsAvailable = await this.registerPlugins(options.cliName, imports);
+    }
+    const commandRunnerModule = this.createCommandModule(imports, { ...options, pluginsAvailable });
+    const app = await NestFactory.createApplicationContext(commandRunnerModule, {
+      logger: options.logger,
+    });
+    const runner = app.get(CommandRunnerService);
+    await runner.run();
+    return app;
+  }
+
+  private static createCommandModule(
+    imports: ModuleMetadata['imports'],
+    options: CommanderOptionsType,
+  ): DynamicModule {
+    return CommandRunnerModule.forModule({ module: CommandRootModule, imports }, options);
+  }
+
+  private static getOptions(
+    optionsOrLogger: CommandFactoryRunOptions | NestLogger,
+  ): DefinedCommandFactoryRunOptions {
     let logger: NestLogger | undefined;
     let tempHandler: ((err: Error) => void) | undefined;
     let usePlugins = false;
@@ -41,28 +72,7 @@ export class CommandFactory {
     } else {
       logger = optionsOrLogger;
     }
-    const imports: ModuleMetadata['imports'] = [rootModule];
-    let pluginsAvailable = false;
-    if (usePlugins) {
-      pluginsAvailable = await this.registerPlugins(cliName, imports);
-    }
-    const app = await NestFactory.createApplicationContext(
-      CommandRunnerModule.forModule(
-        { module: CommandRootModule, imports },
-        {
-          errorHandler: tempHandler,
-          usePlugins: usePlugins,
-          cliName,
-          pluginsAvailable
-        },
-      ),
-      {
-        logger,
-      },
-    );
-    const runner = app.get(CommandRunnerService);
-    await runner.run();
-    return app;
+    return { logger, errorHandler: tempHandler, usePlugins, cliName };
   }
 
   private static isFactoryOptionsObject(
@@ -92,8 +102,8 @@ export class CommandFactory {
     });
     const pluginConfig = await pluginExplorer.search();
     if (!pluginConfig) {
-      return false
-    } 
+      return false;
+    }
     for (const pluginPath of pluginConfig?.config.plugins ?? []) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const plugin = require(require.resolve(pluginPath, { paths: [process.cwd()] }));

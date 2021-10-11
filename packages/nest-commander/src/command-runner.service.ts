@@ -125,11 +125,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     const splitArgs = args.split(' ');
     for (const arg of splitArgs) {
       let added = false;
-      for (const key of Object.keys(argDescriptions)) {
-        if (arg.includes(key)) {
-          added = true;
-          trueArgDefs[arg] = argDescriptions[key];
-        }
+      for (const key of Object.keys(argDescriptions).filter((key) => arg.includes(key))) {
+        added = true;
+        trueArgDefs[arg] = argDescriptions[key];
       }
       command.argument(arg, added ? trueArgDefs[arg] : '');
     }

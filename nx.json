@@ -14,7 +14,8 @@
       "options": {
         "cacheableOperations": ["build", "test", "lint", "package", "prepare", "e2e"],
         "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "accessToken": "MzRiYTQyYzMtNmQ2Zi00YjE1LWJhNTgtOTIxNDM0ZGU4YjMyfHJlYWQtd3JpdGU="
       }
     }
   },
