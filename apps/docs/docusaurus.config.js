@@ -46,7 +46,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Nest Commander Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Jay McDoniel Built with Docusaurus.`,
     },
   },
   presets: [
@@ -55,7 +55,6 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl: 'https://github.com/jmcdo29/nest-commander/edit/main/apps/docs/',
         },
         theme: {
