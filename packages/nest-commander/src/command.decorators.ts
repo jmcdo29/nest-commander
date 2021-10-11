@@ -22,6 +22,10 @@ import {
   WhenMeta,
 } from './constants';
 
+type CommandDecorator = <TFunction extends Type<CommandRunner>>(
+  target: TFunction,
+) => void | TFunction;
+
 const applyMethodMetadata = (options: any, metadataKey: string): MethodDecorator => {
   return (
     _target: Record<string, any>,
@@ -39,15 +43,11 @@ const applyClassMetadata = (options: any, metadataKey: string): ClassDecorator =
     return target;
   };
 };
-export const Command = (
-  options: CommandMetadata,
-): (<TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction) => {
+export const Command = (options: CommandMetadata): CommandDecorator => {
   return applyClassMetadata(options, CommandMeta);
 };
 
-export const SubCommand = (
-  options: CommandMetadata,
-): (<TFunction extends Type<CommandRunner>>(target: TFunction) => void | TFunction) => {
+export const SubCommand = (options: CommandMetadata): CommandDecorator => {
   return applyClassMetadata(options, SubCommandMeta);
 };
 
