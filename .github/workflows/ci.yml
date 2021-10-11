@@ -31,7 +31,7 @@ jobs:
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Install deps
-        run: pnpm i --frozen-lockfile=false
+        run: pnpm i
       - name: Lint
         run: pnpm lint
       - name: Build Projects
@@ -57,7 +57,7 @@ jobs:
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Install deps
-        run: pnpm i --frozen-lockfile=false
+        run: pnpm i
       - name: Lint
         run: pnpm lint
       - name: Build Projects
@@ -113,6 +113,6 @@ jobs:
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Install deps
-        run: pnpm i --frozen-lockfile=false
+        run: pnpm i
       - name: Start Nx Agent ${{ matrix.agent }}
         run: pnpm nx-cloud start-agent

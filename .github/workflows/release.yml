@@ -18,7 +18,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
         with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
@@ -32,7 +31,7 @@ jobs:
         run: npm i -g pnpm
 
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile=false
+        run: pnpm i
 
       - name: Build Projects
         run: pnpm build
@@ -52,7 +51,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Stop Nx Cloud Agents
-        run: pnpx -y nx-cloud stop-all-agents
+        run: pnpm -y nx-cloud stop-all-agents
 
   nx_agent:
     runs-on: ubuntu-latest
@@ -67,5 +66,5 @@ jobs:
         run: npm i -g pnpm
         
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile=false
-      - run: npx nx-cloud start-agent
+        run: pnpm i
+      - run: pnpm nx-cloud start-agent

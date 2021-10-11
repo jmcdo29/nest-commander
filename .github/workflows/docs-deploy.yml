@@ -31,7 +31,7 @@ jobs:
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Dependencies Install
-        run: pnpm i --frozen-lockfile=false
+        run: pnpm i
       - name: Build Docs
         run: pnpm nx build docs
       - uses: webfactory/ssh-agent@v0.5.3
