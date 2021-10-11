@@ -9,7 +9,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      - files
+      files: ${{ steps.output.outputs.files }}
     steps:
       - name: Get All Added and Modified Field
         id: files
@@ -17,6 +17,7 @@ jobs:
       - name: Echo contains
         run: echo ${{ contains(steps.files.outputs.added_modified, 'apps/docs/')  }}
       - name: Set output
+        id: output
         run: echo "::set-output name=files::${{ contains(steps.files.outputs.added_modified, 'apps/docs/') }}"
   docs-deploy:
     runs-on: ubuntu-latest
