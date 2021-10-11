@@ -3,7 +3,7 @@ import { LogService } from '../../common/log.service';
 
 @Command({
   name: 'phooey',
-  description: 'This is a phooey command.'
+  description: 'This is a phooey command.',
 })
 export class FooCommand implements CommandRunner {
   constructor(private readonly log: LogService) {}

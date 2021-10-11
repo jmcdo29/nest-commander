@@ -34,7 +34,7 @@ export class CommandRunnerService implements OnModuleInit {
     );
     const commands = await this.populateCommandMapInstances(providers);
     await this.setUpCommander(commands);
-    
+
     if (this.options.usePlugins) {
       this.commander.showHelpAfterError(`
 ${this.commander.helpInformation()}
