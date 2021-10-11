@@ -32,11 +32,27 @@ describe('Plugin Command Runner', () => {
     const exit = process.exit;
     const exitStub = jest.fn();
     process.exit = exitStub as any;
-    process.argv = [process.argv0, join(__dirname, 'plugin.command.js'), 'foo'];
+    process.argv = [process.argv[0], join(__dirname, 'plugin.command.js'), 'foo'];
     await CommandFactory.run(FooModule, { usePlugins: true });
     expect(exitStub).toBeCalledWith(1);
     expect(processSpy).toBeCalledWith(
       expect.stringContaining(
+        "nest-commander is expecting a configuration file, but didn't find one. Are you in the right directory?",
+      ),
+    );
+    process.exit = exit;
+  });
+  it('should error, but not write a message about missing config file', async () => {
+    const processSpy = jest.spyOn(process.stderr, 'write');
+    const exit = process.exit;
+    const exitStub = jest.fn();
+    process.exit = exitStub as any;
+    process.argv = [process.argv[0], join(__dirname, 'plugin.command.js'), 'bar'];
+    jest.spyOn(process, 'cwd').mockReturnValue(join(__dirname, '..'));
+    await CommandFactory.run(FooModule, { usePlugins: true });
+    expect(exitStub).toBeCalledWith(1);
+    expect(processSpy).toBeCalledWith(
+      expect.not.stringContaining(
         "nest-commander is expecting a configuration file, but didn't find one. Are you in the right directory?",
       ),
     );

@@ -21,5 +21,9 @@ export const Commander = Symbol('Commander');
 export const CommanderOptions = Symbol('CommanderOptions');
 export const Inquirer = Symbol('Inquirer');
 export const HelpMeta = metaKeyBuilder('Command:Help');
-export const cliPluginError = (cliName = 'nest-commander') =>
-  `${cliName} is expecting a configuration file, but didn't find one. Are you in the right directory?`;
+export const cliPluginError = (cliName = 'nest-commander', pluginsAvailable = true) => {
+  return pluginsAvailable
+    ? ''
+    : `${cliName} is expecting a configuration file, but didn't find one. Are you in the right directory?`;
+}
+ 

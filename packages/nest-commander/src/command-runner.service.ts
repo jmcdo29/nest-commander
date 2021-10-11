@@ -38,8 +38,8 @@ export class CommandRunnerService implements OnModuleInit {
     if (this.options.usePlugins) {
       this.commander.showHelpAfterError(`
       ${this.commander.helpInformation()}
-${cliPluginError(this.options.cliName ?? 'nest-commander')}
-      `);     
+${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsAvailable)}
+      `);
     }
     if (this.options.errorHandler) {
       this.commander.exitOverride(this.options.errorHandler);

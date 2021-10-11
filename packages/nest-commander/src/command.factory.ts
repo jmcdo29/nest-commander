@@ -42,13 +42,19 @@ export class CommandFactory {
       logger = optionsOrLogger;
     }
     const imports: ModuleMetadata['imports'] = [rootModule];
+    let pluginsAvailable = false;
     if (usePlugins) {
-      await this.registerPlugins(cliName, imports);
+      pluginsAvailable = await this.registerPlugins(cliName, imports);
     }
     const app = await NestFactory.createApplicationContext(
       CommandRunnerModule.forModule(
         { module: CommandRootModule, imports },
-        { errorHandler: tempHandler, usePlugins: usePlugins, cliName },
+        {
+          errorHandler: tempHandler,
+          usePlugins: usePlugins,
+          cliName,
+          pluginsAvailable
+        },
       ),
       {
         logger,
@@ -72,7 +78,7 @@ export class CommandFactory {
   private static async registerPlugins(
     cliName: string,
     imports: ModuleMetadata['imports'],
-  ): Promise<void> {
+  ): Promise<boolean> {
     const pluginExplorer = cosmiconfig(cliName, {
       searchPlaces: [
         `.${cliName}rc`,
@@ -85,10 +91,12 @@ export class CommandFactory {
       ],
     });
     const pluginConfig = await pluginExplorer.search();
+    if (!pluginConfig) return false
     for (const pluginPath of pluginConfig?.config.plugins ?? []) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const plugin = require(require.resolve(pluginPath, { paths: [process.cwd()] }));
       imports?.push(plugin.default);
     }
+    return true;
   }
 }

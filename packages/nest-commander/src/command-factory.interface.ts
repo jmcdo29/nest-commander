@@ -14,4 +14,5 @@ export interface CommanderOptionsType {
   errorHandler?: ErrorHandler;
   usePlugins?: boolean;
   cliName?: string;
+  pluginsAvailable?: boolean;
 }
