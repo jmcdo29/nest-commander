@@ -51,12 +51,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Stop Nx Cloud Agents
-        run: pnpm -y nx-cloud stop-all-agents
+        run: pnpm nx-cloud stop-all-agents
 
   nx_agent:
     runs-on: ubuntu-latest
     name: Nx Agent
-    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
