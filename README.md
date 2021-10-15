@@ -190,3 +190,8 @@ bootstrap();
 ```
 
 And just like that, you've got a command line application.
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
