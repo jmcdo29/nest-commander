@@ -45,7 +45,7 @@
     "@docusaurus/preset-classic": "2.0.0-beta.7",
     "@golevelup/nestjs-discovery": "2.3.1",
     "@mdx-js/react": "1.6.22",
-    "@nestjs/cli": "8.1.2",
+    "@nestjs/cli": "8.1.4",
     "@nestjs/common": "8.1.1",
     "@nestjs/core": "8.1.1",
     "@nestjs/testing": "8.1.1",
