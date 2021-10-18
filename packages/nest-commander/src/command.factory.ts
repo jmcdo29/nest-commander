@@ -106,7 +106,14 @@ export class CommandFactory {
     }
     for (const pluginPath of pluginConfig?.config.plugins ?? []) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const plugin = require(require.resolve(pluginPath, { paths: [process.cwd()] }));
+      let finalPath = '';
+      pluginPath.includes('/')
+        ? finalPath = require.resolve(pluginPath, { paths: [process.cwd()] })
+        : finalPath = require.resolve(
+          `../node_modules/${pluginPath}`,
+          { paths: [process.cwd()] }
+        )
+      const plugin = require(finalPath);
       imports?.push(plugin.default);
     }
     return true;

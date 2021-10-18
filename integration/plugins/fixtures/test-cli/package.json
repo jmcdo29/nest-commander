@@ -1,0 +1,18 @@
+{
+  "name": "some-app2",
+  "version": "0.0.0",
+  "description": "This is only a simulated test app for testing locally written and built commander plugins",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "nest-commander": "workspace:^2.3.3"
+  }
+}
