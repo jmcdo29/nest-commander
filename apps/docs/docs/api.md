@@ -19,6 +19,7 @@ This class decorator is pretty much what everything else in this package relies 
 | argsDescription | `Record<string, string>` | false | The description for each argument. It will be used on `--help` as well |
 | options | `CommandOptions` | false | Extra options to pass to the commander instance. Check [commander's types](https://github.com/tj/commander.js/blob/master/typings/index.d.ts#L713) for more information. |
 | subCommands | `Type<CommandRunner>` | false | Subcommands related to the parent command, e.g. `docker compose up` and `docker compose stop` |
+| executable | boolean | false | Tells nest-commander if the command should be executable or not. Should only be used with subCommands at the parent command level |
 
 :::note
 
