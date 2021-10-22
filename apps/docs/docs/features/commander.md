@@ -108,6 +108,12 @@ export class FooCommand implements CommandRunner {
 
 and now nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
 
+:::info
+
+You can make the parent command non-executable by passing `executable: false` as one of the options for the command's metadata. Now if the parent command is called, the help will be printed. You still need `async run() {}` in the class to satisfy the interface.
+
+:::
+
 ## The Full Command
 
 Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
