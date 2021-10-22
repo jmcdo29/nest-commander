@@ -35,7 +35,7 @@ crun run 'echo Hello World!'
 crun 'echo Hello World!'
 ```
 
-We can use either of these _because_ we set up the `options: { default: true }` options.
+We can use either of these _because_ we set up the `options: { isDefault: true }` options.
 
 This command doesn't do anything yet, but we'll get to the implementation of it later. For now, let's explore how we can set options for the command.
 
@@ -92,7 +92,7 @@ It may also be that you want to add subcommands to your command, similar to `doc
 @Command({
   name: 'run',
   arguments: '<task>',
-  subcommands: [FooCommand]
+  subCommands: [FooCommand]
 })
 export class RunCommand implements CommandRunner {}
 ```
