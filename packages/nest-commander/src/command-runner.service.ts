@@ -76,34 +76,29 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     }
   }
 
-  private async buildCommand(command: RunnerMeta): Promise<Command> {
-    const newCommand = this.commander.createCommand(command.command.name);
-    if (command.command.arguments) {
-      this.mapArgumentDescriptions(
-        newCommand,
-        command.command.arguments,
-        command.command.argsDescription,
-      );
+  private async buildCommand({ command, params, instance, help }: RunnerMeta): Promise<Command> {
+    const newCommand = this.commander.createCommand(command.name);
+    if (command.arguments) {
+      this.mapArgumentDescriptions(newCommand, command.arguments, command.argsDescription);
     }
-    newCommand.description(command.command.description ?? '');
-    for (const option of command.params) {
+    newCommand.description(command.description ?? '');
+    for (const option of params) {
       const { flags, description, defaultValue = undefined, required = false } = option.meta;
-      const handler = option.discoveredMethod.handler.bind(command.instance);
+      const handler = option.discoveredMethod.handler.bind(instance);
       const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
       newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
     }
-    for (const help of command.help ?? []) {
-      newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
+    for (const h of help ?? []) {
+      newCommand.addHelpText(h.meta, h.discoveredMethod.handler.bind(instance));
     }
-    newCommand.action(() =>
-      command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
-    );
-    if (command.command.subCommands?.length) {
+    command.executable !== false &&
+      newCommand.action(() => instance.run.call(instance, newCommand.args, newCommand.opts()));
+    if (command.subCommands?.length) {
       this.subCommands ??= await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
         SubCommandMeta,
       );
       const subCommandsMetaForCommand = this.subCommands.filter((subMeta) =>
-        command.command.subCommands
+        command.subCommands
           ?.map((subCommand) => subCommand.name)
           .includes(subMeta.discoveredClass.name),
       );
