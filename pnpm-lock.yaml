@@ -34,7 +34,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.3.0
       '@typescript-eslint/parser': 5.3.0
       clsx: 1.1.1
-      commander: 8.2.0
+      commander: 8.3.0
       conventional-changelog-cli: 2.1.1
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
@@ -82,7 +82,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.3.0_08748b5c8e3eceaa3307c6f33b017eaa
       '@typescript-eslint/parser': 5.3.0_eslint@8.0.1+typescript@4.4.4
       clsx: 1.1.1
-      commander: 8.2.0
+      commander: 8.3.0
       conventional-changelog-cli: 2.1.1
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
@@ -106,12 +106,12 @@ importers:
   packages/nest-commander:
     specifiers:
       '@golevelup/nestjs-discovery': 2.3.1
-      commander: 8.2.0
+      commander: 8.3.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.0
     dependencies:
       '@golevelup/nestjs-discovery': 2.3.1
-      commander: 8.2.0
+      commander: 8.3.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.0
 
@@ -5834,8 +5834,8 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /commander/8.2.0:
-    resolution: {integrity: sha512-LLKxDvHeL91/8MIyTAD5BFMNtoIwztGPMiM/7Bl8rIPmHCZXRxmSWr91h57dpOpnQ6jIUqEWdXE/uBYMfiVZDA==}
+  /commander/8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
 
   /commitizen/4.2.4:
@@ -8684,7 +8684,7 @@ packages:
     dependencies:
       camel-case: 4.1.2
       clean-css: 5.1.5
-      commander: 8.2.0
+      commander: 8.3.0
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
@@ -10682,7 +10682,7 @@ packages:
     dependencies:
       cli-truncate: 2.1.0
       colorette: 1.4.0
-      commander: 8.2.0
+      commander: 8.3.0
       cosmiconfig: 7.0.1
       debug: 4.3.2_supports-color@8.1.1
       enquirer: 2.3.6
