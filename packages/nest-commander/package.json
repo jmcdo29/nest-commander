@@ -1,6 +1,6 @@
 {
   "name": "nest-commander",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
   "repository": {
     "type": "git",
