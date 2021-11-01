@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.3.4
+
+### Patch Changes
+
+- 3ad2c3a: Add cosmiconfig to the dependencies for proper publishing
+
 ## 2.3.3
 
 ### Patch Changes
