@@ -57,7 +57,7 @@
     "@nrwl/workspace": "12.10.0",
     "@nx-plus/docusaurus": "12.2.0",
     "@types/inquirer": "8.1.3",
-    "@types/jest": "27.0.2",
+    "@types/jest": "27.0.3",
     "@types/node": "16.11.8",
     "@typescript-eslint/eslint-plugin": "5.4.0",
     "@typescript-eslint/parser": "5.4.0",
