@@ -74,7 +74,7 @@
     "jest": "26.6.3",
     "lint-staged": "12.1.2",
     "pinst": "2.1.6",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "reflect-metadata": "0.1.13",
