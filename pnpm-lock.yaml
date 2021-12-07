@@ -24,7 +24,7 @@ importers:
       '@nrwl/cli': 12.10.1
       '@nrwl/jest': 12.10.1
       '@nrwl/node': 12.10.1
-      '@nrwl/nx-cloud': 12.5.4
+      '@nrwl/nx-cloud': 13.0.0
       '@nrwl/tao': 12.10.1
       '@nrwl/workspace': 12.10.1
       '@nx-plus/docusaurus': 12.2.0
@@ -72,7 +72,7 @@ importers:
       '@nrwl/cli': 12.10.1
       '@nrwl/jest': 12.10.1
       '@nrwl/node': 12.10.1_prettier@2.5.1+typescript@4.5.2
-      '@nrwl/nx-cloud': 12.5.4
+      '@nrwl/nx-cloud': 13.0.0
       '@nrwl/tao': 12.10.1
       '@nrwl/workspace': 12.10.1_prettier@2.5.1
       '@nx-plus/docusaurus': 12.2.0_@nrwl+workspace@12.10.1
@@ -3495,8 +3495,8 @@ packages:
       - webpack-command
     dev: true
 
-  /@nrwl/nx-cloud/12.5.4:
-    resolution: {integrity: sha512-FHNTF0S1dMPddDstY6MUjZ30f99wVnZ46Q8r5plASxBPUvPAqPI8TRYzYTcPSAcf7s5NB3lAnLXw0wvN+8+4Ig==}
+  /@nrwl/nx-cloud/13.0.0:
+    resolution: {integrity: sha512-zx212AYO5Goz7QPPbjYcS+pXaoNXbTJi8ahgW5Q7r7E9wDTZhHbZZ++ds2qMB3WHWP63soq98VmDlxYRFV7lGA==}
     hasBin: true
     dependencies:
       axios: 0.21.4
