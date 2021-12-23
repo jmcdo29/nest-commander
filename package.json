@@ -52,7 +52,7 @@
     "@nrwl/cli": "12.10.1",
     "@nrwl/jest": "12.10.1",
     "@nrwl/node": "12.10.1",
-    "@nrwl/nx-cloud": "13.0.0",
+    "@nrwl/nx-cloud": "13.0.1",
     "@nrwl/tao": "12.10.1",
     "@nrwl/workspace": "12.10.1",
     "@nx-plus/docusaurus": "12.2.0",
