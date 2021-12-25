@@ -63,7 +63,7 @@
     "@typescript-eslint/parser": "5.8.0",
     "clsx": "1.1.1",
     "commander": "8.3.0",
-    "conventional-changelog-cli": "2.1.1",
+    "conventional-changelog-cli": "2.2.2",
     "cosmiconfig": "7.0.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.5.0",
