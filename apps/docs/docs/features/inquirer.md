@@ -40,8 +40,7 @@ export class TaskRunner implements CommandRunner {
   ): Promise<void> {
     let task = inputs[0];
     if (!task) {
-      task = (await this.inquirer.ask<{ task: string }>('task', undefined:w
-      ))
+      task = (await this.inquirer.ask<{ task: string }>('task', undefined))
         .task;
     }
     const echo = spawn(task, {
