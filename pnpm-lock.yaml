@@ -35,7 +35,7 @@ importers:
       '@typescript-eslint/parser': 5.8.0
       clsx: 1.1.1
       commander: 8.3.0
-      conventional-changelog-cli: 2.1.1
+      conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
       eslint: 8.5.0
@@ -83,7 +83,7 @@ importers:
       '@typescript-eslint/parser': 5.8.0_eslint@8.5.0+typescript@4.5.4
       clsx: 1.1.1
       commander: 8.3.0
-      conventional-changelog-cli: 2.1.1
+      conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
       eslint: 8.5.0
@@ -6272,8 +6272,8 @@ packages:
       q: 1.5.1
     dev: true
 
-  /conventional-changelog-cli/2.1.1:
-    resolution: {integrity: sha512-xMGQdKJ+4XFDDgfX5aK7UNFduvJMbvF5BB+g0OdVhA3rYdYyhctrIE2Al+WYdZeKTdg9YzMWF2iFPT8MupIwng==}
+  /conventional-changelog-cli/2.2.2:
+    resolution: {integrity: sha512-8grMV5Jo8S0kP3yoMeJxV2P5R6VJOqK72IiSV9t/4H5r/HiRqEBQ83bYGuz4Yzfdj4bjaAEhZN/FFbsFXr5bOA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
