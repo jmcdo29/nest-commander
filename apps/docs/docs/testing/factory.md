@@ -33,6 +33,12 @@ describe('Task Command', () => {
 });
 ```
 
+:::tip
+
+`TestingModule` is imported from `@nestjs/testing` package.
+
+:::
+
 Aside from the Jest spies that we're using, you'll notice that we use the `CommandTestFactory` to set up a `TestingModule` and use it to run a test command. We pass the `run` command here to match our `@Command()` we already created, but because `run` is the default command, it can be omitted. Then we pass in our arguments as the next array value, and any flags would be array values after it. All of this gets passed on to the commander instance and is processed as usual.
 
 ## Mocking User Input
