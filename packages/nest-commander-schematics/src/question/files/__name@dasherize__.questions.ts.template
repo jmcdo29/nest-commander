@@ -5,7 +5,7 @@ export class <%= classify(name) %>Questions {
   @Question({
     name: 'default',
   })
-  praseDefault(str: string): string {
+  parseDefault(str: string): string {
     return str;
   }
 }
