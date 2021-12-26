@@ -1,2 +1,7 @@
 ## To encourage contributors to use issue templates, we don't allow blank issues
 blank_issues_enabled: false
+
+contact_links:
+  - name: "\u2753 Our GitHub Discussions page"
+    url: "https://github.com/jmcdo29/nest-commander/discussions"
+    about: "Please ask and answer questions here!"
