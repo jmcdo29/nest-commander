@@ -16,7 +16,7 @@ export class TaskQuestions {
     message: 'What task would you like to execute?',
     name: 'task'
   })
-  paseTask(val: string) {
+  parseTask(val: string) {
     return val;
   }
 }

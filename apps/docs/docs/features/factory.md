@@ -30,7 +30,7 @@ And just like that, the command is hooked up and will run. You can use `typescri
 
 ## Logging
 
-By default, the `CommandFactory` turns **off** the Nest logger, due to the noise that the Nest logs create on startup with all of the modules and dependencies being resolved. If you'd like to turn logging back on, simple pass a valid logger configuration to the `CommandFactory` as a second paramter.
+By default, the `CommandFactory` turns **off** the Nest logger, due to the noise that the Nest logs create on startup with all of the modules and dependencies being resolved. If you'd like to turn logging back on, simple pass a valid logger configuration to the `CommandFactory` as a second parameter.
 
 ## Error Handling
 
