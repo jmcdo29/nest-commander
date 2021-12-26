@@ -7,15 +7,15 @@ As of version 2.3.0, you can build your CLI with the ability to read for extra p
 
 ## The Config File
 
-The config file, by default, can be any of the following:
+The config file, by default, can be _one_ of the following:
 
-- .nest-commanderrc
-- .nest-commanderrc.json
-- .nest-commanderrc.yaml
-- .nest-commanderc.yml
-- nest-commander.json
-- nest-commander.yaml
-- nest-commander.yml
+- `.nest-commanderrc`
+- `.nest-commanderrc.json`
+- `.nest-commanderrc.yaml`
+- `.nest-commanderc.yml`
+- `nest-commander.json`
+- `nest-commander.yaml`
+- `nest-commander.yml`
 
 If you'd lke to use a name other than `nest-commander`, you can pass the `cliName` option to the `CommandFactory` as well.
 
