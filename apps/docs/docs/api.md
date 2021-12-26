@@ -53,6 +53,7 @@ An asynchronous command to allow for getting user input based on existing option
 
 ```typescript
 ask<T>(name: string, options: Partial<T> | undefined): Promise<T>
+// The following is just an alias for the above
 prompt<T>(name: string, options: Partial<T> | undefined): Promise<T>
 ```
 
