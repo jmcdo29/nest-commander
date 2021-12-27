@@ -78,7 +78,7 @@ This method decorator allows for creating questions to ask the user. For informa
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| type | `input`, `number`, `confirm`, `list`, `rawlist`, `expand`, `checkbox`, `password`, or `editor` | true | The kind of question for inquirer to ask. Each question has slightly different options, so pay attention to the type |
+| type | `input`, `number`, `confirm`, `list`, `rawlist`, `expand`, `checkbox`, `password`, or `editor` | false | The kind of question for inquirer to ask. Each question has slightly different options, so pay attention to the type |
 | name | `string` | true | The name of the question's input. This is used when being passed back from the `InquirerService` and can be used with the `@*For()` decorators described below |
 | message | `string` | true\* | The question to ask |
 | default | `string`, `number`, `boolean`, `array` | false | The default value for the question's input |
