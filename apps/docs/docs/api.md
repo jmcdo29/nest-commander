@@ -92,6 +92,12 @@ This method decorator allows for creating questions to ask the user. For informa
 | askAnswered | `boolean` | false | Force the prompt even if the question has been answered. Defaults to `false`. |
 | loop | `boolean` | false | Enable loop listing. Defaults to `true`. |
 
+:::note
+
+When you use the `@*For()` decorator factories, the equivalent option on `@Question()` (eg: `message`) will not be used.
+
+:::
+
 \* The property itself is not required, but there must be a value for this, whether through dynamic decorator or the `@Question()` decorator.
 
 #### @ValidateFor()
