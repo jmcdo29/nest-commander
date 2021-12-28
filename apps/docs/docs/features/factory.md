@@ -40,4 +40,4 @@ By default, there is no error handler for commander provided by `nest-commander`
 
 The `CommandFactory` also allows you to set up an infinite runner, so that you can set up file watchers or similar. All you need to do is instead of using `run` use `runWithoutClosing`. All other options are the same.
 
-For more information on the `CommandFactory`, please refer to the [api docs](../api.md).
+For more information on the `CommandFactory`, please refer to the [API docs](../api.md#commandfactory).
