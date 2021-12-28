@@ -9,7 +9,7 @@ To execute the command locally, whether for testing, prototyping, or just every 
 
 :::info
 
-You do not need to compile the code if you use `ts-node`, but make sure that decorators are still taken into account
+You do not need to compile the code if you use `ts-node`, but make sure that decorators are still taken into account.
 
 :::
 

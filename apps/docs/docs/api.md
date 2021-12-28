@@ -13,16 +13,16 @@ This class decorator is pretty much what everything else in this package relies 
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| name | `string` | true | The name of the command |
+| name | `string` | true | The name of the command. |
 | arguments | `string` | false | The arguments that the command takes in. For required arguments, wrap the argument in `<>`, for optional use `[]`. |
-| description | `string` | false | The description of what the command does. This will be printed on the `--help` usage |
-| argsDescription | `Record<string, string>` | false | The description for each argument. It will be used on `--help` as well |
+| description | `string` | false | The description of what the command does. This will be printed on the `--help` usage. |
+| argsDescription | `Record<string, string>` | false | The description for each argument. It will be used on `--help` as well. |
 | options | `CommandOptions` | false | Extra options to pass to the commander instance. Check [commander's types](https://github.com/tj/commander.js/blob/master/typings/index.d.ts#L713) for more information. |
-| subCommands | `Type<CommandRunner>` | false | Subcommands related to the parent command, e.g. `docker compose up` and `docker compose stop` |
+| subCommands | `Type<CommandRunner>` | false | Subcommands related to the parent command, e.g.:<br/>`docker compose up` and `docker compose stop`. |
 
 :::note
 
-The above information holds for `@SubCommand()` as well, though `default` under `options` has no effect
+The above information holds for `@SubCommand()` as well, though `default` under `options` has no effect.
 
 :::
 
@@ -33,9 +33,9 @@ This method decorator allows for users to pass in extra options for commands def
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | flags | `string` | true | The flags that should work for this option. Multiple flags can exist for a single option, so long as they are separated by a comma, space, or pipe character. Just like with arguments, `<>` for required, `[]` for optional. |
-| description | `string` | false | The description of the flags and option. Used with the `--help` output |
-| defaultValue | `string or boolean` | false | The default value, if any, for the option |
-| required | `boolean` | false | Make the option required like an argument and the command fail if the option is not provided |
+| description | `string` | false | The description of the flags and option. Used with the `--help` output. |
+| defaultValue | `string` or `boolean` | false | The default value, if any, for the option. |
+| required | `boolean` | false | Make the option required like an argument and the command fail if the option is not provided. |
 
 #### @Help()
 
@@ -60,7 +60,7 @@ prompt<T>(name: string, options: Partial<T> | undefined): Promise<T>
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | name | `string` | true | The name of the question set to ask for. This is defined in `@QuestionSet()` |
-| options | `T or undefined` | true | The pre-existing options that come from commander, or defined by the developer. The type here will determine the return type, unless `undefined`, then it is `any` unless passed in the generic. Values that are passed in will not be asked for again. |
+| options | `T` or `undefined` | true | The pre-existing options that come from commander, or defined by the developer. The type here will determine the return type, unless `undefined`, then it is `any` unless passed in the generic. Values that are passed in will not be asked for again. |
 
 ### Inquirer Decorators
 
@@ -78,21 +78,21 @@ This method decorator allows for creating questions to ask the user. For informa
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| type | `input`, `number`, `confirm`, `list`, `rawlist`, `expand`, `checkbox`, `password`, or `editor` | false | The kind of question for inquirer to ask. Each question has slightly different options, so pay attention to the type |
-| name | `string` | true | The name of the question's input. This is used when being passed back from the `InquirerService` and can be used with the `@*For()` decorators described below |
-| message | `string` | true\* | The question to ask |
-| default | `string`, `number`, `boolean`, `array` | false | The default value for the question's input |
+| type | `"input"`, `"number"`, `"confirm"`, `"list"`, `"rawlist"`, `"expand"`, `"checkbox"`, `"password"`, or `"editor"` | false | The kind of question for inquirer to ask. Each question has slightly different options, so pay attention to the type. Defaults to `"input"`. |
+| name | `string` | true | The name of the question's input. This is used when being passed back from the `InquirerService` and can be used with the `@*For()` decorators described below. |
+| message | `string` | true\* | The question to ask. |
+| default | `string`, `number`, `boolean`, `array` | false | The default value for the question's input. |
 | choices | `array` | true | The choices to be defined for a `list`, `rawlist`, `checkbox`, and `expand` question. The array can be of strings, or numbers, or objects containing a `name`, `value`, and `short` property. |
 | validate | `Function` | false | A validation function that ensures the input is correct. On failed validation the question is re-asked. |
 | transform | `Function` | false | A transform method that takes the user's input and transforms it before printing it back to the terminal. This does not have an impact on the incoming value itself. |
-| when | `Function` or `boolean` | false | A function or boolean to determine if a question should be asked or not |
-| pageSize | `number` | false | The number of lines to render for `list`, `rawlist`, `checkbox`, and `expand` question |
-| prefix | `string` | false | Changes the _prefix_ message |
-| suffix | `string` | false | Changes the _suffix_ message |
-| askAnswered | `boolean` | false | Force the prompt even if the question has been answered. Defaults to `false` |
-| loop | `boolean` | Enable loop listing. Defaults to `true` |
+| when | `Function` or `boolean` | false | A function or boolean to determine if a question should be asked or not. |
+| pageSize | `number` | false | The number of lines to render for `list`, `rawlist`, `checkbox`, and `expand` question. |
+| prefix | `string` | false | Changes the _prefix_ message. |
+| suffix | `string` | false | Changes the _suffix_ message. |
+| askAnswered | `boolean` | false | Force the prompt even if the question has been answered. Defaults to `false`. |
+| loop | `boolean` | false | Enable loop listing. Defaults to `true`. |
 
-\* The property itself is not required, but there must be a value for this, whether through dynamic decorator or the `@Question()` decorator
+\* The property itself is not required, but there must be a value for this, whether through dynamic decorator or the `@Question()` decorator.
 
 #### @ValidateFor()
 
@@ -155,13 +155,13 @@ Most of the decorators for the `@QuestionSet()` decorated class are just dynamic
 A static method that kicks off the command and manages the Nest application lifecycle.
 
 ```typescript
-CommandFactory.run(rootModule: Type<any>, optionsOrLogger?: CommandFactoryRunOptions | NestLogger): Promise<void>;
+CommandFactory.run(rootModule: Type<any>, optionsOrLogger?: CommandFactoryRunOptions | NestLogger): Promise<void>
 ```
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| rootModule | `Type<any>` | true | The module, or module metadata, required to run the command. This is the same module metadata passed to `NestFactory.create` |
-| optionsOrLogger | `CommandFactoryRunOptions` or `NestLogger` | false | Options or a Nest logger instance for the `CommandFactory` to pass on to `NestLogger`. See below for more information |
+| rootModule | `Type<any>` | true | The module, or module metadata, required to run the command. This is the same module metadata passed to `NestFactory.create`. |
+| optionsOrLogger | `CommandFactoryRunOptions` or `NestLogger` | false | Options or a Nest logger instance for the `CommandFactory` to pass on to `NestLogger`. See below for more information. |
 
 #### runWithoutClosing
 
@@ -173,10 +173,10 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| logger | `NestLogger` | false | A logger instance to use with the CommandFactory. Defaults to `false` to turn off the initialization logs |
+| logger | `NestLogger` | false | A logger instance to use with the CommandFactory. Defaults to `false` to turn off the initialization logs. |
 | errorHandler | `Function` | false | A custom error handler that takes in an `Error` and returns `void` synchronously. |
-| usePlugins | `Boolean` | false | The choice of if the built CLI should look for a config file and plugins or not |
-| cliName | `String` | nest-commander | The name of the CLI and the prefix for the config file to be looked for |
+| usePlugins | `boolean` | false | The choice of if the built CLI should look for a config file and plugins or not. |
+| cliName | `string` | false | The name of the CLI and the prefix for the config file to be looked for. Defaults to `"nest-commander"`. |
 
 ## nest-commander-testing
 
@@ -187,12 +187,12 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 Similar to `@nestjs/testing`'s `createTestingModule`, this static method sets up a `TestingModuleBuilder` that can be used with Nest's `overrideProvider` and `compile` methods for creating a `TestingModule`.
 
 ```typescript
-CommandFactory.createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder;
+CommandFactory.createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder
 ```
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| moduleMetadata | CommandModuleMetadata | true | Nest's module metadata which **requires** `imports` to be populated. This will get passed down to `createTestingModule` to create the proper testing metadata |
+| moduleMetadata | `CommandModuleMetadata` | true | Nest's module metadata which **requires** `imports` to be populated. This will get passed down to `createTestingModule` to create the proper testing metadata. |
 
 #### run
 
@@ -204,25 +204,25 @@ CommandTestFactory.run(app: TestingModule, args?: string[]): Promise<void>
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| app | `TestingModule` | true | The testing application that is to be used for the `CommandFactory`. This should be set up in your `beforeAll()` or right before calling the `run` method |
-| args | `Array<string>` | false | The name of the command to run, if not the default, and the options that would normally be passed, each as a separate array entry |
+| app | `TestingModule` | true | The testing application that is to be used for the `CommandFactory`. This should be set up in your `beforeAll()` or right before calling the `run` method. |
+| args | `Array<string>` | false | The name of the command to run, if not the default, and the options that would normally be passed, each as a separate array entry. |
 
 #### setAnswers
 
 A command to mock the gathering of information from a user, to help with automated testing.
 
 ```typescript
-CommandFactory.setAnswers(value: any | any[]): void;
+CommandFactory.setAnswers(value: any | any[]): void
 ```
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| value | `Array<any>` or `any` | true | The answers that are to be returned from the user's input gathers in `InquirerService#ask`. These should be the post-parsed values |
+| value | `Array<any>` or `any` | true | The answers that are to be returned from the user's input gathers in `InquirerService#ask`. These should be the post-parsed values. |
 
 #### useDefaultInquirer
 
 A method to sub back in the regular `Inquirer` instance instead of the mock used for testing. If this is used, the `setAnswers` will have no effect, and `stdin` data must be passed manually
 
 ```typescript
-CommandFactory.useDefaultInquirer(): typeof CommandTestFactory;
+CommandFactory.useDefaultInquirer(): typeof CommandTestFactory
 ```
