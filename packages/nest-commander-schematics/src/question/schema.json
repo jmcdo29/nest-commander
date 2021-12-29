@@ -17,12 +17,14 @@
     "flat": {
       "type": "boolean",
       "default": false,
-      "description": "Flag to indicate if a directory is created."
+      "description": "Flag to indicate if a directory is created.",
+      "x-prompt": "Create a directory?"
     },
     "spec": {
       "type": "boolean",
       "default": true,
-      "description": "Specifies if a spec file is generated."
+      "description": "Specifies if a spec file is generated.",
+      "x-prompt": "Generate spec file as well?"
     }
   }
 }
