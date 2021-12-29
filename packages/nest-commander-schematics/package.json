@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc -p tsconfig.build.json",
-    "postbuild": "scripts/postbuild",
+    "postbuild": "./tools/schematics-postbuild",
     "test": "jest"
   },
   "keywords": [
