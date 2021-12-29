@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 2.1.0
+
+### Minor Changes
+
+- 9ef701c: Add prompt to every schematic option
+
 ## 2.0.1
 
 ### Patch Changes
