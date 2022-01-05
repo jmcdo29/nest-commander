@@ -48,6 +48,13 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Jay McDoniel Built with Docusaurus.`,
     },
+    algolia: {
+      appId: '9O0K4CXI15',
+      apiKey: '16818e5b1b367f97719b6ba809e235e9',
+      indexName: 'nest-commander',
+      contextualSearch: true,
+      searchParameters: {},
+    },
   },
   presets: [
     [
