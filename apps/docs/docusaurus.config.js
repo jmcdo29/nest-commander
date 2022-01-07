@@ -50,7 +50,7 @@ module.exports = {
     },
     algolia: {
       appId: '9O0K4CXI15',
-      apiKey: '16818e5b1b367f97719b6ba809e235e9',
+      apiKey: '9689faf6550ca3133e69be1d9861ea92',
       indexName: 'nest-commander',
       contextualSearch: true,
       searchParameters: {},
