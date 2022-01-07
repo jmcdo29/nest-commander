@@ -44,7 +44,7 @@ importers:
       husky: 7.0.4
       inquirer: 8.2.0
       jest: 26.6.3
-      lint-staged: 12.1.5
+      lint-staged: 12.1.6
       pinst: 2.1.6
       prettier: 2.5.1
       react: 17.0.2
@@ -92,7 +92,7 @@ importers:
       husky: 7.0.4
       inquirer: 8.2.0
       jest: 26.6.3
-      lint-staged: 12.1.5
+      lint-staged: 12.1.6
       pinst: 2.1.6
       prettier: 2.5.1
       react: 17.0.2
@@ -10795,8 +10795,8 @@ packages:
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
 
-  /lint-staged/12.1.5:
-    resolution: {integrity: sha512-WyKb+0sNKDTd1LwwAfTBPp0XmdaKkAOEbg4oHE4Kq2+oQVchg/VAcjVQtSqZih1izNsTURjc2EkhG/syRQUXdA==}
+  /lint-staged/12.1.6:
+    resolution: {integrity: sha512-Tn7tsxqVVdkR7wXgvZZxGntBEZ16/VFCXpc6EvsHBsTHSBmAOiUOGWmKTLH6wssqz1lUz+UpAQOo/xdhD41ixQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
