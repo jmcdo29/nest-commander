@@ -24,7 +24,8 @@
             "command": "pnpm docusaurus deploy --out-dir dist/apps/docs --config apps/docs/docusaurus.config.js --skip-build"
           }
         }
-      }
+      },
+      "tags": []
     },
     "integration": {
       "root": "integration",
@@ -36,7 +37,8 @@
             "jestConfig": "jest.integration.config.js"
           }
         }
-      }
+      },
+      "implicitDependencies": ["nest-commander", "nest-commander-testing"]
     },
     "nest-commander": {
       "root": "packages/nest-commander",
@@ -61,7 +63,8 @@
             "command": "pnpm publish"
           }
         }
-      }
+      },
+      "implicitDependencies": []
     },
     "nest-commander-schematics": {
       "root": "packages/nest-commander-schematics",
@@ -95,7 +98,8 @@
             "command": "pnpm publish"
           }
         }
-      }
+      },
+      "implicitDependencies": []
     },
     "nest-commander-testing": {
       "root": "packages/nest-commander-testing",
@@ -125,7 +129,8 @@
             "command": "pnpm publish"
           }
         }
-      }
+      },
+      "implicitDependencies": []
     }
   }
 }
