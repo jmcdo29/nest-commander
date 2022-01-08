@@ -1,5 +1,11 @@
 # nest-commander
 
+## 2.3.5
+
+### Patch Changes
+
+- 55eb46d: Update peerDependencies for nest-commander to include @types/inquirer
+
 ## 2.3.4
 
 ### Patch Changes
