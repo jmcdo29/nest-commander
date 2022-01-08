@@ -5,6 +5,12 @@ sidebar_title: Inquirer
 
 So now you've got a great CLI application, but what happens when someone runs the command and forgets to pass in a parameter? Well, right now it's going to throw an error back out and the process will fail. But what if we want to stop the execution and ask the user for input instead of failing outright? That's where the `InquirerService` comes in. With the `InquirerService` we're able to define a set of questions to ask and get the inputs back, then continue on with the normal execution.
 
+:::info
+
+If using the `InquirerService` make sure to install `@types/inquirer` as a `devDependency` to ensure typescript doesn't encounter any type errors
+
+:::
+
 ## Creating a QuestionSet
 
 To `nest-commander` a `QuestionSet`, as it sounds, is a set of related questions that should all be asked together. To create a question set, simply create a class and decorate it with the `@QuestionSet()` decorator. Provide the decorator a name via the options as well, as this name will be used by the `InquirerService` to know which question set to ask. Let's expand on the previous task runner. Say now maybe the user forgets to pass in a command, but we still want to let them define it at runtime. The first thing we need to do is change the `<task>` to `[task]` to make Commander understand that the argument is optional, even though we know it's really not. After that we need to define the question set and question(s) to ask the user. We'll call the question set `task` and define it as follows:
@@ -40,8 +46,9 @@ export class TaskRunner implements CommandRunner {
   ): Promise<void> {
     let task = inputs[0];
     if (!task) {
-      task = (await this.inquirer.ask<{ task: string }>('task', undefined))
-        .task;
+      task = (
+        await this.inquirer.ask<{ task: string }>('task', undefined)
+      ).task;
     }
     const echo = spawn(task, {
       shell: options.shell ?? userInfo().shell

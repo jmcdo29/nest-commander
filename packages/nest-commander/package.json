@@ -29,6 +29,7 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0"
+    "@nestjs/core": "^8.0.0",
+    "@types/inquirer": "^8.1.3"
   }
 }
