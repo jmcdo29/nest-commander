@@ -15,25 +15,9 @@
         "cacheableOperations": ["build", "test", "lint", "package", "prepare", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true,
-        "accessToken": "MzRiYTQyYzMtNmQ2Zi00YjE1LWJhNTgtOTIxNDM0ZGU4YjMyfHJlYWQtd3JpdGU="
+        "accessToken": "MzRiYTQyYzMtNmQ2Zi00YjE1LWJhNTgtOTIxNDM0ZGU4YjMyfHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "docs": {
-      "tags": []
-    },
-    "integration": {
-      "implicitDependencies": ["nest-commander", "nest-commander-testing"]
-    },
-    "nest-commander": {
-      "implicitDependencies": []
-    },
-    "nest-commander-schematics": {
-      "implicitDependencies": []
-    },
-    "nest-commander-testing": {
-      "implicitDependencies": []
     }
   },
   "targetDependencies": {
