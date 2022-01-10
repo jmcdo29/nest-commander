@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 overrides:
-  terser: ^4.0.0
+  terser: ^5.0.0
 
 importers:
 
@@ -2176,6 +2176,7 @@ packages:
       webpackbar: 5.0.0-3_webpack@5.65.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2226,6 +2227,7 @@ packages:
       webpack: 5.65.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2268,6 +2270,7 @@ packages:
       webpack: 5.65.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2312,6 +2315,7 @@ packages:
       webpack: 5.65.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2346,6 +2350,7 @@ packages:
       webpack: 5.65.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2377,6 +2382,7 @@ packages:
     transitivePeerDependencies:
       - '@swc/core'
       - '@types/react'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2402,6 +2408,7 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2427,6 +2434,7 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2459,6 +2467,7 @@ packages:
       tslib: 2.3.1
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2495,6 +2504,7 @@ packages:
       - '@algolia/client-search'
       - '@swc/core'
       - '@types/react'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2555,6 +2565,7 @@ packages:
       rtlcss: 3.3.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2590,6 +2601,7 @@ packages:
       utility-types: 3.10.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2624,6 +2636,7 @@ packages:
       utility-types: 3.10.0
     transitivePeerDependencies:
       - '@swc/core'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -2660,6 +2673,7 @@ packages:
       - '@algolia/client-search'
       - '@swc/core'
       - '@types/react'
+      - acorn
       - bufferutil
       - csso
       - debug
@@ -8358,7 +8372,9 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 4.8.0
+      terser: 5.10.0
+    transitivePeerDependencies:
+      - acorn
     dev: true
 
   /html-tags/3.1.0:
@@ -8382,6 +8398,8 @@ packages:
       pretty-error: 4.0.0
       tapable: 2.2.0
       webpack: 5.65.0
+    transitivePeerDependencies:
+      - acorn
     dev: true
 
   /htmlparser2/3.10.1:
@@ -13921,6 +13939,33 @@ packages:
       supports-hyperlinks: 2.2.0
     dev: true
 
+  /terser-webpack-plugin/5.2.4_acorn@8.7.0+webpack@5.65.0:
+    resolution: {integrity: sha512-E2CkNMN+1cho04YpdANyRrn8CyN4yMy+WdFKZIySFZrGXZxJwJP6PMNGGc/Mcr6qygQHUUqRxnAPmi0M9f00XA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@swc/core': '*'
+      esbuild: '*'
+      uglify-js: '*'
+      webpack: ^5.1.0
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      esbuild:
+        optional: true
+      uglify-js:
+        optional: true
+    dependencies:
+      jest-worker: 27.2.5
+      p-limit: 3.1.0
+      schema-utils: 3.1.1
+      serialize-javascript: 6.0.0
+      source-map: 0.6.1
+      terser: 5.10.0_acorn@8.7.0
+      webpack: 5.65.0
+    transitivePeerDependencies:
+      - acorn
+    dev: true
+
   /terser-webpack-plugin/5.2.4_webpack@5.65.0:
     resolution: {integrity: sha512-E2CkNMN+1cho04YpdANyRrn8CyN4yMy+WdFKZIySFZrGXZxJwJP6PMNGGc/Mcr6qygQHUUqRxnAPmi0M9f00XA==}
     engines: {node: '>= 10.13.0'}
@@ -13942,17 +13987,40 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 4.8.0
+      terser: 5.10.0
       webpack: 5.65.0
+    transitivePeerDependencies:
+      - acorn
     dev: true
 
-  /terser/4.8.0:
-    resolution: {integrity: sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==}
-    engines: {node: '>=6.0.0'}
+  /terser/5.10.0:
+    resolution: {integrity: sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==}
+    engines: {node: '>=10'}
     hasBin: true
+    peerDependencies:
+      acorn: ^8.5.0
+    peerDependenciesMeta:
+      acorn:
+        optional: true
     dependencies:
       commander: 2.20.3
-      source-map: 0.6.1
+      source-map: 0.7.3
+      source-map-support: 0.5.21
+    dev: true
+
+  /terser/5.10.0_acorn@8.7.0:
+    resolution: {integrity: sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    peerDependencies:
+      acorn: ^8.5.0
+    peerDependenciesMeta:
+      acorn:
+        optional: true
+    dependencies:
+      acorn: 8.7.0
+      commander: 2.20.3
+      source-map: 0.7.3
       source-map-support: 0.5.21
     dev: true
 
@@ -14922,7 +14990,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.0
-      terser-webpack-plugin: 5.2.4_webpack@5.65.0
+      terser-webpack-plugin: 5.2.4_acorn@8.7.0+webpack@5.65.0
       watchpack: 2.3.1
       webpack-sources: 3.2.2
     transitivePeerDependencies:
