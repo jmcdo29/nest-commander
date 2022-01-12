@@ -18,9 +18,9 @@ importers:
       '@golevelup/nestjs-discovery': 2.3.1
       '@mdx-js/react': 1.6.22
       '@nestjs/cli': 8.1.8
-      '@nestjs/common': 8.2.4
-      '@nestjs/core': 8.2.4
-      '@nestjs/testing': 8.2.4
+      '@nestjs/common': 8.2.5
+      '@nestjs/core': 8.2.5
+      '@nestjs/testing': 8.2.5
       '@nrwl/cli': 13.4.4
       '@nrwl/jest': 13.4.4
       '@nrwl/node': 13.4.4
@@ -66,9 +66,9 @@ importers:
       '@golevelup/nestjs-discovery': 2.3.1
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@nestjs/cli': 8.1.8_eslint@8.6.0
-      '@nestjs/common': 8.2.4_88a789cb3f20cca25c3f70fe96f41643
-      '@nestjs/core': 8.2.4_1a5566888d904dd41c4c93f203e9757f
-      '@nestjs/testing': 8.2.4_4074b1ae164556f5db19ac4b8b5667b7
+      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/core': 8.2.5_4d34bcc4311a780925020c9f901d5309
+      '@nestjs/testing': 8.2.5_dd9ef2e1e23f087665d46fe53bbbed58
       '@nrwl/cli': 13.4.4
       '@nrwl/jest': 13.4.4
       '@nrwl/node': 13.4.4_prettier@2.5.1+typescript@4.5.4
@@ -3295,8 +3295,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.2.4_88a789cb3f20cca25c3f70fe96f41643:
-    resolution: {integrity: sha512-zb6Y//Rd7tRsMsY2qDvX7qk/msr6sBid7V9YNvdePzGNYfMOvtwgNoqtHgbq2F6V4kCtMO7slmmM4/zptSghiQ==}
+  /@nestjs/common/8.2.5_88a789cb3f20cca25c3f70fe96f41643:
+    resolution: {integrity: sha512-8VOZmHcCyhBtfvxehDfudsCrNghUoqDpZA5W8d/PUhMgz4Y1eT0M2ENBIuxr3C3j1vLypFOo30La2ymfQlOC8Q==}
     peerDependencies:
       cache-manager: '*'
       class-transformer: '*'
@@ -3321,8 +3321,8 @@ packages:
       - debug
     dev: true
 
-  /@nestjs/core/8.2.4_1a5566888d904dd41c4c93f203e9757f:
-    resolution: {integrity: sha512-CWyS5Rj5tUxwtTGKkGei+ii6CvkGNhuo5hbKGBkCK3McfAMwpCq2pYDjSEFAqn6R2ylL4H3U5H9WU6OWJD1cVw==}
+  /@nestjs/core/8.2.5_4d34bcc4311a780925020c9f901d5309:
+    resolution: {integrity: sha512-R0vp0VlAQFP7qBTZMzMspwOCO6MpsMJON/MsrfHVGgZS5Sd5DInfboWhe2COPnAr+VAT0o4FAKObW08Pdb5hMg==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -3339,7 +3339,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.2.4_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -3377,8 +3377,8 @@ packages:
       typescript: 4.5.4
     dev: false
 
-  /@nestjs/testing/8.2.4_4074b1ae164556f5db19ac4b8b5667b7:
-    resolution: {integrity: sha512-kRpLbb/y4TFzqP7iuQd3qiCg+auwdnj4qWeBDIW5ugqdnfCjgk/TzlbeTZF08mPYyjvHscg+0bMHri6r0Pm3sQ==}
+  /@nestjs/testing/8.2.5_dd9ef2e1e23f087665d46fe53bbbed58:
+    resolution: {integrity: sha512-M0uGfmPb5hc3k8jEHW2/Ilia+BYnxZoZ4MmqrWlLND/zTNSSJZJXUISLDtukka9/GAzGTlyQ3yQJMGL+GjnqXA==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
@@ -3391,8 +3391,8 @@ packages:
         optional: true
     dependencies:
       optional: 0.1.4
-      '@nestjs/common': 8.2.4_88a789cb3f20cca25c3f70fe96f41643
-      '@nestjs/core': 8.2.4_1a5566888d904dd41c4c93f203e9757f
+      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/core': 8.2.5_4d34bcc4311a780925020c9f901d5309
       tslib: 2.3.1
     dev: true
 
