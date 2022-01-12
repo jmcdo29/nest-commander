@@ -17,7 +17,7 @@ importers:
       '@docusaurus/preset-classic': 2.0.0-beta.9
       '@golevelup/nestjs-discovery': 2.3.1
       '@mdx-js/react': 1.6.22
-      '@nestjs/cli': 8.1.8
+      '@nestjs/cli': 8.2.0
       '@nestjs/common': 8.2.5
       '@nestjs/core': 8.2.5
       '@nestjs/testing': 8.2.5
@@ -65,7 +65,7 @@ importers:
       '@docusaurus/preset-classic': 2.0.0-beta.9_faf794a2fe373b0d4653d7d816d6aa0f
       '@golevelup/nestjs-discovery': 2.3.1
       '@mdx-js/react': 1.6.22_react@17.0.2
-      '@nestjs/cli': 8.1.8_eslint@8.6.0
+      '@nestjs/cli': 8.2.0_eslint@8.6.0
       '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
       '@nestjs/core': 8.2.5_4d34bcc4311a780925020c9f901d5309
       '@nestjs/testing': 8.2.5_dd9ef2e1e23f087665d46fe53bbbed58
@@ -2213,7 +2213,7 @@ packages:
       '@mdx-js/react': 1.6.22_react@17.0.2
       chalk: 4.1.2
       escape-html: 1.0.3
-      file-loader: 6.2.0_webpack@5.65.0
+      file-loader: 6.2.0_webpack@5.66.0
       fs-extra: 10.0.0
       github-slugger: 1.4.0
       gray-matter: 4.0.3
@@ -2223,8 +2223,8 @@ packages:
       remark-emoji: 2.2.0
       stringify-object: 3.3.0
       unist-util-visit: 2.0.3
-      url-loader: 4.1.1_file-loader@6.2.0+webpack@5.65.0
-      webpack: 5.65.0
+      url-loader: 4.1.1_file-loader@6.2.0+webpack@5.66.0
+      webpack: 5.66.0
     transitivePeerDependencies:
       - '@swc/core'
       - acorn
@@ -2267,7 +2267,7 @@ packages:
       remark-admonitions: 1.2.1
       tslib: 2.3.1
       utility-types: 3.10.0
-      webpack: 5.65.0
+      webpack: 5.66.0
     transitivePeerDependencies:
       - '@swc/core'
       - acorn
@@ -2309,10 +2309,10 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       remark-admonitions: 1.2.1
-      shelljs: 0.8.4
+      shelljs: 0.8.5
       tslib: 2.3.1
       utility-types: 3.10.0
-      webpack: 5.65.0
+      webpack: 5.66.0
     transitivePeerDependencies:
       - '@swc/core'
       - acorn
@@ -2347,7 +2347,7 @@ packages:
       react-dom: 17.0.2_react@17.0.2
       remark-admonitions: 1.2.1
       tslib: 2.3.1
-      webpack: 5.65.0
+      webpack: 5.66.0
     transitivePeerDependencies:
       - '@swc/core'
       - acorn
@@ -2695,7 +2695,7 @@ packages:
       joi: 17.4.2
       querystring: 0.2.0
       utility-types: 3.10.0
-      webpack: 5.65.0
+      webpack: 5.66.0
       webpack-merge: 5.8.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -2882,7 +2882,7 @@ packages:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       exit: 0.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-changed-files: 26.6.2
       jest-config: 26.6.3
       jest-haste-map: 26.6.2
@@ -2984,7 +2984,7 @@ packages:
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       istanbul-lib-coverage: 3.0.0
       istanbul-lib-instrument: 4.0.3
       istanbul-lib-report: 3.0.0
@@ -3023,7 +3023,7 @@ packages:
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       istanbul-lib-coverage: 3.0.0
       istanbul-lib-instrument: 4.0.3
       istanbul-lib-report: 3.0.0
@@ -3047,7 +3047,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       callsites: 3.1.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       source-map: 0.6.1
     dev: true
 
@@ -3056,7 +3056,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       callsites: 3.1.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       source-map: 0.6.1
     dev: true
 
@@ -3095,7 +3095,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/test-result': 26.6.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 26.6.2
       jest-runner: 26.6.3
       jest-runtime: 26.6.3
@@ -3112,7 +3112,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/test-result': 27.2.5
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.2.5
       jest-runtime: 27.2.5
     transitivePeerDependencies:
@@ -3129,7 +3129,7 @@ packages:
       chalk: 4.1.2
       convert-source-map: 1.8.0
       fast-json-stable-stringify: 2.1.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 26.6.2
       jest-regex-util: 26.0.0
       jest-util: 26.6.2
@@ -3152,7 +3152,7 @@ packages:
       chalk: 4.1.2
       convert-source-map: 1.8.0
       fast-json-stable-stringify: 2.1.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.2.5
       jest-regex-util: 27.0.6
       jest-util: 27.2.5
@@ -3259,20 +3259,20 @@ packages:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: true
 
-  /@nestjs/cli/8.1.8_eslint@8.6.0:
-    resolution: {integrity: sha512-oafOYjh8SN1XlB2DNneK0ePjJSHmLVwhnqFux96HacnRxMyIPxFA0Wgpc/2qoBwejJD1BidlvTIcYvFAYNEs4A==}
+  /@nestjs/cli/8.2.0_eslint@8.6.0:
+    resolution: {integrity: sha512-f5grQOgrRcfHfOUP94OWsMdVYy6bit0zRSxPZ5+tfsFWkiPWdcx5Ba2M2socTykkiNHruXBu07lYvcKh94do7Q==}
     engines: {node: '>= 10.13.0', npm: '>= 6.11.0'}
     hasBin: true
     dependencies:
       '@angular-devkit/core': 13.1.2_chokidar@3.5.2
       '@angular-devkit/schematics': 13.1.2_chokidar@3.5.2
       '@angular-devkit/schematics-cli': 13.1.2_chokidar@3.5.2
-      '@nestjs/schematics': 8.0.3_typescript@4.3.5
+      '@nestjs/schematics': 8.0.3_typescript@4.5.4
       chalk: 3.0.0
       chokidar: 3.5.2
       cli-table3: 0.6.1
       commander: 4.1.1
-      fork-ts-checker-webpack-plugin: 6.5.0_2a0d86fd2970a5ce3eb654e96f24d80f
+      fork-ts-checker-webpack-plugin: 6.5.0_d187042a2d58edd988d53c159e9ded5e
       inquirer: 7.3.3
       node-emoji: 1.11.0
       ora: 5.4.1
@@ -3283,8 +3283,8 @@ packages:
       tree-kill: 1.2.2
       tsconfig-paths: 3.12.0
       tsconfig-paths-webpack-plugin: 3.5.2
-      typescript: 4.3.5
-      webpack: 5.65.0
+      typescript: 4.5.4
+      webpack: 5.66.0
       webpack-node-externals: 3.0.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -3351,19 +3351,6 @@ packages:
       uuid: 8.3.2
     dev: true
 
-  /@nestjs/schematics/8.0.3_typescript@4.3.5:
-    resolution: {integrity: sha512-A5qyS9yv6v2RIBqbsyYG57NfYA8Jm/aypRV1nc7JXjhdfDHwWKqCsgQ/7/82vVjhlvVAfr5x/dpCWqcF3XYd7w==}
-    peerDependencies:
-      typescript: ^3.4.5 || ^4.3.5
-    dependencies:
-      '@angular-devkit/core': 12.0.5
-      '@angular-devkit/schematics': 12.0.5
-      fs-extra: 10.0.0
-      jsonc-parser: 3.0.0
-      pluralize: 8.0.0
-      typescript: 4.3.5
-    dev: true
-
   /@nestjs/schematics/8.0.3_typescript@4.5.4:
     resolution: {integrity: sha512-A5qyS9yv6v2RIBqbsyYG57NfYA8Jm/aypRV1nc7JXjhdfDHwWKqCsgQ/7/82vVjhlvVAfr5x/dpCWqcF3XYd7w==}
     peerDependencies:
@@ -3375,7 +3362,6 @@ packages:
       jsonc-parser: 3.0.0
       pluralize: 8.0.0
       typescript: 4.5.4
-    dev: false
 
   /@nestjs/testing/8.2.5_dd9ef2e1e23f087665d46fe53bbbed58:
     resolution: {integrity: sha512-M0uGfmPb5hc3k8jEHW2/Ilia+BYnxZoZ4MmqrWlLND/zTNSSJZJXUISLDtukka9/GAzGTlyQ3yQJMGL+GjnqXA==}
@@ -4860,7 +4846,7 @@ packages:
       babel-plugin-istanbul: 6.0.0
       babel-preset-jest: 26.6.2_@babel+core@7.16.0
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -4879,7 +4865,7 @@ packages:
       babel-plugin-istanbul: 6.0.0
       babel-preset-jest: 27.2.0_@babel+core@7.16.0
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5528,7 +5514,6 @@ packages:
   /cli-spinners/2.6.1:
     resolution: {integrity: sha512-x/5fWmGMnbKQAaNwN+UZlV79qBLM9JFnJuJ03gIi5whrob0xV0ofNVHy9DhwGdsMJQc2OKv0oGmLzvaqvAVv+g==}
     engines: {node: '>=6'}
-    dev: true
 
   /cli-table3/0.6.1:
     resolution: {integrity: sha512-w0q/enDHhPLq44ovMGdQeeDLvwxwavsJX7oQGYt/LrBlYsyaxyDnp6z3QzFut/6kLLKnlcUVJLrpB7KBfgG/RA==}
@@ -5782,7 +5767,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       dot-prop: 5.3.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       make-dir: 3.1.0
       unique-string: 2.0.0
       write-file-atomic: 3.0.3
@@ -6581,7 +6566,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       globby: 11.0.4
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-glob: 4.0.3
       is-path-cwd: 2.2.0
       is-path-inside: 3.0.3
@@ -6857,7 +6842,7 @@ packages:
     resolution: {integrity: sha512-EGAbGvH7j7Xt2nc0E7D99La1OiEs8LnyimkRgwExpUMScN6O+3x9tIWs7PLQZVNx4YD+00skHXPXi1yQHpAmZA==}
     engines: {node: '>=10.13.0'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       tapable: 2.2.0
     dev: true
 
@@ -7514,6 +7499,17 @@ packages:
       webpack: 5.65.0
     dev: true
 
+  /file-loader/6.2.0_webpack@5.66.0:
+    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 3.1.1
+      webpack: 5.66.0
+    dev: true
+
   /filelist/1.0.2:
     resolution: {integrity: sha512-z7O0IS8Plc39rTCq6i6iHxk43duYOn8uFJiWSewIq0Bww1RNybVHSCjahmcC87ZqAm4OTvFzlzeGu3XAzG1ctQ==}
     dependencies:
@@ -7715,7 +7711,7 @@ packages:
       webpack: 5.65.0
     dev: true
 
-  /fork-ts-checker-webpack-plugin/6.5.0_2a0d86fd2970a5ce3eb654e96f24d80f:
+  /fork-ts-checker-webpack-plugin/6.5.0_d187042a2d58edd988d53c159e9ded5e:
     resolution: {integrity: sha512-cS178Y+xxtIjEUorcHddKS7yCMlrDPV31mt47blKKRfMd70Kxu5xruAFE2o9sDY6wVC5deuob/u/alD04YYHnw==}
     engines: {node: '>=10', yarn: '>=1.0.0'}
     peerDependencies:
@@ -7743,8 +7739,8 @@ packages:
       schema-utils: 2.7.0
       semver: 7.3.5
       tapable: 1.1.3
-      typescript: 4.3.5
-      webpack: 5.65.0
+      typescript: 4.5.4
+      webpack: 5.66.0
     dev: true
 
   /form-data/3.0.1:
@@ -7793,7 +7789,7 @@ packages:
     resolution: {integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==}
     engines: {node: '>=6 <7 || >=8'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jsonfile: 4.0.0
       universalify: 0.1.2
     dev: true
@@ -7802,7 +7798,7 @@ packages:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
     engines: {node: '>=6 <7 || >=8'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jsonfile: 4.0.0
       universalify: 0.1.2
     dev: true
@@ -7812,7 +7808,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       at-least-node: 1.0.0
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
@@ -8095,6 +8091,9 @@ packages:
 
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
+
+  /graceful-fs/4.2.9:
+    resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==}
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
@@ -9265,7 +9264,7 @@ packages:
       '@jest/types': 26.6.2
       chalk: 4.1.2
       exit: 0.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       import-local: 3.0.2
       is-ci: 2.0.0
       jest-config: 26.6.3
@@ -9297,7 +9296,7 @@ packages:
       chalk: 4.1.2
       deepmerge: 4.2.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-environment-jsdom: 26.6.2
       jest-environment-node: 26.6.2
       jest-get-type: 26.3.0
@@ -9331,7 +9330,7 @@ packages:
       chalk: 4.1.2
       deepmerge: 4.2.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-ci: 3.0.1
       jest-circus: 27.2.5
       jest-environment-jsdom: 27.2.5
@@ -9368,7 +9367,7 @@ packages:
       chalk: 4.1.2
       deepmerge: 4.2.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-ci: 3.0.1
       jest-circus: 27.2.5
       jest-environment-jsdom: 27.2.5
@@ -9525,7 +9524,7 @@ packages:
       '@types/node': 16.11.19
       anymatch: 3.1.2
       fb-watchman: 2.0.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-regex-util: 26.0.0
       jest-serializer: 26.6.2
       jest-util: 26.6.2
@@ -9546,7 +9545,7 @@ packages:
       '@types/node': 16.11.19
       anymatch: 3.1.2
       fb-watchman: 2.0.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-regex-util: 27.0.6
       jest-serializer: 27.0.6
       jest-util: 27.2.5
@@ -9657,7 +9656,7 @@ packages:
       '@jest/types': 26.6.2
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       micromatch: 4.0.4
       pretty-format: 26.6.2
       slash: 3.0.0
@@ -9672,7 +9671,7 @@ packages:
       '@jest/types': 27.2.5
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       micromatch: 4.0.4
       pretty-format: 27.2.5
       slash: 3.0.0
@@ -9756,7 +9755,7 @@ packages:
     dependencies:
       '@jest/types': 26.6.2
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-pnp-resolver: 1.2.2_jest-resolve@26.6.2
       jest-util: 26.6.2
       read-pkg-up: 7.0.1
@@ -9771,7 +9770,7 @@ packages:
       '@jest/types': 27.2.5
       chalk: 4.1.2
       escalade: 3.1.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.2.5
       jest-pnp-resolver: 1.2.2_jest-resolve@27.2.2
       jest-util: 27.2.5
@@ -9787,7 +9786,7 @@ packages:
       '@jest/types': 27.2.5
       chalk: 4.1.2
       escalade: 3.1.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.2.5
       jest-pnp-resolver: 1.2.2_jest-resolve@27.2.5
       jest-util: 27.2.5
@@ -9808,7 +9807,7 @@ packages:
       chalk: 4.1.2
       emittery: 0.7.2
       exit: 0.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-config: 26.6.3
       jest-docblock: 26.0.0
       jest-haste-map: 26.6.2
@@ -9841,7 +9840,7 @@ packages:
       chalk: 4.1.2
       emittery: 0.8.1
       exit: 0.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-docblock: 27.0.6
       jest-environment-jsdom: 27.2.5
       jest-environment-node: 27.2.5
@@ -9880,7 +9879,7 @@ packages:
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-config: 26.6.3
       jest-haste-map: 26.6.2
       jest-message-util: 26.6.2
@@ -9920,7 +9919,7 @@ packages:
       execa: 5.1.1
       exit: 0.1.2
       glob: 7.1.7
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-haste-map: 27.2.5
       jest-message-util: 27.2.5
       jest-mock: 27.2.5
@@ -9941,7 +9940,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@types/node': 16.11.19
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /jest-serializer/27.0.6:
@@ -9949,7 +9948,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@types/node': 16.11.19
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /jest-snapshot/26.6.2:
@@ -9962,7 +9961,7 @@ packages:
       '@types/prettier': 2.3.2
       chalk: 4.1.2
       expect: 26.6.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-diff: 26.6.2
       jest-get-type: 26.3.0
       jest-haste-map: 26.6.2
@@ -9991,7 +9990,7 @@ packages:
       babel-preset-current-node-syntax: 1.0.1_@babel+core@7.16.0
       chalk: 4.1.2
       expect: 27.2.5
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       jest-diff: 27.2.5
       jest-get-type: 27.0.6
       jest-haste-map: 27.2.5
@@ -10013,7 +10012,7 @@ packages:
       '@jest/types': 26.6.2
       '@types/node': 16.11.19
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-ci: 2.0.0
       micromatch: 4.0.4
     dev: true
@@ -10025,7 +10024,7 @@ packages:
       '@jest/types': 27.2.5
       '@types/node': 16.11.19
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-ci: 3.0.1
       picomatch: 2.3.0
     dev: true
@@ -10037,7 +10036,7 @@ packages:
       '@jest/types': 27.2.5
       '@types/node': 16.11.19
       chalk: 4.1.2
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       is-ci: 3.0.1
       picomatch: 2.3.0
     dev: true
@@ -10241,7 +10240,7 @@ packages:
   /jsonfile/4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /jsonfile/6.1.0:
@@ -10249,7 +10248,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
 
   /jsonparse/1.3.1:
     resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=}
@@ -10384,7 +10383,7 @@ packages:
     resolution: {integrity: sha1-L19Fq5HjMhYjT9U62rZo607AmTs=}
     engines: {node: '>=4'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       parse-json: 4.0.0
       pify: 3.0.0
       strip-bom: 3.0.0
@@ -10394,7 +10393,7 @@ packages:
     resolution: {integrity: sha512-OfCBkGEw4nN6JLtgRidPX6QxjBQGQf72q3si2uvqyFEMbycSFFHwAZeXx6cJgFM9wmLrf9zBwCP3Ivqa+LLZPw==}
     engines: {node: '>=6'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       js-yaml: 3.14.1
       pify: 4.0.1
       strip-bom: 3.0.0
@@ -11341,7 +11340,7 @@ packages:
       bl: 4.1.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
-      cli-spinners: 2.6.0
+      cli-spinners: 2.6.1
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
@@ -12571,7 +12570,7 @@ packages:
     resolution: {integrity: sha512-VIMnQi/Z4HT2Fxuwg5KrY174U1VdUIASQVWXXyqtNRtxSr9IYkn1rsI6Tb6HsrHCmB7gVpNwX6JxPTHcH6IoTA==}
     engines: {node: '>=6'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       js-yaml: 3.14.1
       pify: 4.0.1
       strip-bom: 3.0.0
@@ -13942,6 +13941,33 @@ packages:
       - acorn
     dev: true
 
+  /terser-webpack-plugin/5.2.4_acorn@8.7.0+webpack@5.66.0:
+    resolution: {integrity: sha512-E2CkNMN+1cho04YpdANyRrn8CyN4yMy+WdFKZIySFZrGXZxJwJP6PMNGGc/Mcr6qygQHUUqRxnAPmi0M9f00XA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@swc/core': '*'
+      esbuild: '*'
+      uglify-js: '*'
+      webpack: ^5.1.0
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      esbuild:
+        optional: true
+      uglify-js:
+        optional: true
+    dependencies:
+      jest-worker: 27.2.5
+      p-limit: 3.1.0
+      schema-utils: 3.1.1
+      serialize-javascript: 6.0.0
+      source-map: 0.6.1
+      terser: 5.10.0_acorn@8.7.0
+      webpack: 5.66.0
+    transitivePeerDependencies:
+      - acorn
+    dev: true
+
   /terser-webpack-plugin/5.2.4_webpack@5.65.0:
     resolution: {integrity: sha512-E2CkNMN+1cho04YpdANyRrn8CyN4yMy+WdFKZIySFZrGXZxJwJP6PMNGGc/Mcr6qygQHUUqRxnAPmi0M9f00XA==}
     engines: {node: '>= 10.13.0'}
@@ -14615,6 +14641,23 @@ packages:
       webpack: 5.65.0
     dev: true
 
+  /url-loader/4.1.1_file-loader@6.2.0+webpack@5.66.0:
+    resolution: {integrity: sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      file-loader: '*'
+      webpack: ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      file-loader:
+        optional: true
+    dependencies:
+      file-loader: 6.2.0_webpack@5.66.0
+      loader-utils: 2.0.0
+      mime-types: 2.1.32
+      schema-utils: 3.1.1
+      webpack: 5.66.0
+    dev: true
+
   /url-parse-lax/3.0.0:
     resolution: {integrity: sha1-FrXK/Afb42dsGxmZF3gj1lA6yww=}
     engines: {node: '>=4'}
@@ -14805,7 +14848,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dependencies:
       glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /wbuf/1.7.3:
@@ -14886,7 +14929,7 @@ packages:
       default-gateway: 6.0.3
       del: 6.0.0
       express: 4.17.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       html-entities: 2.3.2
       http-proxy-middleware: 2.0.1
       ipaddr.js: 2.0.1
@@ -14959,7 +15002,7 @@ packages:
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       json-parse-better-errors: 1.0.2
       loader-runner: 4.2.0
       mime-types: 2.1.32
@@ -14967,6 +15010,46 @@ packages:
       schema-utils: 3.1.1
       tapable: 2.2.0
       terser-webpack-plugin: 5.2.4_acorn@8.7.0+webpack@5.65.0
+      watchpack: 2.3.1
+      webpack-sources: 3.2.2
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+    dev: true
+
+  /webpack/5.66.0:
+    resolution: {integrity: sha512-NJNtGT7IKpGzdW7Iwpn/09OXz9inIkeIQ/ibY6B+MdV1x6+uReqz/5z1L89ezWnpPDWpXF0TY5PCYKQdWVn8Vg==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+    dependencies:
+      '@types/eslint-scope': 3.7.1
+      '@types/estree': 0.0.50
+      '@webassemblyjs/ast': 1.11.1
+      '@webassemblyjs/wasm-edit': 1.11.1
+      '@webassemblyjs/wasm-parser': 1.11.1
+      acorn: 8.7.0
+      acorn-import-assertions: 1.7.6_acorn@8.7.0
+      browserslist: 4.18.1
+      chrome-trace-event: 1.0.3
+      enhanced-resolve: 5.8.3
+      es-module-lexer: 0.9.3
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.9
+      json-parse-better-errors: 1.0.2
+      loader-runner: 4.2.0
+      mime-types: 2.1.32
+      neo-async: 2.6.2
+      schema-utils: 3.1.1
+      tapable: 2.2.0
+      terser-webpack-plugin: 5.2.4_acorn@8.7.0+webpack@5.66.0
       watchpack: 2.3.1
       webpack-sources: 3.2.2
     transitivePeerDependencies:
