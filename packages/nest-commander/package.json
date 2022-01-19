@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jmcdo29/nest-commander#readme",
   "dependencies": {
-    "@golevelup/nestjs-discovery": "2.3.1",
+    "@golevelup/nestjs-discovery": "2.3.2",
     "commander": "8.3.0",
     "cosmiconfig": "7.0.1",
     "inquirer": "8.2.0"
