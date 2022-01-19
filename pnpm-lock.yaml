@@ -15,7 +15,7 @@ importers:
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9
       '@docusaurus/preset-classic': 2.0.0-beta.9
-      '@golevelup/nestjs-discovery': 2.3.1
+      '@golevelup/nestjs-discovery': 2.3.2
       '@mdx-js/react': 1.6.22
       '@nestjs/cli': 8.2.0
       '@nestjs/common': 8.2.5
@@ -63,7 +63,7 @@ importers:
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
       '@docusaurus/preset-classic': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
-      '@golevelup/nestjs-discovery': 2.3.1
+      '@golevelup/nestjs-discovery': 2.3.2
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@nestjs/cli': 8.2.0_eslint@8.7.0
       '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
@@ -105,12 +105,12 @@ importers:
 
   packages/nest-commander:
     specifiers:
-      '@golevelup/nestjs-discovery': 2.3.1
+      '@golevelup/nestjs-discovery': 2.3.2
       commander: 8.3.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.0
     dependencies:
-      '@golevelup/nestjs-discovery': 2.3.1
+      '@golevelup/nestjs-discovery': 2.3.2
       commander: 8.3.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.0
@@ -2783,8 +2783,8 @@ packages:
       - supports-color
     dev: true
 
-  /@golevelup/nestjs-discovery/2.3.1:
-    resolution: {integrity: sha512-K3NG34hK1/UM1ardiUSS9c43AAdk6IBJHUMZbBGavqfgNo17N2wjygSDMHFd5Cf+jqTPkt+n5Vr9ua22yCLzlg==}
+  /@golevelup/nestjs-discovery/2.3.2:
+    resolution: {integrity: sha512-qfUfXZPIJd9n5li97Ggub8QEV5rjTLKNHjdEw36B4ugM29GXQBAhTmcWbTF6UO78SZguIJNACx2DlDwSgJYpcg==}
     dependencies:
       lodash: 4.17.21
 
