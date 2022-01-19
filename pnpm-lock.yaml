@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.19.0
-      '@commitlint/cli': 16.0.2
+      '@commitlint/cli': 16.0.3
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9
       '@docusaurus/preset-classic': 2.0.0-beta.9
@@ -59,7 +59,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.19.0
-      '@commitlint/cli': 16.0.2_@types+node@16.11.21
+      '@commitlint/cli': 16.0.3_@types+node@16.11.21
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
       '@docusaurus/preset-classic': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
@@ -1894,8 +1894,8 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@commitlint/cli/16.0.2_@types+node@16.11.21:
-    resolution: {integrity: sha512-Jt7iaBjoLGC5Nq4dHPTvTYnqPGkElFPBtTXTvBpTgatZApczyjI2plE0oG4GYWPp1suHIS/VdVDOMpPZjGVusg==}
+  /@commitlint/cli/16.0.3_@types+node@16.11.21:
+    resolution: {integrity: sha512-SB1od4/1ek5SShNKjKgUdpqiVNulNVgCkjkV4Zz9zLKrxn3sPcgvXMQNh/wy0/T4WPUVgHrHGcxWYOYXxrGwpg==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
