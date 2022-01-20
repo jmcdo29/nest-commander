@@ -18,9 +18,9 @@ importers:
       '@golevelup/nestjs-discovery': 2.3.2
       '@mdx-js/react': 1.6.22
       '@nestjs/cli': 8.2.0
-      '@nestjs/common': 8.2.5
-      '@nestjs/core': 8.2.5
-      '@nestjs/testing': 8.2.5
+      '@nestjs/common': 8.2.6
+      '@nestjs/core': 8.2.6
+      '@nestjs/testing': 8.2.6
       '@nrwl/cli': 13.4.6
       '@nrwl/jest': 13.4.6
       '@nrwl/node': 13.4.6
@@ -66,9 +66,9 @@ importers:
       '@golevelup/nestjs-discovery': 2.3.2
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@nestjs/cli': 8.2.0_eslint@8.7.0
-      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
-      '@nestjs/core': 8.2.5_4d34bcc4311a780925020c9f901d5309
-      '@nestjs/testing': 8.2.5_dd9ef2e1e23f087665d46fe53bbbed58
+      '@nestjs/common': 8.2.6_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/core': 8.2.6_0f75cad7c3bc55c714d492fe95499bdf
+      '@nestjs/testing': 8.2.6_732a54a2558f64827b8cc4f9baac4f1f
       '@nrwl/cli': 13.4.6
       '@nrwl/jest': 13.4.6
       '@nrwl/node': 13.4.6_71d4d09aa055ef35a74fe0c042562c65
@@ -1968,31 +1968,10 @@ packages:
       '@commitlint/types': 16.0.0
     dev: true
 
-  /@commitlint/load/16.0.0_@types+node@16.11.21:
-    resolution: {integrity: sha512-7WhrGCkP6K/XfjBBguLkkI2XUdiiIyMGlNsSoSqgRNiD352EiffhFEApMy1/XOU+viwBBm/On0n5p0NC7e9/4A==}
-    engines: {node: '>=v12'}
-    requiresBuild: true
-    dependencies:
-      '@commitlint/config-validator': 16.1.0
-      '@commitlint/execute-rule': 16.0.0
-      '@commitlint/resolve-extends': 16.1.0
-      '@commitlint/types': 16.0.0
-      chalk: 4.1.2
-      cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.2_6c639fe72b7dff7b66d483307814106a
-      lodash: 4.17.21
-      resolve-from: 5.0.0
-      typescript: 4.5.4
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-    dev: true
-    optional: true
-
   /@commitlint/load/16.1.0_@types+node@16.11.21:
     resolution: {integrity: sha512-MtlEhKjP8jAF85jjX4mw8DUUwCxKsCgAc865hhpnwxjrfBcmGP7Up2AFE/M3ZMGDmSl1X1TMybQk/zohj8Cqdg==}
     engines: {node: '>=v12'}
+    requiresBuild: true
     dependencies:
       '@commitlint/config-validator': 16.1.0
       '@commitlint/execute-rule': 16.0.0
@@ -3306,8 +3285,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.2.5_88a789cb3f20cca25c3f70fe96f41643:
-    resolution: {integrity: sha512-8VOZmHcCyhBtfvxehDfudsCrNghUoqDpZA5W8d/PUhMgz4Y1eT0M2ENBIuxr3C3j1vLypFOo30La2ymfQlOC8Q==}
+  /@nestjs/common/8.2.6_88a789cb3f20cca25c3f70fe96f41643:
+    resolution: {integrity: sha512-flLYSXunxcKyjbYddrhwbc49uE705MxBt85rS3mHyhDbAIPSGGeZEqME44YyAzCg1NTfJSNe7ztmOce5kNkb9A==}
     peerDependencies:
       cache-manager: '*'
       class-transformer: '*'
@@ -3332,8 +3311,8 @@ packages:
       - debug
     dev: true
 
-  /@nestjs/core/8.2.5_4d34bcc4311a780925020c9f901d5309:
-    resolution: {integrity: sha512-R0vp0VlAQFP7qBTZMzMspwOCO6MpsMJON/MsrfHVGgZS5Sd5DInfboWhe2COPnAr+VAT0o4FAKObW08Pdb5hMg==}
+  /@nestjs/core/8.2.6_0f75cad7c3bc55c714d492fe95499bdf:
+    resolution: {integrity: sha512-NwPcEIMmCsucs3QaDlQvkoU1FlFM2wm/WjaqLQhkSoIEmAR1gNtBo88f5io5cpMwCo1k5xYhqGlaSl6TfngwWQ==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -3350,7 +3329,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/common': 8.2.6_88a789cb3f20cca25c3f70fe96f41643
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -3374,8 +3353,8 @@ packages:
       pluralize: 8.0.0
       typescript: 4.5.4
 
-  /@nestjs/testing/8.2.5_dd9ef2e1e23f087665d46fe53bbbed58:
-    resolution: {integrity: sha512-M0uGfmPb5hc3k8jEHW2/Ilia+BYnxZoZ4MmqrWlLND/zTNSSJZJXUISLDtukka9/GAzGTlyQ3yQJMGL+GjnqXA==}
+  /@nestjs/testing/8.2.6_732a54a2558f64827b8cc4f9baac4f1f:
+    resolution: {integrity: sha512-Cg8tM7yxlLDBO+CTNjk6X/UkxGRsprFc8gDHGEGesiE9wLErxNnslFugfUnYWJaSzmLZSqcFFig7mThc8VSxrw==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
@@ -3388,8 +3367,8 @@ packages:
         optional: true
     dependencies:
       optional: 0.1.4
-      '@nestjs/common': 8.2.5_88a789cb3f20cca25c3f70fe96f41643
-      '@nestjs/core': 8.2.5_4d34bcc4311a780925020c9f901d5309
+      '@nestjs/common': 8.2.6_88a789cb3f20cca25c3f70fe96f41643
+      '@nestjs/core': 8.2.6_0f75cad7c3bc55c714d492fe95499bdf
       tslib: 2.3.1
     dev: true
 
@@ -6406,7 +6385,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.0.0_@types+node@16.11.21
+      '@commitlint/load': 16.1.0_@types+node@16.11.21
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
