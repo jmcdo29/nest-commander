@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.19.0
-      '@commitlint/cli': 16.0.3
+      '@commitlint/cli': 16.1.0
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9
       '@docusaurus/preset-classic': 2.0.0-beta.9
@@ -59,7 +59,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.19.0
-      '@commitlint/cli': 16.0.3_@types+node@16.11.21
+      '@commitlint/cli': 16.1.0_@types+node@16.11.21
       '@commitlint/config-conventional': 16.0.0
       '@docusaurus/core': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
       '@docusaurus/preset-classic': 2.0.0-beta.9_e6742cc21d205ad51cbbe6d3895d9976
@@ -1894,14 +1894,14 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@commitlint/cli/16.0.3_@types+node@16.11.21:
-    resolution: {integrity: sha512-SB1od4/1ek5SShNKjKgUdpqiVNulNVgCkjkV4Zz9zLKrxn3sPcgvXMQNh/wy0/T4WPUVgHrHGcxWYOYXxrGwpg==}
+  /@commitlint/cli/16.1.0_@types+node@16.11.21:
+    resolution: {integrity: sha512-x5L1knvA3isRWBRVQx+Q6D45pA9139a2aZQYpxkljMG0dj4UHZkCnsYWpnGalxPxASI7nrI0KedKfS2YeQ55cQ==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
       '@commitlint/format': 16.0.0
       '@commitlint/lint': 16.0.0
-      '@commitlint/load': 16.0.0_@types+node@16.11.21
+      '@commitlint/load': 16.1.0_@types+node@16.11.21
       '@commitlint/read': 16.0.0
       '@commitlint/types': 16.0.0
       lodash: 4.17.21
@@ -1921,8 +1921,8 @@ packages:
       conventional-changelog-conventionalcommits: 4.6.1
     dev: true
 
-  /@commitlint/config-validator/16.0.0:
-    resolution: {integrity: sha512-i80DGlo1FeC5jZpuoNV9NIjQN/m2dDV3jYGWg+1Wr+KldptkUHXj+6GY1Akll66lJ3D8s6aUGi3comPLHPtWHg==}
+  /@commitlint/config-validator/16.1.0:
+    resolution: {integrity: sha512-2cHeZPNTuf1JWbMqyA46MkExor5HMSgv8JrdmzEakUbJHUreh35/wN00FJf57qGs134exQW2thiSQ1IJUsVx2Q==}
     engines: {node: '>=v12'}
     dependencies:
       '@commitlint/types': 16.0.0
@@ -1971,10 +1971,32 @@ packages:
   /@commitlint/load/16.0.0_@types+node@16.11.21:
     resolution: {integrity: sha512-7WhrGCkP6K/XfjBBguLkkI2XUdiiIyMGlNsSoSqgRNiD352EiffhFEApMy1/XOU+viwBBm/On0n5p0NC7e9/4A==}
     engines: {node: '>=v12'}
+    requiresBuild: true
     dependencies:
-      '@commitlint/config-validator': 16.0.0
+      '@commitlint/config-validator': 16.1.0
       '@commitlint/execute-rule': 16.0.0
-      '@commitlint/resolve-extends': 16.0.0
+      '@commitlint/resolve-extends': 16.1.0
+      '@commitlint/types': 16.0.0
+      chalk: 4.1.2
+      cosmiconfig: 7.0.1
+      cosmiconfig-typescript-loader: 1.0.2_6c639fe72b7dff7b66d483307814106a
+      lodash: 4.17.21
+      resolve-from: 5.0.0
+      typescript: 4.5.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+    dev: true
+    optional: true
+
+  /@commitlint/load/16.1.0_@types+node@16.11.21:
+    resolution: {integrity: sha512-MtlEhKjP8jAF85jjX4mw8DUUwCxKsCgAc865hhpnwxjrfBcmGP7Up2AFE/M3ZMGDmSl1X1TMybQk/zohj8Cqdg==}
+    engines: {node: '>=v12'}
+    dependencies:
+      '@commitlint/config-validator': 16.1.0
+      '@commitlint/execute-rule': 16.0.0
+      '@commitlint/resolve-extends': 16.1.0
       '@commitlint/types': 16.0.0
       chalk: 4.1.2
       cosmiconfig: 7.0.1
@@ -2012,11 +2034,11 @@ packages:
       git-raw-commits: 2.0.10
     dev: true
 
-  /@commitlint/resolve-extends/16.0.0:
-    resolution: {integrity: sha512-Z/w9MAQUcxeawpCLtjmkVNXAXOmB2nhW+LYmHEZcx9O6UTauF/1+uuZ2/r0MtzTe1qw2JD+1QHVhEWYHVPlkdA==}
+  /@commitlint/resolve-extends/16.1.0:
+    resolution: {integrity: sha512-8182s6AFoUFX6+FT1PgQDt15nO2ogdR/EN8SYVAdhNXw1rLz8kT5saB/ICw567GuRAUgFTUMGCXy3ctMOXPEDg==}
     engines: {node: '>=v12'}
     dependencies:
-      '@commitlint/config-validator': 16.0.0
+      '@commitlint/config-validator': 16.1.0
       '@commitlint/types': 16.0.0
       import-fresh: 3.3.0
       lodash: 4.17.21
@@ -6366,7 +6388,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.0.0_@types+node@16.11.21
+      '@commitlint/load': 16.1.0_@types+node@16.11.21
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
