@@ -44,7 +44,7 @@ importers:
       husky: 7.0.4
       inquirer: 8.2.0
       jest: 26.6.3
-      lint-staged: 12.3.0
+      lint-staged: 12.3.1
       pinst: 2.1.6
       prettier: 2.5.1
       react: 17.0.2
@@ -92,7 +92,7 @@ importers:
       husky: 7.0.4
       inquirer: 8.2.0
       jest: 26.6.3
-      lint-staged: 12.3.0
+      lint-staged: 12.3.1
       pinst: 2.1.6
       prettier: 2.5.1
       react: 17.0.2
@@ -10273,8 +10273,8 @@ packages:
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
 
-  /lint-staged/12.3.0:
-    resolution: {integrity: sha512-bk+jvy5H+12Srg8MGlSmBt78B9GEbMtd4BETHdHS1mMmbgt3Gw18d8KwrJXCcJmICMGQTCiKBUMZSZ3NlfQ8PQ==}
+  /lint-staged/12.3.1:
+    resolution: {integrity: sha512-Ocht/eT+4/siWOZDJpNUKcKX2UeWW/pDbohJ4gRsrafAjBi79JK8kiNVk2ciIVNKdw0Q4ABptl2nr6uQAlRImw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -10284,7 +10284,7 @@ packages:
       debug: 4.3.3_supports-color@9.2.1
       execa: 5.1.1
       lilconfig: 2.0.4
-      listr2: 3.13.5
+      listr2: 4.0.1
       micromatch: 4.0.4
       normalize-path: 3.0.0
       object-inspect: 1.12.0
@@ -10295,9 +10295,9 @@ packages:
       - enquirer
     dev: true
 
-  /listr2/3.13.5:
-    resolution: {integrity: sha512-3n8heFQDSk+NcwBn3CgxEibZGaRzx+pC64n3YjpMD1qguV4nWus3Al+Oo3KooqFKTQEJ1v7MmnbnyyNspgx3NA==}
-    engines: {node: '>=10.0.0'}
+  /listr2/4.0.1:
+    resolution: {integrity: sha512-D65Nl+zyYHL2jQBGmxtH/pU8koPZo5C8iCNE8EoB04RwPgQG1wuaKwVbeZv9LJpiH4Nxs0FCp+nNcG8OqpniiA==}
+    engines: {node: '>=12'}
     peerDependencies:
       enquirer: '>= 2.3.0 < 3'
     peerDependenciesMeta:
