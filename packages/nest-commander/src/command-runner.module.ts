@@ -6,6 +6,7 @@ import { CommanderOptionsType } from './command-factory.interface';
 import { CommandRunnerService } from './command-runner.service';
 import { Commander, CommanderOptions, Inquirer } from './constants';
 import { InquirerService } from './inquirer.service';
+import { CliUtilityService } from './cli-utility.service';
 
 @Module({})
 export class CommandRunnerModule {
@@ -40,8 +41,9 @@ export class CommandRunnerModule {
           provide: 'InquirerOptions',
           useValue: this.inquirerOptions,
         },
+        CliUtilityService,
       ],
-      exports: [InquirerService],
+      exports: [InquirerService, CliUtilityService, Commander],
     };
   }
 }

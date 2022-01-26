@@ -1,4 +1,4 @@
-import { Type } from '@nestjs/common';
+import { Inject, Type } from '@nestjs/common';
 import {
   CommandMetadata,
   CommandRunner,
@@ -9,6 +9,7 @@ import {
 } from './command-runner.interface';
 import {
   ChoicesMeta,
+  Commander,
   CommandMeta,
   DefaultMeta,
   HelpMeta,
@@ -90,3 +91,5 @@ export const DefaultFor = (options: QuestionNameMetadata): MethodDecorator => {
 export const Help = (options: HelpOptions): MethodDecorator => {
   return applyMethodMetadata(options, HelpMeta);
 };
+
+export const InjectCommander = () => Inject(Commander);

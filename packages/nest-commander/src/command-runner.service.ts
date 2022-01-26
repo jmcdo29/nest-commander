@@ -11,20 +11,20 @@ import {
 } from './command-runner.interface';
 import {
   cliPluginError,
-  Commander,
   CommanderOptions,
   CommandMeta,
   HelpMeta,
   OptionMeta,
   SubCommandMeta,
 } from './constants';
+import { InjectCommander } from './command.decorators';
 
 export class CommandRunnerService implements OnModuleInit {
   private subCommands?: DiscoveredClassWithMeta<CommandMetadata>[];
 
   constructor(
     private readonly discoveryService: DiscoveryService,
-    @Inject(Commander) private readonly commander: Command,
+    @InjectCommander() private readonly commander: Command,
     @Inject(CommanderOptions) private readonly options: CommanderOptionsType,
   ) {}
 
