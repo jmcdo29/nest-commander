@@ -154,6 +154,39 @@ Most of the decorators for the `@QuestionSet()` decorated class are just dynamic
 
 :::
 
+### CliUtilityService
+
+:::info
+
+The `CliUtilityService` is available from `nest-commander@2.4.0` and on
+
+:::
+
+#### parseBoolean
+
+A helper method to turn a string into a boolean based on true or false values.
+
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| val | string | true | The string value to be turned into a boolean |
+
+#### parseInt
+
+A Simple wrapper around `Number.parseInt()`
+
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| val | string | true | The string value to be turned into an integer |
+| radix | number | false | The radix to use for praseInt. Defaults to 10 |
+
+#### parseFloat
+
+A simple wrapper around `Number.parseFloat()`
+
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| val | string | true | The string value to be turned into a float |
+
 ### CommandFactory
 
 #### run

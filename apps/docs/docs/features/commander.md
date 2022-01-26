@@ -84,6 +84,10 @@ You can also make an option completely required, like an argument, by setting `r
 
 By default, `commander` sets help to the `--help` or `-h` flag. If you need extra help added to the command, you can use the `@Help()` decorator on a class method that returns a string. The valid values for the `@Help()` decorator are `before`, `beforeAll`, `after` and `afterAll`, just like for commander's `addHelpText` method.
 
+## Getting the Commander Instance
+
+If for some reason you need access to the `commander` instance, as of `nest-commander@2.4.0` you can use `@InjectCommander()` to get the instance used.
+
 ## Sub Commands
 
 It may also be that you want to add subcommands to your command, similar to `docker compose up`. This is possible with the `@SubCommand()` decorator. Using this decorator, you can have your original implementation for the `@Command()` decorator, with arguments as normal, and you can have sub commands, as specific arguments that take in even more options. With our `run` example above, lets say we wanted to add a subcommand, `foo`. We'd make use of the `parents` option for the `run` command and reference the subcommand class, like so:
