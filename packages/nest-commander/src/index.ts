@@ -1,3 +1,4 @@
+export * from './cli-utility.service';
 export * from './command.decorators';
 export * from './command.factory';
 export * from './command-runner.interface';
