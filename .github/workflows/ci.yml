@@ -12,7 +12,7 @@ on:
 
 env:
   NX_CLOUD_DISTRIBUTED_EXECUTION: ${{ !contains(github.event.pull_request.user.login, 'dependabot') && !contains(github.event.pull_request.user.login, 'renovate') }}
-  NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_TOKEN }}
+  NX_CLOUD_AUTH_TOKEN: ${{ startsWith(github.repository, 'jmcdo29') && secrets.NX_CLOUD_TOKEN || 'OTRjNTE0ZTgtNmVjOC00NjNmLWFkYzctYWM0MDlhM2VmNzMyfHJlYWQ=' }}
 
 jobs:
   main:
@@ -23,6 +23,8 @@ jobs:
         name: Checkout [main]
         with:
           fetch-depth: 0
+      - name: Debug ternary
+        run: echo ${{ startsWith(github.repository, 'jmcdo29') && 'In repo' || 'from fork' }}
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
       - uses: actions/setup-node@v2
