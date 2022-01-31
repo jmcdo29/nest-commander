@@ -6,3 +6,4 @@ export * from './command-runner.module';
 export * from './command-runner.service';
 export { Inquirer } from './constants';
 export * from './inquirer.service';
+console.log('testing PR workflow');
