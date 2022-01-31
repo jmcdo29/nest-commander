@@ -26,13 +26,8 @@ jobs:
     if: ${{ needs.changes.outputs.files == 'true' }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - name: Install pnpm
-        run: npm i -g pnpm
-      - name: Dependencies Install
-        run: pnpm i
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Build Docs
         run: pnpm nx build docs
       - uses: webfactory/ssh-agent@v0.5.4
