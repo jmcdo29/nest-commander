@@ -1,0 +1,24 @@
+name: 'Set up action environment'
+description: 'Install Node, pnpm, and install deps with caching'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+
+    - name: Cache pnpm modules
+      uses: actions/cache@v2
+      if: ${{ !contains(github.event.pull_request.user.login, 'bot') }}
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2.0.1
+      with:
+        version: 6
+        run_install: true

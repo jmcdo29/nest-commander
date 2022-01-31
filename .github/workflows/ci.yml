@@ -25,13 +25,8 @@ jobs:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-      - name: Install pnpm
-        run: npm i -g pnpm
-      - name: Install deps
-        run: pnpm i
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Lint
         run: pnpm lint
       - name: Build Projects
@@ -49,15 +44,10 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - name: Debug ternary
-        run: echo ${{ startsWith(github.repository, 'jmcdo29') && 'In repo' || 'from fork' }}
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-      - name: Install pnpm
-        run: npm i -g pnpm
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Install deps
         run: pnpm i
       - name: Lint
@@ -109,12 +99,7 @@ jobs:
         agent: [ 1, 2, 3 ]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-      - name: Install pnpm
-        run: npm i -g pnpm
-      - name: Install deps
-        run: pnpm i
+      - name: Setup
+        uses: ./.github/actions/setup
       - name: Start Nx Agent ${{ matrix.agent }}
         run: pnpm nx-cloud start-agent
