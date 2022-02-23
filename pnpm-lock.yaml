@@ -29,7 +29,7 @@ importers:
       '@nrwl/workspace': 13.8.3
       '@nx-plus/docusaurus': 12.2.0
       '@types/inquirer': 8.2.0
-      '@types/jest': 27.4.0
+      '@types/jest': 27.4.1
       '@types/node': 16.11.25
       '@typescript-eslint/eslint-plugin': 5.12.1
       '@typescript-eslint/parser': 5.12.1
@@ -77,7 +77,7 @@ importers:
       '@nrwl/workspace': 13.8.3_e76591a86d1a18308a5596326ddf9c7e
       '@nx-plus/docusaurus': 12.2.0_@nrwl+workspace@13.8.3
       '@types/inquirer': 8.2.0
-      '@types/jest': 27.4.0
+      '@types/jest': 27.4.1
       '@types/node': 16.11.25
       '@typescript-eslint/eslint-plugin': 5.12.1_aa3af6382115a42a71cc388b7b2c30b3
       '@typescript-eslint/parser': 5.12.1_eslint@8.9.0+typescript@4.5.5
@@ -4016,10 +4016,10 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/27.4.0:
-    resolution: {integrity: sha512-gHl8XuC1RZ8H2j5sHv/JqsaxXkDDM9iDOgu0Wp8sjs4u/snb2PVehyWXJPr+ORA0RPpgw231mnutWI1+0hgjIQ==}
+  /@types/jest/27.4.1:
+    resolution: {integrity: sha512-23iPJADSmicDVrWk+HT58LMJtzLAnB2AgIzplQuq/bSrGaxCrlvRFjGbXmamnnk/mAmCdLStiGqggu28ocUyiw==}
     dependencies:
-      jest-diff: 27.2.5
+      jest-matcher-utils: 27.2.5
       pretty-format: 27.2.5
     dev: true
 
