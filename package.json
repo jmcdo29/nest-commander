@@ -58,7 +58,7 @@
     "@nx-plus/docusaurus": "12.2.0",
     "@types/inquirer": "8.2.0",
     "@types/jest": "27.4.1",
-    "@types/node": "16.11.25",
+    "@types/node": "16.11.26",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "clsx": "1.1.1",
