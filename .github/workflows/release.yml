@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Nx Agent
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
         
