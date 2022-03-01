@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout [main]
         with:
           fetch-depth: 0
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           # ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
@@ -64,7 +64,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -98,7 +98,7 @@ jobs:
       matrix:
         agent: [ 1, 2, 3 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Start Nx Agent ${{ matrix.agent }}
