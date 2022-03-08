@@ -50,7 +50,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2
       reflect-metadata: 0.1.13
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       ts-jest: 26.5.6
       typescript: 4.6.2
       url-loader: 4.1.1
@@ -66,8 +66,8 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@nestjs/cli': 8.2.2
-      '@nestjs/common': 8.4.0_0a8b9973a45cbeaad6b0063efdcaad84
-      '@nestjs/core': 8.4.0_8b36610a93f76db1b35891575c63ff52
+      '@nestjs/common': 8.4.0_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 8.4.0_fa5d7eac25d9989be5b1db3b5778139c
       '@nestjs/testing': 8.4.0_31e7036b193d6d3c9cadab18cbb4af84
       '@nrwl/cli': 13.8.3
       '@nrwl/jest': 13.8.3
@@ -98,7 +98,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       reflect-metadata: 0.1.13
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       ts-jest: 26.5.6_jest@26.6.3+typescript@4.6.2
       typescript: 4.6.2
       url-loader: 4.1.1
@@ -120,13 +120,13 @@ importers:
       '@angular-devkit/core': 12.0.5
       '@angular-devkit/schematics': 12.0.5
       '@nestjs/schematics': 8.0.3
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       typescript: 4.6.2
     dependencies:
       '@angular-devkit/core': 12.0.5
       '@angular-devkit/schematics': 12.0.5
       '@nestjs/schematics': 8.0.3_typescript@4.6.2
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       typescript: 4.6.2
 
   packages/nest-commander-testing:
@@ -3462,7 +3462,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.4.0_0a8b9973a45cbeaad6b0063efdcaad84:
+  /@nestjs/common/8.4.0_e7ea248743279784063e3708d703abc5:
     resolution: {integrity: sha512-uvm1Ccw0qRka/Gd5Mo5A2MQo9ItwewPes1fE2SBboennPojoiJ4A3iKirtlPuxsL+HQ4oD5eO02OsDyLYL2z6w==}
     peerDependencies:
       cache-manager: '*'
@@ -3481,14 +3481,14 @@ packages:
       axios: 0.26.0
       iterare: 1.2.1
       reflect-metadata: 0.1.13
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       tslib: 2.3.1
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
     dev: true
 
-  /@nestjs/core/8.4.0_8b36610a93f76db1b35891575c63ff52:
+  /@nestjs/core/8.4.0_fa5d7eac25d9989be5b1db3b5778139c:
     resolution: {integrity: sha512-aur62kcyQz81D0GvM038t2JFelxPm9ABt11o5qO5ovTJ5mismZheckwyPA3WHg9wec6skr9v8kBVdZUbjFQJQQ==}
     requiresBuild: true
     peerDependencies:
@@ -3506,14 +3506,14 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.4.0_0a8b9973a45cbeaad6b0063efdcaad84
+      '@nestjs/common': 8.4.0_e7ea248743279784063e3708d703abc5
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
       object-hash: 3.0.0
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       tslib: 2.3.1
       uuid: 8.3.2
     dev: true
@@ -3544,8 +3544,8 @@ packages:
         optional: true
     dependencies:
       optional: 0.1.4
-      '@nestjs/common': 8.4.0_0a8b9973a45cbeaad6b0063efdcaad84
-      '@nestjs/core': 8.4.0_8b36610a93f76db1b35891575c63ff52
+      '@nestjs/common': 8.4.0_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 8.4.0_fa5d7eac25d9989be5b1db3b5778139c
       tslib: 2.3.1
     dev: true
 
@@ -4252,7 +4252,7 @@ packages:
     resolution: {integrity: sha512-BNoMetRf3gmkpAlV5we+kxyZTle7YibdOntIZbU5pyIfMdcwy784KfeZDAcuyMznkh5OLa17RVXZOGA5LTlkgQ==}
     dependencies:
       '@types/through': 0.0.30
-      rxjs: 7.5.4
+      rxjs: 7.5.5
     dev: true
 
   /@types/is-ci/3.0.0:
@@ -8831,7 +8831,7 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8
@@ -8851,7 +8851,7 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       string-width: 4.2.2
       strip-ansi: 6.0.0
       through: 2.3.8
@@ -10449,7 +10449,7 @@ packages:
       log-update: 4.0.0
       p-map: 4.0.0
       rfdc: 1.3.0
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       through: 2.3.8
       wrap-ansi: 7.0.0
     dev: true
@@ -13025,8 +13025,8 @@ packages:
     dependencies:
       tslib: 1.14.1
 
-  /rxjs/7.5.4:
-    resolution: {integrity: sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==}
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
       tslib: 2.3.1
 
@@ -14764,7 +14764,7 @@ packages:
       joi: 17.6.0
       lodash: 4.17.21
       minimist: 1.2.5
-      rxjs: 7.5.4
+      rxjs: 7.5.5
     transitivePeerDependencies:
       - debug
     dev: true
