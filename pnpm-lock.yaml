@@ -42,7 +42,7 @@ importers:
       eslint-config-prettier: 7.2.0
       eslint-plugin-prettier: 4.0.0
       husky: 7.0.4
-      inquirer: 8.2.0
+      inquirer: 8.2.1
       jest: 26.6.3
       lint-staged: 12.3.5
       pinst: 3.0.0
@@ -90,7 +90,7 @@ importers:
       eslint-config-prettier: 7.2.0_eslint@8.10.0
       eslint-plugin-prettier: 4.0.0_533d508e8479e7bd7118ad2a7cd8f62b
       husky: 7.0.4
-      inquirer: 8.2.0
+      inquirer: 8.2.1
       jest: 26.6.3
       lint-staged: 12.3.5
       pinst: 3.0.0
@@ -108,12 +108,12 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.0
+      inquirer: 8.2.1
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.0
+      inquirer: 8.2.1
 
   packages/nest-commander-schematics:
     specifiers:
@@ -8852,8 +8852,28 @@ packages:
       ora: 5.4.1
       run-async: 2.4.1
       rxjs: 7.5.5
-      string-width: 4.2.2
-      strip-ansi: 6.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      through: 2.3.8
+    dev: true
+
+  /inquirer/8.2.1:
+    resolution: {integrity: sha512-pxhBaw9cyTFMjwKtkjePWDhvwzvrNGAw7En4hottzlPvz80GZaMZthdDU35aA6/f5FRZf3uhE057q8w1DE3V2g==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-width: 3.0.0
+      external-editor: 3.1.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      mute-stream: 0.0.8
+      ora: 5.4.1
+      run-async: 2.4.1
+      rxjs: 7.5.5
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
       through: 2.3.8
 
   /interpret/1.4.0:
@@ -13629,14 +13649,6 @@ packages:
       strip-ansi: 4.0.0
     dev: true
 
-  /string-width/4.2.2:
-    resolution: {integrity: sha512-XBJbT3N4JhVumXE0eoLU9DCjcaF92KLNqTmFCnG1pf8duUxFGwtP6AD6nkjw9a3IdiRtL3E2w3JDiE/xi3vOeA==}
-    engines: {node: '>=8'}
-    dependencies:
-      emoji-regex: 8.0.0
-      is-fullwidth-code-point: 3.0.0
-      strip-ansi: 6.0.1
-
   /string-width/4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -13644,7 +13656,6 @@ packages:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
       strip-ansi: 6.0.1
-    dev: true
 
   /string-width/5.0.1:
     resolution: {integrity: sha512-5ohWO/M4//8lErlUUtrFy3b11GtNOuMOU0ysKCDXFcfXuuvUXu95akgj/i8ofmaGdN0hCqyl6uu9i8dS/mQp5g==}
@@ -13688,12 +13699,6 @@ packages:
     dependencies:
       ansi-regex: 4.1.0
     dev: true
-
-  /strip-ansi/6.0.0:
-    resolution: {integrity: sha512-AuvKTrTfQNYNIctbR1K/YGTR1756GycPsg7b9bdV9Duqur4gv6aKqHXah67Z8ImS7WEz5QVcOtlfW2rZEugt6w==}
-    engines: {node: '>=8'}
-    dependencies:
-      ansi-regex: 5.0.1
 
   /strip-ansi/6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
