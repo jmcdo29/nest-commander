@@ -46,7 +46,7 @@ importers:
       jest: 26.6.3
       lint-staged: 12.3.5
       pinst: 3.0.0
-      prettier: 2.5.1
+      prettier: 2.6.0
       react: 17.0.2
       react-dom: 17.0.2
       reflect-metadata: 0.1.13
@@ -71,10 +71,10 @@ importers:
       '@nestjs/testing': 8.4.1_214a294e539403889bf33d78c1f08a26
       '@nrwl/cli': 13.8.3
       '@nrwl/jest': 13.8.3
-      '@nrwl/node': 13.8.3_f4ab446d55e576627c1be0b9568a7fe9
+      '@nrwl/node': 13.8.3_83bc012e22a441999bc7e52466863909
       '@nrwl/nx-cloud': 13.1.6
       '@nrwl/tao': 13.8.3
-      '@nrwl/workspace': 13.8.3_f4ab446d55e576627c1be0b9568a7fe9
+      '@nrwl/workspace': 13.8.3_83bc012e22a441999bc7e52466863909
       '@nx-plus/docusaurus': 12.2.0_@nrwl+workspace@13.8.3
       '@types/inquirer': 8.2.0
       '@types/jest': 27.4.1
@@ -88,13 +88,13 @@ importers:
       cz-conventional-changelog: 3.3.0
       eslint: 8.11.0
       eslint-config-prettier: 7.2.0_eslint@8.11.0
-      eslint-plugin-prettier: 4.0.0_a986398b2ba81de9c3171b4865e3e0d5
+      eslint-plugin-prettier: 4.0.0_7ecea0fe97fc7bc8f8fd369d6df2a9bf
       husky: 7.0.4
       inquirer: 8.2.1
       jest: 26.6.3
       lint-staged: 12.3.5
       pinst: 3.0.0
-      prettier: 2.5.1
+      prettier: 2.6.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       reflect-metadata: 0.1.13
@@ -2170,31 +2170,10 @@ packages:
       '@commitlint/types': 16.2.1
     dev: true
 
-  /@commitlint/load/16.2.1:
-    resolution: {integrity: sha512-oSpz0jTyVI/A1AIImxJINTLDOMB8YF7lWGm+Jg5wVWM0r7ucpuhyViVvpSRTgvL0z09oIxlctyFGWUQQpI42uw==}
-    engines: {node: '>=v12'}
-    requiresBuild: true
-    dependencies:
-      '@commitlint/config-validator': 16.2.1
-      '@commitlint/execute-rule': 16.2.1
-      '@commitlint/resolve-extends': 16.2.1
-      '@commitlint/types': 16.2.1
-      '@types/node': 17.0.21
-      chalk: 4.1.2
-      cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.2_e79e62fe450383fd2d418267dc75e645
-      lodash: 4.17.21
-      resolve-from: 5.0.0
-      typescript: 4.6.2
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-    dev: true
-    optional: true
-
   /@commitlint/load/16.2.3:
     resolution: {integrity: sha512-Hb4OUlMnBUK6UxJEZ/VJ5k0LocIS7PtEMbRXEAA7eSpOgORIFexC4K/RaRpVd5UTtu3M0ST3ddPPijF9rdW6nw==}
     engines: {node: '>=v12'}
+    requiresBuild: true
     dependencies:
       '@commitlint/config-validator': 16.2.1
       '@commitlint/execute-rule': 16.2.1
@@ -3707,13 +3686,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/13.8.3_f4ab446d55e576627c1be0b9568a7fe9:
+  /@nrwl/node/13.8.3_83bc012e22a441999bc7e52466863909:
     resolution: {integrity: sha512-tNf0+FcuXyttBwK47VDAn4NQCrLFAtL+f2jq0k6let1ve+Jq7VgWRGIZMpupMIaeJ/0HqWKuytGyFPzOIaCC6w==}
     dependencies:
       '@nrwl/devkit': 13.8.3
       '@nrwl/jest': 13.8.3_ts-node@9.1.1
       '@nrwl/linter': 13.8.3_828060744afce5595e8c5dec51dff415
-      '@nrwl/workspace': 13.8.3_7e14c739720fdfb30f9814139e9bee1a
+      '@nrwl/workspace': 13.8.3_b27e3c6d59d8759e365fd3dbe7a3a228
       chalk: 4.1.0
       copy-webpack-plugin: 9.0.1_webpack@5.66.0
       enhanced-resolve: 5.8.3
@@ -3783,52 +3762,7 @@ packages:
       yargs-parser: 20.0.0
     dev: true
 
-  /@nrwl/workspace/13.8.3_7e14c739720fdfb30f9814139e9bee1a:
-    resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
-    peerDependencies:
-      prettier: ^2.5.1
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-    dependencies:
-      '@nrwl/cli': 13.8.3
-      '@nrwl/devkit': 13.8.3
-      '@nrwl/jest': 13.8.3_ts-node@9.1.1
-      '@nrwl/linter': 13.8.3_828060744afce5595e8c5dec51dff415
-      '@parcel/watcher': 2.0.4
-      chalk: 4.1.0
-      chokidar: 3.5.3
-      cli-cursor: 3.1.0
-      cli-spinners: 2.6.1
-      dotenv: 10.0.0
-      enquirer: 2.3.6
-      figures: 3.2.0
-      flat: 5.0.2
-      fs-extra: 9.1.0
-      glob: 7.1.4
-      ignore: 5.2.0
-      minimatch: 3.0.4
-      npm-run-path: 4.0.1
-      open: 8.4.0
-      prettier: 2.5.1
-      rxjs: 6.6.7
-      semver: 7.3.4
-      tmp: 0.2.1
-      tslib: 2.3.1
-      yargs: 15.4.1
-      yargs-parser: 20.0.0
-    transitivePeerDependencies:
-      - bufferutil
-      - canvas
-      - eslint
-      - node-notifier
-      - supports-color
-      - ts-node
-      - typescript
-      - utf-8-validate
-    dev: true
-
-  /@nrwl/workspace/13.8.3_f4ab446d55e576627c1be0b9568a7fe9:
+  /@nrwl/workspace/13.8.3_83bc012e22a441999bc7e52466863909:
     resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
     peerDependencies:
       prettier: ^2.5.1
@@ -3855,7 +3789,52 @@ packages:
       minimatch: 3.0.4
       npm-run-path: 4.0.1
       open: 8.4.0
-      prettier: 2.5.1
+      prettier: 2.6.0
+      rxjs: 6.6.7
+      semver: 7.3.4
+      tmp: 0.2.1
+      tslib: 2.3.1
+      yargs: 15.4.1
+      yargs-parser: 20.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - eslint
+      - node-notifier
+      - supports-color
+      - ts-node
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@nrwl/workspace/13.8.3_b27e3c6d59d8759e365fd3dbe7a3a228:
+    resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
+    peerDependencies:
+      prettier: ^2.5.1
+    peerDependenciesMeta:
+      prettier:
+        optional: true
+    dependencies:
+      '@nrwl/cli': 13.8.3
+      '@nrwl/devkit': 13.8.3
+      '@nrwl/jest': 13.8.3_ts-node@9.1.1
+      '@nrwl/linter': 13.8.3_828060744afce5595e8c5dec51dff415
+      '@parcel/watcher': 2.0.4
+      chalk: 4.1.0
+      chokidar: 3.5.3
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      dotenv: 10.0.0
+      enquirer: 2.3.6
+      figures: 3.2.0
+      flat: 5.0.2
+      fs-extra: 9.1.0
+      glob: 7.1.4
+      ignore: 5.2.0
+      minimatch: 3.0.4
+      npm-run-path: 4.0.1
+      open: 8.4.0
+      prettier: 2.6.0
       rxjs: 6.6.7
       semver: 7.3.4
       tmp: 0.2.1
@@ -3891,7 +3870,7 @@ packages:
       '@angular-devkit/architect': 0.1201.0
       '@angular-devkit/core': 12.1.0
       '@angular-devkit/schematics': 12.1.0
-      '@nrwl/workspace': 13.8.3_f4ab446d55e576627c1be0b9568a7fe9
+      '@nrwl/workspace': 13.8.3_83bc012e22a441999bc7e52466863909
       rxjs: 6.5.5
       typescript: 4.3.5
     dev: true
@@ -6693,7 +6672,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.2.1
+      '@commitlint/load': 16.2.3
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -7230,7 +7209,7 @@ packages:
       eslint: 8.11.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_a986398b2ba81de9c3171b4865e3e0d5:
+  /eslint-plugin-prettier/4.0.0_7ecea0fe97fc7bc8f8fd369d6df2a9bf:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -7243,7 +7222,7 @@ packages:
     dependencies:
       eslint: 8.11.0
       eslint-config-prettier: 7.2.0_eslint@8.11.0
-      prettier: 2.5.1
+      prettier: 2.6.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -12234,8 +12213,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
+  /prettier/2.6.0:
+    resolution: {integrity: sha512-m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
