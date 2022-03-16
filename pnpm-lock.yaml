@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.21.1
-      '@commitlint/cli': 16.2.1
+      '@commitlint/cli': 16.2.3
       '@commitlint/config-conventional': 16.2.1
       '@docusaurus/core': 2.0.0-beta.17
       '@docusaurus/preset-classic': 2.0.0-beta.17
@@ -59,7 +59,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.21.1
-      '@commitlint/cli': 16.2.1
+      '@commitlint/cli': 16.2.3
       '@commitlint/config-conventional': 16.2.1
       '@docusaurus/core': 2.0.0-beta.17_4b989de8ecf9bda244bc13eda9a76581
       '@docusaurus/preset-classic': 2.0.0-beta.17_4b989de8ecf9bda244bc13eda9a76581
@@ -2097,14 +2097,14 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@commitlint/cli/16.2.1:
-    resolution: {integrity: sha512-zfKf+B9osuiDbxGMJ7bWFv7XFCW8wlQYPtCffNp7Ukdb7mdrep5R9e03vPUZysnwp8NX6hg05kPEvnD/wRIGWw==}
+  /@commitlint/cli/16.2.3:
+    resolution: {integrity: sha512-VsJBQLvhhlOgEfxs/Z5liYuK0dXqLE5hz1VJzLBxiOxG31kL/X5Q4OvK292BmO7IGZcm1yJE3XQPWSiFaEHbWA==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
       '@commitlint/format': 16.2.1
       '@commitlint/lint': 16.2.1
-      '@commitlint/load': 16.2.1
+      '@commitlint/load': 16.2.3
       '@commitlint/read': 16.2.1
       '@commitlint/types': 16.2.1
       lodash: 4.17.21
@@ -2174,6 +2174,27 @@ packages:
     resolution: {integrity: sha512-oSpz0jTyVI/A1AIImxJINTLDOMB8YF7lWGm+Jg5wVWM0r7ucpuhyViVvpSRTgvL0z09oIxlctyFGWUQQpI42uw==}
     engines: {node: '>=v12'}
     requiresBuild: true
+    dependencies:
+      '@commitlint/config-validator': 16.2.1
+      '@commitlint/execute-rule': 16.2.1
+      '@commitlint/resolve-extends': 16.2.1
+      '@commitlint/types': 16.2.1
+      '@types/node': 17.0.21
+      chalk: 4.1.2
+      cosmiconfig: 7.0.1
+      cosmiconfig-typescript-loader: 1.0.2_e79e62fe450383fd2d418267dc75e645
+      lodash: 4.17.21
+      resolve-from: 5.0.0
+      typescript: 4.6.2
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+    dev: true
+    optional: true
+
+  /@commitlint/load/16.2.3:
+    resolution: {integrity: sha512-Hb4OUlMnBUK6UxJEZ/VJ5k0LocIS7PtEMbRXEAA7eSpOgORIFexC4K/RaRpVd5UTtu3M0ST3ddPPijF9rdW6nw==}
+    engines: {node: '>=v12'}
     dependencies:
       '@commitlint/config-validator': 16.2.1
       '@commitlint/execute-rule': 16.2.1
@@ -3028,7 +3049,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.2.5
-      '@types/node': 16.11.26
+      '@types/node': 17.0.21
       chalk: 4.1.2
       jest-message-util: 27.2.5
       jest-util: 27.2.5
@@ -3044,7 +3065,7 @@ packages:
       '@jest/test-result': 26.6.2
       '@jest/transform': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 16.11.26
+      '@types/node': 17.0.21
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       exit: 0.1.2
@@ -6655,7 +6676,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.2.1
+      '@commitlint/load': 16.2.3
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -10124,7 +10145,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.2.5
-      '@types/node': 16.11.26
+      '@types/node': 17.0.21
       chalk: 4.1.2
       graceful-fs: 4.2.9
       is-ci: 3.0.1
