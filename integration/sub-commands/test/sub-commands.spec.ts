@@ -1,58 +1,56 @@
 import { TestingModule } from '@nestjs/testing';
+import { Stub, stubMethod } from 'hanbi';
 import { CommandTestFactory } from 'nest-commander-testing';
+import { suite } from 'uvu';
+import { equal } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { NestedModule } from '../src/nested.module';
 
-describe('Sub Commands', () => {
-  let commandModule: TestingModule;
-  const logMock: jest.Mock = jest.fn();
-  const exitMock: jest.Mock = jest.fn();
-  const trueExit = process.exit;
-
-  beforeAll(async () => {
-    commandModule = await CommandTestFactory.createTestingCommand({
-      imports: [NestedModule],
+export const SubCommandSuite = suite<{
+  logMock: Stub<typeof console.log>;
+  exitMock: Stub<typeof process.exit>;
+  commandInstance: TestingModule;
+}>('Sub Command Suite');
+SubCommandSuite.before(async (context) => {
+  context.exitMock = stubMethod(process, 'exit');
+  context.logMock = stubMethod(console, 'log');
+  context.commandInstance = await CommandTestFactory.createTestingCommand({
+    imports: [NestedModule],
+  })
+    .overrideProvider(LogService)
+    .useValue({
+      log: context.logMock.handler,
     })
-      .overrideProvider(LogService)
-      .useValue({
-        log: logMock,
-      })
-      .compile();
-    process.exit = exitMock as never;
-  });
-
-  afterEach(() => {
-    logMock.mockReset();
-    exitMock.mockReset();
-  });
-
-  afterAll(() => {
-    process.exit = trueExit;
-  });
-  it.each`
-    command
-    ${['top']}
-    ${['top', 'mid-1']}
-    ${['top', 'mid-1', 'bottom']}
-    ${['top', 'mid-2']}
-  `('should run the $command command', async ({ command }: { command: string[] }) => {
-    await CommandTestFactory.run(commandModule, [...command]);
-    expect(logMock).toBeCalledWith(`${command.join(' ')} command`);
-  });
-  it('should still be able to pass arguments', async () => {
-    await CommandTestFactory.run(commandModule, ['top', 'hello!']);
-    expect(logMock).toBeCalledTimes(2);
-    expect(logMock).toHaveBeenNthCalledWith(1, 'top command');
-    expect(logMock).toHaveBeenNthCalledWith(2, ['hello!']);
-  });
-  it.each`
-    command
-    ${'mid-1'}
-    ${'mid-2'}
-    ${'bottom'}
-  `('should  error on $command', async ({ command }: { command: string }) => {
-    await expect(CommandTestFactory.run(commandModule, [command])).resolves.toBeUndefined();
-    expect(logMock).toBeCalledTimes(0);
-    expect(exitMock).toBeCalledWith(1);
-  });
+    .compile();
 });
+SubCommandSuite.after.each(({ logMock, exitMock }) => {
+  logMock.reset();
+  exitMock.reset();
+});
+SubCommandSuite.after(({ exitMock }) => {
+  exitMock.restore();
+});
+for (const command of [['top'], ['top', 'mid-1'], ['top', 'mid-1', 'bottom'], ['top', 'mid-2']]) {
+  SubCommandSuite(`run the ${command} command`, async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, command);
+    equal(logMock.firstCall?.args[0], `${command.join(' ')} command`);
+  });
+}
+SubCommandSuite('parameters should still be passable', async ({ commandInstance, logMock }) => {
+  await CommandTestFactory.run(commandInstance, ['top', 'hello!']);
+  equal(logMock.callCount, 2);
+  equal(logMock.firstCall?.args[0], 'top command');
+  equal(logMock.getCall(1).args[0], ['hello!']);
+});
+for (const command of ['mid-1', 'mid-2', 'bottom']) {
+  SubCommandSuite(
+    `write an error from ${command} command`,
+    async ({ commandInstance, logMock, exitMock }) => {
+      const errStub = stubMethod(process.stderr, 'write');
+      await CommandTestFactory.run(commandInstance, [command]);
+      equal(logMock.callCount, 0);
+      equal(exitMock.firstCall?.args[0], 1);
+      errStub.restore();
+    },
+  );
+}

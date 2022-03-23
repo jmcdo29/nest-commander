@@ -1,38 +1,63 @@
 import { TestingModule } from '@nestjs/testing';
 import { CommandTestFactory } from 'nest-commander-testing';
+import { spy, Stub } from 'hanbi';
+import { suite } from 'uvu';
+import { equal } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { RootModule } from '../src/root.module';
 
-describe('Basic Command With Factory', () => {
-  const logMock = jest.fn();
-  let commandInstance: TestingModule;
+export const BasicFactorySuite = suite<{
+  commandInstance: TestingModule;
+  logMock: Stub<Console['log']>;
+  args: string[];
+}>('Basic Command With Factory');
 
-  const args = ['basic', 'test'];
-
-  beforeAll(async () => {
-    commandInstance = await CommandTestFactory.createTestingCommand({
-      imports: [RootModule],
-    })
-      .overrideProvider(LogService)
-      .useValue({ log: logMock })
-      .compile();
-  });
-
-  describe('flags', () => {
-    it.each`
-      flagAndVal            | expected
-      ${['--string=hello']} | ${{ string: 'hello' }}
-      ${['-s', 'goodbye']}  | ${{ string: 'goodbye' }}
-      ${['--number=10']}    | ${{ number: 10 }}
-      ${['-n', '5']}        | ${{ number: 5 }}
-      ${['--boolean=true']} | ${{ boolean: true }}
-      ${['-b', 'false']}    | ${{ boolean: false }}
-    `(
-      '$flagAndVal \tlogs $expected',
-      async ({ flagAndVal, expected }: { flagAndVal: string[]; expected: Record<string, any> }) => {
-        await CommandTestFactory.run(commandInstance, [...args, ...flagAndVal]);
-        expect(logMock).toBeCalledWith({ param: ['test'], ...expected });
-      },
-    );
-  });
+BasicFactorySuite.before(async (context) => {
+  context.logMock = spy();
+  context.args = ['basic', 'test'];
+  context.commandInstance = await CommandTestFactory.createTestingCommand({
+    imports: [RootModule],
+  })
+    .overrideProvider(LogService)
+    .useValue({ log: context.logMock.handler })
+    .compile();
 });
+
+BasicFactorySuite.after.each(({ logMock }) => {
+  logMock.reset();
+});
+
+for (const { flagAndVal, expected } of [
+  {
+    flagAndVal: ['--string=hello'],
+    expected: { string: 'hello' },
+  },
+  {
+    flagAndVal: ['-s', 'goodbye'],
+    expected: { string: 'goodbye' },
+  },
+  {
+    flagAndVal: ['--number=10'],
+    expected: { number: 10 },
+  },
+  {
+    flagAndVal: ['-n', '5'],
+    expected: { number: 5 },
+  },
+  {
+    flagAndVal: ['--boolean=true'],
+    expected: { boolean: true },
+  },
+  {
+    flagAndVal: ['-b', 'false'],
+    expected: { boolean: false },
+  },
+]) {
+  BasicFactorySuite(
+    `${flagAndVal} \tlogs ${JSON.stringify(expected)}`,
+    async ({ commandInstance, logMock, args }) => {
+      await CommandTestFactory.run(commandInstance, [...args, ...flagAndVal]);
+      equal(logMock.firstCall?.args[0], { param: ['test'], ...expected });
+    },
+  );
+}

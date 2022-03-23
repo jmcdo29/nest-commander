@@ -1,0 +1,5 @@
+{
+  "exclude": ["integration", "**/test/*"],
+  "reporter": ["lcov", "text"
+  ]
+}

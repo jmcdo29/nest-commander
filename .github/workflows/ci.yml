@@ -27,13 +27,10 @@ jobs:
         uses: nrwl/nx-set-shas@v2
       - name: Setup
         uses: ./.github/actions/setup
-      - name: Lint
-        run: pnpm lint
-      - name: Build Projects
-        run: pnpm build
-      - name: Test Projects
-        run: pnpm e2e
-      - run: pnpm nx-cloud stop-all-agents
+      - name: Lint, Build, Test
+        uses: ./.github/actions/lint-build-test
+      - name: Stop Nx Cloud Agents
+        run: pnpm nx-cloud stop-all-agents
       - name: Tag main branch if all jobs succeed
         uses: nrwl/nx-tag-successful-ci-run@v1
   pr:
@@ -48,15 +45,10 @@ jobs:
         uses: nrwl/nx-set-shas@v2
       - name: Setup
         uses: ./.github/actions/setup
-      - name: Install deps
-        run: pnpm i
-      - name: Lint
-        run: pnpm lint
-      - name: Build Projects
-        run: pnpm build
-      - name: Test Projects
-        run: pnpm e2e
-      - run: pnpm nx-cloud stop-all-agents
+      - name: Lint, Build, Test
+        uses: ./.github/actions/lint-build-test
+      - name: Stop Nx Cloud Agents
+        run: pnpm nx-cloud stop-all-agents
   
   analyze:
     name: Analyze
@@ -90,6 +82,23 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         MERGE_LABELS: ""
         MERGE_METHOD: rebase
+
+  send-coverage:
+    runs-on: ubuntu-latest
+    needs: [pr, main]
+    if: always()
+    steps:
+      - name: Download Coverage
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage
+          path: coverage/
+
+      - name: Send Coverage
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov.info
+        shell: bash
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
   agents:
     runs-on: ubuntu-latest

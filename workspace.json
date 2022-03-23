@@ -32,9 +32,12 @@
       "type": "library",
       "targets": {
         "e2e": {
-          "executor": "@nrwl/jest:jest",
+          "executor": "nx-uvu:uvu",
           "options": {
-            "jestConfig": "jest.integration.config.js"
+            "rootDir": "integration",
+            "useSwc": true,
+            "coverage": true,
+            "pattern": "index.spec.ts"
           }
         }
       },

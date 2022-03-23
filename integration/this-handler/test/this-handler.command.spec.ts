@@ -1,32 +1,42 @@
 import { TestingModule } from '@nestjs/testing';
+import { Stub, stubMethod } from 'hanbi';
 import { CommandTestFactory } from 'nest-commander-testing';
+import { suite } from 'uvu';
+import { equal } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { ThisHandlerModule } from '../src/this-handler.module';
 
-describe('This Handler', () => {
-  const logMock = jest.fn();
-  let commandModule: TestingModule;
-
-  beforeAll(async () => {
-    commandModule = await CommandTestFactory.createTestingCommand({ imports: [ThisHandlerModule] })
-      .overrideProvider(LogService)
-      .useValue({ log: logMock })
-      .compile();
-  });
-
-  afterEach(() => {
-    logMock.mockClear();
-  });
-
-  it.each`
-    flagVal            | expected
-    ${['-b']}          | ${'oh HAI'}
-    ${['-b', 'hello']} | ${'hello'}
-  `(
-    'should call this-handler with arg $flagVal and log $expected',
-    async ({ flagVal, expected }: { flagVal: string[]; expected: string }) => {
-      await CommandTestFactory.run(commandModule, ['this-handler'].concat(flagVal));
-      expect(logMock).toBeCalledWith({ basic: expected });
+export const ThisOptionHandlerSuite = suite<{
+  commandInstance: TestingModule;
+  logMock: Stub<typeof console.log>;
+}>('This Option Handler Suite');
+ThisOptionHandlerSuite.before(async (context) => {
+  context.logMock = stubMethod(console, 'log');
+  context.commandInstance = await CommandTestFactory.createTestingCommand({
+    imports: [ThisHandlerModule],
+  })
+    .overrideProvider(LogService)
+    .useValue({ log: context.logMock.handler })
+    .compile();
+});
+ThisOptionHandlerSuite.after.each(({ logMock }) => {
+  logMock.reset();
+});
+for (const { flagVal, expected } of [
+  {
+    flagVal: ['-b'],
+    expected: 'oh HAI',
+  },
+  {
+    flagVal: ['-b', 'hello'],
+    expected: 'hello',
+  },
+]) {
+  ThisOptionHandlerSuite(
+    `this-handler with arg ${flagVal} and log ${expected}`,
+    async ({ commandInstance, logMock }) => {
+      await CommandTestFactory.run(commandInstance, ['this-handler'].concat(flagVal));
+      equal(logMock.firstCall?.args[0], { basic: expected });
     },
   );
-});
+}
