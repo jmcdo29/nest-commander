@@ -1,183 +1,249 @@
 import { TestingModule } from '@nestjs/testing';
+import { spy, Stub, stubMethod } from 'hanbi';
 import { CommandTestFactory } from 'nest-commander-testing';
+import { Callback, suite, Test } from 'uvu';
+import { equal, match } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { FooModule } from '../src/foo.module';
 
-const shouldAddHelp = (placement: string, fn: jest.ProvidesCallback) =>
-  it(`should add help ${placement} the regular help`, fn);
+const shouldAddHelp = <T>(suite: Test<T>, placement: string, fn: Callback<T>) =>
+  suite(`should add help ${placement} the regular help`, fn);
 
 const argsBuilder = (name: string): string[] => {
   return [name, '-h'];
 };
 
-describe('Commands with Custom Help', () => {
-  let stdout: NodeJS.WriteStream & {
-    fd: 1;
-  };
-  let exit: (_code?: number) => never;
-  let exitSpy: jest.SpyInstance;
-  let stdoutSpy: jest.SpyInstance;
-  const logMock = jest.fn();
-  let commandModule: TestingModule;
+const exitCalledWithZero = (spy: Stub<typeof process.exit>) => {
+  equal(spy.firstCall?.args[0], 0);
+};
 
-  beforeAll(async () => {
-    commandModule = await CommandTestFactory.createTestingCommand({
-      imports: [FooModule],
-    })
-      .overrideProvider(LogService)
-      .useValue({ log: logMock })
-      .compile();
-    stdout = process.stdout;
-    exit = process.exit;
-  });
+const matchUsage = (spyVal: string[], position: string) => {
+  match(spyVal[0], new RegExp(`Usage: .+\\w ${position} \\[options\\]`));
+};
 
-  beforeEach(() => {
-    exitSpy = jest.spyOn(process, 'exit').mockImplementation((() => {
-      /* no op */
-    }) as unknown as any);
-    stdoutSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => true);
-  });
-
-  afterEach(() => {
-    stdoutSpy.mockClear();
-    logMock.mockClear();
-  });
-
-  afterAll(() => {
-    process.stdout = stdout;
-    process.exit = exit;
-  });
-  shouldAddHelp('before', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('before'));
-    expect(stdoutSpy.mock.calls[0][0]).toEqual(`before help
-`);
-    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+export const HelpSuite = suite<{
+  exitSpy: Stub<typeof process.exit>;
+  stdoutSpy: Stub<typeof process.stdout.write>;
+  commandInstance: TestingModule;
+}>('Command with Custom Help');
+HelpSuite.before(async (context) => {
+  stubMethod(process.stderr, 'write');
+  context.exitSpy = stubMethod(process, 'exit');
+  context.stdoutSpy = stubMethod(process.stdout, 'write');
+  context.commandInstance = await CommandTestFactory.createTestingCommand({
+    imports: [FooModule],
+  })
+    .overrideProvider(LogService)
+    .useValue({ log: spy().handler })
+    .compile();
+});
+HelpSuite.before.each(({ exitSpy, stdoutSpy }) => {
+  exitSpy.reset();
+  stdoutSpy.reset();
+});
+HelpSuite.after(({ exitSpy, stdoutSpy }) => {
+  exitSpy.restore();
+  stdoutSpy.restore();
+});
+shouldAddHelp(HelpSuite, 'before', async ({ commandInstance, stdoutSpy, exitSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('before'));
+  equal(
+    stdoutSpy.firstCall?.args[0],
+    `before help
+`,
+  );
+  const stdoutCall: string[] = stdoutSpy.getCall(1)?.args[0]?.toString().split('\n');
+  matchUsage(stdoutCall, 'before');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 before
 
 Options:
   -h, --help  display help for command
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('beforeAll', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('before-all'));
-    expect(stdoutSpy).toBeCalledWith(`before all help
-`);
-    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before-all \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+`,
+  );
+  exitCalledWithZero(exitSpy);
+});
+shouldAddHelp(HelpSuite, 'beforeAll', async ({ commandInstance, stdoutSpy, exitSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('before-all'));
+  equal(
+    stdoutSpy.firstCall?.args[0],
+    `before all help
+`,
+  );
+  const stdoutCall: string[] = stdoutSpy.getCall(1).args[0].toString().split('\n');
+  matchUsage(stdoutCall, 'before-all');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 before-all
 
 Options:
   -h, --help  display help for command
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('beforeAll and before', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('before-before-all'));
-    expect(stdoutSpy).toBeCalledWith(`before all help
-`);
-    expect(stdoutSpy).toBeCalledWith(`before help
-`);
-    const stdoutCall: string[] = stdoutSpy.mock.calls[2][0].split('\n');
-    expect(stdoutCall[0]).toEqual(
-      expect.stringMatching(/Usage: .+\w before-before-all \[options\]/),
+`,
+  );
+  exitCalledWithZero(exitSpy);
+});
+
+shouldAddHelp(
+  HelpSuite,
+  'beforeAll and before',
+  async ({ commandInstance, stdoutSpy, exitSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('before-before-all'));
+    equal(
+      stdoutSpy.firstCall?.args[0],
+      `before all help
+`,
     );
+    equal(
+      stdoutSpy.getCall(1).args[0],
+      `before help
+`,
+    );
+    const stdoutCall: string[] = stdoutSpy.getCall(2).args[0].toString().split('\n');
+    matchUsage(stdoutCall, 'before-before-all');
     stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+    equal(
+      stdoutCall.join('\n'),
+      `
 before-before-all
 
 Options:
   -h, --help  display help for command
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('before and after', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('before-after'));
-    expect(stdoutSpy).toBeCalledWith(`before help
-`);
-    const stdoutCall: string[] = stdoutSpy.mock.calls[1][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w before-after \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+`,
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(HelpSuite, 'before and after', async ({ commandInstance, exitSpy, stdoutSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('before-after'));
+  equal(
+    stdoutSpy.firstCall?.args[0],
+    `before help
+`,
+  );
+  const stdoutCall: string[] = stdoutSpy.getCall(1).args[0].toString().split('\n');
+  matchUsage(stdoutCall, 'before-after');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 before-after
 
 Options:
   -h, --help  display help for command
-`);
-    expect(stdoutSpy).toBeCalledWith(`after help
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('after', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('after'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w after \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+`,
+  );
+  equal(
+    stdoutSpy.getCall(2).args[0],
+    `after help
+`,
+  );
+  exitCalledWithZero(exitSpy);
+});
+shouldAddHelp(HelpSuite, 'after', async ({ commandInstance, exitSpy, stdoutSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('after'));
+  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+  matchUsage(stdoutCall, 'after');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 after
 
 Options:
   -h, --help  display help for command
-`);
-    expect(stdoutSpy).toBeCalledWith(`after help
-`);
+`,
+  );
+  equal(
+    stdoutSpy.getCall(1).args[0],
+    `after help
+`,
+  );
 
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('afterAll', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('after-all'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w after-all \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+  exitCalledWithZero(exitSpy);
+});
+shouldAddHelp(HelpSuite, 'afterAll', async ({ commandInstance, exitSpy, stdoutSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('after-all'));
+  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+  matchUsage(stdoutCall, 'after-all');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 after all
 
 Options:
   -h, --help  display help for command
-`);
-    expect(stdoutSpy).toBeCalledWith(`after all help
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('after and afterAll', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('after-after-all'));
-    const stdoutCall: string[] = stdoutSpy.mock.calls[0][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w after-after-all \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+`,
+  );
+  equal(
+    stdoutSpy.getCall(1).args[0],
+    `after all help
+`,
+  );
+  exitCalledWithZero(exitSpy);
+});
+shouldAddHelp(HelpSuite, 'after and afterAll', async ({ commandInstance, exitSpy, stdoutSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('after-after-all'));
+  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+  matchUsage(stdoutCall, 'after-after-all');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 after after all
 
 Options:
   -h, --help  display help for command
-`);
-    expect(stdoutSpy).toBeCalledWith(`after help
-`);
-    expect(stdoutSpy).toBeCalledWith(`after all help
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
-  shouldAddHelp('in all places with', async () => {
-    await CommandTestFactory.run(commandModule, argsBuilder('foo'));
-    expect(stdoutSpy).toBeCalledWith(`before all help
-`);
-    expect(stdoutSpy).toBeCalledWith(`before help
-`);
-    const stdoutCall: string[] = stdoutSpy.mock.calls[2][0].split('\n');
-    expect(stdoutCall[0]).toEqual(expect.stringMatching(/Usage: .+\w foo \[options\]/));
-    stdoutCall.shift();
-    expect(stdoutCall.join('\n')).toBe(`
+`,
+  );
+  equal(
+    stdoutSpy.getCall(1).args[0],
+    `after help
+`,
+  );
+  equal(
+    stdoutSpy.getCall(2).args[0],
+    `after all help
+`,
+  );
+  exitCalledWithZero(exitSpy);
+});
+shouldAddHelp(HelpSuite, 'in all places with', async ({ commandInstance, exitSpy, stdoutSpy }) => {
+  await CommandTestFactory.run(commandInstance, argsBuilder('foo'));
+  equal(
+    stdoutSpy.firstCall?.args[0],
+    `before all help
+`,
+  );
+  equal(
+    stdoutSpy.getCall(1).args[0],
+    `before help
+`,
+  );
+  const stdoutCall: string[] = stdoutSpy.getCall(2).args[0].toString().split('\n');
+  matchUsage(stdoutCall, 'foo');
+  stdoutCall.shift();
+  equal(
+    stdoutCall.join('\n'),
+    `
 Options:
   -h, --help  display help for command
-`);
-    expect(stdoutSpy).toBeCalledWith(`after help
-`);
-    expect(stdoutSpy).toBeCalledWith(`after all help
-`);
-    expect(exitSpy).toBeCalledWith(0);
-  });
+`,
+  );
+  equal(
+    stdoutSpy.getCall(3).args[0],
+    `after help
+`,
+  );
+  equal(
+    stdoutSpy.getCall(4).args[0],
+    `after all help
+`,
+  );
+  exitCalledWithZero(exitSpy);
 });

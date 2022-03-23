@@ -12,6 +12,3 @@ const secondArg = join(__dirname, 'basic.command.js');
 export function setArgv(...args: string[]) {
   process.argv = [firstArg, secondArg, 'basic', 'test', ...args];
 }
-export function commandMock(expected: ExpectedParam, spy: jest.SpyInstance): void {
-  expect(spy).toBeCalledWith({ param: ['test'], ...expected });
-}
