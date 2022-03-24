@@ -44,7 +44,7 @@ importers:
       eslint-plugin-prettier: 4.0.0
       hanbi: ^1.0.1
       husky: 7.0.4
-      inquirer: 8.2.1
+      inquirer: 8.2.2
       lint-staged: 12.3.7
       nx-uvu: ^1.1.1
       pinst: 3.0.0
@@ -94,7 +94,7 @@ importers:
       eslint-plugin-prettier: 4.0.0_68edcf5670f37721baf5d2cac6124e4d
       hanbi: 1.0.1
       husky: 7.0.4
-      inquirer: 8.2.1
+      inquirer: 8.2.2
       lint-staged: 12.3.7
       nx-uvu: 1.1.1
       pinst: 3.0.0
@@ -112,12 +112,12 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.1
+      inquirer: 8.2.2
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.1
+      inquirer: 8.2.2
 
   packages/nest-commander-schematics:
     specifiers:
@@ -8480,8 +8480,8 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer/8.2.1:
-    resolution: {integrity: sha512-pxhBaw9cyTFMjwKtkjePWDhvwzvrNGAw7En4hottzlPvz80GZaMZthdDU35aA6/f5FRZf3uhE057q8w1DE3V2g==}
+  /inquirer/8.2.2:
+    resolution: {integrity: sha512-pG7I/si6K/0X7p1qU+rfWnpTE1UIkTONN1wxtzh0d+dHXtT/JG6qBgLxoyHVsQa8cFABxAPh0pD6uUUHiAoaow==}
     engines: {node: '>=12.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
