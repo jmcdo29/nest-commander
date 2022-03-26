@@ -54,7 +54,7 @@
     "@nrwl/nx-cloud": "13.1.6",
     "@nrwl/tao": "13.8.3",
     "@nrwl/workspace": "13.8.3",
-    "@nx-plus/docusaurus": "12.2.0",
+    "@nx-plus/docusaurus": "13.0.0",
     "@swc/core": "^1.2.159",
     "@swc/register": "^0.1.10",
     "@types/inquirer": "8.2.0",
