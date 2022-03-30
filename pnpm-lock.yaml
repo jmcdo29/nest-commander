@@ -29,7 +29,7 @@ importers:
       '@nx-plus/docusaurus': 13.0.0
       '@swc/core': ^1.2.159
       '@swc/register': ^0.1.10
-      '@types/inquirer': 8.2.0
+      '@types/inquirer': 8.2.1
       '@types/node': 16.11.26
       '@typescript-eslint/eslint-plugin': 5.17.0
       '@typescript-eslint/parser': 5.17.0
@@ -79,7 +79,7 @@ importers:
       '@nx-plus/docusaurus': 13.0.0_@nrwl+workspace@13.8.3
       '@swc/core': 1.2.159
       '@swc/register': 0.1.10_@swc+core@1.2.159
-      '@types/inquirer': 8.2.0
+      '@types/inquirer': 8.2.1
       '@types/node': 16.11.26
       '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
       '@typescript-eslint/parser': 5.17.0_eslint@8.12.0+typescript@4.6.3
@@ -4087,8 +4087,8 @@ packages:
       '@types/node': 17.0.21
     dev: true
 
-  /@types/inquirer/8.2.0:
-    resolution: {integrity: sha512-BNoMetRf3gmkpAlV5we+kxyZTle7YibdOntIZbU5pyIfMdcwy784KfeZDAcuyMznkh5OLa17RVXZOGA5LTlkgQ==}
+  /@types/inquirer/8.2.1:
+    resolution: {integrity: sha512-wKW3SKIUMmltbykg4I5JzCVzUhkuD9trD6efAmYgN2MrSntY0SMRQzEnD3mkyJ/rv9NLbTC7g3hKKE86YwEDLw==}
     dependencies:
       '@types/through': 0.0.30
       rxjs: 7.5.5
