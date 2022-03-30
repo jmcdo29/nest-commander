@@ -57,7 +57,7 @@
     "@nx-plus/docusaurus": "13.0.0",
     "@swc/core": "^1.2.159",
     "@swc/register": "^0.1.10",
-    "@types/inquirer": "8.2.0",
+    "@types/inquirer": "8.2.1",
     "@types/node": "16.11.26",
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
