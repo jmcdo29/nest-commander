@@ -23,7 +23,7 @@ importers:
       '@nestjs/testing': 8.4.3
       '@nrwl/cli': 13.8.3
       '@nrwl/node': 13.8.3
-      '@nrwl/nx-cloud': 13.2.1
+      '@nrwl/nx-cloud': 13.2.2
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3
       '@nx-plus/docusaurus': 13.0.0
@@ -73,7 +73,7 @@ importers:
       '@nestjs/testing': 8.4.3_2da8a9968be4406723e870d9d23c8df0
       '@nrwl/cli': 13.8.3
       '@nrwl/node': 13.8.3_c9b9499353329df49264d512ef789e80
-      '@nrwl/nx-cloud': 13.2.1_rxjs@7.5.5
+      '@nrwl/nx-cloud': 13.2.2
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3_0f2b7f77b715d452bab9e7948faf053b
       '@nx-plus/docusaurus': 13.0.0_@nrwl+workspace@13.8.3
@@ -3380,16 +3380,13 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/13.2.1_rxjs@7.5.5:
-    resolution: {integrity: sha512-fiZg0Y6U1amfOnv29wp3gBKc6eqNcEFj6iAlTBFF6ZW+JylH1aVzMHGiBdNLGX2y4aMVPILIfz61LY0Hphi0Gg==}
+  /@nrwl/nx-cloud/13.2.2:
+    resolution: {integrity: sha512-ryGE3JBkSGie0Oy+hFHfiYVNt1BQlNGa3Q7RjeZjILFyNFXkSFzufWYCt1gIRiGlQ7+Q48t1m6gLi2afElNGmg==}
     hasBin: true
-    peerDependencies:
-      chalk: 4.1.0
-      rxjs: 6.5.5
     dependencies:
       axios: 0.21.4
+      chalk: 4.1.0
       node-machine-id: 1.1.12
-      rxjs: 7.5.5
       strip-json-comments: 3.1.1
       tar: 6.1.11
     transitivePeerDependencies:
