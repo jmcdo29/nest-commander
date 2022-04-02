@@ -48,7 +48,7 @@ importers:
       lint-staged: 12.3.7
       nx-uvu: ^1.1.1
       pinst: 3.0.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       react: 18.0.0
       react-dom: 18.0.0
       reflect-metadata: 0.1.13
@@ -72,10 +72,10 @@ importers:
       '@nestjs/core': 8.4.3_00edab75de3d00160109b98add317aa9
       '@nestjs/testing': 8.4.3_2da8a9968be4406723e870d9d23c8df0
       '@nrwl/cli': 13.8.3
-      '@nrwl/node': 13.8.3_c9b9499353329df49264d512ef789e80
+      '@nrwl/node': 13.8.3_04742ff0aeec3aaeaf8617aa0da4a0f3
       '@nrwl/nx-cloud': 13.2.2
       '@nrwl/tao': 13.8.3
-      '@nrwl/workspace': 13.8.3_0f2b7f77b715d452bab9e7948faf053b
+      '@nrwl/workspace': 13.8.3_1c11022da6bee94acd53a18a58163cda
       '@nx-plus/docusaurus': 13.0.0_@nrwl+workspace@13.8.3
       '@swc/core': 1.2.159
       '@swc/register': 0.1.10_@swc+core@1.2.159
@@ -91,14 +91,14 @@ importers:
       cz-conventional-changelog: 3.3.0_@swc+core@1.2.159
       eslint: 8.12.0
       eslint-config-prettier: 8.5.0_eslint@8.12.0
-      eslint-plugin-prettier: 4.0.0_b253a92c95b42c3296c682f11cccb3bd
+      eslint-plugin-prettier: 4.0.0_f2c91d0f54113167d2bd9214a5ab5a36
       hanbi: 1.0.1
       husky: 7.0.4
       inquirer: 8.2.2
       lint-staged: 12.3.7
       nx-uvu: 1.1.1
       pinst: 3.0.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
       reflect-metadata: 0.1.13
@@ -3337,13 +3337,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/13.8.3_c9b9499353329df49264d512ef789e80:
+  /@nrwl/node/13.8.3_04742ff0aeec3aaeaf8617aa0da4a0f3:
     resolution: {integrity: sha512-tNf0+FcuXyttBwK47VDAn4NQCrLFAtL+f2jq0k6let1ve+Jq7VgWRGIZMpupMIaeJ/0HqWKuytGyFPzOIaCC6w==}
     dependencies:
       '@nrwl/devkit': 13.8.3
       '@nrwl/jest': 13.8.3_ts-node@9.1.1
       '@nrwl/linter': 13.8.3_adb809f8378be682a0fa57c5649b3945
-      '@nrwl/workspace': 13.8.3_49f8bdcd5b981e005e6869564d7fbf4e
+      '@nrwl/workspace': 13.8.3_8541bb5f3b16ac53d49347ef1022a792
       chalk: 4.1.0
       copy-webpack-plugin: 9.0.1_webpack@5.66.0
       enhanced-resolve: 5.8.3
@@ -3421,7 +3421,7 @@ packages:
       - supports-color
     dev: true
 
-  /@nrwl/workspace/13.8.3_0f2b7f77b715d452bab9e7948faf053b:
+  /@nrwl/workspace/13.8.3_1c11022da6bee94acd53a18a58163cda:
     resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
     peerDependencies:
       prettier: ^2.5.1
@@ -3448,7 +3448,7 @@ packages:
       minimatch: 3.0.4
       npm-run-path: 4.0.1
       open: 8.4.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       rxjs: 6.6.7
       semver: 7.3.4
       tmp: 0.2.1
@@ -3466,7 +3466,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/workspace/13.8.3_49f8bdcd5b981e005e6869564d7fbf4e:
+  /@nrwl/workspace/13.8.3_8541bb5f3b16ac53d49347ef1022a792:
     resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
     peerDependencies:
       prettier: ^2.5.1
@@ -3493,7 +3493,7 @@ packages:
       minimatch: 3.0.4
       npm-run-path: 4.0.1
       open: 8.4.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       rxjs: 6.6.7
       semver: 7.3.4
       tmp: 0.2.1
@@ -3527,7 +3527,7 @@ packages:
       '@nrwl/workspace': ^13.0.0
     dependencies:
       '@nrwl/devkit': 13.9.5
-      '@nrwl/workspace': 13.8.3_0f2b7f77b715d452bab9e7948faf053b
+      '@nrwl/workspace': 13.8.3_1c11022da6bee94acd53a18a58163cda
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6818,7 +6818,7 @@ packages:
       eslint: 8.12.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_b253a92c95b42c3296c682f11cccb3bd:
+  /eslint-plugin-prettier/4.0.0_f2c91d0f54113167d2bd9214a5ab5a36:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -6831,7 +6831,7 @@ packages:
     dependencies:
       eslint: 8.12.0
       eslint-config-prettier: 8.5.0_eslint@8.12.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -11099,8 +11099,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.6.1:
-    resolution: {integrity: sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==}
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
