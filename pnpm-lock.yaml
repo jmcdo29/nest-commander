@@ -23,7 +23,7 @@ importers:
       '@nestjs/testing': 8.4.4
       '@nrwl/cli': 13.8.3
       '@nrwl/node': 13.8.3
-      '@nrwl/nx-cloud': 13.3.0
+      '@nrwl/nx-cloud': 13.3.1
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3
       '@nx-plus/docusaurus': 13.0.0
@@ -73,7 +73,7 @@ importers:
       '@nestjs/testing': 8.4.4_a78378ec5f3cecc3c353ed91b578f3e6
       '@nrwl/cli': 13.8.3
       '@nrwl/node': 13.8.3_8fb11bb87fa186f80629c31965a55b8c
-      '@nrwl/nx-cloud': 13.3.0
+      '@nrwl/nx-cloud': 13.3.1
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3_f11458f3b5a9aac7eb7b6e83671a32b3
       '@nx-plus/docusaurus': 13.0.0_@nrwl+workspace@13.8.3
@@ -3401,8 +3401,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/13.3.0:
-    resolution: {integrity: sha512-5vpQ16cXk9l4O40Hsdtl5vKkjGUJuPgaDzMppcla/7Hck4+eGclQ8Oec8M3tGwxoIqK0/KKVdgUbIr5LG/S7aA==}
+  /@nrwl/nx-cloud/13.3.1:
+    resolution: {integrity: sha512-txVZuDQE7KkpTLNVh4Rr7zWeCudqFt/nJEahaRIudm8uc6HoM41O63976zKG1xEtBbblBQpUBIdmOwSsSRBVbg==}
     hasBin: true
     dependencies:
       '@nrwl/devkit': 13.10.2
