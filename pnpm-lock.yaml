@@ -45,7 +45,7 @@ importers:
       hanbi: ^1.0.1
       husky: 7.0.4
       inquirer: 8.2.2
-      lint-staged: 12.3.7
+      lint-staged: 12.3.8
       nx-uvu: ^1.1.1
       pinst: 3.0.0
       prettier: 2.6.2
@@ -95,7 +95,7 @@ importers:
       hanbi: 1.0.1
       husky: 7.0.4
       inquirer: 8.2.2
-      lint-staged: 12.3.7
+      lint-staged: 12.3.8
       nx-uvu: 1.1.1
       pinst: 3.0.0
       prettier: 2.6.2
@@ -9462,8 +9462,8 @@ packages:
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
 
-  /lint-staged/12.3.7:
-    resolution: {integrity: sha512-/S4D726e2GIsDVWIk1XGvheCaDm1SJRQp8efamZFWJxQMVEbOwSysp7xb49Oo73KYCdy97mIWinhlxcoNqIfIQ==}
+  /lint-staged/12.3.8:
+    resolution: {integrity: sha512-0+UpNaqIwKRSGAFOCcpuYNIv/j5QGVC+xUVvmSdxHO+IfIGoHbFLo3XcPmV/LLnsVj5EAncNHVtlITSoY5qWGQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -9474,7 +9474,7 @@ packages:
       execa: 5.1.1
       lilconfig: 2.0.4
       listr2: 4.0.1
-      micromatch: 4.0.4
+      micromatch: 4.0.5
       normalize-path: 3.0.0
       object-inspect: 1.12.0
       pidtree: 0.5.0
@@ -9859,14 +9859,6 @@ packages:
   /methods/1.1.2:
     resolution: {integrity: sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=}
     engines: {node: '>= 0.6'}
-    dev: true
-
-  /micromatch/4.0.4:
-    resolution: {integrity: sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==}
-    engines: {node: '>=8.6'}
-    dependencies:
-      braces: 3.0.2
-      picomatch: 2.3.1
     dev: true
 
   /micromatch/4.0.5:
