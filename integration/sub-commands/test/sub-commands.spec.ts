@@ -54,3 +54,10 @@ for (const command of ['mid-1', 'mid-2', 'bottom']) {
     },
   );
 }
+SubCommandSuite(
+  'SubCommand mid-2 should be callable with "m"',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['top', 'm']);
+    equal(logMock.firstCall?.args[0], 'top mid-2 command');
+  },
+);

@@ -34,6 +34,7 @@ export interface CommandMetadata {
   argsDescription?: Record<string, string>;
   options?: CommandOptions;
   subCommands?: Array<Type<CommandRunner>>;
+  aliases?: string[];
 }
 
 export interface OptionMetadata {
