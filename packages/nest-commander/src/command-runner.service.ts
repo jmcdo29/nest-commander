@@ -95,6 +95,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     for (const help of command.help ?? []) {
       newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
     }
+    command.command.aliases?.forEach((alias) => newCommand.alias(alias));
     newCommand.action(() =>
       command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
     );
