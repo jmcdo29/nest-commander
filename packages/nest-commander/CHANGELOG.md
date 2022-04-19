@@ -1,5 +1,14 @@
 # nest-commander
 
+## 2.5.0
+
+### Minor Changes
+
+- 2d8a143: Added support for aliased subcommands
+- 6e39331: Allow for command options to have defined choices
+
+  Option choices are now supported either as a static string array or via the `@OptionChoicesFor()` decorator on a class method. This decorator method approach allows for using a class's injected providers to give the chocies, which means they could come from a database or a config file somewhere if the CLI is set up to handle such a case
+
 ## 2.4.0
 
 ### Minor Changes
