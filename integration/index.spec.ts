@@ -7,6 +7,7 @@ import {
 } from './basic/test/basic.command.spec';
 import { HelpSuite } from './help-tests/test/help.spec';
 import { MultipleCommandSuite } from './multiple/test/multiple.command.spec';
+import { OptionChoiceSuite } from './option-choices/test/option-choices.spec';
 import { PizzaSuite } from './pizza/test/pizza.command.spec';
 import { PluginSuite } from './plugins/test/plugin.command.spec';
 import { SubCommandSuite } from './sub-commands/test/sub-commands.spec';
@@ -27,3 +28,4 @@ SubCommandSuite.run();
 ThisCommandHandlerSuite.run();
 ThisOptionHandlerSuite.run();
 SetQuestionSuite.run();
+OptionChoiceSuite.run();

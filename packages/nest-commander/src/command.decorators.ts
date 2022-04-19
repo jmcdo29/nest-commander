@@ -3,6 +3,7 @@ import {
   CommandMetadata,
   CommandRunner,
   HelpOptions,
+  OptionChoiceForMetadata,
   OptionMetadata,
   QuestionMetadata,
   QuestionNameMetadata,
@@ -14,6 +15,7 @@ import {
   DefaultMeta,
   HelpMeta,
   MessageMeta,
+  OptionChoiceMeta,
   OptionMeta,
   QuestionMeta,
   QuestionSetMeta,
@@ -54,6 +56,10 @@ export const SubCommand = (options: CommandMetadata): CommandDecorator => {
 
 export const Option = (options: OptionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, OptionMeta);
+};
+
+export const OptionChoiceFor = (options: OptionChoiceForMetadata): MethodDecorator => {
+  return applyMethodMetadata(options, OptionChoiceMeta);
 };
 
 export const QuestionSet = (options: QuestionNameMetadata): ClassDecorator => {
