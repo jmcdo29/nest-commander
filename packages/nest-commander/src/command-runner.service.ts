@@ -1,11 +1,12 @@
 import { Inject, OnModuleInit } from '@nestjs/common';
 import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
-import { Command } from 'commander';
+import { Command, Option } from 'commander';
 import { CommanderOptionsType } from './command-factory.interface';
 import {
   CommandMetadata,
   CommandRunner,
   HelpOptions,
+  OptionChoiceForMetadata,
   OptionMetadata,
   RunnerMeta,
 } from './command-runner.interface';
@@ -14,6 +15,7 @@ import {
   CommanderOptions,
   CommandMeta,
   HelpMeta,
+  OptionChoiceMeta,
   OptionMeta,
   SubCommandMeta,
 } from './constants';
@@ -87,10 +89,39 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     }
     newCommand.description(command.command.description ?? '');
     for (const option of command.params) {
-      const { flags, description, defaultValue = undefined, required = false } = option.meta;
+      const {
+        flags,
+        description,
+        defaultValue = undefined,
+        required = false,
+        choices = [],
+        name: optionName = '',
+      } = option.meta;
       const handler = option.discoveredMethod.handler.bind(command.instance);
-      const optionsMethod: 'option' | 'requiredOption' = required ? 'requiredOption' : 'option';
-      newCommand[optionsMethod](flags, description ?? '', handler, defaultValue ?? undefined);
+      const commandOption = new Option(flags, description)
+        .default(defaultValue)
+        .makeOptionMandatory(required)
+        .argParser(handler);
+      // choices can be a true boolean or an array of string options for commander.
+      // If a boolean, then we know that we are expected to go find the OptionChoiceFOr method.
+      if (choices === true || (Array.isArray(choices) && choices.length)) {
+        let optionChoices = [];
+        if (choices === true) {
+          const choicesMethods =
+            await this.discoveryService.providerMethodsWithMetaAtKey<OptionChoiceForMetadata>(
+              OptionChoiceMeta,
+              (item) => item.instance === command.instance,
+            );
+          const cMethod = choicesMethods
+            .filter((choiceMethod) => choiceMethod.meta.name === optionName)
+            .map((method) => method.discoveredMethod)[0];
+          optionChoices = cMethod.handler.call(command.instance);
+        } else {
+          optionChoices = choices;
+        }
+        commandOption.choices(optionChoices);
+      }
+      newCommand.addOption(commandOption);
     }
     for (const help of command.help ?? []) {
       newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));

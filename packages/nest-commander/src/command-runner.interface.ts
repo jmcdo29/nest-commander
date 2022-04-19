@@ -42,6 +42,12 @@ export interface OptionMetadata {
   description?: string;
   defaultValue?: string | boolean;
   required?: boolean;
+  name?: string;
+  choices?: string[] | true;
+}
+
+export interface OptionChoiceForMetadata {
+  name: string;
 }
 
 export interface RunnerMeta {
