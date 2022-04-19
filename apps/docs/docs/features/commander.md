@@ -80,6 +80,39 @@ For more details on everything that is possible with options, take a look at [`c
 
 You can also make an option completely required, like an argument, by setting `required: true` in the metadata for the option.
 
+### Setting Choices for your Options
+
+Commander also allows us to set up pre-defined choices for options. To do so we have two options: setting the `choices` array directly as a part of the `@Option()` decorator, or using the `@OptionChoicesFor()` decorator and a class method, similar to the [InquirerService](./inquirer.md). With using the `@OptionChoicesFor()` decorator, we are also able to make use of class providers that are injected into the command via Nest's DI which allows devs to read for the choices from a file or database if that happens to be necessary.
+
+```typescript
+@Command({ name: 'run' })
+export class RunCommand implements CommandRunner {
+  constrtuctor(
+    private readonly choiceProvider: {
+      getChoicesForRun: () => string[];
+    }
+  ) {}
+
+  async run(args: any, options: { runWithColor: 'yes' | 'no' }) {
+    console.log(options);
+  }
+
+  @Options({
+    flags: '-c, --color [runWithColor]',
+    name: 'withColor',
+    description: 'Should the command use color in the output'
+  })
+  parseColorOption(option: string) {
+    return options;
+  }
+
+  @OptionChoicesFor({ name: 'withColor' }) // make sure this matches the `name` of an `@Options()` decorator
+  getColorChoices() {
+    return this.choiceProvider.getChoicesForRun();
+  }
+}
+```
+
 ## Adding Custom Help
 
 By default, `commander` sets help to the `--help` or `-h` flag. If you need extra help added to the command, you can use the `@Help()` decorator on a class method that returns a string. The valid values for the `@Help()` decorator are `before`, `beforeAll`, `after` and `afterAll`, just like for commander's `addHelpText` method.
@@ -111,6 +144,8 @@ export class FooCommand implements CommandRunner {
 ```
 
 and now nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
+
+Subcommands can also take an `aliases` array for sub command aliases. We could add `aliases: ['f']` to the above `FooCommand` and run it with `run f` instead of `run foo` and get the same result. `aliases` must be passed as an array.
 
 ## The Full Command
 

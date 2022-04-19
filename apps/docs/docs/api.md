@@ -19,6 +19,7 @@ This class decorator is pretty much what everything else in this package relies 
 | argsDescription | `Record<string, string>` | false | The description for each argument. It will be used on `--help` as well. |
 | options | `CommandOptions` | false | Extra options to pass to the commander instance. Check [commander's types](https://github.com/tj/commander.js/blob/master/typings/index.d.ts#L713) for more information. |
 | subCommands | `Type<CommandRunner>` | false | Subcommands related to the parent command, e.g.:<br/>`docker compose up` and `docker compose stop`. |
+| aliases | `Array<string>` | false | Aliases for the `SubCommand`. You can pass this array to a `Command` but it will have no effect on the parsing of the command. |
 
 :::note
 
@@ -36,6 +37,16 @@ This method decorator allows for users to pass in extra options for commands def
 | description | `string` | false | The description of the flags and option. Used with the `--help` output. |
 | defaultValue | `string` or `boolean` | false | The default value, if any, for the option. |
 | required | `boolean` | false | Make the option required like an argument and the command fail if the option is not provided. |
+| name | `string` | false | The name of the option for the `CommandRunnerService` (internal) to use when pairing against a `@OptionChoicesFor()` decorator. This has no effect on the help text rendered by commander. |
+| choices | `Array<string>` OR `true` | false | The choices for the option. If `true`, then the `CommandRunnerService` knows to go and find the `@OptionChoicesFor()` decorator that matches the `name` property. If an array, the options are used directly without searching to another method. |
+
+#### @OptionChoicesFor()
+
+This method decorator allows you to get chocies for an `@Option()` in a dynamic manner rather than hard coding them into the `@Option()` decorator. The method this decorator decorates should return a string array of options.
+
+| Property | Type | Requried | Description |
+| --- | --- | --- | --- |
+| name | `string` | true | The name to match back to the `@Option()` decorator. This is how the two decorators are tied together. |
 
 #### @Help()
 
