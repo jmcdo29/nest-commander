@@ -44,7 +44,7 @@ importers:
       eslint-plugin-prettier: 4.0.0
       hanbi: 1.0.1
       husky: 7.0.4
-      inquirer: 8.2.2
+      inquirer: 8.2.3
       lint-staged: 12.4.1
       nx-uvu: 1.1.1
       pinst: 3.0.0
@@ -94,7 +94,7 @@ importers:
       eslint-plugin-prettier: 4.0.0_665eb419c9d7860ca0c224f7f6dcdace
       hanbi: 1.0.1
       husky: 7.0.4
-      inquirer: 8.2.2
+      inquirer: 8.2.3
       lint-staged: 12.4.1
       nx-uvu: 1.1.1
       pinst: 3.0.0
@@ -112,12 +112,12 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.2
+      inquirer: 8.2.3
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
       commander: 8.3.0
       cosmiconfig: 7.0.1
-      inquirer: 8.2.2
+      inquirer: 8.2.3
 
   packages/nest-commander-schematics:
     specifiers:
@@ -8404,8 +8404,8 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer/8.2.2:
-    resolution: {integrity: sha512-pG7I/si6K/0X7p1qU+rfWnpTE1UIkTONN1wxtzh0d+dHXtT/JG6qBgLxoyHVsQa8cFABxAPh0pD6uUUHiAoaow==}
+  /inquirer/8.2.3:
+    resolution: {integrity: sha512-jmoBlmWUChXgVi1wGDZsD7pWCaibJKmL+8+E2jaiWiRj8OlJLwQdQQS2CIjgvdg8UUHX+oyagQKicVVcqwxi9Q==}
     engines: {node: '>=12.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
@@ -8422,6 +8422,7 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8
+      wrap-ansi: 7.0.0
 
   /interpret/1.4.0:
     resolution: {integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==}
@@ -13960,7 +13961,6 @@ packages:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
-    dev: true
 
   /wrap-ansi/8.0.1:
     resolution: {integrity: sha512-QFF+ufAqhoYHvoHdajT/Po7KoXVBPXS2bgjIam5isfWJPfIOnQZ50JtUiVvCv/sjgacf3yRrt2ZKUZ/V4itN4g==}
