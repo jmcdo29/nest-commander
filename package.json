@@ -72,7 +72,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "hanbi": "1.0.1",
     "husky": "7.0.4",
-    "inquirer": "8.2.3",
+    "inquirer": "8.2.4",
     "lint-staged": "12.4.1",
     "nx-uvu": "1.1.1",
     "pinst": "3.0.0",
