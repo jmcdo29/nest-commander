@@ -26,7 +26,7 @@ importers:
       '@nrwl/nx-cloud': 14.0.0
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3
-      '@nx-plus/docusaurus': 13.0.0
+      '@nx-plus/docusaurus': 13.0.1
       '@swc/core': 1.2.172
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
@@ -76,7 +76,7 @@ importers:
       '@nrwl/nx-cloud': 14.0.0
       '@nrwl/tao': 13.8.3
       '@nrwl/workspace': 13.8.3_bef8593f25977014d33acd900a6eae2b
-      '@nx-plus/docusaurus': 13.0.0_@nrwl+workspace@13.8.3
+      '@nx-plus/docusaurus': 13.0.1_@nrwl+workspace@13.8.3
       '@swc/core': 1.2.172
       '@swc/register': 0.1.10_@swc+core@1.2.172
       '@types/inquirer': 8.2.1
@@ -3218,14 +3218,6 @@ packages:
       yargs-parser: 20.0.0
     dev: true
 
-  /@nrwl/cli/13.9.5:
-    resolution: {integrity: sha512-WO2tcRTnYcz/LMJO9RVDoQtpwREjanosUJhymFD6ozrdZBhDuxKQ2S681mjnCXWlWEhYvccGfLhechluiEdCLA==}
-    dependencies:
-      nx: 13.9.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@nrwl/devkit/13.10.2:
     resolution: {integrity: sha512-7jM86MAHc/vvQ4jJt8QjMncC0lFfhkxZ/d5Nt5b+s3AUQgFPkwg1TXt/uj+qo0goS/Mbv5UNVIdMGlEchnbvVQ==}
     dependencies:
@@ -3248,19 +3240,6 @@ packages:
       rxjs: 6.6.7
       semver: 7.3.4
       tslib: 2.3.1
-    dev: true
-
-  /@nrwl/devkit/13.9.5:
-    resolution: {integrity: sha512-7C79pueB1y0WCQa5iGoMID+lvXOvj66lPqeN7a/H6E7VHWyjmCqfo/Sf53KWKIQn9qJwzcp4MFyE/2U+ey9T5A==}
-    dependencies:
-      ejs: 3.1.6
-      ignore: 5.2.0
-      nx: 13.9.5
-      rxjs: 6.6.7
-      semver: 7.3.4
-      tslib: 2.3.1
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@nrwl/jest/13.8.3:
@@ -3441,15 +3420,6 @@ packages:
       yargs-parser: 20.0.0
     dev: true
 
-  /@nrwl/tao/13.9.5:
-    resolution: {integrity: sha512-wvHdEuTxamADvQoGJa3BOZoijQm3Irol0vAxkxzoFS47SYXNvoBPtLhvrtF8P+yJv+gTLW8C0QnUHPVtsnenPA==}
-    hasBin: true
-    dependencies:
-      nx: 13.9.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@nrwl/workspace/13.8.3_8f358f6523b24eecd5898b9f44dc14e9:
     resolution: {integrity: sha512-B2LpbJjxT+WqW0PMxzdy8rmyY0woQytOi4BazPzpcFqaO7zO5/XvLF7txhcvYgRn8n6o0lPsMD0P0Pgeri8oaQ==}
     peerDependencies:
@@ -3550,12 +3520,12 @@ packages:
       node-fetch: 2.6.2
     dev: true
 
-  /@nx-plus/docusaurus/13.0.0_@nrwl+workspace@13.8.3:
-    resolution: {integrity: sha512-MA5HPl8wDUdYaweHKSGDc2mzlGrYPz7L7718wzBpRyxjuFwilMVbwHzXlQvlkrAe2zA1eV9+JNEFXfYEWPY4wg==}
+  /@nx-plus/docusaurus/13.0.1_@nrwl+workspace@13.8.3:
+    resolution: {integrity: sha512-0POfCY2zR0sU1HQ7VxKHLUIvdk9WQcveaDsT5Zh0Q+E1hHx6l8r5UKzDb3xBU6sPDUdw+Z2BVYsI1/155cjBdg==}
     peerDependencies:
       '@nrwl/workspace': ^13.0.0
     dependencies:
-      '@nrwl/devkit': 13.9.5
+      '@nrwl/devkit': 13.10.2
       '@nrwl/workspace': 13.8.3_bef8593f25977014d33acd900a6eae2b
     transitivePeerDependencies:
       - supports-color
@@ -9352,7 +9322,7 @@ packages:
     resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
     hasBin: true
     dependencies:
-      minimist: 1.2.5
+      minimist: 1.2.6
     dev: true
 
   /json5/2.2.0:
@@ -10237,32 +10207,6 @@ packages:
     hasBin: true
     dependencies:
       '@nrwl/cli': 13.8.3
-    dev: true
-
-  /nx/13.9.5:
-    resolution: {integrity: sha512-hkGWaoJCqQPeVh3w67dlksM0Eab61EYYeZ1GZd6/YSC4EKzjtlQLRt2CMNu+2qCAkkUp4UgOWJHGUesGakcyDA==}
-    hasBin: true
-    dependencies:
-      '@nrwl/cli': 13.9.5
-      '@nrwl/tao': 13.9.5
-      '@swc-node/register': 1.4.2
-      '@swc/core': 1.2.172
-      chalk: 4.1.0
-      enquirer: 2.3.6
-      fast-glob: 3.2.7
-      fs-extra: 9.1.0
-      ignore: 5.2.0
-      jsonc-parser: 3.0.0
-      rxjs: 6.6.7
-      rxjs-for-await: 0.0.2_rxjs@6.6.7
-      semver: 7.3.4
-      tmp: 0.2.1
-      tsconfig-paths: 3.14.0
-      tslib: 2.3.1
-      v8-compile-cache: 2.3.0
-      yargs-parser: 20.0.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /object-assign/4.1.1:
@@ -13077,15 +13021,6 @@ packages:
       '@types/json5': 0.0.29
       json5: 1.0.1
       minimist: 1.2.6
-      strip-bom: 3.0.0
-    dev: true
-
-  /tsconfig-paths/3.14.0:
-    resolution: {integrity: sha512-cg/1jAZoL57R39+wiw4u/SCC6Ic9Q5NqjBOb+9xISedOYurfog9ZNmKJSxAnb2m/5Bq4lE9lhUcau33Ml8DM0g==}
-    dependencies:
-      '@types/json5': 0.0.29
-      json5: 1.0.1
-      minimist: 1.2.5
       strip-bom: 3.0.0
     dev: true
 
