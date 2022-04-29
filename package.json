@@ -49,11 +49,10 @@
     "@nestjs/common": "8.4.4",
     "@nestjs/core": "8.4.4",
     "@nestjs/testing": "8.4.4",
-    "@nrwl/cli": "13.8.3",
-    "@nrwl/node": "13.8.3",
+    "@nrwl/js": "14.0.5",
+    "@nrwl/node": "14.0.5",
     "@nrwl/nx-cloud": "14.0.1",
-    "@nrwl/tao": "13.8.3",
-    "@nrwl/workspace": "13.8.3",
+    "@nrwl/workspace": "14.0.5",
     "@nx-plus/docusaurus": "13.0.1",
     "@swc/core": "1.2.173",
     "@swc/register": "0.1.10",
@@ -74,6 +73,7 @@
     "husky": "7.0.4",
     "inquirer": "8.2.4",
     "lint-staged": "12.4.1",
+    "nx": "^14.0.5",
     "nx-uvu": "1.1.1",
     "pinst": "3.0.0",
     "prettier": "2.6.2",
@@ -87,5 +87,6 @@
   },
   "resolutions": {
     "terser": "^5.0.0"
-  }
+  },
+  "dependencies": {}
 }
