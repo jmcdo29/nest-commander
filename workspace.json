@@ -49,7 +49,7 @@
       "sourceRoot": "packages/nest-commander/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "options": {
             "outputPath": "dist/nest-commander",
             "main": "packages/nest-commander/src/index.ts",
@@ -84,7 +84,7 @@
           }
         },
         "package": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "options": {
             "deleteOutputPath": true,
             "main": "packages/nest-commander-schematics/src/collection.json",
@@ -109,7 +109,7 @@
       "type": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "dependsOn": [
             {
               "target": "build",
