@@ -70,7 +70,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
     "hanbi": "1.0.1",
-    "husky": "8.0.0",
+    "husky": "8.0.1",
     "inquirer": "8.2.4",
     "lint-staged": "12.4.1",
     "nx": "14.0.5",
