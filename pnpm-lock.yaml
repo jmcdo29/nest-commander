@@ -32,7 +32,7 @@ importers:
       '@types/node': 16.11.35
       '@typescript-eslint/eslint-plugin': 5.23.0
       '@typescript-eslint/parser': 5.23.0
-      c8: 7.11.2
+      c8: 7.11.3
       clsx: 1.1.1
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
@@ -82,7 +82,7 @@ importers:
       '@types/node': 16.11.35
       '@typescript-eslint/eslint-plugin': 5.23.0_17b6d2ce7129f0b36f2c30ae592c16e7
       '@typescript-eslint/parser': 5.23.0_eslint@8.15.0+typescript@4.6.4
-      c8: 7.11.2
+      c8: 7.11.3
       clsx: 1.1.1
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
@@ -4788,7 +4788,7 @@ packages:
     dev: true
 
   /ansi-regex/3.0.0:
-    resolution: {integrity: sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=}
+    resolution: {integrity: sha512-wFUFA5bg5dviipbQQ32yOQhl6gcJaJXiHE7dvR8VYPG97+J/GNC5FKGepKdEDUFeXRzDxPF1X/Btc8L+v7oqIQ==}
     engines: {node: '>=4'}
     dev: true
 
@@ -5279,8 +5279,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /c8/7.11.2:
-    resolution: {integrity: sha512-6ahJSrhS6TqSghHm+HnWt/8Y2+z0hM/FQyB1ybKhAR30+NYL9CTQ1uwHxuWw6U7BHlHv6wvhgOrH81I+lfCkxg==}
+  /c8/7.11.3:
+    resolution: {integrity: sha512-6YBmsaNmqRm9OS3ZbIiL2EZgi1+Xc4O24jL3vMYGE6idixYuGdy76rIfIdltSKDj9DpLNrcXSonUTR1miBD0wA==}
     engines: {node: '>=10.12.0'}
     hasBin: true
     dependencies:
