@@ -25,7 +25,7 @@ importers:
       '@nrwl/node': 14.1.7
       '@nrwl/nx-cloud': 14.0.3
       '@nrwl/workspace': 14.1.7
-      '@nx-plus/docusaurus': 13.0.2
+      '@nx-plus/docusaurus': 14.0.0
       '@swc/core': 1.2.186
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
@@ -75,7 +75,7 @@ importers:
       '@nrwl/node': 14.1.7_5448e159478a8afa8a49b9a6e8654993
       '@nrwl/nx-cloud': 14.0.3
       '@nrwl/workspace': 14.1.7_b34b2322de60a64ff6afc92143922fbf
-      '@nx-plus/docusaurus': 13.0.2_@nrwl+workspace@14.1.7
+      '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.1.7+nx@14.1.7
       '@swc/core': 1.2.186
       '@swc/register': 0.1.10_@swc+core@1.2.186
       '@types/inquirer': 8.2.1
@@ -3576,15 +3576,15 @@ packages:
       node-fetch: 2.6.2
     dev: true
 
-  /@nx-plus/docusaurus/13.0.2_@nrwl+workspace@14.1.7:
-    resolution: {integrity: sha512-ltkB0bEa7ZCfU2xYOT7el41jHJKXlsmL9ZtUNCJmeIomV7hPTLa0HR2amYa7MiajH8vfxT8SB9S8OJjfW82+RA==}
+  /@nx-plus/docusaurus/14.0.0_@nrwl+workspace@14.1.7+nx@14.1.7:
+    resolution: {integrity: sha512-TTtP3jQyNryliN7lV9kpiSxUfcpcVoNuoiibda/Z8VIJ9xWhsWq09LbmKUIJdQiqNz9fUV8rXMhSAPwFM3CU7w==}
     peerDependencies:
-      '@nrwl/workspace': ^13.0.0
+      '@nrwl/workspace': ^14.1.4
     dependencies:
-      '@nrwl/devkit': 13.10.2
+      '@nrwl/devkit': 14.1.7_nx@14.1.7
       '@nrwl/workspace': 14.1.7_b34b2322de60a64ff6afc92143922fbf
     transitivePeerDependencies:
-      - supports-color
+      - nx
     dev: true
 
   /@ogma/common/1.0.0:
