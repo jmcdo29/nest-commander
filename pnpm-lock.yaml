@@ -23,7 +23,7 @@ importers:
       '@nestjs/testing': 8.4.5
       '@nrwl/js': 14.1.7
       '@nrwl/node': 14.1.7
-      '@nrwl/nx-cloud': 14.0.3
+      '@nrwl/nx-cloud': 14.0.5
       '@nrwl/workspace': 14.1.7
       '@nx-plus/docusaurus': 14.0.0
       '@swc/core': 1.2.186
@@ -73,7 +73,7 @@ importers:
       '@nestjs/testing': 8.4.5_c0c9651cd01c4e2d3bda397a5c438062
       '@nrwl/js': 14.1.7_df8184c756c5451f1ea0dac4ca503ed6
       '@nrwl/node': 14.1.7_5448e159478a8afa8a49b9a6e8654993
-      '@nrwl/nx-cloud': 14.0.3
+      '@nrwl/nx-cloud': 14.0.5
       '@nrwl/workspace': 14.1.7_b34b2322de60a64ff6afc92143922fbf
       '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.1.7+nx@14.1.7
       '@swc/core': 1.2.186
@@ -3431,8 +3431,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.0.3:
-    resolution: {integrity: sha512-08t9vnRzA5SAkG6gp+NrAGauraepHH0v4IByO4NQ+7JJ7JMWw0nt6fp/70wofRmem7MGQ+Y/AIgIc5T0m89k+w==}
+  /@nrwl/nx-cloud/14.0.5:
+    resolution: {integrity: sha512-ADLGWiorW7sHT9hJw1OrxCG9JE9ALYfzNtXWJbvn4ulERul3hSsj+7P+uyUBtflpCrG1bmw5SxkQ77EH/DkY5A==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -4937,7 +4937,7 @@ packages:
   /axios/0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.14.8
+      follow-redirects: 1.15.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -7385,16 +7385,6 @@ packages:
       fbemitter: 3.0.0
       fbjs: 3.0.0
       react: 18.1.0
-    dev: true
-
-  /follow-redirects/1.14.8:
-    resolution: {integrity: sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: true
 
   /follow-redirects/1.15.0:
