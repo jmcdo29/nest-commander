@@ -21,10 +21,10 @@ importers:
       '@nestjs/common': 8.4.5
       '@nestjs/core': 8.4.5
       '@nestjs/testing': 8.4.5
-      '@nrwl/js': 14.1.7
-      '@nrwl/node': 14.1.7
+      '@nrwl/js': 14.1.8
+      '@nrwl/node': 14.1.8
       '@nrwl/nx-cloud': 14.0.5
-      '@nrwl/workspace': 14.1.7
+      '@nrwl/workspace': 14.1.8
       '@nx-plus/docusaurus': 14.0.0
       '@swc/core': 1.2.192
       '@swc/register': 0.1.10
@@ -45,7 +45,7 @@ importers:
       husky: 8.0.1
       inquirer: 8.2.4
       lint-staged: 12.4.2
-      nx: 14.1.7
+      nx: 14.1.8
       nx-uvu: 1.1.1
       pinst: 3.0.0
       prettier: 2.6.2
@@ -71,11 +71,11 @@ importers:
       '@nestjs/common': 8.4.5_e7ea248743279784063e3708d703abc5
       '@nestjs/core': 8.4.5_74a5f58103aca90eb73831b6f499f41f
       '@nestjs/testing': 8.4.5_c0c9651cd01c4e2d3bda397a5c438062
-      '@nrwl/js': 14.1.7_4dd3d98e55e7e07e4eda8309bc59623e
-      '@nrwl/node': 14.1.7_073de9e27a803670d3fa32dc37b25f47
+      '@nrwl/js': 14.1.8_218770617901081bd3c8aaa4b55609fc
+      '@nrwl/node': 14.1.8_15d548ec422dcc530690b21bbb18639a
       '@nrwl/nx-cloud': 14.0.5
-      '@nrwl/workspace': 14.1.7_684899a2e039b0decd9740688d544e11
-      '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.1.7+nx@14.1.7
+      '@nrwl/workspace': 14.1.8_684899a2e039b0decd9740688d544e11
+      '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.1.8+nx@14.1.8
       '@swc/core': 1.2.192
       '@swc/register': 0.1.10_@swc+core@1.2.192
       '@types/inquirer': 8.2.1
@@ -95,7 +95,7 @@ importers:
       husky: 8.0.1
       inquirer: 8.2.4
       lint-staged: 12.4.2
-      nx: 14.1.7
+      nx: 14.1.8
       nx-uvu: 1.1.1
       pinst: 3.0.0
       prettier: 2.6.2
@@ -3196,10 +3196,10 @@ packages:
       - supports-color
     dev: true
 
-  /@nrwl/cli/14.1.7:
-    resolution: {integrity: sha512-HVvqYwefizcoVc4xrTgfIC8nfMA9cx5NiaIbZFDIZv12NsdalpA6a2BmmV8Zck+QQSGEHrhTZyt1AqDhA1t+6A==}
+  /@nrwl/cli/14.1.8:
+    resolution: {integrity: sha512-Ocf8u6ORFFkw3EkLi2/4MeICfDHhB+g5gq3VxlSntJLQ06c4ejCJDV4tJuNL+FMDzIRL079VGXhtXkhM4gi8dA==}
     dependencies:
-      nx: 14.1.7
+      nx: 14.1.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3217,25 +3217,38 @@ packages:
       - supports-color
     dev: true
 
-  /@nrwl/devkit/14.1.7_nx@14.1.7:
+  /@nrwl/devkit/14.1.7_nx@14.1.8:
     resolution: {integrity: sha512-4dZIzE+jIPzGSwWTGbQ9uWODHGZMdQctsLhMhcrZrEpPcmZQLbYEbx2bRh6EsNFkreSZxZREdwkWuFTb05cs/w==}
     peerDependencies:
       nx: '>= 13.10 <= 15'
     dependencies:
       ejs: 3.1.8
       ignore: 5.2.0
-      nx: 14.1.7
+      nx: 14.1.8
       rxjs: 6.6.7
       semver: 7.3.4
       tslib: 2.4.0
     dev: true
 
-  /@nrwl/jest/14.1.7_nx@14.1.7:
-    resolution: {integrity: sha512-2Z+1dA4gadrEzUXfhd0n5BojUkGSVr3chHsVoWnBh3zSVrIM3gVKJx0wwVVQYhqkVylkpG+bXSUTrUa23LOaeg==}
+  /@nrwl/devkit/14.1.8_nx@14.1.8:
+    resolution: {integrity: sha512-GoVqG6NjGql5HEFHxiDSBrxTPj2//q8ogBiyNUqF2SkfhSd0hAUK0kknHLFPKQlFy0eih27+u1cnNJZF2NpQ7w==}
+    peerDependencies:
+      nx: '>= 13.10 <= 15'
+    dependencies:
+      ejs: 3.1.8
+      ignore: 5.2.0
+      nx: 14.1.8
+      rxjs: 6.6.7
+      semver: 7.3.4
+      tslib: 2.4.0
+    dev: true
+
+  /@nrwl/jest/14.1.8_nx@14.1.8:
+    resolution: {integrity: sha512-U/9tGkJKAIyFheYHCMgoFLzWh+3r4a0qD6tv1R+3MqFSFRjokTAXAMqxkbJuob4HQsrjpbyyWoJryW5e7QumLw==}
     dependencies:
       '@jest/reporters': 27.5.1
       '@jest/test-result': 27.5.1
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
       chalk: 4.1.0
       identity-obj-proxy: 3.0.0
       jest-config: 27.5.1
@@ -3254,12 +3267,12 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/jest/14.1.7_nx@14.1.7+ts-node@9.1.1:
-    resolution: {integrity: sha512-2Z+1dA4gadrEzUXfhd0n5BojUkGSVr3chHsVoWnBh3zSVrIM3gVKJx0wwVVQYhqkVylkpG+bXSUTrUa23LOaeg==}
+  /@nrwl/jest/14.1.8_nx@14.1.8+ts-node@9.1.1:
+    resolution: {integrity: sha512-U/9tGkJKAIyFheYHCMgoFLzWh+3r4a0qD6tv1R+3MqFSFRjokTAXAMqxkbJuob4HQsrjpbyyWoJryW5e7QumLw==}
     dependencies:
       '@jest/reporters': 27.5.1
       '@jest/test-result': 27.5.1
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
       chalk: 4.1.0
       identity-obj-proxy: 3.0.0
       jest-config: 27.5.1_ts-node@9.1.1
@@ -3278,13 +3291,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/js/14.1.7_05f9a4fd18598e0bbb23a9b226a1f947:
-    resolution: {integrity: sha512-1rHwHC/G69eWIOyw2v9edDhHnT0iB0YBifLvRpPlqDq6kcoy4/2qwlEvKFbwn1691tMBl5gSnppOPmRxwqFIjw==}
+  /@nrwl/js/14.1.8_218770617901081bd3c8aaa4b55609fc:
+    resolution: {integrity: sha512-K0rYtvms9mswPPUQAlbFUl8vgeQLFrQ09s5GgKSKfFyalX50gktUe9T696IsC6+2tnPg4qeZP5ZGcULxTtNuWA==}
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7+ts-node@9.1.1
-      '@nrwl/linter': 14.1.7_5de7286149129e2127e1e9df2eabd46e
-      '@nrwl/workspace': 14.1.7_5bf7020eb5d4b58d4c27c09640f012ab
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8
+      '@nrwl/linter': 14.1.8_1a5928b615993540d25df04a896d7804
+      '@nrwl/workspace': 14.1.8_684899a2e039b0decd9740688d544e11
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3307,13 +3320,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/js/14.1.7_4dd3d98e55e7e07e4eda8309bc59623e:
-    resolution: {integrity: sha512-1rHwHC/G69eWIOyw2v9edDhHnT0iB0YBifLvRpPlqDq6kcoy4/2qwlEvKFbwn1691tMBl5gSnppOPmRxwqFIjw==}
+  /@nrwl/js/14.1.8_fd1567520c824891cdd38f045cc3db90:
+    resolution: {integrity: sha512-K0rYtvms9mswPPUQAlbFUl8vgeQLFrQ09s5GgKSKfFyalX50gktUe9T696IsC6+2tnPg4qeZP5ZGcULxTtNuWA==}
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7
-      '@nrwl/linter': 14.1.7_36843a7284ae3fc5f244d3167b5caec1
-      '@nrwl/workspace': 14.1.7_684899a2e039b0decd9740688d544e11
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8+ts-node@9.1.1
+      '@nrwl/linter': 14.1.8_fa4c028720674f2faf573fb374ce3946
+      '@nrwl/workspace': 14.1.8_5bf7020eb5d4b58d4c27c09640f012ab
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3336,16 +3349,16 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/linter/14.1.7_36843a7284ae3fc5f244d3167b5caec1:
-    resolution: {integrity: sha512-0BO26hOTFGlLcV5HTGuMxJZVAV96J9zcAOWKi+KMoYaN/1LHNxiNbBwst97WhTVveJ6VYlKSHCKbtLD+ROAaTw==}
+  /@nrwl/linter/14.1.8_1a5928b615993540d25df04a896d7804:
+    resolution: {integrity: sha512-ejRLuO1XnB2hmaD/KbPVU+HpoqqFXEMdExdN7Xjz9Fu6v5Lxonup6/biJQXtPEEdETRRgFhZfcVl9seHXgSWcA==}
     peerDependencies:
       eslint: ^8.0.0
     peerDependenciesMeta:
       eslint:
         optional: true
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8
       '@phenomnomnominal/tsquery': 4.1.1_typescript@4.6.4
       eslint: 8.16.0
       tmp: 0.2.1
@@ -3361,16 +3374,16 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/linter/14.1.7_5de7286149129e2127e1e9df2eabd46e:
-    resolution: {integrity: sha512-0BO26hOTFGlLcV5HTGuMxJZVAV96J9zcAOWKi+KMoYaN/1LHNxiNbBwst97WhTVveJ6VYlKSHCKbtLD+ROAaTw==}
+  /@nrwl/linter/14.1.8_fa4c028720674f2faf573fb374ce3946:
+    resolution: {integrity: sha512-ejRLuO1XnB2hmaD/KbPVU+HpoqqFXEMdExdN7Xjz9Fu6v5Lxonup6/biJQXtPEEdETRRgFhZfcVl9seHXgSWcA==}
     peerDependencies:
       eslint: ^8.0.0
     peerDependenciesMeta:
       eslint:
         optional: true
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7+ts-node@9.1.1
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8+ts-node@9.1.1
       '@phenomnomnominal/tsquery': 4.1.1_typescript@4.6.4
       eslint: 8.16.0
       tmp: 0.2.1
@@ -3386,14 +3399,14 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/14.1.7_073de9e27a803670d3fa32dc37b25f47:
-    resolution: {integrity: sha512-mnvS1WyXJgvwY3RKpEYf+i1UqPo3JJFLyzoBog7I9BWY1S5LQBH0UwTbrsb5hO48JRH7lHFSd96QoZT2Bzp+9Q==}
+  /@nrwl/node/14.1.8_15d548ec422dcc530690b21bbb18639a:
+    resolution: {integrity: sha512-w97KkPimjhrFNsiTY7JI6GM9uj2yFMLLW96P6H4LWDPz77sCI/T9KI6M44eZnXnShCLIlTAPszjEmlIGrx9dGA==}
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7+ts-node@9.1.1
-      '@nrwl/js': 14.1.7_05f9a4fd18598e0bbb23a9b226a1f947
-      '@nrwl/linter': 14.1.7_5de7286149129e2127e1e9df2eabd46e
-      '@nrwl/workspace': 14.1.7_5bf7020eb5d4b58d4c27c09640f012ab
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8+ts-node@9.1.1
+      '@nrwl/js': 14.1.8_fd1567520c824891cdd38f045cc3db90
+      '@nrwl/linter': 14.1.8_fa4c028720674f2faf573fb374ce3946
+      '@nrwl/workspace': 14.1.8_5bf7020eb5d4b58d4c27c09640f012ab
       chalk: 4.1.0
       copy-webpack-plugin: 9.0.1_webpack@5.72.1
       enhanced-resolve: 5.9.3
@@ -3453,26 +3466,26 @@ packages:
       - supports-color
     dev: true
 
-  /@nrwl/tao/14.1.7:
-    resolution: {integrity: sha512-7jzPqEwElMiTKCZm2iuqC5aPIs+IwocWR6Tl1JhC1eK2PWskHOhdgTQM186lfXwPKWH4NJAE3eZFqtECnGDCJg==}
+  /@nrwl/tao/14.1.8:
+    resolution: {integrity: sha512-hWbpJ+u9HsC/BMdLBQMB1H6KbJTW66sgDW/A/wyB65sfDKmbJICEKWdPgUXFttur2KglUCfHGuN/L7WsPYc/YA==}
     hasBin: true
     dependencies:
-      nx: 14.1.7
+      nx: 14.1.8
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@nrwl/workspace/14.1.7_5bf7020eb5d4b58d4c27c09640f012ab:
-    resolution: {integrity: sha512-EjMG8fFiwZjKcOjCnlqACyS0pRQ3Z5/gnT2ZWmCXHxjX7DkrtQS+5bjTW1mHevU/CiLNgHlVyd5ogaQ4ZZtmKg==}
+  /@nrwl/workspace/14.1.8_5bf7020eb5d4b58d4c27c09640f012ab:
+    resolution: {integrity: sha512-vOaGPPmCORGf/5JRpplAobVhiOiBOy1LsuOm9D65k2G1h8DydH8H8l3yRXWCKZ0WLHl1PCVudzGkkMy6KbMf6w==}
     peerDependencies:
       prettier: ^2.5.1
     peerDependenciesMeta:
       prettier:
         optional: true
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7+ts-node@9.1.1
-      '@nrwl/linter': 14.1.7_5de7286149129e2127e1e9df2eabd46e
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8+ts-node@9.1.1
+      '@nrwl/linter': 14.1.8_fa4c028720674f2faf573fb374ce3946
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       chokidar: 3.5.3
@@ -3487,7 +3500,7 @@ packages:
       ignore: 5.2.0
       minimatch: 3.0.4
       npm-run-path: 4.0.1
-      nx: 14.1.7
+      nx: 14.1.8
       open: 8.4.0
       prettier: 2.6.2
       rxjs: 6.6.7
@@ -3507,17 +3520,17 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/workspace/14.1.7_684899a2e039b0decd9740688d544e11:
-    resolution: {integrity: sha512-EjMG8fFiwZjKcOjCnlqACyS0pRQ3Z5/gnT2ZWmCXHxjX7DkrtQS+5bjTW1mHevU/CiLNgHlVyd5ogaQ4ZZtmKg==}
+  /@nrwl/workspace/14.1.8_684899a2e039b0decd9740688d544e11:
+    resolution: {integrity: sha512-vOaGPPmCORGf/5JRpplAobVhiOiBOy1LsuOm9D65k2G1h8DydH8H8l3yRXWCKZ0WLHl1PCVudzGkkMy6KbMf6w==}
     peerDependencies:
       prettier: ^2.5.1
     peerDependenciesMeta:
       prettier:
         optional: true
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/jest': 14.1.7_nx@14.1.7
-      '@nrwl/linter': 14.1.7_36843a7284ae3fc5f244d3167b5caec1
+      '@nrwl/devkit': 14.1.8_nx@14.1.8
+      '@nrwl/jest': 14.1.8_nx@14.1.8
+      '@nrwl/linter': 14.1.8_1a5928b615993540d25df04a896d7804
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       chokidar: 3.5.3
@@ -3532,7 +3545,7 @@ packages:
       ignore: 5.2.0
       minimatch: 3.0.4
       npm-run-path: 4.0.1
-      nx: 14.1.7
+      nx: 14.1.8
       open: 8.4.0
       prettier: 2.6.2
       rxjs: 6.6.7
@@ -3562,13 +3575,13 @@ packages:
       node-fetch: 2.6.2
     dev: true
 
-  /@nx-plus/docusaurus/14.0.0_@nrwl+workspace@14.1.7+nx@14.1.7:
+  /@nx-plus/docusaurus/14.0.0_@nrwl+workspace@14.1.8+nx@14.1.8:
     resolution: {integrity: sha512-TTtP3jQyNryliN7lV9kpiSxUfcpcVoNuoiibda/Z8VIJ9xWhsWq09LbmKUIJdQiqNz9fUV8rXMhSAPwFM3CU7w==}
     peerDependencies:
       '@nrwl/workspace': ^14.1.4
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.1.7
-      '@nrwl/workspace': 14.1.7_684899a2e039b0decd9740688d544e11
+      '@nrwl/devkit': 14.1.7_nx@14.1.8
+      '@nrwl/workspace': 14.1.8_684899a2e039b0decd9740688d544e11
     transitivePeerDependencies:
       - nx
     dev: true
@@ -10172,13 +10185,13 @@ packages:
       - supports-color
     dev: true
 
-  /nx/14.1.7:
-    resolution: {integrity: sha512-Q10PVQ70TFg9HY6KQKJ316B42sVtxmFk/VUdC7ZHKxzDm/JeYf6OaDarQOUZaFZp/EL2brtEsrlWSMTWmk3r4w==}
+  /nx/14.1.8:
+    resolution: {integrity: sha512-ZYLpZWAMr1mb+uU0OSPzEtNvti0hZTW4T8LV+KDZTWa+/vNS9N5r/6YChTst+bEtNsmuy5/w720rMxUJ3gyaPQ==}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@nrwl/cli': 14.1.7
-      '@nrwl/tao': 14.1.7
+      '@nrwl/cli': 14.1.8
+      '@nrwl/tao': 14.1.8
       '@parcel/watcher': 2.0.4
       '@swc-node/register': 1.4.2
       '@swc/core': 1.2.192
@@ -10199,8 +10212,6 @@ packages:
       minimatch: 3.0.4
       npm-run-path: 4.0.1
       open: 8.4.0
-      rxjs: 6.6.7
-      rxjs-for-await: 0.0.2_rxjs@6.6.7
       semver: 7.3.4
       string-width: 4.2.3
       tar-stream: 2.2.0
