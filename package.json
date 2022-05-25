@@ -54,7 +54,7 @@
     "@nrwl/nx-cloud": "14.0.5",
     "@nrwl/workspace": "14.1.9",
     "@nx-plus/docusaurus": "14.0.0",
-    "@swc/core": "1.2.192",
+    "@swc/core": "1.2.194",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.1",
     "@types/node": "16.11.36",
