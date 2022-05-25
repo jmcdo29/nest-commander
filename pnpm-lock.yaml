@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.22.0
-      '@commitlint/cli': 17.0.0
+      '@commitlint/cli': 17.0.1
       '@commitlint/config-conventional': 17.0.0
       '@docusaurus/core': 2.0.0-beta.20
       '@docusaurus/preset-classic': 2.0.0-beta.20
@@ -61,7 +61,7 @@ importers:
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
       '@changesets/cli': 2.22.0
-      '@commitlint/cli': 17.0.0_@swc+core@1.2.192
+      '@commitlint/cli': 17.0.1_@swc+core@1.2.192
       '@commitlint/config-conventional': 17.0.0
       '@docusaurus/core': 2.0.0-beta.20_610a563ce93bacef67f6185ba30b7445
       '@docusaurus/preset-classic': 2.0.0-beta.20_610a563ce93bacef67f6185ba30b7445
@@ -1902,8 +1902,8 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/cli/17.0.0_@swc+core@1.2.192:
-    resolution: {integrity: sha512-Np6slCdVVG1XwMvwbZrXIzS1INPAD5QmN4L6al04AmCd4nAPU63gxgxC5Mz0Fmx7va23Uvb0S7yEFV1JPhvPUQ==}
+  /@commitlint/cli/17.0.1_@swc+core@1.2.192:
+    resolution: {integrity: sha512-5xT1G5pnynR0tk/ms8Ji7yr9lZCeQs4GLVVtyK/gw20w+enoLTVuRKKY9zg88hy9FoCycc/W8iip2xv3c8payg==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
@@ -1912,6 +1912,7 @@ packages:
       '@commitlint/load': 17.0.0_@swc+core@1.2.192
       '@commitlint/read': 17.0.0
       '@commitlint/types': 17.0.0
+      execa: 5.1.1
       lodash: 4.17.21
       resolve-from: 5.0.0
       resolve-global: 1.0.0
