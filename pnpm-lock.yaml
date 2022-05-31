@@ -29,7 +29,7 @@ importers:
       '@swc/core': 1.2.196
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.37
+      '@types/node': 16.11.38
       '@typescript-eslint/eslint-plugin': 5.27.0
       '@typescript-eslint/parser': 5.27.0
       c8: 7.11.3
@@ -79,7 +79,7 @@ importers:
       '@swc/core': 1.2.196
       '@swc/register': 0.1.10_@swc+core@1.2.196
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.37
+      '@types/node': 16.11.38
       '@typescript-eslint/eslint-plugin': 5.27.0_1cb21ecc3f04eca4a509631d5e40e8fa
       '@typescript-eslint/parser': 5.27.0_eslint@8.16.0+typescript@4.7.2
       c8: 7.11.3
@@ -4237,8 +4237,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/16.11.37:
-    resolution: {integrity: sha512-U8+EA3a23YkBLKQFE9rxFw4A2YWFttRyQ15mz+dMsXiAo9zbdizFndBMz1aLpV2k7M+syncZy/cady/9pC3sPg==}
+  /@types/node/16.11.38:
+    resolution: {integrity: sha512-hjO/0K140An3GWDw2HJfq7gko3wWeznbjXgg+rzPdVzhe198hp4x2i1dgveAOEiFKd8sOilAxzoSJiVv5P/CUg==}
     dev: true
 
   /@types/node/17.0.21:
