@@ -18,9 +18,9 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       '@mdx-js/react': 1.6.22
       '@nestjs/cli': 8.2.6
-      '@nestjs/common': 8.4.5
-      '@nestjs/core': 8.4.5
-      '@nestjs/testing': 8.4.5
+      '@nestjs/common': 8.4.6
+      '@nestjs/core': 8.4.6
+      '@nestjs/testing': 8.4.6
       '@nrwl/js': 14.1.9
       '@nrwl/node': 14.1.9
       '@nrwl/nx-cloud': 14.0.5
@@ -68,9 +68,9 @@ importers:
       '@golevelup/nestjs-discovery': 3.0.0
       '@mdx-js/react': 1.6.22_react@18.1.0
       '@nestjs/cli': 8.2.6_@swc+core@1.2.196
-      '@nestjs/common': 8.4.5_e7ea248743279784063e3708d703abc5
-      '@nestjs/core': 8.4.5_74a5f58103aca90eb73831b6f499f41f
-      '@nestjs/testing': 8.4.5_c0c9651cd01c4e2d3bda397a5c438062
+      '@nestjs/common': 8.4.6_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 8.4.6_8341a45f76a60f560bbeb12c24253aeb
+      '@nestjs/testing': 8.4.6_24ca02718c236197ee32dbe80f8a4d36
       '@nrwl/js': 14.1.9_818ab38fdbcba2571b0c4d40dc028a89
       '@nrwl/node': 14.1.9_8585d184065479f3516e0658fc1ed058
       '@nrwl/nx-cloud': 14.0.5
@@ -3105,8 +3105,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.4.5_e7ea248743279784063e3708d703abc5:
-    resolution: {integrity: sha512-DL30hLtcmosOWGRFrU1YYB59k+7FGX82sbq2QiXLsEXuSig8ZzFm8LR+tD8CX+aKabU9t1GGc18HLjFud/3sww==}
+  /@nestjs/common/8.4.6_e7ea248743279784063e3708d703abc5:
+    resolution: {integrity: sha512-INp1ERDrLiQ4GwRc3zotTwBLZm2sIwcJwnBE2yXqsth17KijmoVmY8UB5Tares0IlwjsqlRFWkCX8uWE5rzbSA==}
     peerDependencies:
       cache-manager: '*'
       class-transformer: '*'
@@ -3131,8 +3131,8 @@ packages:
       - debug
     dev: true
 
-  /@nestjs/core/8.4.5_74a5f58103aca90eb73831b6f499f41f:
-    resolution: {integrity: sha512-mT4MV2pEILu+Xy/deIvhb4JkIWaUU+yxssQqMScj8pWvAQ4+6sN52Sxl5NwLb6FTyZ8t5m8Qgr4yZPTmS+Y1Ig==}
+  /@nestjs/core/8.4.6_8341a45f76a60f560bbeb12c24253aeb:
+    resolution: {integrity: sha512-5zHpxTYV7HT3lfF7l/x0EWBfmuyuDOnGRcALf88tzDGs/7Q/VC6l65d6eFwDwI37NLtScqnmEkT9of8E3fT3mA==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -3149,7 +3149,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.4.5_e7ea248743279784063e3708d703abc5
+      '@nestjs/common': 8.4.6_e7ea248743279784063e3708d703abc5
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -3187,8 +3187,8 @@ packages:
       typescript: 4.7.2
     dev: false
 
-  /@nestjs/testing/8.4.5_c0c9651cd01c4e2d3bda397a5c438062:
-    resolution: {integrity: sha512-RWFfkRitor8Aw1yWhZqWim/sAYmFv45Hw7jlVaFCx2PCu6IIHCaK2ENv/20yA0+kffaFUQ6KyFzJvCUYKGFoqg==}
+  /@nestjs/testing/8.4.6_24ca02718c236197ee32dbe80f8a4d36:
+    resolution: {integrity: sha512-uGRNQ0iWIHqjz5CLxQCTtQ3dB1KyPfkHXnko5mBwKk/iBTiACmll61rVt89Wh8RM+w0bmvCHp9sacNI7IynESg==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
@@ -3200,9 +3200,8 @@ packages:
       '@nestjs/platform-express':
         optional: true
     dependencies:
-      optional: 0.1.4
-      '@nestjs/common': 8.4.5_e7ea248743279784063e3708d703abc5
-      '@nestjs/core': 8.4.5_74a5f58103aca90eb73831b6f499f41f
+      '@nestjs/common': 8.4.6_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 8.4.6_8341a45f76a60f560bbeb12c24253aeb
       tslib: 2.4.0
     dev: true
 
@@ -4953,7 +4952,7 @@ packages:
     dev: true
 
   /asynckit/0.4.0:
-    resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=}
+    resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
   /at-least-node/1.0.0:
@@ -6551,7 +6550,7 @@ packages:
     dev: true
 
   /delayed-stream/1.0.0:
-    resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=}
+    resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
     dev: true
 
@@ -10378,10 +10377,6 @@ packages:
   /opener/1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
     hasBin: true
-    dev: true
-
-  /optional/0.1.4:
-    resolution: {integrity: sha512-gtvrrCfkE08wKcgXaVwQVgwEQ8vel2dc5DDBn9RLQZ3YtmtkBss6A2HY6BnJH4N/4Ku97Ri/SF8sNWE2225WJw==}
     dev: true
 
   /optionator/0.8.3:
