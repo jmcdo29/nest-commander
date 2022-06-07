@@ -51,7 +51,7 @@
     "@nestjs/testing": "8.4.6",
     "@nrwl/js": "14.2.1",
     "@nrwl/node": "14.2.1",
-    "@nrwl/nx-cloud": "14.0.5",
+    "@nrwl/nx-cloud": "14.0.8",
     "@nrwl/workspace": "14.2.1",
     "@nx-plus/docusaurus": "14.0.0",
     "@swc/core": "1.2.197",
