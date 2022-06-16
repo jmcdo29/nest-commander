@@ -48,7 +48,7 @@ importers:
       nx: 14.3.5
       nx-uvu: 1.1.1
       pinst: 3.0.0
-      prettier: 2.7.0
+      prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       reflect-metadata: 0.1.13
@@ -71,10 +71,10 @@ importers:
       '@nestjs/common': 8.4.7_e7ea248743279784063e3708d703abc5
       '@nestjs/core': 8.4.7_37c15d9aad112cee731c8d239db0c0af
       '@nestjs/testing': 8.4.7_fce4c3b686c1225eb94686491d30b061
-      '@nrwl/js': 14.3.5_7fb49a32f740a49f31f06a5262cedf55
-      '@nrwl/node': 14.3.5_4e394b9c83518f65adfaf46f957b35dc
+      '@nrwl/js': 14.3.5_289e9ba629d68ba2c52d0bf82b3c5faa
+      '@nrwl/node': 14.3.5_46924787a0f00bf529eb64b5991d87bd
       '@nrwl/nx-cloud': 14.1.1
-      '@nrwl/workspace': 14.3.5_758cd3bfa501097c1eb1ae3233f231c1
+      '@nrwl/workspace': 14.3.5_d810228f8dcaa4c4a9ab1da2617cc24f
       '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.3.5+nx@14.3.5
       '@swc/core': 1.2.203
       '@swc/register': 0.1.10_@swc+core@1.2.203
@@ -90,7 +90,7 @@ importers:
       cz-conventional-changelog: 3.3.0_@swc+core@1.2.203
       eslint: 8.17.0
       eslint-config-prettier: 8.5.0_eslint@8.17.0
-      eslint-plugin-prettier: 4.0.0_69a96037af8480945d39efca5cfc2a19
+      eslint-plugin-prettier: 4.0.0_3c82efea95883424a9dcf6342e14d9cb
       hanbi: 1.0.1
       husky: 8.0.1
       inquirer: 8.2.4
@@ -98,7 +98,7 @@ importers:
       nx: 14.3.5_@swc+core@1.2.203
       nx-uvu: 1.1.1
       pinst: 3.0.0
-      prettier: 2.7.0
+      prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       reflect-metadata: 0.1.13
@@ -3318,13 +3318,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/js/14.3.5_7fb49a32f740a49f31f06a5262cedf55:
+  /@nrwl/js/14.3.5_289e9ba629d68ba2c52d0bf82b3c5faa:
     resolution: {integrity: sha512-xHpdYpsV8bpMWQs5bs7ur5pv06BYQHCcshyUC3bTYhZGjbK1rRJw1Z/TMLxTbSEnklv+otAGthfCk7ywYzx0Kw==}
     dependencies:
       '@nrwl/devkit': 14.3.5_nx@14.3.5
       '@nrwl/jest': 14.3.5_nx@14.3.5+typescript@4.7.3
       '@nrwl/linter': 14.3.5_b9c415769d5e8281d0e11bc1369f7f85
-      '@nrwl/workspace': 14.3.5_758cd3bfa501097c1eb1ae3233f231c1
+      '@nrwl/workspace': 14.3.5_d810228f8dcaa4c4a9ab1da2617cc24f
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3349,13 +3349,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/js/14.3.5_9f144731bb7fcecc3c481f17caac21fe:
+  /@nrwl/js/14.3.5_abca53ba705d4baf724e2d3728a4a317:
     resolution: {integrity: sha512-xHpdYpsV8bpMWQs5bs7ur5pv06BYQHCcshyUC3bTYhZGjbK1rRJw1Z/TMLxTbSEnklv+otAGthfCk7ywYzx0Kw==}
     dependencies:
       '@nrwl/devkit': 14.3.5_nx@14.3.5
       '@nrwl/jest': 14.3.5_68be7f089f50118e3f789029ec45a859
       '@nrwl/linter': 14.3.5_254a0969dc36ff31294f3e518b62efd0
-      '@nrwl/workspace': 14.3.5_54e696ca3211fd3532c5fde1fee7e02f
+      '@nrwl/workspace': 14.3.5_e75d16e9377389e015f321d939a95d6f
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3434,14 +3434,14 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/14.3.5_4e394b9c83518f65adfaf46f957b35dc:
+  /@nrwl/node/14.3.5_46924787a0f00bf529eb64b5991d87bd:
     resolution: {integrity: sha512-4X2Q9Zkig1dNIoWTxNRUjNkVf/B82q+iyqIa108+OCz3nzEkcNSYjyaW516Bf9HYxS+65KIgMHY3p6vPNIa3tw==}
     dependencies:
       '@nrwl/devkit': 14.3.5_nx@14.3.5
       '@nrwl/jest': 14.3.5_68be7f089f50118e3f789029ec45a859
-      '@nrwl/js': 14.3.5_9f144731bb7fcecc3c481f17caac21fe
+      '@nrwl/js': 14.3.5_abca53ba705d4baf724e2d3728a4a317
       '@nrwl/linter': 14.3.5_254a0969dc36ff31294f3e518b62efd0
-      '@nrwl/workspace': 14.3.5_54e696ca3211fd3532c5fde1fee7e02f
+      '@nrwl/workspace': 14.3.5_e75d16e9377389e015f321d939a95d6f
       chalk: 4.1.0
       copy-webpack-plugin: 9.0.1_webpack@5.72.1
       enhanced-resolve: 5.9.3
@@ -3514,54 +3514,7 @@ packages:
       - '@swc/core'
     dev: true
 
-  /@nrwl/workspace/14.3.5_54e696ca3211fd3532c5fde1fee7e02f:
-    resolution: {integrity: sha512-m1Neuj6hWEpVflTxabkmfrqVVlZiaZjbaSaS+XDYecx2SnkD8BXimn7bzQtYdlWmL4M/GZvwfhE2ghwTifdHYQ==}
-    peerDependencies:
-      prettier: ^2.6.2
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-    dependencies:
-      '@nrwl/devkit': 14.3.5_nx@14.3.5
-      '@nrwl/jest': 14.3.5_68be7f089f50118e3f789029ec45a859
-      '@nrwl/linter': 14.3.5_254a0969dc36ff31294f3e518b62efd0
-      '@parcel/watcher': 2.0.4
-      chalk: 4.1.0
-      chokidar: 3.5.3
-      cli-cursor: 3.1.0
-      cli-spinners: 2.6.1
-      dotenv: 10.0.0
-      enquirer: 2.3.6
-      figures: 3.2.0
-      flat: 5.0.2
-      fs-extra: 10.1.0
-      glob: 7.1.4
-      ignore: 5.2.0
-      minimatch: 3.0.5
-      npm-run-path: 4.0.1
-      nx: 14.3.5_@swc+core@1.2.203
-      open: 8.4.0
-      prettier: 2.7.0
-      rxjs: 6.6.7
-      semver: 7.3.4
-      tmp: 0.2.1
-      tslib: 2.4.0
-      yargs: 17.4.1
-      yargs-parser: 21.0.1
-    transitivePeerDependencies:
-      - '@swc-node/register'
-      - '@swc/core'
-      - bufferutil
-      - canvas
-      - eslint
-      - node-notifier
-      - supports-color
-      - ts-node
-      - typescript
-      - utf-8-validate
-    dev: true
-
-  /@nrwl/workspace/14.3.5_758cd3bfa501097c1eb1ae3233f231c1:
+  /@nrwl/workspace/14.3.5_d810228f8dcaa4c4a9ab1da2617cc24f:
     resolution: {integrity: sha512-m1Neuj6hWEpVflTxabkmfrqVVlZiaZjbaSaS+XDYecx2SnkD8BXimn7bzQtYdlWmL4M/GZvwfhE2ghwTifdHYQ==}
     peerDependencies:
       prettier: ^2.6.2
@@ -3588,7 +3541,54 @@ packages:
       npm-run-path: 4.0.1
       nx: 14.3.5_@swc+core@1.2.203
       open: 8.4.0
-      prettier: 2.7.0
+      prettier: 2.7.1
+      rxjs: 6.6.7
+      semver: 7.3.4
+      tmp: 0.2.1
+      tslib: 2.4.0
+      yargs: 17.4.1
+      yargs-parser: 21.0.1
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+      - bufferutil
+      - canvas
+      - eslint
+      - node-notifier
+      - supports-color
+      - ts-node
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@nrwl/workspace/14.3.5_e75d16e9377389e015f321d939a95d6f:
+    resolution: {integrity: sha512-m1Neuj6hWEpVflTxabkmfrqVVlZiaZjbaSaS+XDYecx2SnkD8BXimn7bzQtYdlWmL4M/GZvwfhE2ghwTifdHYQ==}
+    peerDependencies:
+      prettier: ^2.6.2
+    peerDependenciesMeta:
+      prettier:
+        optional: true
+    dependencies:
+      '@nrwl/devkit': 14.3.5_nx@14.3.5
+      '@nrwl/jest': 14.3.5_68be7f089f50118e3f789029ec45a859
+      '@nrwl/linter': 14.3.5_254a0969dc36ff31294f3e518b62efd0
+      '@parcel/watcher': 2.0.4
+      chalk: 4.1.0
+      chokidar: 3.5.3
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      dotenv: 10.0.0
+      enquirer: 2.3.6
+      figures: 3.2.0
+      flat: 5.0.2
+      fs-extra: 10.1.0
+      glob: 7.1.4
+      ignore: 5.2.0
+      minimatch: 3.0.5
+      npm-run-path: 4.0.1
+      nx: 14.3.5_@swc+core@1.2.203
+      open: 8.4.0
+      prettier: 2.7.1
       rxjs: 6.6.7
       semver: 7.3.4
       tmp: 0.2.1
@@ -3624,7 +3624,7 @@ packages:
       '@nrwl/workspace': ^14.1.4
     dependencies:
       '@nrwl/devkit': 14.1.7_nx@14.3.5
-      '@nrwl/workspace': 14.3.5_758cd3bfa501097c1eb1ae3233f231c1
+      '@nrwl/workspace': 14.3.5_d810228f8dcaa4c4a9ab1da2617cc24f
     transitivePeerDependencies:
       - nx
     dev: true
@@ -6991,7 +6991,7 @@ packages:
       eslint: 8.17.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_69a96037af8480945d39efca5cfc2a19:
+  /eslint-plugin-prettier/4.0.0_3c82efea95883424a9dcf6342e14d9cb:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -7004,7 +7004,7 @@ packages:
     dependencies:
       eslint: 8.17.0
       eslint-config-prettier: 8.5.0_eslint@8.17.0
-      prettier: 2.7.0
+      prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -11443,8 +11443,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.7.0:
-    resolution: {integrity: sha512-nwoX4GMFgxoPC6diHvSwmK/4yU8FFH3V8XWtLQrbj4IBsK2pkYhG4kf/ljF/haaZ/aii+wNJqISrCDPgxGWDVQ==}
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
