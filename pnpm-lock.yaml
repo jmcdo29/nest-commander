@@ -44,7 +44,7 @@ importers:
       hanbi: 1.0.1
       husky: 8.0.1
       inquirer: 8.2.4
-      lint-staged: 13.0.1
+      lint-staged: 13.0.2
       nx: 14.3.5
       nx-uvu: 1.1.1
       pinst: 3.0.0
@@ -94,7 +94,7 @@ importers:
       hanbi: 1.0.1
       husky: 8.0.1
       inquirer: 8.2.4
-      lint-staged: 13.0.1
+      lint-staged: 13.0.2
       nx: 14.3.5_@swc+core@1.2.203
       nx-uvu: 1.1.1
       pinst: 3.0.0
@@ -9700,8 +9700,8 @@ packages:
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
 
-  /lint-staged/13.0.1:
-    resolution: {integrity: sha512-Ykaf4QTi0a02BF7cnq7JIPGOJxH4TkNMWhSlJdH9wOekd0X+gog47Jfh/0L31DqZe5AiydLGC7LkPqpaNm+Kvg==}
+  /lint-staged/13.0.2:
+    resolution: {integrity: sha512-qQLfLTh9z34eMzfEHENC+QBskZfxjomrf+snF3xJ4BzilORbD989NLqQ00ughsF/A+PT41e87+WsMFabf9++pQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
