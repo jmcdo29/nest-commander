@@ -72,7 +72,7 @@
     "hanbi": "1.0.1",
     "husky": "8.0.1",
     "inquirer": "8.2.4",
-    "lint-staged": "13.0.2",
+    "lint-staged": "13.0.3",
     "nx": "14.3.6",
     "nx-uvu": "1.2.0",
     "pinst": "3.0.0",
