@@ -68,7 +68,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.18.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-prettier": "4.1.0",
     "hanbi": "1.0.1",
     "husky": "8.0.1",
     "inquirer": "8.2.4",
