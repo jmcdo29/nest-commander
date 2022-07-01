@@ -23,7 +23,7 @@ importers:
       '@nestjs/testing': 8.4.7
       '@nrwl/js': 14.3.6
       '@nrwl/node': 14.3.6
-      '@nrwl/nx-cloud': 14.1.3
+      '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.3.6
       '@nx-plus/docusaurus': 14.0.0
       '@swc/core': 1.2.208
@@ -73,7 +73,7 @@ importers:
       '@nestjs/testing': 8.4.7_fce4c3b686c1225eb94686491d30b061
       '@nrwl/js': 14.3.6_7b97643ff00d7b125f9aaac2c5012464
       '@nrwl/node': 14.3.6_ac8c29416af0406a82a8283edf92276c
-      '@nrwl/nx-cloud': 14.1.3
+      '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.3.6_8fe78ddfaec1cbd991998e26e3e52c1a
       '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.3.6+nx@14.3.6
       '@swc/core': 1.2.208
@@ -3447,8 +3447,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.1.3:
-    resolution: {integrity: sha512-8Kn2xeKLTnifsZrNimOwl8Q1dJUWx+HwOC/0MeFgTySKcKE0eim81ST8xiaysNw6EyYT6y/vhPGMxby22wtqYQ==}
+  /@nrwl/nx-cloud/14.2.0:
+    resolution: {integrity: sha512-KnrNFDCII9mbLwFp0HgyKVlhMTXoN90CQzGgdtCNPPBP/Wg84pttcpynGdWyupkrBJxdqMNTJEC7HGib0ipxew==}
     hasBin: true
     dependencies:
       axios: 0.21.4
