@@ -25,7 +25,7 @@ importers:
       '@nrwl/node': 14.4.0
       '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.4.0
-      '@nx-plus/docusaurus': 14.0.0
+      '@nx-plus/docusaurus': 14.1.0
       '@swc/core': 1.2.208
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
@@ -75,7 +75,7 @@ importers:
       '@nrwl/node': 14.4.0_423276bd6f8761df57a12fc7316dd63d
       '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.4.0_529396b6bce4d8f65cecd4ee0d8ee365
-      '@nx-plus/docusaurus': 14.0.0_@nrwl+workspace@14.4.0+nx@14.4.0
+      '@nx-plus/docusaurus': 14.1.0_@nrwl+workspace@14.4.0+nx@14.4.0
       '@swc/core': 1.2.208
       '@swc/register': 0.1.10_@swc+core@1.2.208
       '@types/inquirer': 8.2.1
@@ -3205,19 +3205,6 @@ packages:
       - '@swc/core'
     dev: true
 
-  /@nrwl/devkit/14.1.7_nx@14.4.0:
-    resolution: {integrity: sha512-4dZIzE+jIPzGSwWTGbQ9uWODHGZMdQctsLhMhcrZrEpPcmZQLbYEbx2bRh6EsNFkreSZxZREdwkWuFTb05cs/w==}
-    peerDependencies:
-      nx: '>= 13.10 <= 15'
-    dependencies:
-      ejs: 3.1.8
-      ignore: 5.2.0
-      nx: 14.4.0_@swc+core@1.2.208
-      rxjs: 6.6.7
-      semver: 7.3.4
-      tslib: 2.4.0
-    dev: true
-
   /@nrwl/devkit/14.3.6_nx@14.4.0:
     resolution: {integrity: sha512-yGAZ5emBSb13smdkVagJRD/IC+ZkGLuRUc9A4Oqp/hDtOoUx6Jxot6vKwniTfbYZlk1Dkeq77d3atsEwz0dD1A==}
     peerDependencies:
@@ -3587,12 +3574,12 @@ packages:
       node-fetch: 2.6.2
     dev: true
 
-  /@nx-plus/docusaurus/14.0.0_@nrwl+workspace@14.4.0+nx@14.4.0:
-    resolution: {integrity: sha512-TTtP3jQyNryliN7lV9kpiSxUfcpcVoNuoiibda/Z8VIJ9xWhsWq09LbmKUIJdQiqNz9fUV8rXMhSAPwFM3CU7w==}
+  /@nx-plus/docusaurus/14.1.0_@nrwl+workspace@14.4.0+nx@14.4.0:
+    resolution: {integrity: sha512-EjzaOm8GCpyADKn4G19AgZk/l8F5eyNCVN1oFki7KUPaig9N9IjRCEmUQtHuomGbCQRqHtpovEPJldCLRz4glw==}
     peerDependencies:
-      '@nrwl/workspace': ^14.1.4
+      '@nrwl/workspace': ^14.3.6
     dependencies:
-      '@nrwl/devkit': 14.1.7_nx@14.4.0
+      '@nrwl/devkit': 14.4.0_nx@14.4.0
       '@nrwl/workspace': 14.4.0_529396b6bce4d8f65cecd4ee0d8ee365
     transitivePeerDependencies:
       - nx
