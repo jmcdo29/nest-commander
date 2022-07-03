@@ -33,7 +33,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.30.3
       '@typescript-eslint/parser': 5.30.3
       c8: 7.11.3
-      clsx: 1.1.1
+      clsx: 1.2.0
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
@@ -83,7 +83,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.30.3_bd298502bfa44e376686f9e6b29811dd
       '@typescript-eslint/parser': 5.30.3_eslint@8.19.0+typescript@4.7.4
       c8: 7.11.3
-      clsx: 1.1.1
+      clsx: 1.2.0
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
@@ -2562,7 +2562,7 @@ packages:
       '@docusaurus/utils-common': 2.0.0-beta.21
       '@docusaurus/utils-validation': 2.0.0-beta.21_@swc+core@1.2.208
       '@mdx-js/react': 1.6.22_react@18.2.0
-      clsx: 1.1.1
+      clsx: 1.2.0
       copy-text-to-clipboard: 3.0.1
       infima: 0.2.0-alpha.39
       lodash: 4.17.21
@@ -2602,7 +2602,7 @@ packages:
       '@docusaurus/plugin-content-blog': 2.0.0-beta.21_0510b752e926226826aa10f57f9e8ab5
       '@docusaurus/plugin-content-docs': 2.0.0-beta.21_0510b752e926226826aa10f57f9e8ab5
       '@docusaurus/plugin-content-pages': 2.0.0-beta.21_0510b752e926226826aa10f57f9e8ab5
-      clsx: 1.1.1
+      clsx: 1.2.0
       parse-numeric-range: 1.3.0
       prism-react-renderer: 1.3.3_react@18.2.0
       react: 18.2.0
@@ -2642,7 +2642,7 @@ packages:
       '@docusaurus/utils-validation': 2.0.0-beta.21_@swc+core@1.2.208
       algoliasearch: 4.13.1
       algoliasearch-helper: 3.8.2_algoliasearch@4.13.1
-      clsx: 1.1.1
+      clsx: 1.2.0
       eta: 1.12.3
       fs-extra: 10.1.0
       lodash: 4.17.21
@@ -5608,8 +5608,8 @@ packages:
     resolution: {integrity: sha1-2jCcwmPfFZlMaIypAheco8fNfH4=}
     engines: {node: '>=0.8'}
 
-  /clsx/1.1.1:
-    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+  /clsx/1.2.0:
+    resolution: {integrity: sha512-EPRP7XJsM1y0iCU3Z7C7jFKdQboXSeHgEfzQUTlz7m5NP3hDrlz48aUsmNGp4pC+JOW9WA3vIRqlYuo/bl4Drw==}
     engines: {node: '>=6'}
     dev: true
 
