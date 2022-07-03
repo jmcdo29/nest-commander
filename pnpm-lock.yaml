@@ -55,7 +55,7 @@ importers:
       rxjs: 7.5.5
       typescript: 4.7.4
       url-loader: 4.1.1
-      uvu: 0.5.4
+      uvu: 0.5.5
     devDependencies:
       '@angular-devkit/core': 12.2.8
       '@angular-devkit/schematics': 12.2.8
@@ -105,7 +105,7 @@ importers:
       rxjs: 7.5.5
       typescript: 4.7.4
       url-loader: 4.1.1
-      uvu: 0.5.4
+      uvu: 0.5.5
 
   packages/nest-commander:
     specifiers:
@@ -13595,8 +13595,8 @@ packages:
     hasBin: true
     dev: true
 
-  /uvu/0.5.4:
-    resolution: {integrity: sha512-x1CyUjcP9VKaNPhjeB3FIc/jqgLsz2Q9LFhRzUTu/jnaaHILEGNuE0XckQonl8ISLcwyk9I2EZvWlYsQnwxqvQ==}
+  /uvu/0.5.5:
+    resolution: {integrity: sha512-J3SlxDp1MnHkqYvxnz4geS4jYWd2dXcNMltFWYmuiMpe+q1XOyXXaZb0qiO90o1xEhMWNuvnzqoXrDxbYYQjDQ==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
