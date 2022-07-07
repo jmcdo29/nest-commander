@@ -143,7 +143,7 @@ export class FooCommand implements CommandRunner {
 }
 ```
 
-and now nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
+After adding the subcommand to the appropriate module's `providers` array, nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
 
 Subcommands can also take an `aliases` array for sub command aliases. We could add `aliases: ['f']` to the above `FooCommand` and run it with `run f` instead of `run foo` and get the same result. `aliases` must be passed as an array.
 
