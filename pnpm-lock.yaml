@@ -10,7 +10,7 @@ importers:
       '@angular-devkit/core': 12.2.8
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
-      '@changesets/cli': 2.23.0
+      '@changesets/cli': 2.23.1
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
       '@docusaurus/core': 2.0.0-beta.21
@@ -60,7 +60,7 @@ importers:
       '@angular-devkit/core': 12.2.8
       '@angular-devkit/schematics': 12.2.8
       '@angular-devkit/schematics-cli': 12.2.8
-      '@changesets/cli': 2.23.0
+      '@changesets/cli': 2.23.1
       '@commitlint/cli': 17.0.3_@swc+core@1.2.210
       '@commitlint/config-conventional': 17.0.3
       '@docusaurus/core': 2.0.0-beta.21_2d45e84a6ec8a4ae2876fede7031e473
@@ -1721,11 +1721,11 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@changesets/apply-release-plan/6.0.0:
-    resolution: {integrity: sha512-gp6nIdVdfYdwKww2+f8whckKmvfE4JEm4jJgBhTmooi0uzHWhnxvk6JIzQi89qEAMINN0SeVNnXiAtbFY0Mj3w==}
+  /@changesets/apply-release-plan/6.0.1:
+    resolution: {integrity: sha512-KGtai19+Uo7k8uco9m+hIPGoet9E6eZq15RIeHoivvgwwI66AC6ievbUO5h0NqGlZjBWnYJQNkuT66kvBYzxsA==}
     dependencies:
       '@babel/runtime': 7.18.3
-      '@changesets/config': 2.0.0
+      '@changesets/config': 2.0.1
       '@changesets/get-version-range-type': 0.3.2
       '@changesets/git': 1.3.2
       '@changesets/types': 5.0.0
@@ -1756,18 +1756,18 @@ packages:
       '@changesets/types': 5.0.0
     dev: true
 
-  /@changesets/cli/2.23.0:
-    resolution: {integrity: sha512-Gi3tMi0Vr6eNd8GX6q73tbOm9XOzGfuLEm4PYVeWG2neg5DlRGNOjYwrFULJ/An3N9MHtHn4r5h1Qvnju9Ijug==}
+  /@changesets/cli/2.23.1:
+    resolution: {integrity: sha512-yXQ29Iw/26yq1oJpOCa7BJDeUvuurZmREmCX9p9m5RxlKNDnROJBylQDCVfqQdZbeV2jfvd3XRKvci80SvGssg==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.18.3
-      '@changesets/apply-release-plan': 6.0.0
+      '@changesets/apply-release-plan': 6.0.1
       '@changesets/assemble-release-plan': 5.1.3
       '@changesets/changelog-git': 0.1.11
-      '@changesets/config': 2.0.0
+      '@changesets/config': 2.0.1
       '@changesets/errors': 0.1.4
       '@changesets/get-dependents-graph': 1.3.2
-      '@changesets/get-release-plan': 3.0.9
+      '@changesets/get-release-plan': 3.0.10
       '@changesets/git': 1.3.2
       '@changesets/logger': 0.0.5
       '@changesets/pre': 1.0.11
@@ -1795,8 +1795,8 @@ packages:
       tty-table: 4.1.6
     dev: true
 
-  /@changesets/config/2.0.0:
-    resolution: {integrity: sha512-r5bIFY6CN3K6SQ+HZbjyE3HXrBIopONR47mmX7zUbORlybQXtympq9rVAOzc0Oflbap8QeIexc+hikfZoREXDg==}
+  /@changesets/config/2.0.1:
+    resolution: {integrity: sha512-rJaQWqsjM54T7bDiCoMDcgOuY2HzyovvRs68C//C+tYgbHyjs00JcNVcScjlV47hATrNG1AI8qTD7V9bcO/1cg==}
     dependencies:
       '@changesets/errors': 0.1.4
       '@changesets/get-dependents-graph': 1.3.2
@@ -1823,12 +1823,12 @@ packages:
       semver: 5.7.1
     dev: true
 
-  /@changesets/get-release-plan/3.0.9:
-    resolution: {integrity: sha512-5C1r4DcOjVxcCvPmXpymeyT6mdSTLCNiB2L+5uf19BRkDKndJdIQorH5Fe2XBR2nHUcZQFT+2TXDzCepat969w==}
+  /@changesets/get-release-plan/3.0.10:
+    resolution: {integrity: sha512-QeKHeo+mX1baRy3OIHQePMPebPFymq/ZxS6Bk3Y3FXiU+pXVnjrfqARj1E4xQT5c+48u6ISqJ8tW5f3EZ1/hng==}
     dependencies:
       '@babel/runtime': 7.18.3
       '@changesets/assemble-release-plan': 5.1.3
-      '@changesets/config': 2.0.0
+      '@changesets/config': 2.0.1
       '@changesets/pre': 1.0.11
       '@changesets/read': 0.5.5
       '@changesets/types': 5.0.0
@@ -4895,7 +4895,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.1.3
+      define-properties: 1.1.4
       es-abstract: 1.20.1
       es-shim-unscopables: 1.0.0
     dev: true
@@ -6491,13 +6491,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /define-properties/1.1.3:
-    resolution: {integrity: sha512-3MqfYKj2lLzdMSf8ZIZE/V+Zuy+BgD6f164e8K2w7dgnpKArBDerGYpM46IYYcjnkdPNMjPk9A6VFB8+3SKlXQ==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      object-keys: 1.1.1
-    dev: true
-
   /define-properties/1.1.4:
     resolution: {integrity: sha512-uckOqKcfaVvtBdsVkdPv3XjveQJsNQqmhXgRi8uhvWWuPYZCNlzT8qAyblUgNoXdHdjMTzAqeGjAoli8f+bzPA==}
     engines: {node: '>= 0.4'}
@@ -7723,7 +7716,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.1.3
+      define-properties: 1.1.4
       es-abstract: 1.20.1
       functions-have-names: 1.2.3
     dev: true
@@ -7751,7 +7744,7 @@ packages:
     dependencies:
       function-bind: 1.1.1
       has: 1.0.3
-      has-symbols: 1.0.2
+      has-symbols: 1.0.3
     dev: true
 
   /get-own-enumerable-property-symbols/3.0.2:
@@ -8054,11 +8047,6 @@ packages:
     resolution: {integrity: sha512-62DVLZGoiEBDHQyqG4w9xCuZ7eJEwNmJRWw2VY84Oedb7WFcA27fiEVe8oUQx9hAUJ4ekurquucTGwsyO1XGdQ==}
     dependencies:
       get-intrinsic: 1.1.1
-    dev: true
-
-  /has-symbols/1.0.2:
-    resolution: {integrity: sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==}
-    engines: {node: '>= 0.4'}
     dev: true
 
   /has-symbols/1.0.3:
@@ -11854,7 +11842,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.1.3
+      define-properties: 1.1.4
       functions-have-names: 1.2.3
     dev: true
 
@@ -13989,7 +13977,7 @@ packages:
     dev: true
 
   /which-module/2.0.0:
-    resolution: {integrity: sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=}
+    resolution: {integrity: sha512-B+enWhmw6cjfVC7kS8Pj9pCrKSc5txArRyaYGe088shv/FGWH+0Rjx/xPgtsWfsUtS27FkP697E4DDhgrgoc0Q==}
     dev: true
 
   /which-pm/2.0.0:
