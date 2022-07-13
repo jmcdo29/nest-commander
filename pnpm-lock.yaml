@@ -29,7 +29,7 @@ importers:
       '@swc/core': 1.2.213
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.43
+      '@types/node': 16.11.44
       '@typescript-eslint/eslint-plugin': 5.30.6
       '@typescript-eslint/parser': 5.30.6
       c8: 7.11.3
@@ -72,14 +72,14 @@ importers:
       '@nestjs/core': 9.0.3_4d28e1d55260d41a3981adb88177927b
       '@nestjs/testing': 9.0.3_d2dd75cb650c03ce0eb273cebe376d00
       '@nrwl/js': 14.4.2_6c43f729acde70913633e3381a1947c4
-      '@nrwl/node': 14.4.2_7c15d3d280f18f175d5b0a2152a18a85
+      '@nrwl/node': 14.4.2_ffae3693031cfa31fb38f9622b36dd31
       '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.4.2_7c79702a4246298c6b6e019b12a0e56a
       '@nx-plus/docusaurus': 14.1.0_@nrwl+workspace@14.4.2+nx@14.4.2
       '@swc/core': 1.2.213
       '@swc/register': 0.1.10_@swc+core@1.2.213
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.43
+      '@types/node': 16.11.44
       '@typescript-eslint/eslint-plugin': 5.30.6_d567d64e305900596f70368277b02083
       '@typescript-eslint/parser': 5.30.6_eslint@8.19.0+typescript@4.7.4
       c8: 7.11.3
@@ -3697,7 +3697,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/14.4.2_7c15d3d280f18f175d5b0a2152a18a85:
+  /@nrwl/node/14.4.2_ffae3693031cfa31fb38f9622b36dd31:
     resolution: {integrity: sha512-YMolQH3R/DTyPap3fQFWXvBaKJQG6l+msAUqzHp5OML3lPDg+zBYGW2kD1IsXpYq/ccpaot1ePS5K0JDpbZ8zQ==}
     dependencies:
       '@nrwl/devkit': 14.4.2_nx@14.4.2
@@ -3718,7 +3718,7 @@ packages:
       terser-webpack-plugin: 5.3.1_@swc+core@1.2.213+webpack@5.73.0
       tree-kill: 1.2.2
       ts-loader: 9.2.6_typescript@4.7.4+webpack@5.73.0
-      ts-node: 10.8.1_76855d2ecb1003bf8ae0fc7297ee9bd3
+      ts-node: 10.8.1_c53be78caa3cdf8fc7fade6984831c60
       tsconfig-paths: 3.14.1
       tsconfig-paths-webpack-plugin: 3.5.2
       tslib: 2.4.0
@@ -4465,8 +4465,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/16.11.43:
-    resolution: {integrity: sha512-GqWykok+3uocgfAJM8imbozrqLnPyTrpFlrryURQlw1EesPUCx5XxTiucWDSFF9/NUEXDuD4bnvHm8xfVGWTpQ==}
+  /@types/node/16.11.44:
+    resolution: {integrity: sha512-gwP6+QDgL5TDBIWh1lbYh3EFPU11pa+8xcamcsA3ROkp3A9X+/3Y5cRgq93VPEEE+CGfxlQnqkg1kkWGBgh3fw==}
     dev: true
 
   /@types/node/17.0.21:
@@ -9229,7 +9229,7 @@ packages:
       pretty-format: 27.5.1
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.8.1_76855d2ecb1003bf8ae0fc7297ee9bd3
+      ts-node: 10.8.1_c53be78caa3cdf8fc7fade6984831c60
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -13227,7 +13227,7 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-node/10.8.1_76855d2ecb1003bf8ae0fc7297ee9bd3:
+  /ts-node/10.8.1_c53be78caa3cdf8fc7fade6984831c60:
     resolution: {integrity: sha512-Wwsnao4DQoJsN034wePSg5nZiw4YKXf56mPIAeD6wVmiv+RytNSWqc2f3fKvcUoV+Yn2+yocD71VOfQHbmVX4g==}
     hasBin: true
     peerDependencies:
@@ -13247,7 +13247,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 16.11.43
+      '@types/node': 16.11.44
       acorn: 8.7.1
       acorn-walk: 8.2.0
       arg: 4.1.3
