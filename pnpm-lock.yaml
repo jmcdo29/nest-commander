@@ -29,7 +29,7 @@ importers:
       '@swc/core': 1.2.215
       '@swc/register': 0.1.10
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.44
+      '@types/node': 16.11.45
       '@typescript-eslint/eslint-plugin': 5.30.6
       '@typescript-eslint/parser': 5.30.6
       c8: 7.11.3
@@ -72,14 +72,14 @@ importers:
       '@nestjs/core': 9.0.3_4d28e1d55260d41a3981adb88177927b
       '@nestjs/testing': 9.0.3_d2dd75cb650c03ce0eb273cebe376d00
       '@nrwl/js': 14.4.2_17e6ab4d8863dbd8b994d6f1d52316bf
-      '@nrwl/node': 14.4.2_21251dc7082964d8ef250f3a0e47e05f
+      '@nrwl/node': 14.4.2_286cb358356e0e90b41d010252d7aacd
       '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.4.2_80ba5b854e45ca6d75fb25cbf5939ff9
       '@nx-plus/docusaurus': 14.1.0_@nrwl+workspace@14.4.2+nx@14.4.2
       '@swc/core': 1.2.215
       '@swc/register': 0.1.10_@swc+core@1.2.215
       '@types/inquirer': 8.2.1
-      '@types/node': 16.11.44
+      '@types/node': 16.11.45
       '@typescript-eslint/eslint-plugin': 5.30.6_d567d64e305900596f70368277b02083
       '@typescript-eslint/parser': 5.30.6_eslint@8.19.0+typescript@4.7.4
       c8: 7.11.3
@@ -3685,7 +3685,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nrwl/node/14.4.2_21251dc7082964d8ef250f3a0e47e05f:
+  /@nrwl/node/14.4.2_286cb358356e0e90b41d010252d7aacd:
     resolution: {integrity: sha512-YMolQH3R/DTyPap3fQFWXvBaKJQG6l+msAUqzHp5OML3lPDg+zBYGW2kD1IsXpYq/ccpaot1ePS5K0JDpbZ8zQ==}
     dependencies:
       '@nrwl/devkit': 14.4.2_nx@14.4.2
@@ -3706,7 +3706,7 @@ packages:
       terser-webpack-plugin: 5.3.1_@swc+core@1.2.215+webpack@5.73.0
       tree-kill: 1.2.2
       ts-loader: 9.2.6_typescript@4.7.4+webpack@5.73.0
-      ts-node: 10.8.1_21c70b5ceef2f388644b9b04db39769c
+      ts-node: 10.8.1_f5869a298b8d8891257de85232ad83bb
       tsconfig-paths: 3.14.1
       tsconfig-paths-webpack-plugin: 3.5.2
       tslib: 2.4.0
@@ -4453,8 +4453,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/16.11.44:
-    resolution: {integrity: sha512-gwP6+QDgL5TDBIWh1lbYh3EFPU11pa+8xcamcsA3ROkp3A9X+/3Y5cRgq93VPEEE+CGfxlQnqkg1kkWGBgh3fw==}
+  /@types/node/16.11.45:
+    resolution: {integrity: sha512-3rKg/L5x0rofKuuUt5zlXzOnKyIHXmIu5R8A0TuNDMF2062/AOIDBciFIjToLEJ/9F9DzkHNot+BpNsMI1OLdQ==}
     dev: true
 
   /@types/node/17.0.21:
@@ -9217,7 +9217,7 @@ packages:
       pretty-format: 27.5.1
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.8.1_21c70b5ceef2f388644b9b04db39769c
+      ts-node: 10.8.1_f5869a298b8d8891257de85232ad83bb
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -13183,38 +13183,6 @@ packages:
       webpack: 5.73.0_@swc+core@1.2.215
     dev: true
 
-  /ts-node/10.8.1_21c70b5ceef2f388644b9b04db39769c:
-    resolution: {integrity: sha512-Wwsnao4DQoJsN034wePSg5nZiw4YKXf56mPIAeD6wVmiv+RytNSWqc2f3fKvcUoV+Yn2+yocD71VOfQHbmVX4g==}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@swc/core': 1.2.215
-      '@tsconfig/node10': 1.0.8
-      '@tsconfig/node12': 1.0.9
-      '@tsconfig/node14': 1.0.1
-      '@tsconfig/node16': 1.0.2
-      '@types/node': 16.11.44
-      acorn: 8.7.1
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 4.7.4
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    dev: true
-
   /ts-node/10.8.1_4c682fb230a9d5b734b56c18cacc0fca:
     resolution: {integrity: sha512-Wwsnao4DQoJsN034wePSg5nZiw4YKXf56mPIAeD6wVmiv+RytNSWqc2f3fKvcUoV+Yn2+yocD71VOfQHbmVX4g==}
     hasBin: true
@@ -13236,6 +13204,38 @@ packages:
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
       '@types/node': 17.0.21
+      acorn: 8.7.1
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 4.7.4
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: true
+
+  /ts-node/10.8.1_f5869a298b8d8891257de85232ad83bb:
+    resolution: {integrity: sha512-Wwsnao4DQoJsN034wePSg5nZiw4YKXf56mPIAeD6wVmiv+RytNSWqc2f3fKvcUoV+Yn2+yocD71VOfQHbmVX4g==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@swc/core': 1.2.215
+      '@tsconfig/node10': 1.0.8
+      '@tsconfig/node12': 1.0.9
+      '@tsconfig/node14': 1.0.1
+      '@tsconfig/node16': 1.0.2
+      '@types/node': 16.11.45
       acorn: 8.7.1
       acorn-walk: 8.2.0
       arg: 4.1.3
