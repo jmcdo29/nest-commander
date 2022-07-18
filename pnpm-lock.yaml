@@ -34,7 +34,7 @@ importers:
       '@typescript-eslint/parser': 5.30.6
       c8: 7.11.3
       clsx: 1.2.1
-      commander: 8.3.0
+      commander: 9.4.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
@@ -84,7 +84,7 @@ importers:
       '@typescript-eslint/parser': 5.30.6_eslint@8.20.0+typescript@4.7.4
       c8: 7.11.3
       clsx: 1.2.1
-      commander: 8.3.0
+      commander: 9.4.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0_@swc+core@1.2.218
@@ -110,12 +110,12 @@ importers:
   packages/nest-commander:
     specifiers:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 8.3.0
+      commander: 9.4.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.4
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 8.3.0
+      commander: 9.4.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.4
 
@@ -5916,11 +5916,11 @@ packages:
   /commander/8.3.0:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
-
-  /commander/9.3.0:
-    resolution: {integrity: sha512-hv95iU5uXPbK83mjrJKuZyFM/LBAoCV/XhVGkS5Je6tl7sxr6A0ITMw5WoRV46/UaJ46Nllm3Xt7IaJhXTIkzw==}
-    engines: {node: ^12.20.0 || >=14}
     dev: true
+
+  /commander/9.4.0:
+    resolution: {integrity: sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==}
+    engines: {node: ^12.20.0 || >=14}
 
   /commitizen/4.2.4_@swc+core@1.2.218:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
@@ -9755,7 +9755,7 @@ packages:
     dependencies:
       cli-truncate: 3.1.0
       colorette: 2.0.17
-      commander: 9.3.0
+      commander: 9.4.0
       debug: 4.3.4
       execa: 6.1.0
       lilconfig: 2.0.5
