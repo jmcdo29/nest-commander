@@ -32,7 +32,7 @@ importers:
       '@types/node': 16.11.45
       '@typescript-eslint/eslint-plugin': 5.30.7
       '@typescript-eslint/parser': 5.30.7
-      c8: 7.11.3
+      c8: 7.12.0
       clsx: 1.2.1
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
@@ -82,7 +82,7 @@ importers:
       '@types/node': 16.11.45
       '@typescript-eslint/eslint-plugin': 5.30.7_f59730a40ab520cf82d095906622871f
       '@typescript-eslint/parser': 5.30.7_eslint@8.20.0+typescript@4.7.4
-      c8: 7.11.3
+      c8: 7.12.0
       clsx: 1.2.1
       commander: 8.3.0
       conventional-changelog-cli: 2.2.2
@@ -5520,8 +5520,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /c8/7.11.3:
-    resolution: {integrity: sha512-6YBmsaNmqRm9OS3ZbIiL2EZgi1+Xc4O24jL3vMYGE6idixYuGdy76rIfIdltSKDj9DpLNrcXSonUTR1miBD0wA==}
+  /c8/7.12.0:
+    resolution: {integrity: sha512-CtgQrHOkyxr5koX1wEUmN/5cfDa2ckbHRA4Gy5LAL0zaCFtVWJS5++n+w4/sr2GWGerBxgTjpKeDclk/Qk6W/A==}
     engines: {node: '>=10.12.0'}
     hasBin: true
     dependencies:
