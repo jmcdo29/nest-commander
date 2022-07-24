@@ -46,9 +46,9 @@
     "@golevelup/nestjs-discovery": "3.0.0",
     "@mdx-js/react": "1.6.22",
     "@nestjs/cli": "9.0.0",
-    "@nestjs/common": "9.0.3",
-    "@nestjs/core": "9.0.3",
-    "@nestjs/testing": "9.0.3",
+    "@nestjs/common": "9.0.5",
+    "@nestjs/core": "9.0.5",
+    "@nestjs/testing": "9.0.5",
     "@nrwl/js": "14.4.3",
     "@nrwl/node": "14.4.3",
     "@nrwl/nx-cloud": "14.2.0",
@@ -57,7 +57,7 @@
     "@swc/core": "1.2.218",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.1",
-    "@types/node": "16.11.45",
+    "@types/node": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.31.0",
     "@typescript-eslint/parser": "5.31.0",
     "c8": "7.12.0",
@@ -87,6 +87,5 @@
   },
   "resolutions": {
     "terser": "^5.0.0"
-  },
-  "dependencies": {}
+  }
 }
