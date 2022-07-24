@@ -45,10 +45,6 @@
     "@docusaurus/preset-classic": "2.0.0-rc.1",
     "@golevelup/nestjs-discovery": "3.0.0",
     "@mdx-js/react": "1.6.22",
-    "@nestjs/cli": "9.0.0",
-    "@nestjs/common": "9.0.3",
-    "@nestjs/core": "9.0.3",
-    "@nestjs/testing": "9.0.3",
     "@nrwl/js": "14.4.3",
     "@nrwl/node": "14.4.3",
     "@nrwl/nx-cloud": "14.2.0",
@@ -57,11 +53,15 @@
     "@swc/core": "1.2.218",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.1",
-    "@types/node": "16.11.45",
     "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.30.7",
     "c8": "7.12.0",
     "clsx": "1.2.1",
+    "@nestjs/cli": "9.0.0",
+    "@nestjs/common": "9.0.5",
+    "@nestjs/core": "9.0.5",
+    "@nestjs/testing": "9.0.5",
+    "@types/node": "18.0.6",
     "commander": "8.3.0",
     "conventional-changelog-cli": "2.2.2",
     "cosmiconfig": "7.0.1",
@@ -87,6 +87,5 @@
   },
   "resolutions": {
     "terser": "^5.0.0"
-  },
-  "dependencies": {}
+  }
 }

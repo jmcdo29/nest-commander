@@ -1,10 +1,11 @@
 {
   "name": "nest-commander-testing",
   "version": "2.0.1",
-  "description": "A module for making CLI applications with NestJS. Decorators for running commands and separating out config parsers included. This package works on top of commander.",
+  "description": "A testing utility for nest-commander. It builds on top of ideas from @nestjs/testing and is not tied to any test framework directly.",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jmcdo29/nest-commander.git"
+    "type": "github",
+    "url": "https://github.com/jmcdo29/nest-commander.git",
+    "directory": "pacakges/nest-commander-testing"
   },
   "keywords": [
     "cli",
@@ -13,14 +14,15 @@
     "command",
     "command-line",
     "nest",
-    "decorator"
+    "decorator",
+    "testing"
   ],
   "author": "Jay McDoniel <jmcdo29@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jmcdo29/nest-commander/issues"
   },
-  "homepage": "https://github.com/jmcdo29/nest-commander#readme",
+  "homepage": "https://nest-commander.jaymcdoniel.dev/docs/testing/installation",
   "peerDependencies": {
     "@nestjs/common": "^8.0.0 || ^9.0.0",
     "@nestjs/core": "^8.0.0 || ^9.0.0",
