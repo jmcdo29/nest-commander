@@ -1,6 +1,6 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
 import { Type } from '@nestjs/common';
-import { CommandOptions } from 'commander';
+import { Command, CommandOptions } from 'commander';
 import type {
   CheckboxQuestion,
   ConfirmQuestion,
@@ -23,8 +23,13 @@ export type InquirerKeysWithPossibleFunctionTypes =
 
 type InquirerQuestionWithoutFilter<T> = Omit<T, 'filter'>;
 
-export interface CommandRunner {
-  run(passedParams: string[], options?: Record<string, any>): Promise<void>;
+export abstract class CommandRunner {
+  protected command!: Command;
+  public setCommand(command: Command): this {
+    this.command = command;
+    return this;
+  }
+  abstract run(passedParams: string[], options?: Record<string, any>): Promise<void>;
 }
 
 export interface CommandMetadata {

@@ -5,8 +5,10 @@ import { LogService } from '../../common/log.service';
   name: 'phooey',
   description: 'This is a phooey command.',
 })
-export class FooCommand implements CommandRunner {
-  constructor(private readonly log: LogService) {}
+export class FooCommand extends CommandRunner {
+  constructor(private readonly log: LogService) {
+    super();
+  }
 
   async run() {
     this.log.log('Foo!');

@@ -1,7 +1,7 @@
 import { Command, CommandRunner, Help } from 'nest-commander';
 
 @Command({ name: 'before', description: 'before' })
-export class BeforeCommand implements CommandRunner {
+export class BeforeCommand extends CommandRunner {
   async run() {
     /* no op */
   }

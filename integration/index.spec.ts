@@ -5,6 +5,7 @@ import {
   StringCommandSuite,
   UnknownCommandSuite,
 } from './basic/test/basic.command.spec';
+import { DotCommandSuite } from './dot-command/test/dot.command.spec';
 import { HelpSuite } from './help-tests/test/help.spec';
 import { MultipleCommandSuite } from './multiple/test/multiple.command.spec';
 import { OptionChoiceSuite } from './option-choices/test/option-choices.spec';
@@ -29,3 +30,4 @@ ThisCommandHandlerSuite.run();
 ThisOptionHandlerSuite.run();
 SetQuestionSuite.run();
 OptionChoiceSuite.run();
+DotCommandSuite.run();

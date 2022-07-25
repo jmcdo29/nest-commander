@@ -3,8 +3,10 @@ import { LogService } from '../../common/log.service';
 import { HelloOptions } from './hello.interface';
 
 @Command({ name: 'hello', options: { isDefault: true } })
-export class HelloCommand implements CommandRunner {
-  constructor(private readonly inquirer: InquirerService, private readonly logger: LogService) {}
+export class HelloCommand extends CommandRunner {
+  constructor(private readonly inquirer: InquirerService, private readonly logger: LogService) {
+    super();
+  }
 
   async run(_inputs: string[], options?: HelloOptions): Promise<void> {
     options = await this.inquirer.ask('hello', options);

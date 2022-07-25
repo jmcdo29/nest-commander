@@ -4,7 +4,7 @@ import { Command, CommandRunner, Help } from 'nest-commander';
   name: 'after-after-all',
   description: 'after after all',
 })
-export class AfterAfterAllCommand implements CommandRunner {
+export class AfterAfterAllCommand extends CommandRunner {
   async run() {
     /* no op */
   }
