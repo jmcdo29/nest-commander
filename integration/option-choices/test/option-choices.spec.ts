@@ -1,5 +1,5 @@
 import { TestingModule } from '@nestjs/testing';
-import { spy, Stub, stubMethod } from 'hanbi';
+import { spy, Stub } from 'hanbi';
 import { CommandTestFactory } from 'nest-commander-testing';
 import { suite } from 'uvu';
 import { equal } from 'uvu/assert';
@@ -31,8 +31,6 @@ OptionChoiceSuite('Send in option "no"', async ({ commandInstance, logMock }) =>
   equal(logMock.firstCall?.args[0], { choice: 'no' });
 });
 OptionChoiceSuite('Send in "yes" for verify', async ({ commandInstance, logMock }) => {
-  logMock.passThrough();
-  logMock.calls.forEach((call) => console.log(call.args));
   await CommandTestFactory.run(commandInstance, ['-v', 'yes']);
   equal(logMock.firstCall?.args[0], 'verify choice parser');
 });
