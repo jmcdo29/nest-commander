@@ -7,8 +7,10 @@ import { LogService } from '../../common/log.service';
     isDefault: true,
   },
 })
-export class FooCommand implements CommandRunner {
-  constructor(private readonly logger: LogService) {}
+export class FooCommand extends CommandRunner {
+  constructor(private readonly logger: LogService) {
+    super();
+  }
   async run(inputs: any, options: any) {
     this.logger.log(inputs, options);
   }

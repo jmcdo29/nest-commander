@@ -1,7 +1,7 @@
 import { Command, CommandRunner } from 'nest-commander';
 
 @Command({ name: 'plug' })
-export class PluginCommand implements CommandRunner {
+export class PluginCommand extends CommandRunner {
   async run() {
     console.log('This is from the plugin!');
   }
