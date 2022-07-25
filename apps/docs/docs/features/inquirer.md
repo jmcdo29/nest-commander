@@ -38,8 +38,10 @@ Now to make use of this question set, let's head back to our `TaskRunner` class 
   arguments: '[task]',
   options: { isDefault: true }
 })
-export class TaskRunner implements CommandRunner {
-  constructor(private readonly inquirer: InquirerService) {}
+export class TaskRunner extends CommandRunner {
+  constructor(private readonly inquirer: InquirerService) {
+    super();
+  }
   async run(
     inputs: string[],
     options: Record<string, string>
