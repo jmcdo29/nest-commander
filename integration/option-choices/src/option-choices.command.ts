@@ -29,4 +29,14 @@ export class OptionsTestCommand extends CommandRunner {
   chosenForChoices() {
     return this.choiceProvider.getChoicesForChoicesOption();
   }
+
+  @Option({
+    choices: ['yes', 'no'],
+    description: 'This is here to verify the parser is called',
+    flags: '-v, [verify]',
+  })
+  parseVerifyChoices(verifyChoice: string) {
+    this.logger.log('verify choice parser');
+    return verifyChoice;
+  }
 }
