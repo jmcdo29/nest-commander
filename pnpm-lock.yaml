@@ -34,7 +34,7 @@ importers:
       '@typescript-eslint/parser': 5.31.0
       c8: 7.12.0
       clsx: 1.2.1
-      commander: 8.3.0
+      commander: 9.4.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0
@@ -84,7 +84,7 @@ importers:
       '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
       c8: 7.12.0
       clsx: 1.2.1
-      commander: 8.3.0
+      commander: 9.4.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 7.0.1
       cz-conventional-changelog: 3.3.0_@swc+core@1.2.218
@@ -110,12 +110,12 @@ importers:
   packages/nest-commander:
     specifiers:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 8.3.0
+      commander: 9.4.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.4
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 8.3.0
+      commander: 9.4.0
       cosmiconfig: 7.0.1
       inquirer: 8.2.4
 
@@ -2148,7 +2148,7 @@ packages:
       combine-promises: 1.1.0
       commander: 5.1.0
       copy-webpack-plugin: 11.0.0_webpack@5.73.0
-      core-js: 3.23.5
+      core-js: 3.24.0
       css-loader: 6.7.1_webpack@5.73.0
       css-minimizer-webpack-plugin: 4.0.0_ym7haxui4mhsv4z74sxfalk3f4
       cssnano: 5.1.12_postcss@8.4.14
@@ -2246,7 +2246,7 @@ packages:
       combine-promises: 1.1.0
       commander: 5.1.0
       copy-webpack-plugin: 11.0.0_webpack@5.73.0
-      core-js: 3.23.5
+      core-js: 3.24.0
       css-loader: 6.7.1_webpack@5.73.0
       css-minimizer-webpack-plugin: 4.0.0_ym7haxui4mhsv4z74sxfalk3f4
       cssnano: 5.1.12_postcss@8.4.14
@@ -5734,11 +5734,6 @@ packages:
   /cli-spinners/2.6.1:
     resolution: {integrity: sha512-x/5fWmGMnbKQAaNwN+UZlV79qBLM9JFnJuJ03gIi5whrob0xV0ofNVHy9DhwGdsMJQc2OKv0oGmLzvaqvAVv+g==}
     engines: {node: '>=6'}
-    dev: true
-
-  /cli-spinners/2.7.0:
-    resolution: {integrity: sha512-qu3pN8Y3qHNgE2AFweciB1IfMnmZ/fsNTEE+NOFjmGB2F/7rLhnhzppvpCnN4FovtP26k8lHyy9ptEbNwWFLzw==}
-    engines: {node: '>=6'}
 
   /cli-table3/0.6.2:
     resolution: {integrity: sha512-QyavHCaIC80cMivimWu4aWHilIpiDpfm3hGmqAmXVL1UsnbLuBSMd21hTX6VY4ZSDSM73ESLeF8TOYId3rBTbw==}
@@ -5889,11 +5884,11 @@ packages:
   /commander/8.3.0:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
-
-  /commander/9.3.0:
-    resolution: {integrity: sha512-hv95iU5uXPbK83mjrJKuZyFM/LBAoCV/XhVGkS5Je6tl7sxr6A0ITMw5WoRV46/UaJ46Nllm3Xt7IaJhXTIkzw==}
-    engines: {node: ^12.20.0 || >=14}
     dev: true
+
+  /commander/9.4.0:
+    resolution: {integrity: sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==}
+    engines: {node: ^12.20.0 || >=14}
 
   /commitizen/4.2.4_@swc+core@1.2.218:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
@@ -6229,8 +6224,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.23.5:
-    resolution: {integrity: sha512-7Vh11tujtAZy82da4duVreQysIoO2EvVrur7y6IzZkH1IHPSekuDi8Vuw1+YKjkbfWLRD7Nc9ICQ/sIUDutcyg==}
+  /core-js/3.24.0:
+    resolution: {integrity: sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==}
     requiresBuild: true
     dev: true
 
@@ -9695,7 +9690,7 @@ packages:
     dependencies:
       cli-truncate: 3.1.0
       colorette: 2.0.17
-      commander: 9.3.0
+      commander: 9.4.0
       debug: 4.3.4
       execa: 6.1.0
       lilconfig: 2.0.5
@@ -10565,7 +10560,7 @@ packages:
       bl: 4.1.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
-      cli-spinners: 2.7.0
+      cli-spinners: 2.6.1
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
