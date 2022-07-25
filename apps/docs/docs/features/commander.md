@@ -3,7 +3,7 @@ title: Commander
 sidebar_label: Commander
 ---
 
-For `nest-commander`, a `command` is something that the CLI runner should do. This could be like `@nestjs/cli`'s `start` or `build` commands, or it could be something like `git`'s `add` or `commit`. To specify a command, all you need to do is decorate a class that implements the `CommandRunner` interface with the `@Command()` decorator. No need to use `@Injectable()` or anything else, the `@Command()` decorator will take care of allowing dependencies to be injected into the class.
+For `nest-commander`, a `command` is something that the CLI runner should do. This could be like `@nestjs/cli`'s `start` or `build` commands, or it could be something like `git`'s `add` or `commit`. To specify a command, all you need to do is decorate a class that extends the `CommandRunner` abstract class with the `@Command()` decorator. No need to use `@Injectable()` or anything else, the `@Command()` decorator will take care of allowing dependencies to be injected into the class.
 
 ## Setting the Command Name and Arguments
 
@@ -17,7 +17,7 @@ To set a command's name, and make it the default actions, you would need to use 
   arguments: '<task>',
   options: { isDefault: true }
 })
-export class TaskRunner implements CommandRunner {
+export class TaskRunner extends CommandRunner {
   async run(
     inputs: string[],
     options: Record<string, any>
@@ -49,7 +49,7 @@ Options allow users to change certain behaviors of the command. Going back to Ne
   arguments: '<task>',
   options: { isDefault: true }
 })
-export class TaskRunner implements CommandRunner {
+export class TaskRunner extends CommandRunner {
   async run(
     inputs: string[],
     options: Record<string, any>
@@ -86,12 +86,14 @@ Commander also allows us to set up pre-defined choices for options. To do so we 
 
 ```typescript
 @Command({ name: 'run' })
-export class RunCommand implements CommandRunner {
+export class RunCommand extends CommandRunner {
   constrtuctor(
     private readonly choiceProvider: {
       getChoicesForRun: () => string[];
     }
-  ) {}
+  ) {
+    super();
+  }
 
   async run(args: any, options: { runWithColor: 'yes' | 'no' }) {
     console.log(options);
@@ -121,6 +123,16 @@ By default, `commander` sets help to the `--help` or `-h` flag. If you need extr
 
 If for some reason you need access to the `commander` instance, as of `nest-commander@2.4.0` you can use `@InjectCommander()` to get the instance used.
 
+## Getting the Current Command
+
+Similarly, if you need to get the current Commander commander instance, you can access it via `this.command`
+
+:::info
+
+This is only available in version 3.0.0 and on.
+
+:::
+
 ## Sub Commands
 
 It may also be that you want to add subcommands to your command, similar to `docker compose up`. This is possible with the `@SubCommand()` decorator. Using this decorator, you can have your original implementation for the `@Command()` decorator, with arguments as normal, and you can have sub commands, as specific arguments that take in even more options. With our `run` example above, lets say we wanted to add a subcommand, `foo`. We'd make use of the `parents` option for the `run` command and reference the subcommand class, like so:
@@ -131,14 +143,14 @@ It may also be that you want to add subcommands to your command, similar to `doc
   arguments: '<task>',
   subCommands: [FooCommand]
 })
-export class RunCommand implements CommandRunner {}
+export class RunCommand extends CommandRunner {}
 ```
 
 Now we just make a subcommand with the same metadata options as the `@Command()` decorator
 
 ```ts
 @SubCommand({ name: 'foo', arguments: '[phooey]' })
-export class FooCommand implements CommandRunner {
+export class FooCommand extends CommandRunner {
   // command runner implementation
 }
 ```
@@ -173,7 +185,7 @@ import { userInfo } from 'os';
   arguments: '<task>',
   options: { isDefault: true }
 })
-export class TaskRunner implements CommandRunner {
+export class TaskRunner extends CommandRunner {
   async run(
     inputs: string[],
     options: Record<string, string>

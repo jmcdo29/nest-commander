@@ -33,7 +33,7 @@ Each plugin registered needs to have a **default** export that is a Nest module 
 
 ```ts title=src/plugin.command.ts
 @Command({ name: 'plugin' })
-export class PluginCommand implements CommandRunner {
+export class PluginCommand extends CommandRunner {
   async run() {
     console.log('From the plugin!');
   }
