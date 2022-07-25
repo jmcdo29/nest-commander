@@ -101,6 +101,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       const handler = option.discoveredMethod.handler.bind(command.instance);
       const commandOption = new Option(flags, description)
         .default(defaultValue)
+        .preset(defaultValue)
         .makeOptionMandatory(required)
         .argParser(handler);
       // choices can be a true boolean or an array of string options for commander.

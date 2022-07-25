@@ -79,7 +79,7 @@ UnknownCommandSuite('should not throw an error', async () => {
   } finally {
     stdErrSpy.restore();
     stdoutSpy.restore();
-    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n"]);
+    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n(Did you mean --help?)\n"]);
     equal(stdoutSpy.firstCall?.args, [outputHelp]);
     exitSpy.restore();
   }
@@ -100,7 +100,7 @@ UnknownCommandSuite('should not throw an error', async () => {
   } finally {
     stdErrSpy.restore();
     stdoutSpy.restore();
-    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n"]);
+    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n(Did you mean --help?)\n"]);
     equal(stdoutSpy.firstCall?.args, [outputHelp]);
     exitSpy.restore();
   }
