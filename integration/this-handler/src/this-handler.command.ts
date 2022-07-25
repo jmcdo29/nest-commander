@@ -6,8 +6,10 @@ import { LogService } from '../../common/log.service';
   description: 'Just adding a description for coverage',
   options: { isDefault: true },
 })
-export class ThisHandlerCommand implements CommandRunner {
-  constructor(private readonly log: LogService) {}
+export class ThisHandlerCommand extends CommandRunner {
+  constructor(private readonly log: LogService) {
+    super();
+  }
 
   async run(params: string[], options: Record<string, string>) {
     this.logHandler(options);

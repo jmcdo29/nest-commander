@@ -4,7 +4,7 @@ import { Command, CommandRunner, Help } from 'nest-commander';
   name: 'before-before-all',
   description: 'before-before-all',
 })
-export class BeforeBeforeAllCommand implements CommandRunner {
+export class BeforeBeforeAllCommand extends CommandRunner {
   async run() {
     /* no op */
   }

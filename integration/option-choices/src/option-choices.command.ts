@@ -4,11 +4,13 @@ import { LogService } from '../../common/log.service';
 import { ChoicesProvider } from './choices-provider.service';
 
 @Command({ name: 'options-test', options: { isDefault: true } })
-export class OptionsTestCommand implements CommandRunner {
+export class OptionsTestCommand extends CommandRunner {
   constructor(
     private readonly logger: LogService,
     private readonly choiceProvider: ChoicesProvider,
-  ) {}
+  ) {
+    super();
+  }
   async run(_args: never[], options: { choice: string }) {
     this.logger.log(options);
   }

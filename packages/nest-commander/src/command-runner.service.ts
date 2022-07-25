@@ -80,6 +80,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
 
   private async buildCommand(command: RunnerMeta): Promise<Command> {
     const newCommand = this.commander.createCommand(command.command.name);
+    command.instance.setCommand(newCommand);
     if (command.command.arguments) {
       this.mapArgumentDescriptions(
         newCommand,

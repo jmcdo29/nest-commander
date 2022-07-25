@@ -5,8 +5,10 @@ import { Mid1Command } from './mid-1.command';
 import { Mid2Command } from './mid-2.command';
 
 @Command({ name: 'top', arguments: '[name]', subCommands: [Mid1Command, Mid2Command] })
-export class TopCommand implements CommandRunner {
-  constructor(private readonly log: LogService) {}
+export class TopCommand extends CommandRunner {
+  constructor(private readonly log: LogService) {
+    super();
+  }
 
   async run(inputs: string[]) {
     this.log.log('top command');
