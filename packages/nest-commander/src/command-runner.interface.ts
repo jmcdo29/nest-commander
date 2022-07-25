@@ -45,7 +45,7 @@ export interface CommandMetadata {
 export interface OptionMetadata {
   flags: string;
   description?: string;
-  defaultValue?: string | boolean;
+  defaultValue?: string | boolean | number;
   required?: boolean;
   name?: string;
   choices?: string[] | true;
