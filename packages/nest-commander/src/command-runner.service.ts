@@ -102,8 +102,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       const commandOption = new Option(flags, description)
         .default(defaultValue)
         .preset(defaultValue)
-        .makeOptionMandatory(required)
-        .argParser(handler);
+        .makeOptionMandatory(required);
       // choices can be a true boolean or an array of string options for commander.
       // If a boolean, then we know that we are expected to go find the OptionChoiceFOr method.
       if (choices === true || (Array.isArray(choices) && choices.length)) {
@@ -123,6 +122,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
         }
         commandOption.choices(optionChoices);
       }
+      commandOption.argParser(handler);
       newCommand.addOption(commandOption);
     }
     for (const help of command.help ?? []) {
