@@ -1,5 +1,13 @@
 # nest-commander-schematics
 
+## 3.0.0
+
+### Major Changes
+
+- 799b143: Update @nestjs/schematics to version 9
+
+  There should not be "breaking" functionality, but there was a major version change of a dependent pacakge with no backwards support guaranteed.
+
 ## 2.1.0
 
 ### Minor Changes

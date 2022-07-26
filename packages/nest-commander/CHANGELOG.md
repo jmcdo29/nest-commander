@@ -1,5 +1,24 @@
 # nest-commander
 
+## 3.0.0
+
+### Major Changes
+
+- d6ebe0e: Migrate `CommandRunner` from interface to abstract class and add `.command`
+
+  This change was made so that devs could access `this.command` inside the `CommandRunner` instance and have access to the base command object from commander. This allows for access to the `help` commands in a programatic fashion.
+
+  To update to this version, any `implements CommandRunner` should be changed to `extends CommandRunner`. If there is a `constructor` to the `CommandRunner` then it should also use `super()`.
+
+### Minor Changes
+
+- 3d2aa9e: Update NestJS package to version 9
+- a8d109f: Upgrade commander to v9.4.0
+
+### Patch Changes
+
+- c30a4de: Ensure the parser for choices is always called
+
 ## 2.5.0
 
 ### Minor Changes
