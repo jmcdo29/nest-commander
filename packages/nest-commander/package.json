@@ -26,7 +26,7 @@
     "@golevelup/nestjs-discovery": "3.0.0",
     "commander": "9.4.0",
     "cosmiconfig": "7.0.1",
-    "inquirer": "8.2.4"
+    "inquirer": "9.0.2"
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0 || ^9.0.0",
