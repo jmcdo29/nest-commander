@@ -25,7 +25,7 @@ The available options for this command are the following:
 --name=<name>         Command name.
 --path=<name>         The path to create the service.
 --sourceRoot=<name>   NestJS service source root directory.
---flat                Whether or not a directory is created. (default: fale)
+--flat                Whether or not a directory is created. (default: false)
 --spec                Whether or not a spec file is generated. (default: true)
 --default             Whether or not the command is the default command for the CLI. (default: false)
 --question=<name>     The name of the related question set.
