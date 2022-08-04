@@ -1,7 +1,7 @@
 import { Command, CommandRunner } from 'nest-commander';
 
 @Command({ name: '<%= lowercase(name) %>', options: { isDefault: <%= (isDefault) %> } })
-export class <%= classify(name) %>Command implements CommandRunner {
+export class <%= classify(name) %>Command extends CommandRunner {
   async run(inputs: string[], options: Record<string, any>) {
     console.log({ inputs, options });
   }
