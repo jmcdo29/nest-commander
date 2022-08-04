@@ -1,6 +1,6 @@
 {
   "name": "nest-commander-schematics",
-  "version": "4.0.0",
+  "version": "3.0.0",
   "description": "A set of schematics for generating questions and commands with the NestJS CLI.",
   "scripts": {
     "prebuild": "rm -rf dist",
