@@ -1,22 +1,18 @@
 # nest-commander-schematics
 
-## 4.0.0
+## 3.0.0
 
 ### Major Changes
 
 - 1bfc69f: Schematics now create command that extends the CommandRunner abstract class
 
-### Patch Changes
-
-- 67662f6: fix typo
-
-## 3.0.0
-
-### Major Changes
-
 - 799b143: Update @nestjs/schematics to version 9
 
   There should not be "breaking" functionality, but there was a major version change of a dependent pacakge with no backwards support guaranteed.
+  
+### Patch Changes
+
+- 67662f6: fix typo
 
 ## 2.1.0
 
