@@ -74,16 +74,6 @@
       "type": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "./node_modules/.bin/nx package nest-commander-schematics",
-              "tools/schematics-postbuild"
-            ],
-            "parallel": false
-          }
-        },
-        "package": {
           "executor": "@nrwl/js:tsc",
           "options": {
             "deleteOutputPath": true,
@@ -91,7 +81,10 @@
             "outputPath": "dist/nest-commander-schematics",
             "packageJson": "packages/nest-commander-schematics/package.json",
             "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json",
-            "assets": ["packages/nest-commander-schematics/*.md"]
+            "assets": [
+              "packages/nest-commander-schematics/*.md",
+              "packages/nest-commander-schematics/src/**/*.json"
+            ]
           }
         },
         "publish": {
