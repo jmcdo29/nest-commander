@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.0.1
+
+### Patch Changes
+
+- 23b2f48: Add 3.0.0 to peer deps
+
 ## 3.0.0
 
 ### Major Changes
