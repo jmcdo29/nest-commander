@@ -9,11 +9,11 @@ For `nest-commander`, a `command` is something that the CLI runner should do. Th
 
 The `@Command()` decorator takes in a set of options that allows the underlying `commander` package to handle the command properly. The options are things like the command's `name`, its `arguments`, the `description`, the `argsDescription` and general `options`, all of which will get passed to commander and handled [as described by their docs](https://github.com/tj/commander.js).
 
-To set a command's name, and make it the default actions, you would need to use the decorator as follows. Let's make a command with the name `run`. It will also take in a shell command to execute. We'll call this, `task`.
+To set a command's name, and make it the default actions, you would need to use the decorator as follows. Let's make a command with the name `my-exec`. It will also take in a shell command to execute. We'll call this, `task`.
 
 ```typescript title="src/task.command.ts"
 @Command({
-  name: 'run',
+  name: 'my-exec',
   arguments: '<task>',
   options: { isDefault: true }
 })
@@ -30,7 +30,7 @@ You'll notice for the `arguments` we use angle brackets around the argument name
 Now, to run this command, we'll need to set up the [CommandFactory](./factory.md) and make use of one of the execution methods as described later in the docs. For now, we'll just assume this application is installed globally under the `crun` name. Running the above command would then look like
 
 ```shell
-crun run 'echo Hello World!'
+crun my-exec 'echo Hello World!'
 # OR
 crun 'echo Hello World!'
 ```
@@ -45,7 +45,7 @@ Options allow users to change certain behaviors of the command. Going back to Ne
 
 ```typescript title="src/task.command.ts"
 @Command({
-  name: 'run',
+  name: 'my-exec',
   arguments: '<task>',
   options: { isDefault: true }
 })
@@ -64,9 +64,9 @@ export class TaskRunner extends CommandRunner {
 }
 ```
 
-The reason for each option to be tied to a method handler is because options from the command line come in as strings. Most of the time, this is fine and works well, but there are times where it ends up having problems, like passing booleans. These methods allow developers to set up their own parsing methods for each option, so that when `run` is called, all of the inputs are validated and ready to be used immediately.
+The reason for each option to be tied to a method handler is because options from the command line come in as strings. Most of the time, this is fine and works well, but there are times where it ends up having problems, like passing booleans. These methods allow developers to set up their own parsing methods for each option, so that when `my-exec` is called, all of the inputs are validated and ready to be used immediately.
 
-You'll also notice that the `flags` property has several parts to it, a `-s` short flag, a `--shell` long flag, and `<shell>`. This means that the user can either use `-s` or `--shell` to add this option, but if either is used they **must** provide a shell option. The `shell` name ends up being a key of the `options` parameter for the `run` method, and can be retrieved later using `options.shell`.
+You'll also notice that the `flags` property has several parts to it, a `-s` short flag, a `--shell` long flag, and `<shell>`. This means that the user can either use `-s` or `--shell` to add this option, but if either is used they **must** provide a shell option. The `shell` name ends up being a key of the `options` parameter for the `my-exec` method, and can be retrieved later using `options.shell`.
 
 The `description` is used when the `--help` flag is passed, and will help provide more information to the CLI consumer.
 
@@ -85,9 +85,9 @@ You can also make an option completely required, like an argument, by setting `r
 Commander also allows us to set up pre-defined choices for options. To do so we have two options: setting the `choices` array directly as a part of the `@Option()` decorator, or using the `@OptionChoiceFor()` decorator and a class method, similar to the [InquirerService](./inquirer.md). With using the `@OptionChoiceFor()` decorator, we are also able to make use of class providers that are injected into the command via Nest's DI which allows devs to read for the choices from a file or database if that happens to be necessary.
 
 ```typescript
-import { Option, OptionChoiceFor } from 'nest-commander'
+import { Option, OptionChoiceFor } from 'nest-commander';
 
-@Command({ name: 'run' })
+@Command({ name: 'my-exec' })
 export class RunCommand extends CommandRunner {
   constructor(
     private readonly choiceProvider: {
@@ -137,11 +137,11 @@ This is only available in version 3.0.0 and on.
 
 ## Sub Commands
 
-It may also be that you want to add subcommands to your command, similar to `docker compose up`. This is possible with the `@SubCommand()` decorator. Using this decorator, you can have your original implementation for the `@Command()` decorator, with arguments as normal, and you can have sub commands, as specific arguments that take in even more options. With our `run` example above, lets say we wanted to add a subcommand, `foo`. We'd make use of the `parents` option for the `run` command and reference the subcommand class, like so:
+It may also be that you want to add subcommands to your command, similar to `docker compose up`. This is possible with the `@SubCommand()` decorator. Using this decorator, you can have your original implementation for the `@Command()` decorator, with arguments as normal, and you can have sub commands, as specific arguments that take in even more options. With our `my-exec` example above, lets say we wanted to add a subcommand, `foo`. We'd make use of the `parents` option for the `my-exec` command and reference the subcommand class, like so:
 
 ```ts
 @Command({
-  name: 'run',
+  name: 'my-exec',
   arguments: '<task>',
   subCommands: [FooCommand]
 })
@@ -157,22 +157,22 @@ export class FooCommand extends CommandRunner {
 }
 ```
 
-After adding the subcommand to the appropriate module's `providers` array, nest-commander will set up the command so you can call `crun run foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
+After adding the subcommand to the appropriate module's `providers` array, nest-commander will set up the command so you can call `crun my-exec foo hello!` and the `FooCommand#run` method will be ran instead of `RunCommand#run`. You can also chain commands as deep as you want, by adding `subCommands` to the subcommand's metadata.
 
-Subcommands can also take an `aliases` array for sub command aliases. We could add `aliases: ['f']` to the above `FooCommand` and run it with `run f` instead of `run foo` and get the same result. `aliases` must be passed as an array.
+Subcommands can also take an `aliases` array for sub command aliases. We could add `aliases: ['f']` to the above `FooCommand` and run it with `my-exec f` instead of `my-exec foo` and get the same result. `aliases` must be passed as an array.
 
 ## The Full Command
 
-Let's say all we want to do is have our `run` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
+Let's say all we want to do is have our `my-exec` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
 
 ```shell
-crun run 'echo Hello World!'
+crun my-exec 'echo Hello World!'
 # OR
 crun 'echo Hello World!'
 # OR
 crun 'echo Hello World!' --shell zsh
 # OR
-crun run 'echo Hello World!' -s zsh
+crun my-exec 'echo Hello World!' -s zsh
 ```
 
 To create this kind of program, we can do the following:
@@ -183,7 +183,7 @@ import { Command, CommandRunner, Option } from 'nest-commander';
 import { userInfo } from 'os';
 
 @Command({
-  name: 'run',
+  name: 'my-exec',
   arguments: '<task>',
   options: { isDefault: true }
 })

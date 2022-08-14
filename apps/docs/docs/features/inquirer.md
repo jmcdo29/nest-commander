@@ -13,10 +13,10 @@ If using the `InquirerService` make sure to install `@types/inquirer` as a `devD
 
 ## Creating a QuestionSet
 
-To `nest-commander` a `QuestionSet`, as it sounds, is a set of related questions that should all be asked together. To create a question set, simply create a class and decorate it with the `@QuestionSet()` decorator. Provide the decorator a name via the options as well, as this name will be used by the `InquirerService` to know which question set to ask. Let's expand on the previous task runner. Say now maybe the user forgets to pass in a command, but we still want to let them define it at runtime. The first thing we need to do is change the `<task>` to `[task]` to make Commander understand that the argument is optional, even though we know it's really not. After that we need to define the question set and question(s) to ask the user. We'll call the question set `task` and define it as follows:
+To `nest-commander` a `QuestionSet`, as it sounds, is a set of related questions that should all be asked together. To create a question set, simply create a class and decorate it with the `@QuestionSet()` decorator. Provide the decorator a name via the options as well, as this name will be used by the `InquirerService` to know which question set to ask. Let's expand on the previous task runner. Say now maybe the user forgets to pass in a command, but we still want to let them define it at runtime. The first thing we need to do is change the `<task>` to `[task]` to make Commander understand that the argument is optional, even though we know it's really not. After that we need to define the question set and question(s) to ask the user. We'll call the question set `task-questions` and define it as follows:
 
 ```typescript title="src/task.questions.ts"
-@QuestionSet({ name: 'task' })
+@QuestionSet({ name: 'task-questions' })
 export class TaskQuestions {
   @Question({
     message: 'What task would you like to execute?',
@@ -34,7 +34,7 @@ Now to make use of this question set, let's head back to our `TaskRunner` class 
 
 ```typescript title="src/task.command.ts"
 @Command({
-  name: 'run',
+  name: 'my-exec',
   arguments: '[task]',
   options: { isDefault: true }
 })
@@ -49,7 +49,10 @@ export class TaskRunner extends CommandRunner {
     let task = inputs[0];
     if (!task) {
       task = (
-        await this.inquirer.ask<{ task: string }>('task', undefined)
+        await this.inquirer.ask<{ task: string }>(
+          'task-questions',
+          undefined
+        )
       ).task;
     }
     const echo = spawn(task, {
