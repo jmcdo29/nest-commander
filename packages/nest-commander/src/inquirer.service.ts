@@ -21,7 +21,7 @@ import {
 @Injectable()
 export class InquirerService {
   constructor(
-    @Inject(Inquirer) private readonly inquirer: InquirerType,
+    @Inject(Inquirer) readonly inquirer: InquirerType,
     private readonly discoveryService: DiscoveryService,
   ) {}
 
