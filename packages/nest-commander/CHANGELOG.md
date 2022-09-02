@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.1.0
+
+### Minor Changes
+
+- 15da048: InquirerService now exposes inquirer publicly
+
 ## 3.0.0
 
 ### Major Changes
