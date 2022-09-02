@@ -85,4 +85,10 @@ This will be a brief overview of the decorators that exist for the `InquirerServ
 - `@DefaultFor()` returns the default for the question, in the case of no input
 - `@MessageFor()` returns the message for the question, instead of having it in the decorator. This is to allow for external services to act on the message itself.
 
+::: info
+
+If you need to ask a question dynamically, not something that can be set up with decorators, you can access `inquirer` directly using `this.inquirerService.inquirer`.
+
+:::
+
 Visit the [api docs](../api.md) to learn more about the `InquirerService`'s `ask` command and extra decorators.
