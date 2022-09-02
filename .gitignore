@@ -3,6 +3,8 @@ node_modules/
 coverage/
 .env
 
+tags
+
 # Generated Docusaurus files
 .docusaurus/
 .cache-loader/
