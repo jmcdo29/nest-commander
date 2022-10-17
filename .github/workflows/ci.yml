@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint, Build, Test
@@ -42,7 +42,7 @@ jobs:
           # ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint, Build, Test
