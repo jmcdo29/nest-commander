@@ -30,7 +30,7 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build Docs
         run: pnpm nx build docs
-      - uses: webfactory/ssh-agent@v0.5.4
+      - uses: webfactory/ssh-agent@v0.6.0
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Release to GH Pages
