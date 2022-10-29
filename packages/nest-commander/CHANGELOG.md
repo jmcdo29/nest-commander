@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.2.0
+
+### Minor Changes
+
+- 84e6b95: Add `env` option to `@Option()` decorator
+
 ## 3.1.0
 
 ### Minor Changes
