@@ -49,6 +49,7 @@ export interface OptionMetadata {
   required?: boolean;
   name?: string;
   choices?: string[] | true;
+  env?: string;
 }
 
 export interface OptionChoiceForMetadata {

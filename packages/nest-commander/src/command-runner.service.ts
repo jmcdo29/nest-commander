@@ -97,6 +97,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
         required = false,
         choices = [],
         name: optionName = '',
+        env = undefined,
       } = option.meta;
       const handler = option.discoveredMethod.handler.bind(command.instance);
       const commandOption = new Option(flags, description)
@@ -121,6 +122,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
           optionChoices = choices;
         }
         commandOption.choices(optionChoices);
+      }
+      if (env) {
+        commandOption.env(env);
       }
       commandOption.argParser(handler);
       newCommand.addOption(commandOption);
