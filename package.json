@@ -38,7 +38,7 @@
     "@angular-devkit/core": "14.0.5",
     "@angular-devkit/schematics": "14.0.5",
     "@angular-devkit/schematics-cli": "14.0.5",
-    "@changesets/cli": "2.25.1",
+    "@changesets/cli": "2.25.2",
     "@commitlint/cli": "17.2.0",
     "@commitlint/config-conventional": "17.2.0",
     "@docusaurus/core": "2.2.0",
