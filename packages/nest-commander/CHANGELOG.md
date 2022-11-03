@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.2.1
+
+### Patch Changes
+
+- 5c089a6: Fixed an issue preventing use of ESM packages as plugins in the command factory
+
 ## 3.2.0
 
 ### Minor Changes
