@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.3.0
+
+### Minor Changes
+
+- 8c639d3: fix: update module resolution to node16 so dynamic imports are not transpiled out during TS build
+
 ## 3.2.1
 
 ### Patch Changes
