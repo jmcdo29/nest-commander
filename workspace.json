@@ -7,21 +7,15 @@
       "sourceRoot": "apps/docs/src",
       "targets": {
         "build": {
-          "executor": "@nx-plus/docusaurus:browser",
+          "executor": "nx:run-commands",
           "options": {
-            "outputPath": "dist/apps/docs"
+            "command": "pnpm astro build --root apps/docs"
           }
         },
         "serve": {
-          "executor": "@nx-plus/docusaurus:dev-server",
-          "options": {
-            "port": 3000
-          }
-        },
-        "deploy": {
           "executor": "nx:run-commands",
           "options": {
-            "command": "pnpm docusaurus deploy --out-dir dist/apps/docs --config apps/docs/docusaurus.config.js --skip-build"
+            "command": "pnpm astro dev --port 3333 --root apps/docs --verbose"
           }
         }
       },

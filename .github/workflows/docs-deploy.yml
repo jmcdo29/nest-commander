@@ -4,40 +4,62 @@ on:
   push:
     branches:
       - 'main'
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  changes:
+  docs-changed:
     runs-on: ubuntu-latest
     outputs:
-      files: ${{ steps.output.outputs.files }}
+      files: ${{ contains(steps.files.outputs.added_modified, 'apps/docs/') }}
     steps:
       - name: Get All Added and Modified Field
         id: files
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: jitterbit/get-changed-files@v1
       - name: Echo contains
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: echo ${{ contains(steps.files.outputs.added_modified, 'apps/docs/')  }}
-      - name: Set output
-        id: output
-        run: echo "::set-output name=files::${{ contains(steps.files.outputs.added_modified, 'apps/docs/') }}"
+
+  build-docs:
+    runs-on: ubuntu-latest
+    needs:
+      - docs-changed
+    if: ${{ needs.docs-changed.outputs.files == 'true' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Dependencies Install
+        run: pnpm i
+      - name: Build Docs
+        run: pnpm nx build docs
+      - name: Upload build
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: github-pages
+          path: dist/apps/docs/
+          if-no-files-found: error
+
   docs-deploy:
     runs-on: ubuntu-latest
     needs:
-      - changes
-    if: ${{ needs.changes.outputs.files == 'true' }}
+      - build-docs
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup
-        uses: ./.github/actions/setup
-      - name: Build Docs
-        run: pnpm nx build docs
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
-      - name: Release to GH Pages
-        env:
-          USE_SSH: true
-          GIT_USER: git
-        run: |
-          git config --global user.email "jmcdo29@gmal.com"
-          git config --global user.name "Jay McDoniel"
-          pnpm deploy
+      - name: GitHub Pages Deploy Step
+        uses: actions/deploy-pages@v1
+        id: deployment
