@@ -71,6 +71,10 @@ export const SIDEBAR: Sidebar = {
         text: 'Plugins',
         link: 'en/features/plugins',
       },
+      {
+        text: 'Utility Service',
+        link: 'en/features/utility',
+      },
     ],
     Testing: [
       {

@@ -1,6 +1,6 @@
 ---
 title: UtilityService
-sidebar: UtilityService
+layout: ../../../layouts/MainLayout.astro
 ---
 
 As parsing booleans and numbers is a common occurrence, and the values only come in naturally as strings, nest-commander exposes a `CliUtilityService` to make parsing even easier and to add some extra utility. There are three methods, `parseBoolean`, `parseInt`, and `parseFloat`. `parseInt` and `parseFloat` are simple wrappers around the corresponding `Number.parse*()` method, but the `parseBoolean` method has a few more tricks to it.
