@@ -34,6 +34,6 @@
     "@angular-devkit/schematics": "14.0.5",
     "rxjs": "7.5.7",
     "@nestjs/schematics": "9.0.0",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   }
 }
