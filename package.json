@@ -49,7 +49,7 @@
     "@docusaurus/core": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@golevelup/nestjs-discovery": "3.0.0",
-    "@mdx-js/react": "1.6.22",
+    "@mdx-js/react": "2.1.5",
     "@nestjs/cli": "9.1.5",
     "@nestjs/common": "9.0.5",
     "@nestjs/core": "9.0.5",
