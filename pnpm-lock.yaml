@@ -58,7 +58,7 @@ importers:
       nx-uvu: 1.2.0
       pinst: 3.0.0
       preact: ^10.11.2
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0
       reflect-metadata: 0.1.13
@@ -88,10 +88,10 @@ importers:
       '@nestjs/common': 9.0.5_yzt46al3aifnexifjjdb4dxxja
       '@nestjs/core': 9.0.5_4jehntqobhqgfvdknyysarzr7e
       '@nestjs/testing': 9.0.5_yhkp7kxuauoq6imzcegikmb6ju
-      '@nrwl/js': 15.2.1_6qdeql4nsewh5rot4cvnfbi6hu
-      '@nrwl/node': 15.2.1_6qdeql4nsewh5rot4cvnfbi6hu
+      '@nrwl/js': 15.2.1_3is3qtvgshqsxtmc7itjkiz7bi
+      '@nrwl/node': 15.2.1_3is3qtvgshqsxtmc7itjkiz7bi
       '@nrwl/nx-cloud': 15.0.2
-      '@nrwl/workspace': 15.2.1_eauxaxlajx3ledwo5ptjka6g7m
+      '@nrwl/workspace': 15.2.1_xkq7u7ztrkxwpjymomqckmtcai
       '@nx-plus/docusaurus': 14.1.0_5ikeiwnzkz2wounbldxubgcw5m
       '@swc/core': 1.3.19
       '@swc/register': 0.1.10_@swc+core@1.3.19
@@ -110,7 +110,7 @@ importers:
       cz-conventional-changelog: 3.3.0_@swc+core@1.3.19
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0_eslint@8.28.0
-      eslint-plugin-prettier: 4.2.1_pgxuib4rd7wiymfktharf5ydt4
+      eslint-plugin-prettier: 4.2.1_cwlo2dingkvfydnaculr42urve
       hanbi: 1.0.1
       hastscript: 7.1.0
       husky: 8.0.2
@@ -120,7 +120,7 @@ importers:
       nx-uvu: 1.2.0_nx@15.2.1
       pinst: 3.0.0
       preact: 10.11.2
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       reflect-metadata: 0.1.13
@@ -446,7 +446,7 @@ packages:
     dependencies:
       '@vscode/emmet-helper': 2.8.4
       events: 3.3.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       prettier-plugin-astro: 0.7.0
       source-map: 0.7.4
       vscode-css-languageservice: 6.1.1
@@ -1943,7 +1943,7 @@ packages:
       fs-extra: 7.0.1
       lodash.startcase: 4.4.0
       outdent: 0.5.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       resolve-from: 5.0.0
       semver: 5.7.1
     dev: true
@@ -2110,7 +2110,7 @@ packages:
       '@changesets/types': 5.2.0
       fs-extra: 7.0.1
       human-id: 1.0.2
-      prettier: 2.7.1
+      prettier: 2.8.0
     dev: true
 
   /@colors/colors/1.5.0:
@@ -3879,13 +3879,13 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/js/15.2.1_6qdeql4nsewh5rot4cvnfbi6hu:
+  /@nrwl/js/15.2.1_3is3qtvgshqsxtmc7itjkiz7bi:
     resolution: {integrity: sha512-d/pItGaHFFYSrHjMXndzuSJWRPLNLCGHQ6E54NHtcIvVf0t+ZJ3Bz7yb7ybKYV+PhUVd6gfg7LByjzQNqHSlLg==}
     dependencies:
       '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
       '@nrwl/jest': 15.2.1_47knpnw7je7jbdnbouqvavkeo4
       '@nrwl/linter': 15.2.1_x6v4f4tbdb4fvjl3y564iirpli
-      '@nrwl/workspace': 15.2.1_eauxaxlajx3ledwo5ptjka6g7m
+      '@nrwl/workspace': 15.2.1_xkq7u7ztrkxwpjymomqckmtcai
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3909,13 +3909,13 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/js/15.2.1_vhrhx75vtbkpyrx3pxey27zbny:
+  /@nrwl/js/15.2.1_4ppjnzy7dmkaxmjcacvb5lbid4:
     resolution: {integrity: sha512-d/pItGaHFFYSrHjMXndzuSJWRPLNLCGHQ6E54NHtcIvVf0t+ZJ3Bz7yb7ybKYV+PhUVd6gfg7LByjzQNqHSlLg==}
     dependencies:
       '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
       '@nrwl/jest': 15.2.1_irg6soo3kujnu7aqix7woi6tda
       '@nrwl/linter': 15.2.1_nwiwua7xlqaz4qq7fqh2g4iwl4
-      '@nrwl/workspace': 15.2.1_lwtuuk25oldf72imkhxdizkw3y
+      '@nrwl/workspace': 15.2.1_vbrd4sz5vkytsieaahrp5mgviu
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       fast-glob: 3.2.7
@@ -3991,15 +3991,15 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/node/15.2.1_6qdeql4nsewh5rot4cvnfbi6hu:
+  /@nrwl/node/15.2.1_3is3qtvgshqsxtmc7itjkiz7bi:
     resolution: {integrity: sha512-a3L3utp1IY/ucwGPGGGVY2M5xg21dK3eV+RDJFcFamQEIaByzP+e4CHncQfix+hICjzQuB+7Chcv+ksUW+DwFQ==}
     dependencies:
       '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
       '@nrwl/jest': 15.2.1_47knpnw7je7jbdnbouqvavkeo4
-      '@nrwl/js': 15.2.1_6qdeql4nsewh5rot4cvnfbi6hu
+      '@nrwl/js': 15.2.1_3is3qtvgshqsxtmc7itjkiz7bi
       '@nrwl/linter': 15.2.1_x6v4f4tbdb4fvjl3y564iirpli
-      '@nrwl/webpack': 15.2.1_6qdeql4nsewh5rot4cvnfbi6hu
-      '@nrwl/workspace': 15.2.1_eauxaxlajx3ledwo5ptjka6g7m
+      '@nrwl/webpack': 15.2.1_3is3qtvgshqsxtmc7itjkiz7bi
+      '@nrwl/workspace': 15.2.1_xkq7u7ztrkxwpjymomqckmtcai
       chalk: 4.1.0
       tslib: 2.4.0
     transitivePeerDependencies:
@@ -4058,12 +4058,12 @@ packages:
       - debug
     dev: true
 
-  /@nrwl/webpack/15.2.1_6qdeql4nsewh5rot4cvnfbi6hu:
+  /@nrwl/webpack/15.2.1_3is3qtvgshqsxtmc7itjkiz7bi:
     resolution: {integrity: sha512-3gXvgiNB+M11NA6MUAv95bB1RAYUDzRZqfz4bY3MzBWUoZgt0C5sPRXbscAREAqykybuizGTSy0gMX1Bc4Xebg==}
     dependencies:
       '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
-      '@nrwl/js': 15.2.1_vhrhx75vtbkpyrx3pxey27zbny
-      '@nrwl/workspace': 15.2.1_lwtuuk25oldf72imkhxdizkw3y
+      '@nrwl/js': 15.2.1_4ppjnzy7dmkaxmjcacvb5lbid4
+      '@nrwl/workspace': 15.2.1_vbrd4sz5vkytsieaahrp5mgviu
       autoprefixer: 10.4.12_postcss@8.4.19
       babel-loader: 8.2.5_webpack@5.75.0
       browserslist: 4.21.4
@@ -4136,53 +4136,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/workspace/15.2.1_eauxaxlajx3ledwo5ptjka6g7m:
-    resolution: {integrity: sha512-nqF1gP2KuVmQCjgyrX6TECAGFldJ55KEQs6WJIBsjYvmrWvAv341VVb565IEWpPGglb2/8NhJLBMdQ0ZpLG+tg==}
-    peerDependencies:
-      prettier: ^2.6.2
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-    dependencies:
-      '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
-      '@nrwl/jest': 15.2.1_47knpnw7je7jbdnbouqvavkeo4
-      '@nrwl/linter': 15.2.1_x6v4f4tbdb4fvjl3y564iirpli
-      '@parcel/watcher': 2.0.4
-      chalk: 4.1.0
-      chokidar: 3.5.3
-      cli-cursor: 3.1.0
-      cli-spinners: 2.6.1
-      dotenv: 10.0.0
-      enquirer: 2.3.6
-      figures: 3.2.0
-      flat: 5.0.2
-      fs-extra: 10.1.0
-      glob: 7.1.4
-      ignore: 5.2.0
-      minimatch: 3.0.5
-      npm-run-path: 4.0.1
-      nx: 15.2.1_@swc+core@1.3.19
-      open: 8.4.0
-      prettier: 2.7.1
-      rxjs: 6.6.7
-      semver: 7.3.4
-      tmp: 0.2.1
-      tslib: 2.4.0
-      yargs: 17.6.2
-      yargs-parser: 21.1.1
-    transitivePeerDependencies:
-      - '@swc-node/register'
-      - '@swc/core'
-      - '@types/node'
-      - debug
-      - eslint
-      - node-notifier
-      - supports-color
-      - ts-node
-      - typescript
-    dev: true
-
-  /@nrwl/workspace/15.2.1_lwtuuk25oldf72imkhxdizkw3y:
+  /@nrwl/workspace/15.2.1_vbrd4sz5vkytsieaahrp5mgviu:
     resolution: {integrity: sha512-nqF1gP2KuVmQCjgyrX6TECAGFldJ55KEQs6WJIBsjYvmrWvAv341VVb565IEWpPGglb2/8NhJLBMdQ0ZpLG+tg==}
     peerDependencies:
       prettier: ^2.6.2
@@ -4209,7 +4163,53 @@ packages:
       npm-run-path: 4.0.1
       nx: 15.2.1_@swc+core@1.3.19
       open: 8.4.0
-      prettier: 2.7.1
+      prettier: 2.8.0
+      rxjs: 6.6.7
+      semver: 7.3.4
+      tmp: 0.2.1
+      tslib: 2.4.0
+      yargs: 17.6.2
+      yargs-parser: 21.1.1
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+      - '@types/node'
+      - debug
+      - eslint
+      - node-notifier
+      - supports-color
+      - ts-node
+      - typescript
+    dev: true
+
+  /@nrwl/workspace/15.2.1_xkq7u7ztrkxwpjymomqckmtcai:
+    resolution: {integrity: sha512-nqF1gP2KuVmQCjgyrX6TECAGFldJ55KEQs6WJIBsjYvmrWvAv341VVb565IEWpPGglb2/8NhJLBMdQ0ZpLG+tg==}
+    peerDependencies:
+      prettier: ^2.6.2
+    peerDependenciesMeta:
+      prettier:
+        optional: true
+    dependencies:
+      '@nrwl/devkit': 15.2.1_nx@15.2.1+typescript@4.9.3
+      '@nrwl/jest': 15.2.1_47knpnw7je7jbdnbouqvavkeo4
+      '@nrwl/linter': 15.2.1_x6v4f4tbdb4fvjl3y564iirpli
+      '@parcel/watcher': 2.0.4
+      chalk: 4.1.0
+      chokidar: 3.5.3
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      dotenv: 10.0.0
+      enquirer: 2.3.6
+      figures: 3.2.0
+      flat: 5.0.2
+      fs-extra: 10.1.0
+      glob: 7.1.4
+      ignore: 5.2.0
+      minimatch: 3.0.5
+      npm-run-path: 4.0.1
+      nx: 15.2.1_@swc+core@1.3.19
+      open: 8.4.0
+      prettier: 2.8.0
       rxjs: 6.6.7
       semver: 7.3.4
       tmp: 0.2.1
@@ -4246,7 +4246,7 @@ packages:
       '@nrwl/workspace': ^14.3.6
     dependencies:
       '@nrwl/devkit': 14.4.3_nx@15.2.1
-      '@nrwl/workspace': 15.2.1_eauxaxlajx3ledwo5ptjka6g7m
+      '@nrwl/workspace': 15.2.1_xkq7u7ztrkxwpjymomqckmtcai
     transitivePeerDependencies:
       - nx
     dev: true
@@ -8341,7 +8341,7 @@ packages:
       eslint: 8.28.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_pgxuib4rd7wiymfktharf5ydt4:
+  /eslint-plugin-prettier/4.2.1_cwlo2dingkvfydnaculr42urve:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -8354,7 +8354,7 @@ packages:
     dependencies:
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0_eslint@8.28.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -13789,13 +13789,13 @@ packages:
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     dependencies:
       '@astrojs/compiler': 0.29.13
-      prettier: 2.7.1
+      prettier: 2.8.0
       sass-formatter: 0.7.5
       synckit: 0.8.4
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
