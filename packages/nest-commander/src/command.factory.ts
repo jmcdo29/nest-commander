@@ -16,8 +16,10 @@ export class CommandFactory {
   static async run(
     rootModule: Type<any>,
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
+    getterCallback?: (app: INestApplicationContext) => void,
   ): Promise<void> {
     const app = await this.runApplication(rootModule, optionsOrLogger);
+    if (getterCallback) getterCallback(app);
     await app.close();
   }
 
