@@ -21,7 +21,7 @@ importers:
       '@docusaurus/core': 2.2.0
       '@docusaurus/preset-classic': 2.2.0
       '@golevelup/nestjs-discovery': 3.0.0
-      '@mdx-js/react': 2.1.5
+      '@mdx-js/react': 2.2.1
       '@nestjs/cli': 9.1.5
       '@nestjs/common': 9.0.5
       '@nestjs/core': 9.0.5
@@ -83,7 +83,7 @@ importers:
       '@docusaurus/core': 2.2.0_reoqukwbuvhjbxfhplnjsk5j3m
       '@docusaurus/preset-classic': 2.2.0_ugyyveshnvdkgo6uxg6h3hw4qi
       '@golevelup/nestjs-discovery': 3.0.0
-      '@mdx-js/react': 2.1.5_react@18.2.0
+      '@mdx-js/react': 2.2.1_react@18.2.0
       '@nestjs/cli': 9.1.5_@swc+core@1.3.22
       '@nestjs/common': 9.0.5_whg6pvy6vwu66ypq7idiq2suxq
       '@nestjs/core': 9.0.5_cimz3hhoc2knx52fq6llqk76v4
@@ -3613,8 +3613,8 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@mdx-js/react/2.1.5_react@18.2.0:
-    resolution: {integrity: sha512-3Az1I6SAWA9R38rYjz5rXBrGKeZhq96CSSyQtqY+maPj8stBsoUH5pNcmIixuGkufYsh8F5+ka2CVPo2fycWZw==}
+  /@mdx-js/react/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-YdXcMcEnqZhzql98RNrqYo9cEhTTesBiCclEtoiQUbJwx87q9453GTapYU6kJ8ZZ2ek1Vp25SiAXEFy5O/eAPw==}
     peerDependencies:
       react: '>=16'
     dependencies:
