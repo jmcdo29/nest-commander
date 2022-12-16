@@ -80,6 +80,21 @@ For more details on everything that is possible with options, take a look at [`c
 
 You can also make an option completely required, like an argument, by setting `required: true` in the metadata for the option.
 
+### Variadic Options
+
+Options allow for variadic inputs but you will need to provide an option parser that accumulates each option.
+
+```typescript
+  @Option({
+    flags: '-c, --options <options...>',
+    description: 'Specify options',
+  })
+  parseOptions(option: string, optionsAccumulator: string[] = []): string[] {
+    optionsAccumulator.push(option);
+    return optionsAccumulator;
+  }
+```
+
 ### Setting Choices for your Options
 
 Commander also allows us to set up pre-defined choices for options. To do so we have two options: setting the `choices` array directly as a part of the `@Option()` decorator, or using the `@OptionChoiceFor()` decorator and a class method, similar to the [InquirerService](./inquirer.md). With using the `@OptionChoiceFor()` decorator, we are also able to make use of class providers that are injected into the command via Nest's DI which allows devs to read for the choices from a file or database if that happens to be necessary.
