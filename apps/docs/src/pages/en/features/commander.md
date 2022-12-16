@@ -82,7 +82,7 @@ You can also make an option completely required, like an argument, by setting `r
 
 ### Variadic Options
 
-Options allow for variadic inputs but you will need to provide an option parser that accumulates each option.
+Options also allow for variadic inputs but you will need to provide an option parser that accumulates each option.
 
 ```typescript
   @Option({
