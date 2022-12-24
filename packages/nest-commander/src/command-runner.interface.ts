@@ -1,5 +1,5 @@
 import { DiscoveredMethodWithMeta } from '@golevelup/nestjs-discovery';
-import { Type } from '@nestjs/common';
+import { ClassProvider, Type } from '@nestjs/common';
 import { Command, CommandOptions } from 'commander';
 import type {
   CheckboxQuestion,
@@ -12,6 +12,7 @@ import type {
   PasswordQuestion,
   RawListQuestion,
 } from 'inquirer';
+import { CommandMeta, SubCommandMeta } from './constants';
 
 export type InquirerKeysWithPossibleFunctionTypes =
   | 'transformer'
@@ -23,7 +24,20 @@ export type InquirerKeysWithPossibleFunctionTypes =
 
 type InquirerQuestionWithoutFilter<T> = Omit<T, 'filter'>;
 
+type CommandRunnerClass = ClassProvider<CommandRunner> & typeof CommandRunner;
+
 export abstract class CommandRunner {
+  static registerWithSubCommands(meta: string = CommandMeta): CommandRunnerClass[] {
+    // NOTE: "this' in the scope is inherited class
+    const subcommands: CommandRunnerClass[] = Reflect.getMetadata(meta, this)?.subCommands || [];
+    return subcommands.reduce(
+      (current: CommandRunnerClass[], subcommandClass: CommandRunnerClass) => {
+        const results = subcommandClass.registerWithSubCommands(SubCommandMeta);
+        return [...current, ...results];
+      },
+      [this] as CommandRunnerClass[],
+    );
+  }
   protected command!: Command;
   public setCommand(command: Command): this {
     this.command = command;
