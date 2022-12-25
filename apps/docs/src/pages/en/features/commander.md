@@ -27,7 +27,7 @@ export class TaskRunner extends CommandRunner {
 
 You'll notice for the `arguments` we use angle brackets around the argument name. This specifies that the argument is required for the command, and commander will throw an error if it is not supplied. If, however, we wanted to make the argument optional, we could wrap it in square brackets instead like `[task]`.
 
-Now, to run this command, we'll need to set up the [CommandFactory](./factory.md) and make use of one of the execution methods as described later in the docs. For now, we'll just assume this application is installed globally under the `crun` name. Running the above command would then look like
+Now, to run this command, we'll need to set up the [CommandFactory](./factory) and make use of one of the execution methods as described later in the docs. For now, we'll just assume this application is installed globally under the `crun` name. Running the above command would then look like
 
 ```shell
 crun my-exec 'echo Hello World!'
@@ -97,7 +97,7 @@ Options also allow for variadic inputs but you will need to provide an option pa
 
 ### Setting Choices for your Options
 
-Commander also allows us to set up pre-defined choices for options. To do so we have two options: setting the `choices` array directly as a part of the `@Option()` decorator, or using the `@OptionChoiceFor()` decorator and a class method, similar to the [InquirerService](./inquirer.md). With using the `@OptionChoiceFor()` decorator, we are also able to make use of class providers that are injected into the command via Nest's DI which allows devs to read for the choices from a file or database if that happens to be necessary.
+Commander also allows us to set up pre-defined choices for options. To do so we have two options: setting the `choices` array directly as a part of the `@Option()` decorator, or using the `@OptionChoiceFor()` decorator and a class method, similar to the [InquirerService](./inquirer). With using the `@OptionChoiceFor()` decorator, we are also able to make use of class providers that are injected into the command via Nest's DI which allows devs to read for the choices from a file or database if that happens to be necessary.
 
 ```typescript
 import { Option, OptionChoiceFor } from 'nest-commander';

@@ -7,7 +7,7 @@ Okay, so you've got this fancy command set up, it takes in some user input, and 
 
 ## Registering Your Commands and Questions
 
-You may have noticed in the [Inquirer](./inquirer.md) section a quick mention of adding the question set class to the `providers`. In fact, both command classes and question set classes are nothing more than specialized providers! Due to this, we can simply add these classes to a module's metadata and make sure that module is in the root module the `CommandFactory` uses.
+You may have noticed in the [Inquirer](./inquirer) section a quick mention of adding the question set class to the `providers`. In fact, both command classes and question set classes are nothing more than specialized providers! Due to this, we can simply add these classes to a module's metadata and make sure that module is in the root module the `CommandFactory` uses.
 
 ```typescript title="src/app.module.ts"
 @Module({
@@ -40,4 +40,4 @@ By default, there is no error handler for commander provided by `nest-commander`
 
 The `CommandFactory` also allows you to set up an infinite runner, so that you can set up file watchers or similar. All you need to do is instead of using `run` use `runWithoutClosing`. All other options are the same.
 
-For more information on the `CommandFactory`, please refer to the [API docs](../api.md#commandfactory).
+For more information on the `CommandFactory`, please refer to the [API docs](../api#commandfactory).
