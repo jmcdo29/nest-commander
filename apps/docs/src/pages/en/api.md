@@ -228,6 +228,25 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 | usePlugins | `boolean` | false | The choice of if the built CLI should look for a config file and plugins or not. |
 | cliName | `string` | false | The name of the CLI and the prefix for the config file to be looked for. Defaults to `"nest-commander"`. |
 
+### CommandRunner
+
+The `CommandRunner` is abstract class to define your command. You define the command in the class inherits it.
+
+#### registerWithSubCommands
+
+A static method returns list of root command class which calls this api and all sub command classes set as metadata of `@Command` and `@SubCommand` decorators in the scope of module tree the root command class traverses.
+
+```typescript title="src/app.module.ts"
+@Module({
+  providers: [...RunCommand.regsiterWithSubCommands()]
+})
+export class AppModule {}
+```
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| meta | `string` | false | `@Command` or `@SubCommand` decorator identifier is explicitly specified for extracting metadata,<br/> It is used internal this library and you shouldn't need to specify it normally. |
+
 ## nest-commander-testing
 
 ### CommandTestFactory
