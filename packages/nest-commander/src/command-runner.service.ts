@@ -45,6 +45,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     if (this.options.errorHandler) {
       this.commander.exitOverride(this.options.errorHandler);
     }
+    if (this.options.enablePositionalOptions) {
+      this.commander.enablePositionalOptions();
+    }
   }
 
   private async populateCommandMapInstances(
