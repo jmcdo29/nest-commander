@@ -234,7 +234,7 @@ The above command is meant to be a basic example, and should not be taken as a f
 
 ## Register Commands
 
-Though you'll find the details are in [factory page](./factory), you must register your all commands including sub commands as providers in your module class exists somewhere in Module tree registerd to `CommandFactory`. For convenience, given that we register exapmles in Sub Commands section and set them as providers in app.module.ts that set as root module to `CommandFactory`.
+Though you'll find the implementation details in the [factory page](./factory), you must register all of your commands including the sub commands as providers in a module class that the `CommandFactory` ends up registering. For convenience, given that we register examples in Sub Commands section and set them as providers in `app.module.ts` that set as root module to `CommandFactory`.
 
 ```typescript title="src/app.module.ts"
 @Module({
