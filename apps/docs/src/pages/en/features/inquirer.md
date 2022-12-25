@@ -91,4 +91,4 @@ If you need to ask a question dynamically, not something that can be set up with
 
 :::
 
-Visit the [api docs](../api.md) to learn more about the `InquirerService`'s `ask` command and extra decorators.
+Visit the [api docs](../api) to learn more about the `InquirerService`'s `ask` command and extra decorators.
