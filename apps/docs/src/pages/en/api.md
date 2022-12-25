@@ -235,7 +235,7 @@ The `CommandRunner` is abstract class to define your command. You define the com
 
 #### registerWithSubCommands
 
-A static method returns list of root command class which calls this api and all sub command classes set as metadata of `@Command` and `@SubCommand` decorators in the scope of module tree the root command class traverses.
+A static method that returns a list of the root command class, which calls this api, and all sub command classes set via the metadata of the `@Command()` and `@SubCommand()` decorators in the scope of module tree that the root command class traverses.
 
 ```typescript title="src/app.module.ts"
 @Module({
