@@ -227,6 +227,7 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 | errorHandler | `Function` | false | A custom error handler that takes in an `Error` and returns `void` synchronously. |
 | usePlugins | `boolean` | false | The choice of if the built CLI should look for a config file and plugins or not. |
 | cliName | `string` | false | The name of the CLI and the prefix for the config file to be looked for. Defaults to `"nest-commander"`. |
+| enablePositionalOptions | `boolean` | false | Make commander view `<comamnd> -p <sub-command>` and `<command <sub-command> -p` as two different commands. [Commander's reference](https://github.com/tj/commander.js#parsing-configuration) |
 
 ## nest-commander-testing
 
