@@ -20,4 +20,5 @@ export interface CommanderOptionsType {
   usePlugins?: boolean;
   cliName?: string;
   pluginsAvailable?: boolean;
+  enablePositionalOptions?: boolean;
 }
