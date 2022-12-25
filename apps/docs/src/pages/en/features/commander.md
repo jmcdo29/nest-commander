@@ -243,7 +243,7 @@ Though you'll find the implementation details in the [factory page](./factory), 
 export class AppModule {}
 ```
 
-If you have many sub commands and nested directories for that, you may feel tough to import all of them though we can use nestjs module system resolution rules. For the case, static `regsiterWithSubCommands` method available in which the class inheriting `CommandRunner` returns list of itself and all sub commands in the scope it can traverse `subcommands` property of `@Command` and `@SubCommand` recursively from root command class which calls `regsiterWithSubCommands`. This means you can write the setting like followed by example instead of the previous example.
+If you have many sub commands and nested directories for that, it may feel tough to import all of them. For this case, the static `regsiterWithSubCommands` method is available in all classes inheriting `CommandRunner` which returns a list of itself and all sub commands. This means you can write the setting like followed by example instead of the previous example.
 
 ```typescript title="src/app.module.ts"
 @Module({
