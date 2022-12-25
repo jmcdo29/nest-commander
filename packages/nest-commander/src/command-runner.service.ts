@@ -150,7 +150,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       );
       const subCommands = await this.populateCommandMapInstances(subCommandsMetaForCommand);
       for (const subCommand of subCommands) {
-        newCommand.addCommand(await this.buildCommand(subCommand));
+        newCommand.addCommand(await this.buildCommand(subCommand), {
+          isDefault: subCommand.command.options?.isDefault ?? false,
+        });
       }
     }
     return newCommand;
