@@ -176,6 +176,8 @@ After adding the subcommand to the appropriate module's `providers` array, nest-
 
 Subcommands can also take an `aliases` array for sub command aliases. We could add `aliases: ['f']` to the above `FooCommand` and run it with `my-exec f` instead of `my-exec foo` and get the same result. `aliases` must be passed as an array.
 
+You can also use the `options: { isDefault: true }` option of the`@SubCommand()` decorator to set a default subcommand for the command.
+
 ## The Full Command
 
 Let's say all we want to do is have our `my-exec` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
