@@ -229,6 +229,25 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 | cliName | `string` | false | The name of the CLI and the prefix for the config file to be looked for. Defaults to `"nest-commander"`. |
 | enablePositionalOptions | `boolean` | false | Make commander view `<comamnd> -p <sub-command>` and `<command <sub-command> -p` as two different commands. [Commander's reference](https://github.com/tj/commander.js#parsing-configuration) |
 
+### CommandRunner
+
+The `CommandRunner` is abstract class to define your command. You define the command in the class inherits it.
+
+#### registerWithSubCommands
+
+A static method returns list of root command class which calls this api and all sub command classes set as metadata of `@Command` and `@SubCommand` decorators in the scope of module tree the root command class traverses.
+
+```typescript title="src/app.module.ts"
+@Module({
+  providers: [...RunCommand.regsiterWithSubCommands()]
+})
+export class AppModule {}
+```
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| meta | `string` | false | `@Command` or `@SubCommand` decorator identifier is explicitly specified for extracting metadata,<br/> It is used internal this library and you shouldn't need to specify it normally. |
+
 ## nest-commander-testing
 
 ### CommandTestFactory
