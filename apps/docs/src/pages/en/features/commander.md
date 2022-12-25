@@ -231,3 +231,25 @@ And now the `TaskRunner` is setup and ready to be used.
 The above command is meant to be a basic example, and should not be taken as a fully fleshed out CLI example. There's error handling, input validation, and security that should all be considered. Please do not use the above command in a production environment without adding the mentioned necessities **at the very least**.
 
 :::
+
+## Register Commands
+
+Though you'll find the details are in [factory page](./factory), you must register your all commands including sub commands as providers in your module class exists somewhere in Module tree registerd to `CommandFactory`. For convenience, given that we register exapmles in Sub Commands section and set them as providers in app.module.ts that set as root module to `CommandFactory`.
+
+```typescript title="src/app.module.ts"
+@Module({
+  providers: [RunCommand, FooCommand]
+})
+export class AppModule {}
+```
+
+If you have many sub commands and nested directories for that, you may feel tough to import all of them though we can use nestjs module system resolution rules. For the case, static `regsiterWithSubCommands` method available in which the class inheriting `CommandRunner` returns list of itself and all sub commands in the scope it can traverse `subcommands` property of `@Command` and `@SubCommand` recursively from root command class which calls `regsiterWithSubCommands`. This means you can write the setting like followed by example instead of the previous example.
+
+```typescript title="src/app.module.ts"
+@Module({
+  providers: [...RunCommand.regsiterWithSubCommands()]
+})
+export class AppModule {}
+```
+
+This example works even if the `RunCommand` has more and nested subcommands and doesn't interfare with registering other providers or commands if using spread operator or concat method of `Array`.
