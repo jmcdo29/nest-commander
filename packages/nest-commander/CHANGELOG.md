@@ -1,5 +1,13 @@
 # nest-commander
 
+## 3.4.0
+
+### Minor Changes
+
+- fadb70d: Allow for a sub command to be set as the default sub command.
+- 74c88f5: Add new api registerWithSubCommand to CommandRunner Class
+- abff78d: Allow for options to be parsed positionally via an option passed to CommandFactory
+
 ## 3.3.0
 
 ### Minor Changes
