@@ -51,7 +51,7 @@ importers:
       eslint-plugin-prettier: 4.2.1
       hanbi: 1.0.1
       hastscript: ^7.1.0
-      husky: 8.0.2
+      husky: 8.0.3
       inquirer: 8.2.4
       lint-staged: 13.1.0
       nx: 15.4.2
@@ -113,7 +113,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_32m5uc2milwdw3tnkcq5del26y
       hanbi: 1.0.1
       hastscript: 7.1.0
-      husky: 8.0.2
+      husky: 8.0.3
       inquirer: 8.2.4
       lint-staged: 13.1.0
       nx: 15.4.2_@swc+core@1.3.24
@@ -9774,8 +9774,8 @@ packages:
     engines: {node: '>=12.20.0'}
     dev: true
 
-  /husky/8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
