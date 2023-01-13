@@ -76,6 +76,15 @@ export class CommandTestFactory {
     await app.close();
   }
 
+  static async runWithoutClosing(app: TestingModule, args: string[] = []) {
+    if (args?.length && args[0] !== 'node') {
+      args = ['node', randomBytes(8).toString('hex') + '.js'].concat(args);
+    }
+    await app.init();
+    const runner = app.get(CommandRunnerService);
+    await runner.run(args);
+  }
+
   static setAnswers(value: any | any[]): void {
     if (!Array.isArray(value)) {
       value = [value];
