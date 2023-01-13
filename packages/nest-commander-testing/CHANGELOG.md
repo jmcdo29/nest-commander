@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.1.0
+
+### Minor Changes
+
+- c75ca13: Add runWithoutClosing for testing
+
 ## 3.0.1
 
 ### Patch Changes
