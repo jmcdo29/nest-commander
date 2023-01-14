@@ -42,7 +42,7 @@ importers:
       astro: ^1.6.7
       c8: 7.12.0
       clsx: 1.2.1
-      commander: 9.5.0
+      commander: 10.0.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 8.0.0
       cz-conventional-changelog: 3.3.0
@@ -104,7 +104,7 @@ importers:
       astro: 1.6.7_@types+node@18.11.18
       c8: 7.12.0
       clsx: 1.2.1
-      commander: 9.5.0
+      commander: 10.0.0
       conventional-changelog-cli: 2.2.2
       cosmiconfig: 8.0.0
       cz-conventional-changelog: 3.3.0_@swc+core@1.3.26
@@ -134,12 +134,12 @@ importers:
   packages/nest-commander:
     specifiers:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 9.5.0
+      commander: 10.0.0
       cosmiconfig: 8.0.0
       inquirer: 8.2.4
     dependencies:
       '@golevelup/nestjs-discovery': 3.0.0
-      commander: 9.5.0
+      commander: 10.0.0
       cosmiconfig: 8.0.0
       inquirer: 8.2.4
 
@@ -6417,6 +6417,10 @@ packages:
     resolution: {integrity: sha512-G5yTt3KQN4Yn7Yk4ed73hlZ1evrFKXeUW3086p3PRFNp7m2vIjI6Pg+Kgb+oyzhd9F2qdcoj67+y3SdxL5XWsg==}
     dev: true
 
+  /commander/10.0.0:
+    resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
+    engines: {node: '>=14'}
+
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: true
@@ -6444,6 +6448,7 @@ packages:
   /commander/9.5.0:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
+    dev: true
 
   /commitizen/4.2.4_@swc+core@1.3.26:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
