@@ -39,7 +39,7 @@
     "@angular-devkit/core": "14.0.5",
     "@angular-devkit/schematics": "14.0.5",
     "@angular-devkit/schematics-cli": "14.0.5",
-    "@astrojs/preact": "^1.2.0",
+    "@astrojs/preact": "^2.0.0",
     "@astrojs/react": "^1.2.2",
     "@changesets/cli": "2.26.0",
     "@commitlint/cli": "17.4.2",

@@ -11,7 +11,7 @@ importers:
       '@angular-devkit/core': 14.0.5
       '@angular-devkit/schematics': 14.0.5
       '@angular-devkit/schematics-cli': 14.0.5
-      '@astrojs/preact': ^1.2.0
+      '@astrojs/preact': ^2.0.0
       '@astrojs/react': ^1.2.2
       '@changesets/cli': 2.26.0
       '@commitlint/cli': 17.4.2
@@ -73,7 +73,7 @@ importers:
       '@angular-devkit/core': 14.0.5
       '@angular-devkit/schematics': 14.0.5
       '@angular-devkit/schematics-cli': 14.0.5
-      '@astrojs/preact': 1.2.0_preact@10.11.2
+      '@astrojs/preact': 2.0.0_preact@10.11.2
       '@astrojs/react': 1.2.2_gqczyrwmhlwpr6z64d3xh3wv54
       '@changesets/cli': 2.26.0
       '@commitlint/cli': 17.4.2_@swc+core@1.3.28
@@ -503,9 +503,9 @@ packages:
       vfile-message: 3.1.2
     dev: true
 
-  /@astrojs/preact/1.2.0_preact@10.11.2:
-    resolution: {integrity: sha512-Vm8rkBIE3cNlxhFoUO2Rsv5RxSP7x7Oi9J6qz8+91lwAIjdm6oyDOrrBmdGqsONJ1MqnjPG4EPmIZJGuFtz2SQ==}
-    engines: {node: ^14.18.0 || >=16.12.0}
+  /@astrojs/preact/2.0.0_preact@10.11.2:
+    resolution: {integrity: sha512-Zr0u6U3gxLrhrtHsZjVXarUXqOM6pn/Efj+P5DcnTjuczz34LcdmZcuCck2rqPoqf8Fi4mJ6Hlx2FsWjtG0YwA==}
+    engines: {node: '>=16.12.0'}
     peerDependencies:
       preact: ^10.6.5
     dependencies:
@@ -1663,9 +1663,9 @@ packages:
       '@babel/core': 7.18.9
       '@babel/helper-annotate-as-pure': 7.18.6
       '@babel/helper-module-imports': 7.18.6
-      '@babel/helper-plugin-utils': 7.18.9
+      '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.18.9
-      '@babel/types': 7.18.9
+      '@babel/types': 7.20.7
     dev: true
 
   /@babel/plugin-transform-react-pure-annotations/7.18.6_@babel+core@7.18.9:
