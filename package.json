@@ -67,7 +67,7 @@
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "5.49.0",
     "@typescript-eslint/parser": "5.49.0",
-    "astro": "^1.6.7",
+    "astro": "^2.0.0",
     "c8": "7.12.0",
     "clsx": "1.2.1",
     "commander": "10.0.0",
