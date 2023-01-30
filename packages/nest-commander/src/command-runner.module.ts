@@ -1,4 +1,4 @@
-import { DynamicModule, Module, Type } from '@nestjs/common';
+import { DynamicModule, Logger, Module, Type } from '@nestjs/common';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { Command } from 'commander';
 import * as inquirer from 'inquirer';
@@ -23,6 +23,7 @@ export class CommandRunnerModule {
       module: CommandRunnerModule,
       imports: module ? [module, DiscoveryModule] : [DiscoveryModule],
       providers: [
+        Logger,
         CommandRunnerService,
         InquirerService,
         {
