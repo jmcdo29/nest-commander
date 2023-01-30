@@ -17,6 +17,7 @@ import { ThisCommandHandlerSuite } from './this-command/test/this-command.comman
 import { ThisOptionHandlerSuite } from './this-handler/test/this-handler.command.spec';
 import { SetQuestionSuite } from './with-questions/test/hello.command.spec';
 import { RegisterWithSubCommandsSuite } from './register-provider/test/register-with-subcommands.spec';
+import { RequestProviderSuite } from './request-provider-override/test/index.spec';
 
 BasicFactorySuite.run();
 StringCommandSuite.run();
@@ -35,3 +36,4 @@ OptionChoiceSuite.run();
 DotCommandSuite.run();
 RegisterWithSubCommandsSuite.run();
 DefaultSubCommandSuite.run();
+RequestProviderSuite.run();
