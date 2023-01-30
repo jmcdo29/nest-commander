@@ -1,4 +1,4 @@
-import { Inject, OnModuleInit } from '@nestjs/common';
+import { Inject, Logger, OnModuleInit } from '@nestjs/common';
 import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
 import { Command, Option } from 'commander';
 import { CommanderOptionsType } from './command-factory.interface';
@@ -28,6 +28,7 @@ export class CommandRunnerService implements OnModuleInit {
     private readonly discoveryService: DiscoveryService,
     @InjectCommander() private readonly commander: Command,
     @Inject(CommanderOptions) private readonly options: CommanderOptionsType,
+    private readonly logger: Logger,
   ) {}
 
   async onModuleInit() {
@@ -133,9 +134,23 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
     }
     command.command.aliases?.forEach((alias) => newCommand.alias(alias));
-    newCommand.action(() =>
-      command.instance.run.call(command.instance, newCommand.args, newCommand.opts()),
-    );
+    newCommand.action(async () => {
+      try {
+        command.instance.run.bind(command.instance);
+        return await command.instance.run(newCommand.args, newCommand.opts());
+      } catch (err) {
+        if ((err as Error).message.includes('Cannot read properties of undefined')) {
+          const className = /\s+at\s(\w+)\.run/.exec((err as Error).stack ?? '')?.[1];
+          this.logger.error(
+            `A service tried to call a property of "undefined" in the ${className} class. Did you use a request scoped provider without the @RequestModule() decorator?`,
+            '',
+            'CommandRunnerService',
+          );
+        } else {
+          throw err;
+        }
+      }
+    });
     if (command.command.subCommands?.length) {
       this.subCommands ??= await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
         SubCommandMeta,
