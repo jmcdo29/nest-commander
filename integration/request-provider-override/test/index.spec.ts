@@ -1,6 +1,4 @@
-import { Logger } from '@nestjs/common';
 import { stubMethod } from 'hanbi';
-import { CommandFactory } from 'nest-commander';
 import { CommandTestFactory } from 'nest-commander-testing';
 import { suite } from 'uvu';
 import { equal } from 'uvu/assert';
