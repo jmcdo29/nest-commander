@@ -146,6 +146,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
             '',
             'CommandRunnerService',
           );
+          return;
         } else {
           throw err;
         }
