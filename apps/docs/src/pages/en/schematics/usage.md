@@ -5,7 +5,9 @@ layout: ../../../layouts/MainLayout.astro
 
 :::info
 
-We'll show how to use the `nest-commander-schematics` with [`@nestjs/cli`](https://www.npmjs.com/package/@nestjs/cli), but it works with `@angular/cli` and `nx` as well, as all of them use Angular's schematics under the hood.
+We'll show how to use the `nest-commander-schematics` with
+[`@nestjs/cli`](https://www.npmjs.com/package/@nestjs/cli), but it works with `@angular/cli` and
+`nx` as well, as all of them use Angular's schematics under the hood.
 
 :::
 
@@ -17,7 +19,8 @@ To generate a simple command you can use the `command` schematic:
 nest g -c nest-commander-schematics command
 ```
 
-from there the wizard will ask what the name of the command is and if you would like to add questions. You can choose _no_ or provide a question set name at this point.
+from there the wizard will ask what the name of the command is and if you would like to add
+questions. You can choose _no_ or provide a question set name at this point.
 
 The available options for this command are the following:
 
@@ -33,7 +36,9 @@ The available options for this command are the following:
 
 ### Generating Commands with Questions
 
-As mentioned above, you can use the `command` schematic and provide a question set name. You can also use `--question=<name>` to provide a name for the question set without waiting to answer the prompt.
+As mentioned above, you can use the `command` schematic and provide a question set name. You can
+also use `--question=<name>` to provide a name for the question set without waiting to answer the
+prompt.
 
 ## Generating Questions
 

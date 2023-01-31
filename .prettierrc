@@ -7,10 +7,9 @@
     {
       "files": "*.md",
       "options": {
-        "printWidth": 70,
         "useTabs": false,
         "trailingComma": "none",
-        "proseWrap": "never"
+        "proseWrap": "always"
       }
     }
   ]
