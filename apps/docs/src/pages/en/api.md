@@ -248,6 +248,26 @@ export class AppModule {}
 | --- | --- | --- | --- |
 | meta | `string` | false | `@Command` or `@SubCommand` decorator identifier is explicitly specified for extracting metadata,<br/> It is used internal this library and you shouldn't need to specify it normally. |
 
+### @RequestModule()
+
+A wrapper decorator for Nest's `@Module()` that exposes a way to set a request object mock for the `REQUEST` injection token.
+
+```typescript
+@RequestModule({
+  providers: [SomeCommand],
+  requestObject: { headers: { Authorization: 'Bearer token' } }
+})
+export class SomeCommandModule {}
+```
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| imports | Array<ModuleImport> | false | Imports for the current module. This is Nest's standard property |
+| controllers | Type<any>[] | false | Controllers for the module |
+| providers | Provider[] | false | Providers for the module. This includes commands |
+| exports | Array<ModuleImport or Provider> | false | Values the module exports |
+| requestObject | Object | false | The mock request object that should be used in place of `REQUEST` |
+
 ## nest-commander-testing
 
 ### CommandTestFactory
