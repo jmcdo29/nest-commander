@@ -178,6 +178,20 @@ Subcommands can also take an `aliases` array for sub command aliases. We could a
 
 You can also use the `options: { isDefault: true }` option of the`@SubCommand()` decorator to set a default subcommand for the command.
 
+## Request Scoped Commands
+
+In a CLI environment requests don't exist in the traditional HTTP sense. Because of this, `REQUEST` scoped providers are problematic inside of `nest-commander` commands. However, thanks to the `@RequestModule()` decorator it is possible to create a mock value for the command to make use of so that the command and all of its dependencies remain `SINGLETON` or `DEFAULT` scoped allowing the original providers of the application to be used without a major bit of re-architecting. The decorator works _just_ like `@Module()` with one extra field, `requestObject` that gets merged into the `providers` array under the `REQUEST` provider token from `@nestjs/core`. This makes Nest resolve the "proper" value for `REQUEST` because it exists inside the current module.
+
+```ts
+@RequestModule({
+  providers: [SimpleCommand, RequestScopedProvider],
+  requestObject: { headers: { Authorization: 'Bearer token' } }
+})
+export class RequestScopedCommandModule {}
+```
+
+While we _call_ it `RequestScoped`, it is very much set to be singleton, which is a win for re-using existing providers.
+
 ## The Full Command
 
 Let's say all we want to do is have our `my-exec` command run the task in another shell, and that's it. If we take our above command we can see that it can be ran like so
