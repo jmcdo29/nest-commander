@@ -81,7 +81,7 @@
     "hastscript": "^7.1.0",
     "husky": "8.0.3",
     "inquirer": "8.2.4",
-    "lint-staged": "13.1.0",
+    "lint-staged": "13.1.1",
     "nx": "15.6.3",
     "nx-uvu": "1.2.0",
     "pinst": "3.0.0",
