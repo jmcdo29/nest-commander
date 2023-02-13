@@ -15,12 +15,12 @@ The config file, by default, can be _one_ of the following:
 - `.nest-commanderrc`
 - `.nest-commanderrc.json`
 - `.nest-commanderrc.yaml`
-- `.nest-commanderc.yml`
+- `.nest-commanderrc.yml`
 - `nest-commander.json`
 - `nest-commander.yaml`
 - `nest-commander.yml`
 
-If you'd lke to use a name other than `nest-commander`, you can pass the `cliName` option to the
+If you'd like to use a name other than `nest-commander`, you can pass the `cliName` option to the
 `CommandFactory` as well.
 
 Now the config file should be incredibly simple, just a JSON object with a `plugins` property that
