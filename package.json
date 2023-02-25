@@ -72,7 +72,7 @@
     "clsx": "1.2.1",
     "commander": "10.0.0",
     "conventional-changelog-cli": "2.2.2",
-    "cosmiconfig": "8.0.0",
+    "cosmiconfig": "8.1.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
