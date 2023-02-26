@@ -74,7 +74,7 @@
     "conventional-changelog-cli": "2.2.2",
     "cosmiconfig": "8.1.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.34.0",
+    "eslint": "8.35.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
     "hanbi": "1.0.1",
