@@ -13,12 +13,10 @@ export interface CommandFactoryRunOptions {
   errorHandler?: ErrorHandler;
   usePlugins?: boolean;
   cliName?: string;
+  serviceErrorHandler?: ErrorHandler;
 }
 
-export interface CommanderOptionsType {
-  errorHandler?: ErrorHandler;
-  usePlugins?: boolean;
-  cliName?: string;
+export interface CommanderOptionsType extends Omit<CommandFactoryRunOptions, 'logger'> {
   pluginsAvailable?: boolean;
   enablePositionalOptions?: boolean;
 }

@@ -46,6 +46,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     if (this.options.errorHandler) {
       this.commander.exitOverride(this.options.errorHandler);
     }
+    if (!this.options.serviceErrorHandler) {
+      this.options.serviceErrorHandler = (err: Error) => process.stderr.write(err.toString());
+    }
   }
 
   private async populateCommandMapInstances(
@@ -190,6 +193,6 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
   }
 
   async run(args?: string[]): Promise<void> {
-    await this.commander.parseAsync(args || process.argv);
+    await this.commander.parseAsync(args || process.argv).catch(this.options.serviceErrorHandler);
   }
 }
