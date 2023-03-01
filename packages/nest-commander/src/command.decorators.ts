@@ -7,6 +7,7 @@ import {
   OptionMetadata,
   QuestionMetadata,
   QuestionNameMetadata,
+  RootCommandMetadata,
 } from './command-runner.interface';
 import {
   ChoicesMeta,
@@ -19,6 +20,7 @@ import {
   OptionMeta,
   QuestionMeta,
   QuestionSetMeta,
+  RootCommandMeta,
   SubCommandMeta,
   TransformMeta,
   ValidateMeta,
@@ -53,6 +55,12 @@ export const Command = (options: CommandMetadata): CommandDecorator => {
 export const SubCommand = (options: CommandMetadata): CommandDecorator => {
   return applyClassMetadata(options, SubCommandMeta);
 };
+
+export const RootCommand = (options: RootCommandMetadata): CommandDecorator => {
+  return applyClassMetadata(options, RootCommandMeta);
+};
+
+export const DefaultCommand = RootCommand;
 
 export const Option = (options: OptionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, OptionMeta);
