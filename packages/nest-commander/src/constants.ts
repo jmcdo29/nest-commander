@@ -8,6 +8,7 @@ const questionMetaBuilder = (suffix: string): string => {
 
 export const CommandMeta = metaKeyBuilder('Command:Meta');
 export const SubCommandMeta = metaKeyBuilder('Subcommand:Meta');
+export const RootCommandMeta = metaKeyBuilder('RootCommand:Meta');
 export const OptionMeta = metaKeyBuilder('Option:Meta');
 export const OptionChoiceMeta = metaKeyBuilder('OptionChoice:Meta');
 export const QuestionSetMeta = metaKeyBuilder('QuestionSet:Meta');

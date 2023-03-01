@@ -56,6 +56,8 @@ export interface CommandMetadata {
   aliases?: string[];
 }
 
+export type RootCommandMetadata = Omit<CommandMetadata, 'name'> & { name?: string };
+
 export interface OptionMetadata {
   flags: string;
   description?: string;
@@ -72,7 +74,7 @@ export interface OptionChoiceForMetadata {
 
 export interface RunnerMeta {
   instance: CommandRunner;
-  command: CommandMetadata;
+  command: RootCommandMetadata;
   params: DiscoveredMethodWithMeta<OptionMetadata>[];
   help?: DiscoveredMethodWithMeta<HelpOptions>[];
 }

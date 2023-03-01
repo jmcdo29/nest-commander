@@ -8,6 +8,7 @@ import {
   HelpOptions,
   OptionChoiceForMetadata,
   OptionMetadata,
+  RootCommandMetadata,
   RunnerMeta,
 } from './command-runner.interface';
 import {
@@ -17,6 +18,7 @@ import {
   HelpMeta,
   OptionChoiceMeta,
   OptionMeta,
+  RootCommandMeta,
   SubCommandMeta,
 } from './constants';
 import { InjectCommander } from './command.decorators';
@@ -26,12 +28,13 @@ export class CommandRunnerService implements OnModuleInit {
 
   constructor(
     private readonly discoveryService: DiscoveryService,
-    @InjectCommander() private readonly commander: Command,
+    @InjectCommander() private commander: Command,
     @Inject(CommanderOptions) private readonly options: CommanderOptionsType,
     private readonly logger: Logger,
   ) {}
 
   async onModuleInit() {
+    await this.setUpDefaultCommand();
     const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
       CommandMeta,
     );
@@ -48,8 +51,25 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     }
   }
 
+  /**
+   * override the initial `commander` instance to be the `@DefaultCommand()`
+   * This will allow for the -h action on a default call of the command to
+   * provide the information from the default command and not the overall
+   * application.
+   */
+  private async setUpDefaultCommand(): Promise<void> {
+    const [defaultCommand] =
+      await this.discoveryService.providersWithMetaAtKey<RootCommandMetadata>(RootCommandMeta);
+    if (!defaultCommand) {
+      return;
+    }
+    const [populatedCommand] = await this.populateCommandMapInstances([defaultCommand]);
+    const builtDefault = await this.buildCommand(populatedCommand);
+    this.commander = builtDefault;
+  }
+
   private async populateCommandMapInstances(
-    providers: DiscoveredClassWithMeta<CommandMetadata>[],
+    providers: DiscoveredClassWithMeta<RootCommandMetadata>[],
   ): Promise<RunnerMeta[]> {
     const commands: RunnerMeta[] = [];
     for (const provider of providers) {
@@ -80,7 +100,7 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
   }
 
   private async buildCommand(command: RunnerMeta): Promise<Command> {
-    const newCommand = this.commander.createCommand(command.command.name);
+    const newCommand = new Command(command.command.name);
     command.instance.setCommand(newCommand);
     if (command.command.arguments) {
       this.mapArgumentDescriptions(
