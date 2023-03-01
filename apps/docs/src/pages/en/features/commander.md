@@ -249,6 +249,22 @@ export class RequestScopedCommandModule {}
 While we _call_ it `RequestScoped`, it is very much set to be singleton, which is a win for re-using
 existing providers.
 
+## Using a Command as the Root Command
+
+Sometimes using `options: { isDefault: true }` isn't enough for the use case, like if you want to
+have the `--help` flag output the default command's arguments and options. Fortunately, there is the
+`@RootCommand()` decorator to replace the base `commander` command with your own command. This
+command will be read, parsed, and set up before all of the other commands in your application to
+allow for everything to keep working as is. It works **exactly** like `@Command()`, but does not
+require a `name` argument to be passed.
+
+:::info
+
+The `@RootCommand()` decorator is also aliased as `@DefaultCommand()` if you prefer that
+nomenclature, is available from 3.6.0 and on.
+
+:::
+
 ## The Full Command
 
 Let's say all we want to do is have our `my-exec` command run the task in another shell, and that's
