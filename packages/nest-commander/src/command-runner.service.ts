@@ -58,8 +58,11 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
    * application.
    */
   private async setUpDefaultCommand(): Promise<void> {
-    const [defaultCommand] =
+    const [defaultCommand, ...others] =
       await this.discoveryService.providersWithMetaAtKey<RootCommandMetadata>(RootCommandMeta);
+    if (others?.length) {
+      throw new Error('You can only have one @RootCommand() in your application');
+    }
     if (!defaultCommand) {
       return;
     }
