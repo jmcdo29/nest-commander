@@ -29,6 +29,20 @@ effect.
 
 :::
 
+#### @RootCommand()
+
+Just like `@Command()` except without the `name` property, and can only be used once per
+application.
+
+| Property        | Type                     | Required | Description                                                                                                                                                              |
+| --------------- | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| arguments       | `string`                 | false    | The arguments that the command takes in. For required arguments, wrap the argument in `<>`, for optional use `[]`.                                                       |
+| description     | `string`                 | false    | The description of what the command does. This will be printed on the `--help` usage.                                                                                    |
+| argsDescription | `Record<string, string>` | false    | The description for each argument. It will be used on `--help` as well.                                                                                                  |
+| options         | `CommandOptions`         | false    | Extra options to pass to the commander instance. Check [commander's types](https://github.com/tj/commander.js/blob/master/typings/index.d.ts#L713) for more information. |
+| subCommands     | `Type<CommandRunner>`    | false    | Subcommands related to the parent command, e.g.:<br/>`docker compose up` and `docker compose stop`.                                                                      |
+| aliases         | `Array<string>`          | false    | Aliases for the `SubCommand`. You can pass this array to a `Command` but it will have no effect on the parsing of the command.                                           |
+
 #### @Option()
 
 This method decorator allows for users to pass in extra options for commands defined with
