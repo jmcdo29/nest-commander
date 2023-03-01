@@ -1,5 +1,20 @@
 # nest-commander
 
+## 3.6.0
+
+### Minor Changes
+
+- 7f54ff8: Add serviceErrorHandler option
+
+  This option allows for catching and handling errors at the Nest service execution level so that
+  lifecycle hooks still properly work. By default it is set to
+  `(err: Error) => process.stderr.write(err.toString())`.
+
+- 09b6134: Add the ability to have a Root command
+
+  With the `@RootCommand()` the `-h` flag can now output the options of the default command _along
+  with_ the names of the other commands.
+
 ## 3.5.0
 
 ### Minor Changes
