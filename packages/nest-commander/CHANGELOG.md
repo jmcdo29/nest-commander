@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.6.1
+
+### Patch Changes
+
+- c35e8cc: Fixed issue with parsing serviceErrorHandler option to properly override default behaviour
+
 ## 3.6.0
 
 ### Minor Changes
