@@ -62,17 +62,19 @@ export class CommandFactory {
     let tempHandler: ((err: Error) => void) | undefined;
     let usePlugins = false;
     let cliName = 'nest-commander';
+    let serviceErrorHandler = undefined;
     if (this.isFactoryOptionsObject(optionsOrLogger)) {
       ({
         logger,
         errorHandler: tempHandler,
         cliName = cliName,
         usePlugins = usePlugins,
+        serviceErrorHandler,
       } = optionsOrLogger);
     } else {
       logger = optionsOrLogger;
     }
-    return { logger, errorHandler: tempHandler, usePlugins, cliName };
+    return { logger, errorHandler: tempHandler, usePlugins, cliName, serviceErrorHandler };
   }
 
   private static isFactoryOptionsObject(
