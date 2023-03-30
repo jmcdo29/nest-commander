@@ -344,7 +344,7 @@ write the setting like followed by example instead of the previous example.
 
 ```typescript title="src/app.module.ts"
 @Module({
-  providers: [...RunCommand.regsiterWithSubCommands()]
+  providers: [...RunCommand.registerWithSubCommands()]
 })
 export class AppModule {}
 ```
