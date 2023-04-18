@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.6.2
+
+### Patch Changes
+
+- 6fb3d91: Fix the Inquirer type to work above `@types/inquirer@8.2.1`
+
 ## 3.6.1
 
 ### Patch Changes
