@@ -1,0 +1,29 @@
+{
+  "name": "nest-commander-schematics",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "type": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "deleteOutputPath": true,
+        "main": "packages/nest-commander-schematics/src/collection.json",
+        "outputPath": "dist/nest-commander-schematics",
+        "packageJson": "packages/nest-commander-schematics/package.json",
+        "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json",
+        "assets": [
+          "packages/nest-commander-schematics/*.md",
+          "packages/nest-commander-schematics/src/**/*.json"
+        ]
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "dist/nest-commander-schematics",
+        "command": "pnpm publish"
+      }
+    }
+  },
+  "implicitDependencies": []
+}

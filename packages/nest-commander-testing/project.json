@@ -1,0 +1,32 @@
+{
+  "name": "nest-commander-testing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "type": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
+      "options": {
+        "deleteOutputPath": true,
+        "main": "packages/nest-commander-testing/src/index.ts",
+        "outputPath": "dist/nest-commander-testing",
+        "packageJson": "packages/nest-commander-testing/package.json",
+        "tsConfig": "packages/nest-commander-testing/tsconfig.build.json",
+        "assets": ["packages/nest-commander-testing/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "dist/nest-commander-testing",
+        "command": "pnpm publish"
+      }
+    }
+  },
+  "implicitDependencies": []
+}

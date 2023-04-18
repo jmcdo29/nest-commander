@@ -1,0 +1,17 @@
+{
+  "name": "integration",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "type": "library",
+  "targets": {
+    "e2e": {
+      "executor": "nx-uvu:uvu",
+      "options": {
+        "rootDir": "integration",
+        "useSwc": true,
+        "coverage": true,
+        "pattern": "index.spec.ts"
+      }
+    }
+  },
+  "implicitDependencies": ["nest-commander", "nest-commander-testing"]
+}
