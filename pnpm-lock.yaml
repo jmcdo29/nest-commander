@@ -134,8 +134,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       inquirer:
-        specifier: 8.2.4
-        version: 8.2.4
+        specifier: 8.2.5
+        version: 8.2.5
       lint-staged:
         specifier: 13.2.1
         version: 13.2.1
@@ -203,8 +203,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0
       inquirer:
-        specifier: 8.2.4
-        version: 8.2.4
+        specifier: 8.2.5
+        version: 8.2.5
 
   packages/nest-commander-schematics:
     dependencies:
@@ -7614,6 +7614,7 @@ packages:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 7.0.0
+    dev: true
 
   /inquirer@8.2.5:
     resolution: {integrity: sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==}
@@ -7634,7 +7635,6 @@ packages:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 7.0.0
-    dev: true
 
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
