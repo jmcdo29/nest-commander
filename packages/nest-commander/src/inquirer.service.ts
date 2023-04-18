@@ -1,6 +1,7 @@
 import { DiscoveredMethodWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
 import { Inject, Injectable } from '@nestjs/common';
-import { Answers, DistinctQuestion, Inquirer as InquirerType } from 'inquirer';
+import { Answers, DistinctQuestion } from 'inquirer';
+import * as inquirerImport from 'inquirer';
 import {
   InquirerKeysWithPossibleFunctionTypes,
   QuestionMetadata,
@@ -21,7 +22,7 @@ import {
 @Injectable()
 export class InquirerService {
   constructor(
-    @Inject(Inquirer) readonly inquirer: InquirerType,
+    @Inject(Inquirer) readonly inquirer: typeof inquirerImport,
     private readonly discoveryService: DiscoveryService,
   ) {}
 
