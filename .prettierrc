@@ -2,7 +2,7 @@
   "singleQuote": true,
   "arrowParens": "always",
   "trailingComma": "all",
-  "printWidth": 100,
+  "printWidth": 80,
   "overrides": [
     {
       "files": "*.md",

@@ -17,7 +17,8 @@ export class CommandFactory {
     rootModule: Type<any>,
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<void> {
-    const app = await this.runApplication(rootModule, optionsOrLogger);
+    const app = await this.createWithoutRunning(rootModule, optionsOrLogger);
+    await this.runApplication(app);
     await app.close();
   }
 
@@ -25,10 +26,12 @@ export class CommandFactory {
     rootModule: Type<any>,
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<INestApplicationContext> {
-    return this.runApplication(rootModule, optionsOrLogger);
+    const app = await this.createWithoutRunning(rootModule, optionsOrLogger);
+    await this.runApplication(app);
+    return app;
   }
 
-  private static async runApplication(
+  static async createWithoutRunning(
     rootModule: Type<any>,
     optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
   ): Promise<INestApplicationContext> {
@@ -39,23 +42,38 @@ export class CommandFactory {
     if (options.usePlugins) {
       pluginsAvailable = await this.registerPlugins(options.cliName, imports);
     }
-    const commandRunnerModule = this.createCommandModule(imports, { ...options, pluginsAvailable });
-    const app = await NestFactory.createApplicationContext(commandRunnerModule, {
-      logger: options.logger,
+    const commandRunnerModule = this.createCommandModule(imports, {
+      ...options,
+      pluginsAvailable,
     });
+    const app = await NestFactory.createApplicationContext(
+      commandRunnerModule,
+      {
+        logger: options.logger,
+      },
+    );
+    return app;
+  }
+
+  static async runApplication(
+    app: INestApplicationContext,
+  ): Promise<INestApplicationContext> {
     const runner = app.get(CommandRunnerService);
     await runner.run();
     return app;
   }
 
-  private static createCommandModule(
+  protected static createCommandModule(
     imports: ModuleMetadata['imports'],
     options: CommanderOptionsType,
   ): DynamicModule {
-    return CommandRunnerModule.forModule({ module: CommandRootModule, imports }, options);
+    return CommandRunnerModule.forModule(
+      { module: CommandRootModule, imports },
+      options,
+    );
   }
 
-  private static getOptions(
+  protected static getOptions(
     optionsOrLogger: CommandFactoryRunOptions | NestLogger,
   ): DefinedCommandFactoryRunOptions {
     let logger: NestLogger | undefined;
@@ -89,7 +107,7 @@ export class CommandFactory {
     };
   }
 
-  private static isFactoryOptionsObject(
+  protected static isFactoryOptionsObject(
     loggerOrOptions: CommandFactoryRunOptions | NestLogger,
   ): loggerOrOptions is CommandFactoryRunOptions {
     return !(
@@ -99,7 +117,7 @@ export class CommandFactory {
     );
   }
 
-  private static async registerPlugins(
+  protected static async registerPlugins(
     cliName: string,
     imports: ModuleMetadata['imports'],
   ): Promise<boolean> {
@@ -119,7 +137,9 @@ export class CommandFactory {
       return false;
     }
     for (const pluginPath of pluginConfig?.config.plugins ?? []) {
-      const plugin = await import(require.resolve(pluginPath, { paths: [process.cwd()] }));
+      const plugin = await import(
+        require.resolve(pluginPath, { paths: [process.cwd()] })
+      );
       imports?.push(plugin.default);
     }
     return true;
