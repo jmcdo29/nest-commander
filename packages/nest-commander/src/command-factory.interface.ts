@@ -14,9 +14,10 @@ export interface CommandFactoryRunOptions {
   usePlugins?: boolean;
   cliName?: string;
   serviceErrorHandler?: ErrorHandler;
+  enablePositionalOptions?: boolean;
+  enablePassThroughOptions?: boolean;
 }
 
 export interface CommanderOptionsType extends Omit<CommandFactoryRunOptions, 'logger'> {
   pluginsAvailable?: boolean;
-  enablePositionalOptions?: boolean;
 }

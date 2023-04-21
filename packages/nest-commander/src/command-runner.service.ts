@@ -38,6 +38,7 @@ export class CommandRunnerService implements OnModuleInit {
     const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
       CommandMeta,
     );
+
     const commands = await this.populateCommandMapInstances(providers);
     await this.setUpCommander(commands);
 
@@ -116,6 +117,16 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       );
     }
     newCommand.description(command.command.description ?? '');
+
+    // Needs to be applied to every command
+    // Commands created with the constructor do not inherit from the parent
+    if (this.options.enablePositionalOptions) {
+      newCommand.enablePositionalOptions(true);
+    }
+    if (this.options.enablePassThroughOptions) {
+      newCommand.passThroughOptions(true);
+    }
+
     for (const option of command.params) {
       const {
         flags,
