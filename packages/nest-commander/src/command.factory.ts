@@ -63,6 +63,8 @@ export class CommandFactory {
     let usePlugins = false;
     let cliName = 'nest-commander';
     let serviceErrorHandler = undefined;
+    let enablePositionalOptions = false;
+    let enablePassThroughOptions = false;
     if (this.isFactoryOptionsObject(optionsOrLogger)) {
       ({
         logger,
@@ -70,11 +72,21 @@ export class CommandFactory {
         cliName = cliName,
         usePlugins = usePlugins,
         serviceErrorHandler,
+        enablePositionalOptions = enablePositionalOptions,
+        enablePassThroughOptions = enablePassThroughOptions,
       } = optionsOrLogger);
     } else {
       logger = optionsOrLogger;
     }
-    return { logger, errorHandler: tempHandler, usePlugins, cliName, serviceErrorHandler };
+    return {
+      logger,
+      errorHandler: tempHandler,
+      usePlugins,
+      cliName,
+      serviceErrorHandler,
+      enablePositionalOptions,
+      enablePassThroughOptions,
+    };
   }
 
   private static isFactoryOptionsObject(
