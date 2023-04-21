@@ -47,8 +47,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
       '@nestjs/cli':
-        specifier: 9.4.0
-        version: 9.4.0(@swc/core@1.3.52)
+        specifier: 9.4.1
+        version: 9.4.1(@swc/core@1.3.52)
       '@nestjs/common':
         specifier: 9.4.0
         version: 9.4.0(reflect-metadata@0.1.13)(rxjs@7.8.0)
@@ -2831,8 +2831,8 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@nestjs/cli@9.4.0(@swc/core@1.3.52):
-    resolution: {integrity: sha512-mATM41qS/YYzYbpAeyWnrhtfmIevmlBvvppP5h0i1w0uRWewRbtOZ+Ow8MmcvrfdnYGHMjLmhMjReV77YXBa8w==}
+  /@nestjs/cli@9.4.1(@swc/core@1.3.52):
+    resolution: {integrity: sha512-m58dYogFRjFqxe0/U6J9J877z/9opdtrRlxrjcsv1mEO9ZlQ07hEuub9um1Vleu+i6iG11lW+G464kn85rUsNw==}
     engines: {node: '>= 12.9.0'}
     hasBin: true
     dependencies:
