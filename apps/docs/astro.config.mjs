@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import { h } from 'hastscript';
 import directive from 'remark-directive';
 import { visit } from 'unist-util-visit';
@@ -57,7 +58,8 @@ function calloutsPlugin() {
 
         // Creating the content's column.
         const contentColWrapper = h('div');
-        const contentColWrapperData = contentColWrapper.data || (contentColWrapper.data = {});
+        const contentColWrapperData =
+          contentColWrapper.data || (contentColWrapper.data = {});
         contentColWrapperData.hName = 'div';
         contentColWrapperData.hProperties = h('div', {
           class: 'column',
@@ -66,7 +68,8 @@ function calloutsPlugin() {
 
         // Creating the column's wrapper.
         const columnsWrapper = h('div');
-        const columnsWrapperData = columnsWrapper.data || (columnsWrapper.data = {});
+        const columnsWrapperData =
+          columnsWrapper.data || (columnsWrapper.data = {});
         columnsWrapperData.hName = 'div';
         columnsWrapperData.hProperties = h('div', {
           class: 'columns',
@@ -96,6 +99,7 @@ export default defineConfig({
     preact(),
     // Enable React for the Algolia search component.
     react(),
+    sitemap(),
   ],
   markdown: {
     extendDefaultPlugins: true,
