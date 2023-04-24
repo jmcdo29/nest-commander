@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.6.3
+
+### Patch Changes
+
+- 84b5067: Adds support for positional options and passthrough options
+
 ## 3.6.2
 
 ### Patch Changes
