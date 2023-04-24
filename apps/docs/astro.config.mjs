@@ -105,5 +105,4 @@ export default defineConfig({
     extendDefaultPlugins: true,
     remarkPlugins: [directive, calloutsPlugin],
   },
-  site: `http://astro.build`,
 });
