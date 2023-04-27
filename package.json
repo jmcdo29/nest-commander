@@ -89,7 +89,7 @@
     "react-dom": "18.2.0",
     "reflect-metadata": "0.1.13",
     "remark-directive": "^2.0.1",
-    "rxjs": "7.8.0",
+    "rxjs": "7.8.1",
     "typescript": "5.0.4",
     "unist-util-visit": "^4.1.2",
     "url-loader": "4.1.1",
