@@ -53,7 +53,7 @@
     "@nestjs/common": "9.4.0",
     "@nestjs/core": "9.4.0",
     "@nestjs/testing": "9.4.0",
-    "@nrwl/js": "16.0.0",
+    "@nrwl/js": "16.0.1",
     "@nrwl/node": "16.0.0",
     "@nrwl/nx-cloud": "15.3.5",
     "@nrwl/workspace": "16.0.0",
