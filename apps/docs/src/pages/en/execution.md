@@ -45,16 +45,11 @@ but this generally is not necessary to do.
 
 ## Nest CLI
 
-You can also use the Nest CLI to build and start the command. It is advised, however, to not do this
-unless you are only using a default command wth no options and no arguments, as the Nest CLI does
-not pass on extra flags to the underlying command being ran.
+You can also use the Nest CLI to build and start the command.  You can pass any arguments after `--`
 
 ```shell
-nest start --watch
+nest start --watch -- [args]
 ```
-
-The `--watch` is great for the auto restart during dev mode with no args, but it is not the advised
-way to run the command.
 
 ## Ts-Node
 
