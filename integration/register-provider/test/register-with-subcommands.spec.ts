@@ -30,7 +30,12 @@ RegisterWithSubCommandsSuite.after.each(({ logMock, exitMock }) => {
 RegisterWithSubCommandsSuite.after(({ exitMock }) => {
   exitMock.restore();
 });
-for (const command of [['top'], ['top', 'mid-1'], ['top', 'mid-1', 'bottom'], ['top', 'mid-2']]) {
+for (const command of [
+  ['top'],
+  ['top', 'mid-1'],
+  ['top', 'mid-1', 'bottom'],
+  ['top', 'mid-2'],
+]) {
   RegisterWithSubCommandsSuite(
     `run the ${command} command`,
     async ({ commandInstance, logMock }) => {

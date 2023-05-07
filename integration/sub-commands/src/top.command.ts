@@ -4,7 +4,11 @@ import { LogService } from '../../common/log.service';
 import { Mid1Command } from './mid-1.command';
 import { Mid2Command } from './mid-2.command';
 
-@Command({ name: 'top', arguments: '[name]', subCommands: [Mid1Command, Mid2Command] })
+@Command({
+  name: 'top',
+  arguments: '[name]',
+  subCommands: [Mid1Command, Mid2Command],
+})
 export class TopCommand extends CommandRunner {
   constructor(private readonly log: LogService) {
     super();

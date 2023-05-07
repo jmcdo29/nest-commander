@@ -22,17 +22,26 @@ OptionChoiceSuite.before(async (context) => {
 OptionChoiceSuite.before.each(({ logMock }) => {
   logMock.reset();
 });
-OptionChoiceSuite('Send in option "yes"', async ({ commandInstance, logMock }) => {
-  await CommandTestFactory.run(commandInstance, ['-c', 'yes']);
-  equal(logMock.firstCall?.args[0], { choice: 'yes' });
-});
-OptionChoiceSuite('Send in option "no"', async ({ commandInstance, logMock }) => {
-  await CommandTestFactory.run(commandInstance, ['-c', 'no']);
-  equal(logMock.firstCall?.args[0], { choice: 'no' });
-});
-OptionChoiceSuite('Send in "yes" for verify', async ({ commandInstance, logMock }) => {
-  await CommandTestFactory.run(commandInstance, ['-v', 'yes']);
-  equal(logMock.firstCall?.args[0], 'verify choice parser');
-});
+OptionChoiceSuite(
+  'Send in option "yes"',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['-c', 'yes']);
+    equal(logMock.firstCall?.args[0], { choice: 'yes' });
+  },
+);
+OptionChoiceSuite(
+  'Send in option "no"',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['-c', 'no']);
+    equal(logMock.firstCall?.args[0], { choice: 'no' });
+  },
+);
+OptionChoiceSuite(
+  'Send in "yes" for verify',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['-v', 'yes']);
+    equal(logMock.firstCall?.args[0], 'verify choice parser');
+  },
+);
 
 OptionChoiceSuite.run();

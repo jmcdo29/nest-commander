@@ -10,7 +10,10 @@ import { CliUtilityService } from './cli-utility.service';
 
 @Module({})
 export class CommandRunnerModule {
-  static inquirerOptions: { input: NodeJS.ReadStream; output: NodeJS.WriteStream } = {
+  static inquirerOptions: {
+    input: NodeJS.ReadStream;
+    output: NodeJS.WriteStream;
+  } = {
     input: process.stdin,
     output: process.stdout,
   };

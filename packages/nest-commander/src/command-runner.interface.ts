@@ -27,9 +27,12 @@ type InquirerQuestionWithoutFilter<T> = Omit<T, 'filter'>;
 type CommandRunnerClass = ClassProvider<CommandRunner> & typeof CommandRunner;
 
 export abstract class CommandRunner {
-  static registerWithSubCommands(meta: string = CommandMeta): CommandRunnerClass[] {
+  static registerWithSubCommands(
+    meta: string = CommandMeta,
+  ): CommandRunnerClass[] {
     // NOTE: "this' in the scope is inherited class
-    const subcommands: CommandRunnerClass[] = Reflect.getMetadata(meta, this)?.subCommands || [];
+    const subcommands: CommandRunnerClass[] =
+      Reflect.getMetadata(meta, this)?.subCommands || [];
     return subcommands.reduce(
       (current: CommandRunnerClass[], subcommandClass: CommandRunnerClass) => {
         const results = subcommandClass.registerWithSubCommands(SubCommandMeta);
@@ -43,7 +46,10 @@ export abstract class CommandRunner {
     this.command = command;
     return this;
   }
-  abstract run(passedParams: string[], options?: Record<string, any>): Promise<void>;
+  abstract run(
+    passedParams: string[],
+    options?: Record<string, any>,
+  ): Promise<void>;
 }
 
 export interface CommandMetadata {
@@ -56,7 +62,9 @@ export interface CommandMetadata {
   aliases?: string[];
 }
 
-export type RootCommandMetadata = Omit<CommandMetadata, 'name'> & { name?: string };
+export type RootCommandMetadata = Omit<CommandMetadata, 'name'> & {
+  name?: string;
+};
 
 export interface OptionMetadata {
   flags: string;

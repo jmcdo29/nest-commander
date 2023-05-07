@@ -6,10 +6,10 @@ import { equal } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { HelloCommandModule } from '../src/root.module';
 
-export const SetQuestionSuite =
-  suite<{ commandInstance: TestingModule; logMock: Stub<typeof console.log> }>(
-    'Set Question Suite',
-  );
+export const SetQuestionSuite = suite<{
+  commandInstance: TestingModule;
+  logMock: Stub<typeof console.log>;
+}>('Set Question Suite');
 SetQuestionSuite.before.each(async (context) => {
   context.logMock = stubMethod(console, 'log');
   context.commandInstance = await CommandTestFactory.createTestingCommand({

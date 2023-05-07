@@ -40,7 +40,11 @@ RootCommandSuite(
       Instead, got ${logMock.firstCall?.args}
       `,
     );
-    equal(exitStub.firstCall?.args[0], 0, 'process.exit should be called with 0');
+    equal(
+      exitStub.firstCall?.args[0],
+      0,
+      'process.exit should be called with 0',
+    );
     exitStub.restore();
     errMock.restore();
   },

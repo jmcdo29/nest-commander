@@ -1,4 +1,9 @@
-import { Command, CommandRunner, Option, OptionChoiceFor } from 'nest-commander';
+import {
+  Command,
+  CommandRunner,
+  Option,
+  OptionChoiceFor,
+} from 'nest-commander';
 
 import { LogService } from '../../common/log.service';
 import { ChoicesProvider } from './choices-provider.service';

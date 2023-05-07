@@ -2,7 +2,11 @@ import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
 import { randomBytes } from 'crypto';
 import { Answers, DistinctQuestion, ListQuestion } from 'inquirer';
-import { CommandRunnerModule, CommandRunnerService, Inquirer } from 'nest-commander';
+import {
+  CommandRunnerModule,
+  CommandRunnerService,
+  Inquirer,
+} from 'nest-commander';
 
 export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
   imports: NonNullable<ModuleMetadata['imports']>;
@@ -16,7 +20,9 @@ export class CommandTestFactory {
     this.useOriginalInquirer = true;
     return this;
   }
-  static createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder {
+  static createTestingCommand(
+    moduleMetadata: CommandModuleMetadata,
+  ): TestingModuleBuilder {
     moduleMetadata.imports.push(CommandRunnerModule.forModule());
     const testingModule = Test.createTestingModule(moduleMetadata);
     if (!this.useOriginalInquirer) {
@@ -48,9 +54,9 @@ export class CommandTestFactory {
         if (typeof choices === 'function') {
           choices = await choices(answers);
         }
-        const choice = (choices as Array<{ key?: string; value?: string; name?: string }>).find(
-          (c) => c.key === this.testAnswers[i],
-        );
+        const choice = (
+          choices as Array<{ key?: string; value?: string; name?: string }>
+        ).find((c) => c.key === this.testAnswers[i]);
         answer = choice?.value || this.testAnswers[i];
       } else {
         answer = this.testAnswers[i];
@@ -61,7 +67,8 @@ export class CommandTestFactory {
       if (question.message && typeof question.message === 'function') {
         await question.message(this.testAnswers);
       }
-      answers[question.name ?? 'default'] = (await question.filter?.(answer, answers)) ?? answer;
+      answers[question.name ?? 'default'] =
+        (await question.filter?.(answer, answers)) ?? answer;
     }
     return answers;
   }

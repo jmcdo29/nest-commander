@@ -27,7 +27,10 @@ const logSpySuite = (name: string) => {
   return lgSuite;
 };
 
-export function commandMock(expected: ExpectedParam, spy: Stub<Console['log']>): void {
+export function commandMock(
+  expected: ExpectedParam,
+  spy: Stub<Console['log']>,
+): void {
   equal(spy.firstCall?.args[0], { param: ['test'], ...expected });
 }
 
@@ -70,7 +73,11 @@ BooleanCommandSuite('-b false', async ({ logSpy }) => {
 export const UnknownCommandSuite = logSpySuite('Unknown Command/Print Help');
 UnknownCommandSuite('should not throw an error', async () => {
   const exitSpy = stubMethod(process, 'exit');
-  process.argv = [process.argv[0], join(__dirname, 'basic.command.js'), '--help'];
+  process.argv = [
+    process.argv[0],
+    join(__dirname, 'basic.command.js'),
+    '--help',
+  ];
 
   const stdErrSpy = stubMethod(process.stderr, 'write');
   const stdoutSpy = stubMethod(process.stdout, 'write');
@@ -79,14 +86,20 @@ UnknownCommandSuite('should not throw an error', async () => {
   } finally {
     stdErrSpy.restore();
     stdoutSpy.restore();
-    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n(Did you mean --help?)\n"]);
+    equal(stdErrSpy.firstCall?.args, [
+      "error: unknown option '--help'\n(Did you mean --help?)\n",
+    ]);
     equal(stdoutSpy.firstCall?.args, [outputHelp]);
     exitSpy.restore();
   }
 });
 UnknownCommandSuite('should not throw an error', async () => {
   const exitSpy = stubMethod(process, 'exit');
-  process.argv = [process.argv[0], join(__dirname, 'basic.command.js'), '--help'];
+  process.argv = [
+    process.argv[0],
+    join(__dirname, 'basic.command.js'),
+    '--help',
+  ];
 
   const stdErrSpy = stubMethod(process.stderr, 'write');
   const stdoutSpy = stubMethod(process.stdout, 'write');
@@ -100,7 +113,9 @@ UnknownCommandSuite('should not throw an error', async () => {
   } finally {
     stdErrSpy.restore();
     stdoutSpy.restore();
-    equal(stdErrSpy.firstCall?.args, ["error: unknown option '--help'\n(Did you mean --help?)\n"]);
+    equal(stdErrSpy.firstCall?.args, [
+      "error: unknown option '--help'\n(Did you mean --help?)\n",
+    ]);
     equal(stdoutSpy.firstCall?.args, [outputHelp]);
     exitSpy.restore();
   }
