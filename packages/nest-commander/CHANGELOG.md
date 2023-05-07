@@ -1,5 +1,12 @@
 # nest-commander
 
+## 3.7.1
+
+### Patch Changes
+
+- 1ceab9d: Log error and stack wtih custom error message instead of just custom error
+  message
+
 ## 3.7.0
 
 ### Minor Changes
