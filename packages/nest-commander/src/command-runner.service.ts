@@ -1,5 +1,8 @@
 import { Inject, Logger, OnModuleInit } from '@nestjs/common';
-import { DiscoveredClassWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
+import {
+  DiscoveredClassWithMeta,
+  DiscoveryService,
+} from '@golevelup/nestjs-discovery';
 import { Command, Option } from 'commander';
 import { CommanderOptionsType } from './command-factory.interface';
 import {
@@ -35,9 +38,10 @@ export class CommandRunnerService implements OnModuleInit {
 
   async onModuleInit() {
     await this.setUpDefaultCommand();
-    const providers = await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
-      CommandMeta,
-    );
+    const providers =
+      await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
+        CommandMeta,
+      );
 
     const commands = await this.populateCommandMapInstances(providers);
     await this.setUpCommander(commands);
@@ -45,13 +49,17 @@ export class CommandRunnerService implements OnModuleInit {
     if (this.options.usePlugins) {
       this.commander.showHelpAfterError(`
 ${this.commander.helpInformation()}
-${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsAvailable)}`);
+${cliPluginError(
+  this.options.cliName ?? 'nest-commander',
+  this.options.pluginsAvailable,
+)}`);
     }
     if (this.options.errorHandler) {
       this.commander.exitOverride(this.options.errorHandler);
     }
     if (!this.options.serviceErrorHandler) {
-      this.options.serviceErrorHandler = (err: Error) => process.stderr.write(err.toString());
+      this.options.serviceErrorHandler = (err: Error) =>
+        process.stderr.write(err.toString());
     }
   }
 
@@ -63,14 +71,20 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
    */
   private async setUpDefaultCommand(): Promise<void> {
     const [defaultCommand, ...others] =
-      await this.discoveryService.providersWithMetaAtKey<RootCommandMetadata>(RootCommandMeta);
+      await this.discoveryService.providersWithMetaAtKey<RootCommandMetadata>(
+        RootCommandMeta,
+      );
     if (others?.length) {
-      throw new Error('You can only have one @RootCommand() in your application');
+      throw new Error(
+        'You can only have one @RootCommand() in your application',
+      );
     }
     if (!defaultCommand) {
       return;
     }
-    const [populatedCommand] = await this.populateCommandMapInstances([defaultCommand]);
+    const [populatedCommand] = await this.populateCommandMapInstances([
+      defaultCommand,
+    ]);
     const builtDefault = await this.buildCommand(populatedCommand);
     this.commander = builtDefault;
   }
@@ -85,10 +99,11 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
           OptionMeta,
           (found) => found.name === provider.discoveredClass.name,
         );
-      const helpProviders = await this.discoveryService.providerMethodsWithMetaAtKey<HelpOptions>(
-        HelpMeta,
-        (found) => found.name === provider.discoveredClass.name,
-      );
+      const helpProviders =
+        await this.discoveryService.providerMethodsWithMetaAtKey<HelpOptions>(
+          HelpMeta,
+          (found) => found.name === provider.discoveredClass.name,
+        );
       commands.push({
         command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
@@ -168,7 +183,10 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
       newCommand.addOption(commandOption);
     }
     for (const help of command.help ?? []) {
-      newCommand.addHelpText(help.meta, help.discoveredMethod.handler.bind(command.instance));
+      newCommand.addHelpText(
+        help.meta,
+        help.discoveredMethod.handler.bind(command.instance),
+      );
     }
     command.command.aliases?.forEach((alias) => newCommand.alias(alias));
     newCommand.action(async () => {
@@ -176,29 +194,36 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
         command.instance.run.bind(command.instance);
         return await command.instance.run(newCommand.args, newCommand.opts());
       } catch (err) {
-        if ((err as Error).message.includes('Cannot read properties of undefined')) {
-          const className = /\s+at\s(\w+)\.run/.exec((err as Error).stack ?? '')?.[1];
-          this.logger.error(
-            `A service tried to call a property of "undefined" in the ${className} class. Did you use a request scoped provider without the @RequestModule() decorator?`,
-            '',
-            'CommandRunnerService',
-          );
-          return;
+        if (err instanceof Error) {
+          if (err.message.includes('Cannot read properties of undefined')) {
+            const className = /\s+at\s(\w+)\.run/.exec(err.stack ?? '')?.[1];
+            this.logger.error(
+              `A service tried to call a property of "undefined" in the ${className} class. Did you use a request scoped provider without the @RequestModule() decorator?\n\n${err.message}`,
+              err.stack,
+              'CommandRunnerService',
+            );
+            return;
+          } else {
+            throw err;
+          }
         } else {
           throw err;
         }
       }
     });
     if (command.command.subCommands?.length) {
-      this.subCommands ??= await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
-        SubCommandMeta,
-      );
+      this.subCommands ??=
+        await this.discoveryService.providersWithMetaAtKey<CommandMetadata>(
+          SubCommandMeta,
+        );
       const subCommandsMetaForCommand = this.subCommands.filter((subMeta) =>
         command.command.subCommands
           ?.map((subCommand) => subCommand.name)
           .includes(subMeta.discoveredClass.name),
       );
-      const subCommands = await this.populateCommandMapInstances(subCommandsMetaForCommand);
+      const subCommands = await this.populateCommandMapInstances(
+        subCommandsMetaForCommand,
+      );
       for (const subCommand of subCommands) {
         newCommand.addCommand(await this.buildCommand(subCommand), {
           isDefault: subCommand.command.options?.isDefault ?? false,
@@ -218,7 +243,9 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
     const splitArgs = args.split(' ');
     for (const arg of splitArgs) {
       let added = false;
-      for (const key of Object.keys(argDescriptions).filter((key) => arg.includes(key))) {
+      for (const key of Object.keys(argDescriptions).filter((key) =>
+        arg.includes(key),
+      )) {
         added = true;
         trueArgDefs[arg] = argDescriptions[key];
       }
@@ -227,6 +254,8 @@ ${cliPluginError(this.options.cliName ?? 'nest-commander', this.options.pluginsA
   }
 
   async run(args?: string[]): Promise<void> {
-    await this.commander.parseAsync(args || process.argv).catch(this.options.serviceErrorHandler);
+    await this.commander
+      .parseAsync(args || process.argv)
+      .catch(this.options.serviceErrorHandler);
   }
 }
