@@ -31,7 +31,10 @@ type CommandDecorator = <TFunction extends Type<CommandRunner>>(
   target: TFunction,
 ) => void | TFunction;
 
-const applyMethodMetadata = (options: any, metadataKey: string): MethodDecorator => {
+const applyMethodMetadata = (
+  options: any,
+  metadataKey: string,
+): MethodDecorator => {
   return (
     _target: Record<string, any>,
     _propertyKey: string | symbol,
@@ -42,7 +45,10 @@ const applyMethodMetadata = (options: any, metadataKey: string): MethodDecorator
   };
 };
 
-const applyClassMetadata = (options: any, metadataKey: string): ClassDecorator => {
+const applyClassMetadata = (
+  options: any,
+  metadataKey: string,
+): ClassDecorator => {
   return (target) => {
     Reflect.defineMetadata(metadataKey, options, target);
     return target;
@@ -66,7 +72,9 @@ export const Option = (options: OptionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, OptionMeta);
 };
 
-export const OptionChoiceFor = (options: OptionChoiceForMetadata): MethodDecorator => {
+export const OptionChoiceFor = (
+  options: OptionChoiceForMetadata,
+): MethodDecorator => {
   return applyMethodMetadata(options, OptionChoiceMeta);
 };
 
@@ -82,7 +90,9 @@ export const ValidateFor = (options: QuestionNameMetadata): MethodDecorator => {
   return applyMethodMetadata(options, ValidateMeta);
 };
 
-export const TransformFor = (options: QuestionNameMetadata): MethodDecorator => {
+export const TransformFor = (
+  options: QuestionNameMetadata,
+): MethodDecorator => {
   return applyMethodMetadata(options, TransformMeta);
 };
 

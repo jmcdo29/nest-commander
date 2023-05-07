@@ -35,7 +35,10 @@ for (const { flagVal, expected } of [
   ThisOptionHandlerSuite(
     `this-handler with arg ${flagVal} and log ${expected}`,
     async ({ commandInstance, logMock }) => {
-      await CommandTestFactory.run(commandInstance, ['this-handler'].concat(flagVal));
+      await CommandTestFactory.run(
+        commandInstance,
+        ['this-handler'].concat(flagVal),
+      );
       equal(logMock.firstCall?.args[0], { basic: expected });
     },
   );

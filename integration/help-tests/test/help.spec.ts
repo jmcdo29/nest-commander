@@ -45,54 +45,71 @@ HelpSuite.after(({ exitSpy, stdoutSpy }) => {
   exitSpy.restore();
   stdoutSpy.restore();
 });
-shouldAddHelp(HelpSuite, 'before', async ({ commandInstance, stdoutSpy, exitSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('before'));
-  equal(
-    stdoutSpy.firstCall?.args[0],
-    `before help
+shouldAddHelp(
+  HelpSuite,
+  'before',
+  async ({ commandInstance, stdoutSpy, exitSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('before'));
+    equal(
+      stdoutSpy.firstCall?.args[0],
+      `before help
 `,
-  );
-  const stdoutCall: string[] = stdoutSpy.getCall(1)?.args[0]?.toString().split('\n');
-  matchUsage(stdoutCall, 'before');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    const stdoutCall: string[] = stdoutSpy
+      .getCall(1)
+      ?.args[0]?.toString()
+      .split('\n');
+    matchUsage(stdoutCall, 'before');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 before
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
-shouldAddHelp(HelpSuite, 'beforeAll', async ({ commandInstance, stdoutSpy, exitSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('before-all'));
-  equal(
-    stdoutSpy.firstCall?.args[0],
-    `before all help
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(
+  HelpSuite,
+  'beforeAll',
+  async ({ commandInstance, stdoutSpy, exitSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('before-all'));
+    equal(
+      stdoutSpy.firstCall?.args[0],
+      `before all help
 `,
-  );
-  const stdoutCall: string[] = stdoutSpy.getCall(1).args[0].toString().split('\n');
-  matchUsage(stdoutCall, 'before-all');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    const stdoutCall: string[] = stdoutSpy
+      .getCall(1)
+      .args[0].toString()
+      .split('\n');
+    matchUsage(stdoutCall, 'before-all');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 before-all
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
 
 shouldAddHelp(
   HelpSuite,
   'beforeAll and before',
   async ({ commandInstance, stdoutSpy, exitSpy }) => {
-    await CommandTestFactory.run(commandInstance, argsBuilder('before-before-all'));
+    await CommandTestFactory.run(
+      commandInstance,
+      argsBuilder('before-before-all'),
+    );
     equal(
       stdoutSpy.firstCall?.args[0],
       `before all help
@@ -103,7 +120,10 @@ shouldAddHelp(
       `before help
 `,
     );
-    const stdoutCall: string[] = stdoutSpy.getCall(2).args[0].toString().split('\n');
+    const stdoutCall: string[] = stdoutSpy
+      .getCall(2)
+      .args[0].toString()
+      .split('\n');
     matchUsage(stdoutCall, 'before-before-all');
     stdoutCall.shift();
     equal(
@@ -118,132 +138,164 @@ Options:
     exitCalledWithZero(exitSpy);
   },
 );
-shouldAddHelp(HelpSuite, 'before and after', async ({ commandInstance, exitSpy, stdoutSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('before-after'));
-  equal(
-    stdoutSpy.firstCall?.args[0],
-    `before help
+shouldAddHelp(
+  HelpSuite,
+  'before and after',
+  async ({ commandInstance, exitSpy, stdoutSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('before-after'));
+    equal(
+      stdoutSpy.firstCall?.args[0],
+      `before help
 `,
-  );
-  const stdoutCall: string[] = stdoutSpy.getCall(1).args[0].toString().split('\n');
-  matchUsage(stdoutCall, 'before-after');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    const stdoutCall: string[] = stdoutSpy
+      .getCall(1)
+      .args[0].toString()
+      .split('\n');
+    matchUsage(stdoutCall, 'before-after');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 before-after
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  equal(
-    stdoutSpy.getCall(2).args[0],
-    `after help
+    );
+    equal(
+      stdoutSpy.getCall(2).args[0],
+      `after help
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
-shouldAddHelp(HelpSuite, 'after', async ({ commandInstance, exitSpy, stdoutSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('after'));
-  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
-  matchUsage(stdoutCall, 'after');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(
+  HelpSuite,
+  'after',
+  async ({ commandInstance, exitSpy, stdoutSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('after'));
+    const stdoutCall: string[] =
+      stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+    matchUsage(stdoutCall, 'after');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 after
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  equal(
-    stdoutSpy.getCall(1).args[0],
-    `after help
+    );
+    equal(
+      stdoutSpy.getCall(1).args[0],
+      `after help
 `,
-  );
+    );
 
-  exitCalledWithZero(exitSpy);
-});
-shouldAddHelp(HelpSuite, 'afterAll', async ({ commandInstance, exitSpy, stdoutSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('after-all'));
-  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
-  matchUsage(stdoutCall, 'after-all');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(
+  HelpSuite,
+  'afterAll',
+  async ({ commandInstance, exitSpy, stdoutSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('after-all'));
+    const stdoutCall: string[] =
+      stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+    matchUsage(stdoutCall, 'after-all');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 after all
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  equal(
-    stdoutSpy.getCall(1).args[0],
-    `after all help
+    );
+    equal(
+      stdoutSpy.getCall(1).args[0],
+      `after all help
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
-shouldAddHelp(HelpSuite, 'after and afterAll', async ({ commandInstance, exitSpy, stdoutSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('after-after-all'));
-  const stdoutCall: string[] = stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
-  matchUsage(stdoutCall, 'after-after-all');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(
+  HelpSuite,
+  'after and afterAll',
+  async ({ commandInstance, exitSpy, stdoutSpy }) => {
+    await CommandTestFactory.run(
+      commandInstance,
+      argsBuilder('after-after-all'),
+    );
+    const stdoutCall: string[] =
+      stdoutSpy.firstCall?.args[0].toString().split('\n') ?? [];
+    matchUsage(stdoutCall, 'after-after-all');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 after after all
 
 Options:
   -h, --help  display help for command
 `,
-  );
-  equal(
-    stdoutSpy.getCall(1).args[0],
-    `after help
+    );
+    equal(
+      stdoutSpy.getCall(1).args[0],
+      `after help
 `,
-  );
-  equal(
-    stdoutSpy.getCall(2).args[0],
-    `after all help
+    );
+    equal(
+      stdoutSpy.getCall(2).args[0],
+      `after all help
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
-shouldAddHelp(HelpSuite, 'in all places with', async ({ commandInstance, exitSpy, stdoutSpy }) => {
-  await CommandTestFactory.run(commandInstance, argsBuilder('foo'));
-  equal(
-    stdoutSpy.firstCall?.args[0],
-    `before all help
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);
+shouldAddHelp(
+  HelpSuite,
+  'in all places with',
+  async ({ commandInstance, exitSpy, stdoutSpy }) => {
+    await CommandTestFactory.run(commandInstance, argsBuilder('foo'));
+    equal(
+      stdoutSpy.firstCall?.args[0],
+      `before all help
 `,
-  );
-  equal(
-    stdoutSpy.getCall(1).args[0],
-    `before help
+    );
+    equal(
+      stdoutSpy.getCall(1).args[0],
+      `before help
 `,
-  );
-  const stdoutCall: string[] = stdoutSpy.getCall(2).args[0].toString().split('\n');
-  matchUsage(stdoutCall, 'foo');
-  stdoutCall.shift();
-  equal(
-    stdoutCall.join('\n'),
-    `
+    );
+    const stdoutCall: string[] = stdoutSpy
+      .getCall(2)
+      .args[0].toString()
+      .split('\n');
+    matchUsage(stdoutCall, 'foo');
+    stdoutCall.shift();
+    equal(
+      stdoutCall.join('\n'),
+      `
 Options:
   -h, --help  display help for command
 `,
-  );
-  equal(
-    stdoutSpy.getCall(3).args[0],
-    `after help
+    );
+    equal(
+      stdoutSpy.getCall(3).args[0],
+      `after help
 `,
-  );
-  equal(
-    stdoutSpy.getCall(4).args[0],
-    `after all help
+    );
+    equal(
+      stdoutSpy.getCall(4).args[0],
+      `after all help
 `,
-  );
-  exitCalledWithZero(exitSpy);
-});
+    );
+    exitCalledWithZero(exitSpy);
+  },
+);

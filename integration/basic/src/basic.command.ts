@@ -13,7 +13,10 @@ export class BasicCommand extends CommandRunner {
     super();
   }
 
-  async run(passedParam: string[], options?: BasicCommandOptions): Promise<void> {
+  async run(
+    passedParam: string[],
+    options?: BasicCommandOptions,
+  ): Promise<void> {
     if (options?.boolean !== undefined && options?.boolean !== null) {
       this.runWithBoolean(passedParam, options.boolean);
     } else if (options?.number) {

@@ -30,10 +30,13 @@ DefaultSubCommandSuite.after.each(({ logMock, exitMock }) => {
 DefaultSubCommandSuite.after(({ exitMock }) => {
   exitMock.restore();
 });
-DefaultSubCommandSuite('top should call top mid1 bottom', async ({ commandInstance, logMock }) => {
-  await CommandTestFactory.run(commandInstance, ['top']);
-  equal(logMock.firstCall?.args[0], `top mid-1 bottom command`);
-});
+DefaultSubCommandSuite(
+  'top should call top mid1 bottom',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['top']);
+    equal(logMock.firstCall?.args[0], `top mid-1 bottom command`);
+  },
+);
 DefaultSubCommandSuite(
   'top mid-2 should call top mid2 command',
   async ({ commandInstance, logMock }) => {

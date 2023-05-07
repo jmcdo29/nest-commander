@@ -1,4 +1,7 @@
-import { DiscoveredMethodWithMeta, DiscoveryService } from '@golevelup/nestjs-discovery';
+import {
+  DiscoveredMethodWithMeta,
+  DiscoveryService,
+} from '@golevelup/nestjs-discovery';
 import { Inject, Injectable } from '@nestjs/common';
 import { Answers, DistinctQuestion } from 'inquirer';
 import * as inquirerImport from 'inquirer';
@@ -52,21 +55,26 @@ export class InquirerService {
   private async findQuestionSet(
     questionSetName: string,
   ): Promise<DiscoveredMethodWithMeta<QuestionMetadata>[]> {
-    const classes = await this.discoveryService.providersWithMetaAtKey<QuestionNameMetadata>(
-      QuestionSetMeta,
-    );
+    const classes =
+      await this.discoveryService.providersWithMetaAtKey<QuestionNameMetadata>(
+        QuestionSetMeta,
+      );
     const cls = classes.filter((c) => c.meta.name === questionSetName)[0];
-    const questions = await this.discoveryService.providerMethodsWithMetaAtKey<QuestionMetadata>(
-      QuestionMeta,
-      (found) => found.name === cls.discoveredClass.name,
-    );
+    const questions =
+      await this.discoveryService.providerMethodsWithMetaAtKey<QuestionMetadata>(
+        QuestionMeta,
+        (found) => found.name === cls.discoveredClass.name,
+      );
     return questions;
   }
 
   private async mapMetaQuestionToQuestion(
     rawQuestions: DiscoveredMethodWithMeta<QuestionMetadata>[],
   ): Promise<ReadonlyArray<DistinctQuestion>> {
-    const extraMetas: Record<string, DiscoveredMethodWithMeta<QuestionNameMetadata>[]> = {};
+    const extraMetas: Record<
+      string,
+      DiscoveredMethodWithMeta<QuestionNameMetadata>[]
+    > = {};
     for (const iKey of Object.keys(
       this.inquirerKeyToMetadataKeyMap,
     ) as Array<InquirerKeysWithPossibleFunctionTypes>) {
@@ -74,7 +82,8 @@ export class InquirerService {
       const foundMeta =
         await this.discoveryService.providerMethodsWithMetaAtKey<QuestionNameMetadata>(
           metaKey,
-          (found) => found.name === rawQuestions[0].discoveredMethod.parentClass.name,
+          (found) =>
+            found.name === rawQuestions[0].discoveredMethod.parentClass.name,
         );
       extraMetas[iKey] = foundMeta ?? [];
     }
@@ -86,14 +95,18 @@ export class InquirerService {
 
   private async parseRawQuestionMetadata(
     rawQuestions: DiscoveredMethodWithMeta<QuestionMetadata>[],
-    extraMetas: Record<string, DiscoveredMethodWithMeta<QuestionNameMetadata>[]>,
+    extraMetas: Record<
+      string,
+      DiscoveredMethodWithMeta<QuestionNameMetadata>[]
+    >,
   ): Promise<Array<DistinctQuestion & { index?: number; [key: string]: any }>> {
     const questions = [];
 
     for (const q of rawQuestions) {
       const { meta, discoveredMethod } = q;
 
-      const retQ: DistinctQuestion & { index?: number; [key: string]: any } = {};
+      const retQ: DistinctQuestion & { index?: number; [key: string]: any } =
+        {};
       for (const key of Object.keys(meta) as Array<keyof typeof meta>) {
         if (typeof meta[key] === 'function') {
           retQ[key] = meta[key].bind(discoveredMethod.parentClass.instance);
@@ -101,12 +114,16 @@ export class InquirerService {
           retQ[key] = meta[key];
         }
       }
-      retQ.filter = discoveredMethod.handler.bind(discoveredMethod.parentClass.instance);
+      retQ.filter = discoveredMethod.handler.bind(
+        discoveredMethod.parentClass.instance,
+      );
       for (const iKey of Object.keys(
         this.inquirerKeyToMetadataKeyMap,
       ) as Array<InquirerKeysWithPossibleFunctionTypes>) {
         const metas = extraMetas[iKey];
-        const iKeyMetaForQuestion = metas.find((extraMeta) => extraMeta.meta.name === meta.name);
+        const iKeyMetaForQuestion = metas.find(
+          (extraMeta) => extraMeta.meta.name === meta.name,
+        );
         if (iKeyMetaForQuestion) {
           retQ[iKey] = iKeyMetaForQuestion.discoveredMethod.handler.bind(
             iKeyMetaForQuestion.discoveredMethod.parentClass.instance,

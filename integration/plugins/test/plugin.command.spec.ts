@@ -34,7 +34,10 @@ PluginSuite('a custom config file should be allowed', async () => {
   setArgv('plug');
   const cwdSpy = stubMethod(process, 'cwd');
   cwdSpy.returns(join(__dirname, '..'));
-  await CommandFactory.run(FooModule, { usePlugins: true, cliName: 'custom-name' });
+  await CommandFactory.run(FooModule, {
+    usePlugins: true,
+    cliName: 'custom-name',
+  });
   equal(logSpy.firstCall?.args[0], 'This is from the plugin!');
   logSpy.restore();
 });
@@ -46,20 +49,23 @@ PluginSuite('a custom config file should be allowed', async () => {
  * requested is not a known command, there will be an error, but not about the config file, it will
  * just be assumed to be an unknown command
  */
-PluginSuite('an error message should be written about not finding the config file', async () => {
-  const errSpy = stubMethod(process.stderr, 'write');
-  const exitSpy = stubMethod(process, 'exit');
-  setArgv('foo');
-  try {
-    await CommandFactory.run(FooModule, { usePlugins: true });
-  } finally {
-    equal(exitSpy.firstCall?.args[0], 1);
-    match(
-      errSpy.getCall(1).args[0].toString() ?? '',
-      "nest-commander is expecting a configuration file, but didn't find one. Are you in the right directory?",
-    );
-  }
-});
+PluginSuite(
+  'an error message should be written about not finding the config file',
+  async () => {
+    const errSpy = stubMethod(process.stderr, 'write');
+    const exitSpy = stubMethod(process, 'exit');
+    setArgv('foo');
+    try {
+      await CommandFactory.run(FooModule, { usePlugins: true });
+    } finally {
+      equal(exitSpy.firstCall?.args[0], 1);
+      match(
+        errSpy.getCall(1).args[0].toString() ?? '',
+        "nest-commander is expecting a configuration file, but didn't find one. Are you in the right directory?",
+      );
+    }
+  },
+);
 PluginSuite(
   'an error message should be shown for the unknown command, but not about a missing config file',
   async () => {

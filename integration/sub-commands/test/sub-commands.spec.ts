@@ -30,18 +30,29 @@ SubCommandSuite.after.each(({ logMock, exitMock }) => {
 SubCommandSuite.after(({ exitMock }) => {
   exitMock.restore();
 });
-for (const command of [['top'], ['top', 'mid-1'], ['top', 'mid-1', 'bottom'], ['top', 'mid-2']]) {
-  SubCommandSuite(`run the ${command} command`, async ({ commandInstance, logMock }) => {
-    await CommandTestFactory.run(commandInstance, command);
-    equal(logMock.firstCall?.args[0], `${command.join(' ')} command`);
-  });
+for (const command of [
+  ['top'],
+  ['top', 'mid-1'],
+  ['top', 'mid-1', 'bottom'],
+  ['top', 'mid-2'],
+]) {
+  SubCommandSuite(
+    `run the ${command} command`,
+    async ({ commandInstance, logMock }) => {
+      await CommandTestFactory.run(commandInstance, command);
+      equal(logMock.firstCall?.args[0], `${command.join(' ')} command`);
+    },
+  );
 }
-SubCommandSuite('parameters should still be passable', async ({ commandInstance, logMock }) => {
-  await CommandTestFactory.run(commandInstance, ['top', 'hello!']);
-  equal(logMock.callCount, 2);
-  equal(logMock.firstCall?.args[0], 'top command');
-  equal(logMock.getCall(1).args[0], ['hello!']);
-});
+SubCommandSuite(
+  'parameters should still be passable',
+  async ({ commandInstance, logMock }) => {
+    await CommandTestFactory.run(commandInstance, ['top', 'hello!']);
+    equal(logMock.callCount, 2);
+    equal(logMock.firstCall?.args[0], 'top command');
+    equal(logMock.getCall(1).args[0], ['hello!']);
+  },
+);
 for (const command of ['mid-1', 'mid-2', 'bottom']) {
   SubCommandSuite(
     `write an error from ${command} command`,

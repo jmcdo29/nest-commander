@@ -3,7 +3,8 @@ import { LoggerService, LogLevel } from '@nestjs/common';
 export type ErrorHandler = (err: Error) => void;
 export type NestLogger = LoggerService | LogLevel[] | false;
 
-export interface DefinedCommandFactoryRunOptions extends CommandFactoryRunOptions {
+export interface DefinedCommandFactoryRunOptions
+  extends CommandFactoryRunOptions {
   cliName: string;
   usePlugins: boolean;
 }
@@ -18,6 +19,7 @@ export interface CommandFactoryRunOptions {
   enablePassThroughOptions?: boolean;
 }
 
-export interface CommanderOptionsType extends Omit<CommandFactoryRunOptions, 'logger'> {
+export interface CommanderOptionsType
+  extends Omit<CommandFactoryRunOptions, 'logger'> {
   pluginsAvailable?: boolean;
 }

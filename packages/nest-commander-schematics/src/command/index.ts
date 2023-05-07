@@ -6,7 +6,9 @@ class CommandSchematicFactory extends CommonSchematicFactory<CommandOptions> {
   type = 'command';
 
   generate(options: CommandOptions): Source {
-    this.templatePath = options.question ? './files/with-questions' : './files/without-questions';
+    this.templatePath = options.question
+      ? './files/with-questions'
+      : './files/without-questions';
     options.isDefault = options.default;
     return super.generate(options);
   }

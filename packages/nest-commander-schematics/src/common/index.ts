@@ -43,7 +43,9 @@ export class CommonSchematicFactory<T extends CommonOptions = CommonOptions> {
   generate(options: T): Source {
     return (context: SchematicContext) =>
       apply(url(join(this.templatePath as Path)), [
-        options.spec ? noop() : filter((path: string) => !path.endsWith('.spec.ts')),
+        options.spec
+          ? noop()
+          : filter((path: string) => !path.endsWith('.spec.ts')),
         applyTemplates({
           ...strings,
           ...options,
@@ -64,7 +66,10 @@ export class CommonSchematicFactory<T extends CommonOptions = CommonOptions> {
       const rawContent = tree.read(options.module);
       const content = rawContent?.toString() ?? '';
       const declarator: ModuleDeclarator = new ModuleDeclarator();
-      tree.overwrite(options.module, declarator.declare(content, options as DeclarationOptions));
+      tree.overwrite(
+        options.module,
+        declarator.declare(content, options as DeclarationOptions),
+      );
       return tree;
     };
   }
@@ -81,7 +86,9 @@ export class CommonSchematicFactory<T extends CommonOptions = CommonOptions> {
     target.name = strings.dasherize(location.name);
     target.path = strings.dasherize(location.path);
 
-    target.path = target.flat ? target.path : join(target.path as Path, target.name);
+    target.path = target.flat
+      ? target.path
+      : join(target.path as Path, target.name);
     return target;
   }
 }

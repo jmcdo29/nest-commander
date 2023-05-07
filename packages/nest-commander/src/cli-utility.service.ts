@@ -7,7 +7,9 @@ export class CliUtilityService {
   parseBoolean(val: string): boolean {
     val = val.toLowerCase();
     const trueValue = CliUtilityService.trueValues.some((tVal) => tVal === val);
-    const falseValue = CliUtilityService.falseValues.some((fVal) => fVal === val);
+    const falseValue = CliUtilityService.falseValues.some(
+      (fVal) => fVal === val,
+    );
     if (trueValue) {
       return true;
     }
@@ -17,7 +19,9 @@ export class CliUtilityService {
     throw new Error(
       `${val} is not a proper value for a boolean input. Please use ${CliUtilityService.falseValues.join(
         ', ',
-      )} for a "false" value or ${CliUtilityService.trueValues.join(', ')} for a "true" value`,
+      )} for a "false" value or ${CliUtilityService.trueValues.join(
+        ', ',
+      )} for a "true" value`,
     );
   }
 

@@ -6,8 +6,10 @@ import { equal } from 'uvu/assert';
 import { LogService } from '../../common/log.service';
 import { MultipleCommandModule } from '../src/root.module';
 
-export const MultipleCommandSuite =
-  suite<{ logSpy: Stub<Console['log']>; commandInstance: TestingModule }>('Multiple Commands');
+export const MultipleCommandSuite = suite<{
+  logSpy: Stub<Console['log']>;
+  commandInstance: TestingModule;
+}>('Multiple Commands');
 MultipleCommandSuite.before(async (context) => {
   context.logSpy = spy();
   context.commandInstance = await CommandTestFactory.createTestingCommand({
@@ -33,7 +35,10 @@ for (const { command, expected } of [
   MultipleCommandSuite(
     `call ${command} expect ${expected}`,
     async ({ logSpy, commandInstance }) => {
-      await CommandTestFactory.run(commandInstance, command ? [command] : undefined);
+      await CommandTestFactory.run(
+        commandInstance,
+        command ? [command] : undefined,
+      );
       equal(logSpy.firstCall?.args[0], expected);
     },
   );
