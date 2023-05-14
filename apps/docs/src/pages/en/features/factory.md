@@ -70,7 +70,7 @@ For more information on the `CommandFactory`, please refer to the
 
 ## Creating an Application Without Running It
 
-There may come a time where you want to create a CLI applicaiton but not
+There may come a time where you want to create a CLI application but not
 immediately run it, like wanting to use `app.useLogger()` to change the logger
 to one created by the DI process. You can achieve this by using
 `CommandFactory.createWithoutRunning()` using the same configuration that would
