@@ -69,16 +69,19 @@ npx|yarn|pnpm ts-node src/main.ts [args] [options]
 The last option, and probably the most useful one, is using a package manager to distribute the CLI
 via an npm package. You can add a `bin` property to the `package.json` and give your CLI a name
 along with a path to the main file and on installation npm will set up the path in the
-`node_modules/.bin` if a local install or the global `node_modules/.bin` in the `$PATH` environment
-variable for a global package install. If we take the `crun` application we've made so far, we can
-set up the `package.json` like so:
+`node_modules/.bin` if a local install or `$(npm prefix -g)/bin` for a global package install.
+
+Important note from npmjs documentation ([link](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin)):
+>Please make sure that your file(s) referenced in bin starts with #!/usr/bin/env node, otherwise the scripts are started without the node executable!
+
+If we take the `crun` application we've made so far, we can set up the `package.json` like so:
 
 ```json
 {
   "name": "crun",
   "description": "A command line runner using nest-commander",
   "bin": {
-    "crun": "dist/main"
+    "crun": "dist/main.js"
   },
   "scripts": {
     "build": "nest build"
