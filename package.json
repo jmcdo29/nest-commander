@@ -90,7 +90,7 @@
     "reflect-metadata": "0.1.13",
     "remark-directive": "^2.0.1",
     "rxjs": "7.8.1",
-    "typescript": "5.0.4",
+    "typescript": "5.1.3",
     "unist-util-visit": "^4.1.2",
     "url-loader": "4.1.1",
     "uvu": "0.5.6"
