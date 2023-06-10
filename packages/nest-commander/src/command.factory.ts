@@ -48,9 +48,7 @@ export class CommandFactory {
     });
     const app = await NestFactory.createApplicationContext(
       commandRunnerModule,
-      {
-        logger: options.logger,
-      },
+      options,
     );
     return app;
   }
@@ -76,35 +74,24 @@ export class CommandFactory {
   protected static getOptions(
     optionsOrLogger: CommandFactoryRunOptions | NestLogger,
   ): DefinedCommandFactoryRunOptions {
-    let logger: NestLogger | undefined;
-    let tempHandler: ((err: Error) => void) | undefined;
-    let usePlugins = false;
-    let cliName = 'nest-commander';
-    let serviceErrorHandler = undefined;
-    let enablePositionalOptions = false;
-    let enablePassThroughOptions = false;
-    if (this.isFactoryOptionsObject(optionsOrLogger)) {
-      ({
-        logger,
-        errorHandler: tempHandler,
-        cliName = cliName,
-        usePlugins = usePlugins,
-        serviceErrorHandler,
-        enablePositionalOptions = enablePositionalOptions,
-        enablePassThroughOptions = enablePassThroughOptions,
-      } = optionsOrLogger);
-    } else {
-      logger = optionsOrLogger;
-    }
-    return {
-      logger,
-      errorHandler: tempHandler,
-      usePlugins,
-      cliName,
-      serviceErrorHandler,
-      enablePositionalOptions,
-      enablePassThroughOptions,
-    };
+    let options: CommandFactoryRunOptions = {};
+    const isOptionsIsFactoryOptionsObject =
+      this.isFactoryOptionsObject(optionsOrLogger);
+    options = isOptionsIsFactoryOptionsObject ? optionsOrLogger : options;
+
+    options.logger =
+      (isOptionsIsFactoryOptionsObject
+        ? (optionsOrLogger as CommandFactoryRunOptions).logger
+        : (optionsOrLogger as NestLogger)) || false;
+    options.errorHandler = options.errorHandler || undefined;
+    options.usePlugins = options.usePlugins || false;
+    options.cliName = options.cliName || 'nest-commander';
+    options.serviceErrorHandler = options.serviceErrorHandler || undefined;
+    options.enablePositionalOptions = options.enablePositionalOptions || false;
+    options.enablePassThroughOptions =
+      options.enablePassThroughOptions || false;
+
+    return options as DefinedCommandFactoryRunOptions;
   }
 
   protected static isFactoryOptionsObject(
