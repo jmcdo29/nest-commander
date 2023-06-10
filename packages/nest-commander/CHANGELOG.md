@@ -1,5 +1,14 @@
 # nest-commander
 
+## 3.8.0
+
+### Minor Changes
+
+- 6cc1112: Add ability to pass NestApplicationContextOptions to CommandFactoryRunOptions.
+
+  Now CommandFactory.createWithoutRunning() can accept more options, for example,
+  bufferLogs to pre-save Nest startup logs.
+
 ## 3.7.1
 
 ### Patch Changes
