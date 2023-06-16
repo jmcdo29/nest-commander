@@ -150,8 +150,8 @@ importers:
         specifier: 16.2.2
         version: 16.2.2(@swc/core@1.3.64)
       nx-uvu:
-        specifier: 1.2.0
-        version: 1.2.0(nx@16.2.2)(typescript@5.1.3)
+        specifier: 1.3.0
+        version: 1.3.0(nx@16.2.2)
       pinst:
         specifier: 3.0.0
         version: 3.0.0
@@ -2963,24 +2963,18 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@nrwl/devkit@14.8.8(nx@16.2.2)(typescript@5.1.3):
-    resolution: {integrity: sha512-NLgLRfGyv9aMHxGi+rrVRPLYbuqYoGcRVVr0bo3PP1cVSry1THBoLivvPzqf/tniM1S4EzJdrOSau7dfPVGNFA==}
-    peerDependencies:
-      nx: '>= 13.10 <= 15'
-    dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1(typescript@5.1.3)
-      ejs: 3.1.9
-      ignore: 5.2.4
-      nx: 16.2.2(@swc/core@1.3.64)
-      tslib: 2.5.0
-    transitivePeerDependencies:
-      - typescript
-    dev: true
-
   /@nrwl/devkit@16.2.2(nx@16.2.2):
     resolution: {integrity: sha512-R8OSh33HtGycSuu0KshpH/tsTdi6j4w7DuIb+Sa59UDIkchpvMeNAz8tj/05Z2tTntDZnYqPkmCs6rkZ4PvY4Q==}
     dependencies:
       '@nx/devkit': 16.2.2(nx@16.2.2)
+    transitivePeerDependencies:
+      - nx
+    dev: true
+
+  /@nrwl/devkit@16.3.2(nx@16.2.2):
+    resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
+    dependencies:
+      '@nx/devkit': 16.3.2(nx@16.2.2)
     transitivePeerDependencies:
       - nx
     dev: true
@@ -3103,6 +3097,20 @@ packages:
       nx: '>= 15 <= 17'
     dependencies:
       '@nrwl/devkit': 16.2.2(nx@16.2.2)
+      ejs: 3.1.9
+      ignore: 5.2.4
+      nx: 16.2.2(@swc/core@1.3.64)
+      semver: 7.3.4
+      tmp: 0.2.1
+      tslib: 2.5.0
+    dev: true
+
+  /@nx/devkit@16.3.2(nx@16.2.2):
+    resolution: {integrity: sha512-1ev3EDm2Sx/ibziZroL1SheqxDR7UgC49tkBgJz1GrQLQnfdhBYroCPSyBSWGPMLHjIuHb3+hyGSV1Bz+BIYOA==}
+    peerDependencies:
+      nx: '>= 15 <= 17'
+    dependencies:
+      '@nrwl/devkit': 16.3.2(nx@16.2.2)
       ejs: 3.1.9
       ignore: 5.2.4
       nx: 16.2.2(@swc/core@1.3.64)
@@ -3352,15 +3360,6 @@ packages:
     dependencies:
       node-addon-api: 3.2.1
       node-gyp-build: 4.6.0
-    dev: true
-
-  /@phenomnomnominal/tsquery@4.1.1(typescript@5.1.3):
-    resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
-    peerDependencies:
-      typescript: ^3 || ^4
-    dependencies:
-      esquery: 1.5.0
-      typescript: 5.1.3
     dev: true
 
   /@phenomnomnominal/tsquery@5.0.1(typescript@5.1.3):
@@ -8624,14 +8623,13 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /nx-uvu@1.2.0(nx@16.2.2)(typescript@5.1.3):
-    resolution: {integrity: sha512-UZZInb9Ds5Erc+8qi755xPvKFvQRQUDmlh8n+kEYRDQwq2nS80D/eevZZmvx1CBC76ca3pQEAh6exGUaun728g==}
+  /nx-uvu@1.3.0(nx@16.2.2):
+    resolution: {integrity: sha512-rkk65rHcCEtR48kghXWmNU2el62YlEbAcaC9E1FoFdepmHJIsRPe+foNukA4nOpgBIys5wp9K4v60qKdAnjzZA==}
     dependencies:
-      '@nrwl/devkit': 14.8.8(nx@16.2.2)(typescript@5.1.3)
+      '@nx/devkit': 16.3.2(nx@16.2.2)
       '@ogma/styler': 1.0.0
     transitivePeerDependencies:
       - nx
-      - typescript
     dev: true
 
   /nx@16.2.2(@swc/core@1.3.64):
