@@ -9,6 +9,7 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "strict": true,
+    "skipLibCheck": true,
     "noUnusedLocals": false,
     "sourceMap": true,
     "lib": ["ES7"],
