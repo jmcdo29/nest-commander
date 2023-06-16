@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.9.0
+
+### Minor Changes
+
+- 1fa92a0: Support NestJS v10
+
 ## 3.8.0
 
 ### Minor Changes

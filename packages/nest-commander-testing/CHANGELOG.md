@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.2.0
+
+### Minor Changes
+
+- 1fa92a0: Support NestJS v10
+
 ## 3.1.0
 
 ### Minor Changes
