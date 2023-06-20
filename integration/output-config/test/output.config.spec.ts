@@ -3,7 +3,6 @@ import { CommandTestFactory } from 'nest-commander-testing';
 import { spy, Stub, stubMethod } from 'hanbi';
 import { suite } from 'uvu';
 import { equal } from 'uvu/assert';
-import { LogService } from '../../common/log.service';
 import { RootModule } from '../src/root.module';
 
 export const OutputConfigSuite = suite<{
