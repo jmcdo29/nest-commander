@@ -1,5 +1,6 @@
 import { LoggerService, LogLevel } from '@nestjs/common';
 import { NestApplicationContextOptions } from '@nestjs/common/interfaces/nest-application-context-options.interface';
+import { OutputConfiguration } from 'commander';
 
 export type ErrorHandler = (err: Error) => void;
 export type NestLogger = LoggerService | LogLevel[] | false;
@@ -19,6 +20,7 @@ export interface CommandFactoryRunOptions
   serviceErrorHandler?: ErrorHandler;
   enablePositionalOptions?: boolean;
   enablePassThroughOptions?: boolean;
+  outputConfiguration?: OutputConfiguration;
 }
 
 export interface CommanderOptionsType
