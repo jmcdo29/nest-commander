@@ -1,5 +1,6 @@
 ---
 'nest-commander': minor
+'nest-commander-testing': minor
 ---
 
 Add ability to set outputConfiguration.
