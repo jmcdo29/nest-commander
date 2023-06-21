@@ -1,5 +1,14 @@
 # nest-commander
 
+## 3.10.0
+
+### Minor Changes
+
+- 519018e: Add ability to set outputConfiguration.
+
+  Now CommandFactory.run(), CommandFactory.runWithoutClosing() and
+  CommandFactory.createWithoutRunning() accept the option `outputConfiguration`.
+
 ## 3.9.0
 
 ### Minor Changes
