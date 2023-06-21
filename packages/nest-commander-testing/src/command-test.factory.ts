@@ -7,7 +7,7 @@ import {
   CommandRunnerService,
   Inquirer,
 } from 'nest-commander';
-import { CommanderOptionsType } from 'packages/nest-commander/src/command-factory.interface';
+import { CommanderOptionsType } from 'nest-commander';
 
 export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
   imports: NonNullable<ModuleMetadata['imports']>;
