@@ -90,6 +90,7 @@ export class CommandFactory {
     options.enablePositionalOptions = options.enablePositionalOptions || false;
     options.enablePassThroughOptions =
       options.enablePassThroughOptions || false;
+    options.outputConfiguration = options.outputConfiguration || undefined;
 
     return options as DefinedCommandFactoryRunOptions;
   }

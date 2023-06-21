@@ -5,5 +5,6 @@ export * from './command-runner.interface';
 export * from './command-runner.module';
 export * from './command-runner.service';
 export { Inquirer } from './constants';
+export { CommanderOptionsType } from './command-factory.interface';
 export * from './inquirer.service';
 export * from './request-module.decorator';

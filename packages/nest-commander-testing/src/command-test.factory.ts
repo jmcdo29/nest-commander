@@ -7,6 +7,7 @@ import {
   CommandRunnerService,
   Inquirer,
 } from 'nest-commander';
+import { CommanderOptionsType } from 'nest-commander';
 
 export type CommandModuleMetadata = Exclude<ModuleMetadata, 'imports'> & {
   imports: NonNullable<ModuleMetadata['imports']>;
@@ -22,8 +23,11 @@ export class CommandTestFactory {
   }
   static createTestingCommand(
     moduleMetadata: CommandModuleMetadata,
+    options?: CommanderOptionsType,
   ): TestingModuleBuilder {
-    moduleMetadata.imports.push(CommandRunnerModule.forModule());
+    moduleMetadata.imports.push(
+      CommandRunnerModule.forModule(undefined, options),
+    );
     const testingModule = Test.createTestingModule(moduleMetadata);
     if (!this.useOriginalInquirer) {
       testingModule.overrideProvider(Inquirer).useValue({

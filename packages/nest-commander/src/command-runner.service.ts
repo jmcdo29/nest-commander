@@ -61,6 +61,9 @@ ${cliPluginError(
       this.options.serviceErrorHandler = (err: Error) =>
         process.stderr.write(err.toString());
     }
+    if (this.options.outputConfiguration) {
+      this.commander.configureOutput(this.options.outputConfiguration);
+    }
   }
 
   /**
@@ -124,6 +127,9 @@ ${cliPluginError(
   private async buildCommand(command: RunnerMeta): Promise<Command> {
     const newCommand = new Command(command.command.name);
     command.instance.setCommand(newCommand);
+    if (this.options.outputConfiguration) {
+      newCommand.configureOutput(this.options.outputConfiguration);
+    }
     if (command.command.arguments) {
       this.mapArgumentDescriptions(
         newCommand,
