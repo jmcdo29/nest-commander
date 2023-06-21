@@ -1,6 +1,6 @@
 {
   "name": "nest-commander-testing",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "A testing utility for nest-commander. It builds on top of ideas from @nestjs/testing and is not tied to any test framework directly.",
   "repository": {
     "type": "github",
