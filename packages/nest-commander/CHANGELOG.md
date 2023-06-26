@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.11.0
+
+### Minor Changes
+
+- a97ab68: Add The possibility to set the global version option
+
 ## 3.10.0
 
 ### Minor Changes
