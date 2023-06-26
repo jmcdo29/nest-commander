@@ -273,6 +273,7 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 | cliName                 | `string`     | false    | The name of the CLI and the prefix for the config file to be looked for. Defaults to `"nest-commander"`.                                                                                      |
 | enablePositionalOptions | `boolean`    | false    | Make commander view `<comamnd> -p <sub-command>` and `<command <sub-command> -p` as two different commands. [Commander's reference](https://github.com/tj/commander.js#parsing-configuration) |
 | serviceErrorHandler     | `Function`   | false    | A custom error handler that takes in an `Error` and return `void`. This is to handle errors at the Nest service level rather than the command level like `errorHandler`                       |
+| version                 | `string`     | false    | The global version of the CLI. If this option is set, the -V or --version option will be enabled.                                                                                             |
 
 ### CommandRunner
 
