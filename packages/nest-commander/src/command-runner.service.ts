@@ -64,6 +64,10 @@ ${cliPluginError(
     if (this.options.outputConfiguration) {
       this.commander.configureOutput(this.options.outputConfiguration);
     }
+
+    if (this.options.version) {
+      this.commander.version(this.options.version);
+    }
   }
 
   /**

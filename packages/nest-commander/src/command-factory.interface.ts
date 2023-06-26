@@ -21,6 +21,7 @@ export interface CommandFactoryRunOptions
   enablePositionalOptions?: boolean;
   enablePassThroughOptions?: boolean;
   outputConfiguration?: OutputConfiguration;
+  version?: string;
 }
 
 export interface CommanderOptionsType
