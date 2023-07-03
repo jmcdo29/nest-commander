@@ -48,8 +48,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0(@algolia/client-search@4.17.0)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
       '@golevelup/nestjs-discovery':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
       '@mdx-js/react':
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
@@ -192,8 +192,8 @@ importers:
   packages/nest-commander:
     dependencies:
       '@golevelup/nestjs-discovery':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
       '@nestjs/common':
         specifier: ^8.0.0 || ^9.0.0 || ^10.0.0
         version: 10.0.0(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -2627,9 +2627,14 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@golevelup/nestjs-discovery@3.0.0:
-    resolution: {integrity: sha512-ZvkXtobTKxXB1LJanP/l6Z/Fing88IMBr3uabQpU2IWjfsstjh02qYDSU2cfD6CSmNldX5ewW5Pd+SdK2lU8Sw==}
+  /@golevelup/nestjs-discovery@3.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
+    resolution: {integrity: sha512-kK/GBYVxb8XGlwXgtCWAkPOwDVh7dXyLRaoZuk2bBYntV3DZkYGAIbLKOFTGz+MGz71vEeQ9bGLP7cHKtCee4g==}
+    peerDependencies:
+      '@nestjs/common': ^9.x
+      '@nestjs/core': ^9.x
     dependencies:
+      '@nestjs/common': 10.0.0(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/core': 10.0.0(@nestjs/common@10.0.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       lodash: 4.17.21
 
   /@humanwhocodes/config-array@0.11.10:
