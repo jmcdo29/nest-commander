@@ -43,7 +43,7 @@ jobs:
       - name: Build Docs
         run: pnpm nx build docs
       - name: Upload build
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
           path: dist/apps/docs/
