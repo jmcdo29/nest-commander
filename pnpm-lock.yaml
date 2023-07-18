@@ -30,8 +30,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(@types/react-dom@18.0.8)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
       '@astrojs/sitemap':
-        specifier: ^1.2.2
-        version: 1.2.2
+        specifier: ^2.0.0
+        version: 2.0.0
       '@changesets/cli':
         specifier: 2.26.2
         version: 2.26.2
@@ -615,8 +615,8 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/sitemap@1.2.2:
-    resolution: {integrity: sha512-rjgFEPzETMVYgOMECIFP2vCkwzF9nLB31/6XWN548IeU/IlFgYR28RbsGTIjUElDak/9AF3jzjtzyldAZger3Q==}
+  /@astrojs/sitemap@2.0.0:
+    resolution: {integrity: sha512-hcemuFigv05sdXNiw0U23VO+6Duj9nq9xhINw4ZPWAQEhS/F4EiNvd9IUXb4XJ7pG93MWAnQKF9lP8EtwP6paA==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4
