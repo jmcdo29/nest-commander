@@ -338,7 +338,7 @@ export class AppModule {}
 ```
 
 If you have many sub commands and nested directories for that, it may feel tough to import all of
-them. For this case, the static `regsiterWithSubCommands` method is available in all classes
+them. For this case, the static `registerWithSubCommands` method is available in all classes
 inheriting `CommandRunner` which returns a list of itself and all sub commands. This means you can
 write the setting like followed by example instead of the previous example.
 
