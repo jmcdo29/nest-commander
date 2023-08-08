@@ -212,13 +212,9 @@ ${cliPluginError(
               err.stack,
               'CommandRunnerService',
             );
-            return;
-          } else {
-            throw err;
           }
-        } else {
-          throw err;
         }
+        throw err;
       }
     });
     if (command.command.subCommands?.length) {
