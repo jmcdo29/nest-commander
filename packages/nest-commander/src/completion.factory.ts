@@ -46,7 +46,7 @@ export class CompletionFactory {
     const completionCommand = new Command()
       .command('completion', { hidden: true })
       .action(async () => {
-        // @ts-ignore
+        // @ts-expect-error - _prepareUserArgs is not a public property
         const _prepareUserArgs = commander._prepareUserArgs(process.argv);
         const parsed = commander.parseOptions(_prepareUserArgs);
         const { operands } = parsed;
@@ -57,12 +57,12 @@ export class CompletionFactory {
         const [firstCommandName, ...restOperands] = filteredOperands;
 
         const firstCommand =
-          // @ts-ignore
+          // @ts-expect-error - _findCommand is not a public property
           commander._findCommand(firstCommandName) ?? commander;
 
         const lastKnownCommand: Command | null = restOperands.reduce(
           (acc, operand) => {
-            // @ts-ignore
+            // @ts-expect-error - _findCommand is not a public property
             return acc?._findCommand(operand) ?? acc;
           },
           firstCommand as Command,
@@ -114,7 +114,7 @@ export class CompletionFactory {
     const { commands } = command;
 
     for (const subcommand of commands) {
-      // @ts-ignore
+      // @ts-expect-error - _hidden is not a public property
       if (subcommand._hidden) {
         continue;
       }
