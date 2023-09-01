@@ -8,7 +8,7 @@ import {
 } from './constants';
 
 /**
- * @description Factory to generate completion script for bash and zsh
+ * @description Factory to generate completion script for BASH and ZSH
  */
 export class CompletionFactory {
   /**
@@ -19,7 +19,7 @@ export class CompletionFactory {
    * source <(YOUR-CLI-NAMESPACE completion-script)
    * ```
    * @param app - Nest application context
-   * @param cmd - Your cli namespace
+   * @param cmd - Your CLI namespace
    * @param executablePath - The path to the executable of your cli
    */
   static async registerCompletionCommand(
