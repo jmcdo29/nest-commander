@@ -5,7 +5,7 @@ export interface CompletionFactoryOptions {
   cmd: string;
 
   /**
-   * @description Support fig completion out of the box
+   * @description Support Fig completion out of the box
    * @default false
    */
   fig?: boolean;

@@ -39,7 +39,7 @@ import { AppModule } from './app.module';
 
 ## Generate Completion Script - ZSH & Bash
 
-Now, you can generate a dynamically completion script for your CLI by running
+Now, you can dynamically generate a completion script for your CLI by running
 the the following command:
 
 ```bash
@@ -84,8 +84,8 @@ npm --prefix ./.fig/autocomplete run create-spec <CLI_NAME>
 my-cli generate-fig-spec > ./.fig/autocomplete/src/<CLI_NAME>.ts
 ```
 
-If created by running the CLI via node, check the output file and make sure no
-execution logs exist.
+If created by running the CLI via an NPM script, check the output file and make
+sure no execution logs exist.
 
 ### Build the completion file
 
@@ -111,7 +111,7 @@ completion file you just created, in that way:**
 └── <CLI_EXECUTABLE> - same name as <CLI_NAME>
 ```
 
-Then, fig will be available over your CLI by running:
+Then, Fig will be available over your CLI by running:
 
 ```bash
 ./<CLI_NAME> <FIG AVAILABLE HERE!>
@@ -138,6 +138,9 @@ Read more about Fig completion:
 [Private Autocomplete](https://fig.io/docs/guides/private-autocomplete)
 
 [Autocomplete For Internal Tools](https://fig.io/docs/guides/autocomplete-for-internal-tools)
+
+[Create Your CLI Spec](https://fig.io/docs/getting-started) &
+[Upload Your CLI To Fig's Community](https://fig.io/docs/getting-started/contributing)
 
 <br>
 

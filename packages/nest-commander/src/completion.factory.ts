@@ -14,7 +14,7 @@ import {
  */
 export class CompletionFactory {
   /**
-   * @description Register the completion command in order to have bash & zsh OR fig completion
+   * @description Register the completion command for either Bash, ZSH or Fig
    * @usage
    * ### Fig completion
    * Applying new command to generate the completion spec
