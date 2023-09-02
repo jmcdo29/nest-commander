@@ -191,6 +191,9 @@ importers:
 
   packages/nest-commander:
     dependencies:
+      '@fig/complete-commander':
+        specifier: ^2.0.1
+        version: 2.0.1(commander@11.0.0)
       '@golevelup/nestjs-discovery':
         specifier: 4.0.0
         version: 4.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
@@ -2896,6 +2899,15 @@ packages:
     resolution: {integrity: sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fig/complete-commander@2.0.1(commander@11.0.0):
+    resolution: {integrity: sha512-AbGETely7iwD4F7XHe4g7pW6icWYYqJMdQog8CdEi9syU/av5L0O24BvCfgEeGO6TRPMpC+rFL7ZDJsqRtckOA==}
+    peerDependencies:
+      commander: ^8.0.0
+    dependencies:
+      commander: 11.0.0
+      prettier: 2.8.8
+    dev: false
 
   /@golevelup/nestjs-discovery@4.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
     resolution: {integrity: sha512-iyZLYip9rhVMR0C93vo860xmboRrD5g5F5iEOfpeblGvYSz8ymQrL9RAST7x/Fp3n+TAXSeOLzDIASt+rak68g==}
@@ -9620,7 +9632,6 @@ packages:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /pretty-format@29.5.0:
     resolution: {integrity: sha512-V2mGkI31qdttvTFX7Mt4efOqHXqJWMu4/r66Xh3Z3BwZaPfPJgp6/gbwoujRpPUtfEF6AUUWx3Jim3GCw5g/Qw==}
@@ -11253,7 +11264,7 @@ packages:
       sass: '*'
       stylus: '*'
       sugarss: '*'
-      terser: ^5.4.0
+      terser: ^5.0.0
     peerDependenciesMeta:
       '@types/node':
         optional: true

@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { addCompletionSpecCommand } from '@fig/complete-commander';
 import { INestApplicationContext } from '@nestjs/common';
 import { Command } from 'commander';
+import { CompletionFactoryOptions } from './completion.factory.interface';
 import {
   Commander,
   COMPLETION_SH_TEMPLATE,
@@ -12,23 +14,63 @@ import {
  */
 export class CompletionFactory {
   /**
-   * @description Register the completion command in order to have bash and zsh completion
+   * @description Register the completion command in order to have bash & zsh OR fig completion
    * @usage
+   * ### Fig completion
+   * Applying new command to generate the completion spec
+   * @see https://fig.io/docs/guides/private-autocomplete
+   *
+   * @see https://fig.io/docs/guides/autocomplete-for-internal-tools
+   *
+   * ### Bash & ZSH completion
    * Put this script in your .bashrc or .zshrc
    * ```bash
    * source <(YOUR-CLI-NAMESPACE completion-script)
    * ```
-   * @param app - Nest application context
-   * @param cmd - Your CLI namespace
-   * @param executablePath - The path to the executable of your cli
+   * @param options - {@link CompletionFactoryOptions}
    */
   static async registerCompletionCommand(
     app: INestApplicationContext,
+    options: CompletionFactoryOptions,
+  ) {
+    const commander = app.get<Command>(Commander);
+    const parsedOptions = CompletionFactory.getOptions(options);
+    const { cmd } = parsedOptions;
+    if (!cmd) {
+      throw new Error('cmd is required');
+    }
+
+    if (parsedOptions.nativeShell) {
+      const { executablePath } = parsedOptions.nativeShell;
+      CompletionFactory.setupNativeShellCompletion(
+        commander,
+        cmd,
+        executablePath,
+      );
+    }
+
+    if (parsedOptions.fig) {
+      addCompletionSpecCommand(commander);
+    }
+  }
+
+  protected static getOptions(
+    options: CompletionFactoryOptions,
+  ): CompletionFactoryOptions {
+    const parsedOptions: CompletionFactoryOptions = {
+      fig: false,
+      nativeShell: false,
+      ...options,
+    };
+
+    return parsedOptions;
+  }
+
+  protected static setupNativeShellCompletion(
+    commander: Command,
     cmd: string,
     executablePath: string,
   ) {
-    const commander = app.get<Command>(Commander);
-
     const isZsh = process.env.SHELL?.includes('zsh') ?? false;
     const script = CompletionFactory.generateCompletionScript(
       executablePath,
@@ -39,13 +81,13 @@ export class CompletionFactory {
 
     const completionScriptCommand = new Command()
       .command('completion-script', { hidden: true })
-      .action(async () => {
+      .action(() => {
         console.log(script);
       });
 
     const completionCommand = new Command()
       .command('completion', { hidden: true })
-      .action(async () => {
+      .action(() => {
         // @ts-expect-error - _prepareUserArgs is not a public property
         const _prepareUserArgs = commander._prepareUserArgs(process.argv);
         const parsed = commander.parseOptions(_prepareUserArgs);
