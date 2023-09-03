@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { addCompletionSpecCommand } from '@fig/complete-commander';
-import { INestApplicationContext } from '@nestjs/common';
+import type { INestApplicationContext } from '@nestjs/common';
 import { Command } from 'commander';
-import { CompletionFactoryOptions } from './completion.factory.interface';
+import type { CompletionFactoryOptions } from './completion.factory.interface';
 import {
   Commander,
   COMPLETION_SH_TEMPLATE,
