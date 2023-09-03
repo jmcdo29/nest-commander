@@ -18,10 +18,20 @@ import { CommandFactory, CompletionFactory } from 'nest-commander';
 import { AppModule } from './app.module';
 
 (async () => {
-  const app = await CommandFactory.createWithoutRunning(AppModule);
-
   const cliCommand = 'YOUR-CLI-COMMAND';
-  const cliExecutable = 'YOUR-CLI-EXECUTABLE';
+  const cliExecutable = 'YOUR-CLI-EXECUTABLE-PATH';
+
+  const app = await CommandFactory.createWithoutRunning(AppModule, {
+    completion: {
+      cmd: cliCommand,
+      fig: true,
+      nativeShell: {
+        executablePath: cliExecutable
+      }
+    }
+  });
+
+  // Could be done also by using the `registerCompletionCommand` method under `CompletionFactory`
 
   CompletionFactory.registerCompletionCommand(app, {
     cmd: cliCommand,

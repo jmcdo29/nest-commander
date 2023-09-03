@@ -11,6 +11,7 @@ import {
 import { CommandRootModule } from './command-root.module';
 import { CommandRunnerModule } from './command-runner.module';
 import { CommandRunnerService } from './command-runner.service';
+import { CompletionFactory } from './completion.factory';
 
 export class CommandFactory {
   static async run(
@@ -50,6 +51,11 @@ export class CommandFactory {
       commandRunnerModule,
       options,
     );
+
+    if (options.completion) {
+      CompletionFactory.registerCompletionCommand(app, options.completion);
+    }
+
     return app;
   }
 
@@ -91,6 +97,7 @@ export class CommandFactory {
     options.enablePassThroughOptions =
       options.enablePassThroughOptions || false;
     options.outputConfiguration = options.outputConfiguration || undefined;
+    options.completion = options.completion || false;
 
     return options as DefinedCommandFactoryRunOptions;
   }
