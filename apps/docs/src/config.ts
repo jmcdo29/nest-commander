@@ -68,6 +68,10 @@ export const SIDEBAR: Sidebar = {
         link: 'en/features/factory',
       },
       {
+        text: 'Completion',
+        link: 'en/features/completion',
+      },
+      {
         text: 'Plugins',
         link: 'en/features/plugins',
       },

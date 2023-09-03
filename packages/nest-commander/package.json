@@ -23,6 +23,7 @@
   },
   "homepage": "https://nest-commander.jaymcdoniel.dev",
   "dependencies": {
+    "@fig/complete-commander": "^2.0.1",
     "@golevelup/nestjs-discovery": "4.0.0",
     "commander": "11.0.0",
     "cosmiconfig": "8.2.0",
