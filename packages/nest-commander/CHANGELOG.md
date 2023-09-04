@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.12.0
+
+### Minor Changes
+
+- b2c6a13: feat: support completion factory for bash and zsh shells
+
 ## 3.11.1
 
 ### Patch Changes
