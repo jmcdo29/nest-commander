@@ -9,7 +9,7 @@ user does not know what commands are available. We can fix that with the
 script for the end user to use, both for ZSH & Bash and Fig! The completion will
 be generated dynamically based on the commands and options available.
 
-# Setup Your Completion Using The CompletionFactory
+## Setup Your Completion Using The CompletionFactory
 
 Your `main.ts` file:
 
@@ -72,6 +72,14 @@ OR
 
 ```bash
 echo "source <(my-cli completion-script)" >> ~/.zshrc
+```
+
+In case zsh does not load the completion script, you can add the following
+commands to your config file in order to enable completion:
+
+```bash
+autoload -Uz compinit
+compinit
 ```
 
 <br>
