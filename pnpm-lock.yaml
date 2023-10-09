@@ -84,8 +84,8 @@ importers:
         specifier: 0.1.10
         version: 0.1.10(@swc/core@1.3.73)
       '@types/inquirer':
-        specifier: 8.2.6
-        version: 8.2.6
+        specifier: 8.2.7
+        version: 8.2.7
       '@types/node':
         specifier: 18.17.1
         version: 18.17.1
@@ -141,8 +141,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       inquirer:
-        specifier: 8.2.5
-        version: 8.2.5
+        specifier: 8.2.6
+        version: 8.2.6
       lint-staged:
         specifier: 13.2.3
         version: 13.2.3
@@ -213,8 +213,8 @@ importers:
         specifier: 8.2.0
         version: 8.2.0
       inquirer:
-        specifier: 8.2.5
-        version: 8.2.5
+        specifier: 8.2.6
+        version: 8.2.6
 
   packages/nest-commander-schematics:
     dependencies:
@@ -4072,6 +4072,14 @@ packages:
     dependencies:
       '@types/through': 0.0.30
       rxjs: 7.8.1
+    dev: false
+
+  /@types/inquirer@8.2.7:
+    resolution: {integrity: sha512-uICJEaJOf6MsKyyAf8p58+QxTS6dwy91QVfXk1hnQ0rUT+u7KpkeFx5dxQ/oju0BaOKB284brEMBHLpNf4bZDQ==}
+    dependencies:
+      '@types/through': 0.0.30
+      rxjs: 7.8.1
+    dev: true
 
   /@types/is-ci@3.0.0:
     resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
@@ -7318,6 +7326,27 @@ packages:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 7.0.0
+    dev: true
+
+  /inquirer@8.2.6:
+    resolution: {integrity: sha512-M1WuAmb7pn9zdFRtQYk26ZBoY043Sse0wVDdk4Bppr+JOXyQYybdtvK+l9wUibhtjdjvtoiNy8tk+EgsYIUqKg==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-width: 3.0.0
+      external-editor: 3.1.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      mute-stream: 0.0.8
+      ora: 5.4.1
+      run-async: 2.4.1
+      rxjs: 7.8.1
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      through: 2.3.8
+      wrap-ansi: 6.2.0
 
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
@@ -11529,7 +11558,6 @@ packages:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
-    dev: true
 
   /wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
@@ -11538,6 +11566,7 @@ packages:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+    dev: true
 
   /wrap-ansi@8.1.0:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
