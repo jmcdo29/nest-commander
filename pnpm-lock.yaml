@@ -150,8 +150,8 @@ importers:
         specifier: 16.6.0
         version: 16.6.0(@swc/core@1.3.92)
       nx-uvu:
-        specifier: 1.3.0
-        version: 1.3.0(nx@16.6.0)
+        specifier: 1.3.1
+        version: 1.3.1(nx@16.6.0)
       pinst:
         specifier: 3.0.0
         version: 3.0.0
@@ -3384,14 +3384,6 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@nrwl/devkit@16.3.2(nx@16.6.0):
-    resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
-    dependencies:
-      '@nx/devkit': 16.3.2(nx@16.6.0)
-    transitivePeerDependencies:
-      - nx
-    dev: true
-
   /@nrwl/devkit@16.6.0(nx@16.6.0):
     resolution: {integrity: sha512-xZEN6wfA1uJwv+FVRQFOHsCcpvGvIYGx2zutbzungDodWkfzlJ3tzIGqYjIpPCBVT83erM6Gscnka2W46AuKfA==}
     dependencies:
@@ -3522,20 +3514,6 @@ packages:
       node-fetch: 2.6.11
     transitivePeerDependencies:
       - encoding
-
-  /@nx/devkit@16.3.2(nx@16.6.0):
-    resolution: {integrity: sha512-1ev3EDm2Sx/ibziZroL1SheqxDR7UgC49tkBgJz1GrQLQnfdhBYroCPSyBSWGPMLHjIuHb3+hyGSV1Bz+BIYOA==}
-    peerDependencies:
-      nx: '>= 15 <= 17'
-    dependencies:
-      '@nrwl/devkit': 16.3.2(nx@16.6.0)
-      ejs: 3.1.9
-      ignore: 5.2.4
-      nx: 16.6.0(@swc/core@1.3.92)
-      semver: 7.3.4
-      tmp: 0.2.1
-      tslib: 2.5.3
-    dev: true
 
   /@nx/devkit@16.6.0(nx@16.6.0):
     resolution: {integrity: sha512-rhJ0y+MSPHDuoZPxsOYdj/n5ks+gK74TIMgTb8eZgPT/uR86a4oxf62wUQXgECedR5HzLE2HunbnoLhhJXmpJw==}
@@ -9190,10 +9168,10 @@ packages:
       path-key: 4.0.0
     dev: true
 
-  /nx-uvu@1.3.0(nx@16.6.0):
-    resolution: {integrity: sha512-rkk65rHcCEtR48kghXWmNU2el62YlEbAcaC9E1FoFdepmHJIsRPe+foNukA4nOpgBIys5wp9K4v60qKdAnjzZA==}
+  /nx-uvu@1.3.1(nx@16.6.0):
+    resolution: {integrity: sha512-BpXx0JcsOdHYMsMtS0pMKocBGNjCsvpNw1jm598uMO5XzDIW7F7Mvz3WamVpF3a38Fm0r/a9kmZwoSUxOAE7lg==}
     dependencies:
-      '@nx/devkit': 16.3.2(nx@16.6.0)
+      '@nx/devkit': 16.6.0(nx@16.6.0)
       '@ogma/styler': 1.0.1
     transitivePeerDependencies:
       - nx
@@ -10253,14 +10231,6 @@ packages:
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
-    dev: true
-
-  /semver@7.3.4:
-    resolution: {integrity: sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
     dev: true
 
   /semver@7.5.2:
