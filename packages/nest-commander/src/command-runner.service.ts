@@ -152,6 +152,8 @@ ${cliPluginError(
       newCommand.passThroughOptions(true);
     }
 
+    const optionNameMap: Record<string, string> = {};
+
     for (const option of command.params) {
       const {
         flags,
@@ -191,6 +193,7 @@ ${cliPluginError(
       }
       commandOption.argParser(handler);
       newCommand.addOption(commandOption);
+      optionNameMap[commandOption.name()] = optionName || commandOption.name();
     }
     for (const help of command.help ?? []) {
       newCommand.addHelpText(
@@ -202,7 +205,12 @@ ${cliPluginError(
     newCommand.action(async () => {
       try {
         command.instance.run.bind(command.instance);
-        return await command.instance.run(newCommand.args, newCommand.opts());
+        const passedOptions = newCommand.opts();
+        const trueOptions: Record<string, string> = {};
+        for (const opt in passedOptions) {
+          trueOptions[optionNameMap[opt]] = passedOptions[opt];
+        }
+        return await command.instance.run(newCommand.args, trueOptions);
       } catch (err) {
         if (err instanceof Error) {
           if (err.message.includes('Cannot read properties of undefined')) {

@@ -16,7 +16,7 @@ export class OptionsTestCommand extends CommandRunner {
   ) {
     super();
   }
-  async run(_args: never[], options: { choice: string }) {
+  async run(_args: never[], options: { choices: string }) {
     this.logger.log(options);
   }
 
