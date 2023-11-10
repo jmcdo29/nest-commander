@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.12.2
+
+### Patch Changes
+
+- 15297ce: Use attributeName to handle dashed options
+
 ## 3.12.1
 
 ### Patch Changes
