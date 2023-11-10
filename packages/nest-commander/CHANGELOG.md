@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.12.1
+
+### Patch Changes
+
+- a3b683d: Remap the options to the name passed in the `@Options()` decorator, if provided
+
 ## 3.12.0
 
 ### Minor Changes
