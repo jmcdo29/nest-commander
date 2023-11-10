@@ -193,7 +193,8 @@ ${cliPluginError(
       }
       commandOption.argParser(handler);
       newCommand.addOption(commandOption);
-      optionNameMap[commandOption.name()] = optionName || commandOption.name();
+      optionNameMap[commandOption.attributeName()] =
+        optionName || commandOption.attributeName();
     }
     for (const help of command.help ?? []) {
       newCommand.addHelpText(
