@@ -26,14 +26,14 @@ OptionChoiceSuite(
   'Send in option "yes"',
   async ({ commandInstance, logMock }) => {
     await CommandTestFactory.run(commandInstance, ['-c', 'yes']);
-    equal(logMock.firstCall?.args[0], { choice: 'yes' });
+    equal(logMock.firstCall?.args[0], { choices: 'yes' });
   },
 );
 OptionChoiceSuite(
   'Send in option "no"',
   async ({ commandInstance, logMock }) => {
     await CommandTestFactory.run(commandInstance, ['-c', 'no']);
-    equal(logMock.firstCall?.args[0], { choice: 'no' });
+    equal(logMock.firstCall?.args[0], { choices: 'no' });
   },
 );
 OptionChoiceSuite(
