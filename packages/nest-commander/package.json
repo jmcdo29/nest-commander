@@ -25,7 +25,7 @@
   "dependencies": {
     "@fig/complete-commander": "^3.0.0",
     "@golevelup/nestjs-discovery": "4.0.0",
-    "commander": "11.0.0",
+    "commander": "11.1.0",
     "cosmiconfig": "8.3.6",
     "inquirer": "8.2.6"
   },
