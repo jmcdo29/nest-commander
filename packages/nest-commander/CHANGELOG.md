@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.12.4
+
+### Patch Changes
+
+- 0a47417: Update commnader version to satisfy fig-completion
+
 ## 3.12.3
 
 ### Patch Changes
