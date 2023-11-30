@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.12.3
+
+### Patch Changes
+
+- e66901a: update package @fig/complete-commander to v3.0.0 to support commander v11
+
 ## 3.12.2
 
 ### Patch Changes
