@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { addCompletionSpecCommand } from '@fig/complete-commander';
 import type { INestApplicationContext } from '@nestjs/common';
 import { Command } from 'commander';
 import type { CompletionFactoryOptions } from './completion.factory.interface';
@@ -50,7 +48,15 @@ export class CompletionFactory {
     }
 
     if (parsedOptions.fig) {
-      addCompletionSpecCommand(commander);
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const { addCompletionSpecCommand } = require('@fig/complete-commander');
+        addCompletionSpecCommand(commander);
+      } catch {
+        throw new Error(
+          `There was a problem creating the fig completion. Did you make sure to install "@fig/complete-commander"?`,
+        );
+      }
     }
   }
 
