@@ -1,5 +1,12 @@
 # nest-commander
 
+## 3.12.5
+
+### Patch Changes
+
+- 72b2a00: Move the fig completion package to an optional import to get around jest
+  throwing an error about esm packages
+
 ## 3.12.4
 
 ### Patch Changes
