@@ -84,8 +84,8 @@ importers:
         specifier: 0.1.10
         version: 0.1.10(@swc/core@1.3.105)
       '@types/inquirer':
-        specifier: 8.2.7
-        version: 8.2.7
+        specifier: 8.2.10
+        version: 8.2.10
       '@types/node':
         specifier: 18.18.4
         version: 18.18.4
@@ -3902,19 +3902,19 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/inquirer@8.2.10:
+    resolution: {integrity: sha512-IdD5NmHyVjWM8SHWo/kPBgtzXatwPkfwzyP3fN1jF2g9BWt5WO+8hL2F4o2GKIYsU40PpqeevuUWvkS/roXJkA==}
+    dependencies:
+      '@types/through': 0.0.30
+      rxjs: 7.8.1
+    dev: true
+
   /@types/inquirer@8.2.6:
     resolution: {integrity: sha512-3uT88kxg8lNzY8ay2ZjP44DKcRaTGztqeIvN2zHvhzIBH/uAPaL75aBtdNRKbA7xXoMbBt5kX0M00VKAnfOYlA==}
     dependencies:
       '@types/through': 0.0.30
       rxjs: 7.8.1
     dev: false
-
-  /@types/inquirer@8.2.7:
-    resolution: {integrity: sha512-uICJEaJOf6MsKyyAf8p58+QxTS6dwy91QVfXk1hnQ0rUT+u7KpkeFx5dxQ/oju0BaOKB284brEMBHLpNf4bZDQ==}
-    dependencies:
-      '@types/through': 0.0.30
-      rxjs: 7.8.1
-    dev: true
 
   /@types/is-ci@3.0.0:
     resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
