@@ -42,7 +42,7 @@
     "@astrojs/preact": "^2.1.0",
     "@astrojs/react": "^2.1.1",
     "@astrojs/sitemap": "^2.0.0",
-    "@changesets/cli": "2.26.2",
+    "@changesets/cli": "2.27.1",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
     "@docsearch/css": "^3.3.0",
