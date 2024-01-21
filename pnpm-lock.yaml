@@ -132,8 +132,8 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.51.0)(prettier@2.8.8)
       hanbi:
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 1.0.3
+        version: 1.0.3
       hastscript:
         specifier: ^7.2.0
         version: 7.2.0
@@ -6863,8 +6863,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: true
 
-  /hanbi@1.0.1:
-    resolution: {integrity: sha512-ygE4dxg+khS7BZBZTVqaaq+X3oCQX6q4Z2LvNzRpPdZLmzbmL7xu6KCdjWoRiRlYfyZN9R+gMztf4MftiCH0Mw==}
+  /hanbi@1.0.3:
+    resolution: {integrity: sha512-9ZXMHYP5Sk092RF4I0HbZrVcQ4vfKPFoUHVJzs4jUTS2gewwsOCkikWFiM3vFbnTePcomQA+vK+ZXDBiqaQiHw==}
     dev: true
 
   /handlebars@4.7.7:
