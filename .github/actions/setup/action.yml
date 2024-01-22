@@ -9,7 +9,7 @@ runs:
         node-version: 16.x
 
     - name: Cache pnpm modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       if: ${{ !contains(github.event.pull_request.user.login, 'bot') }}
       with:
         path: ~/.pnpm-store
