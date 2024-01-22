@@ -33,7 +33,7 @@ jobs:
     if: ${{ needs.docs-changed.outputs.files == 'true' || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18.x'
       - name: Install pnpm
