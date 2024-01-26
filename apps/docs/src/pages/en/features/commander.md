@@ -349,5 +349,5 @@ write the setting like followed by example instead of the previous example.
 export class AppModule {}
 ```
 
-This example works even if the `RunCommand` has more and nested subcommands and doesn't interfare
+This example works even if the `RunCommand` has more and nested subcommands and doesn't interfere
 with registering other providers or commands if using spread operator or concat method of `Array`.
