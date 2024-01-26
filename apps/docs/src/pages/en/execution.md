@@ -22,7 +22,7 @@ taken into account.
 
 ## Local Execution (Using Node)
 
-Once the code is compiled, you can use `node` to kick of the command using
+Once the code is compiled, you can use `node` to kick off the command using
 
 ```shell
 node ./dist/main [args] [options]
