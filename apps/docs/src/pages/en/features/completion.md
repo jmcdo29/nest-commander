@@ -50,7 +50,7 @@ import { AppModule } from './app.module';
 ## Generate Completion Script - ZSH & Bash
 
 Now, you can dynamically generate a completion script for your CLI by running
-the the following command:
+the following command:
 
 ```bash
 my-cli completion-script
