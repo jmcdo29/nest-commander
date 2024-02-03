@@ -40,7 +40,7 @@
     "@angular-devkit/schematics": "14.0.5",
     "@angular-devkit/schematics-cli": "14.0.5",
     "@astrojs/preact": "^2.1.0",
-    "@astrojs/react": "^2.1.1",
+    "@astrojs/react": "^3.0.0",
     "@astrojs/sitemap": "^2.0.0",
     "@changesets/cli": "2.27.1",
     "@commitlint/cli": "18.6.0",
