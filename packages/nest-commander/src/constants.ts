@@ -46,6 +46,16 @@ _{{app_name}}_nest_commander_completions()
     cur_word="\${COMP_WORDS[COMP_CWORD]}"
     args=("\${COMP_WORDS[@]}")
 
+    # Check if {{app_name}}_nest_commander_filesystem_completions is set to "true" or "1"
+    # If it is, use filename completion if last word starts with common filesystem operator chars
+    #  \`.\` , \`/\` or \`~\` e.g. \`./\`, \`../\`, \`/\`, \`~/\` 
+    if [[ "\${{{app_name}}_nest_commander_filesystem_completions}" == "true" ]] || [[ "\${{{app_name}}_nest_commander_filesystem_completions}" == "1" ]]; then
+        if [[ "\${cur_word}" =~ ^\\.  ]] || [[ "\${cur_word}" =~ ^/ ]] || [[ "\${cur_word}" =~ ^~ ]]; then
+            COMPREPLY=($(compgen -f -- "\${cur_word}"))
+            return 0
+        fi
+    fi
+
     # ask nest commander to generate completions.
     type_list=$({{app_path}} completion "\${args[@]}")
 
@@ -74,8 +84,26 @@ _{{app_name}}_nest_commander_completions()
 {
   local reply
   local si=$IFS
+
+  # Check if {{app_name}}_nest_commander_filesystem_completions is set to "true" or "1"
+  # If it is, use zsh filename completion if last word starts with common filesystem operator chars
+  #  \`.\` , \`/\` or \`~\` e.g. \`./\`, \`../\`, \`/\`, \`~/\` 
+  if [[ "\${{{app_name}}_nest_commander_filesystem_completions}" == "true" ]] || [[ "\${{{app_name}}_nest_commander_filesystem_completions}" == "1" ]]; then
+    if [[ "\${words[-1]}" =~ ^\\.  ]] || [[ "\${words[-1]}" =~ ^/ ]] || [[ "\${words[-1]}" =~ ^~ ]]; then
+      _path_files
+      return
+    fi
+  fi
+
   IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" {{app_path}} completion "\${words[@]}"))
   IFS=$si
+
+  # if no match was found, fall back to filename completion
+  if [[ -z "\${reply[*]}" ]]; then
+    _path_files
+    return
+  fi
+
   _describe 'values' reply
 }
 compdef _{{app_name}}_nest_commander_completions {{app_name}}
