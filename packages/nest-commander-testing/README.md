@@ -27,7 +27,7 @@ with the NestJS ecosystem, it'll feel right at home to any Nestlings out there. 
 your metadata, very similarly to how `Test.createTestingModule` from `@nestjs/testing` works. In
 fact, it uses this package under the hood. You're also still able to chain on the `overrideProvider`
 methods before calling `compile()` so you can swap out DI pieces right in the test.
-[A nice example of this can be seen in the basic.command.factory.spec.ts file](./../../integration/test/basic.command.factory.spec.ts).
+[A nice example of this can be seen in the basic.command.factory.spec.ts file](./../../integration/basic/test/basic.command.factory.spec.ts).
 
 ## Testing Inquirer Questions
 
