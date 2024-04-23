@@ -1,5 +1,12 @@
 # nest-commander
 
+## 3.13.0
+
+### Minor Changes
+
+- c29737c: Enhance filesystem autocomplete support for Bash and Zsh by introducing an
+  opt-in option based on an environment variable.
+
 ## 3.12.5
 
 ### Patch Changes
