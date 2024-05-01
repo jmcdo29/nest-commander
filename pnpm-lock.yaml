@@ -13,7 +13,7 @@ importers:
     devDependencies:
       '@algolia/client-search':
         specifier: ^4.17.0
-        version: 4.17.0
+        version: 4.23.3
       '@angular-devkit/core':
         specifier: 14.0.5
         version: 14.0.5
@@ -46,7 +46,7 @@ importers:
         version: 3.3.0
       '@docsearch/react':
         specifier: ^3.3.0
-        version: 3.3.0(@algolia/client-search@4.17.0)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
+        version: 3.3.0(@algolia/client-search@4.23.3)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
       '@golevelup/nestjs-discovery':
         specifier: 4.0.1
         version: 4.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
@@ -262,14 +262,14 @@ packages:
       '@algolia/autocomplete-shared': 1.7.2
     dev: true
 
-  /@algolia/autocomplete-preset-algolia@1.7.2(@algolia/client-search@4.17.0)(algoliasearch@4.17.2):
+  /@algolia/autocomplete-preset-algolia@1.7.2(@algolia/client-search@4.23.3)(algoliasearch@4.17.2):
     resolution: {integrity: sha512-+RYEG6B0QiGGfRb2G3MtPfyrl0dALF3cQNTWBzBX6p5o01vCCGTTinAm2UKG3tfc2CnOMAtnPLkzNZyJUpnVJw==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
       '@algolia/autocomplete-shared': 1.7.2
-      '@algolia/client-search': 4.17.0
+      '@algolia/client-search': 4.23.3
       algoliasearch: 4.17.2
     dev: true
 
@@ -283,12 +283,12 @@ packages:
       '@algolia/cache-common': 4.17.2
     dev: true
 
-  /@algolia/cache-common@4.17.0:
-    resolution: {integrity: sha512-g8mXzkrcUBIPZaulAuqE7xyHhLAYAcF2xSch7d9dABheybaU3U91LjBX6eJTEB7XVhEsgK4Smi27vWtAJRhIKQ==}
-    dev: true
-
   /@algolia/cache-common@4.17.2:
     resolution: {integrity: sha512-fojbhYIS8ovfYs6hwZpy1O4mBfVRxNgAaZRqsdVQd54hU4MxYDYFCxagYX28lOBz7btcDHld6BMoWXvjzkx6iQ==}
+    dev: true
+
+  /@algolia/cache-common@4.23.3:
+    resolution: {integrity: sha512-h9XcNI6lxYStaw32pHpB1TMm0RuxphF+Ik4o7tcQiodEdpKK+wKufY6QXtba7t3k8eseirEMVB83uFFF3Nu54A==}
     dev: true
 
   /@algolia/cache-in-memory@4.17.2:
@@ -314,18 +314,18 @@ packages:
       '@algolia/transporter': 4.17.2
     dev: true
 
-  /@algolia/client-common@4.17.0:
-    resolution: {integrity: sha512-jHMks0ZFicf8nRDn6ma8DNNsdwGgP/NKiAAL9z6rS7CymJ7L0+QqTJl3rYxRW7TmBhsUH40wqzmrG6aMIN/DrQ==}
-    dependencies:
-      '@algolia/requester-common': 4.17.0
-      '@algolia/transporter': 4.17.0
-    dev: true
-
   /@algolia/client-common@4.17.2:
     resolution: {integrity: sha512-gKBUnjxi0ukJYIJxVREYGt1Dmj1B3RBYbfGWi0dIPp1BC1VvQm+BOuNwsIwmq/x3MPO+sGuK978eKiP3tZDvag==}
     dependencies:
       '@algolia/requester-common': 4.17.2
       '@algolia/transporter': 4.17.2
+    dev: true
+
+  /@algolia/client-common@4.23.3:
+    resolution: {integrity: sha512-l6EiPxdAlg8CYhroqS5ybfIczsGUIAC47slLPOMDeKSVXYG1n0qGiz4RjAHLw2aD0xzh2EXZ7aRguPfz7UKDKw==}
+    dependencies:
+      '@algolia/requester-common': 4.23.3
+      '@algolia/transporter': 4.23.3
     dev: true
 
   /@algolia/client-personalization@4.17.2:
@@ -336,14 +336,6 @@ packages:
       '@algolia/transporter': 4.17.2
     dev: true
 
-  /@algolia/client-search@4.17.0:
-    resolution: {integrity: sha512-x4P2wKrrRIXszT8gb7eWsMHNNHAJs0wE7/uqbufm4tZenAp+hwU/hq5KVsY50v+PfwM0LcDwwn/1DroujsTFoA==}
-    dependencies:
-      '@algolia/client-common': 4.17.0
-      '@algolia/requester-common': 4.17.0
-      '@algolia/transporter': 4.17.0
-    dev: true
-
   /@algolia/client-search@4.17.2:
     resolution: {integrity: sha512-FUjIs+gRe0upJC++uVs4sdxMw15JxfkT86Gr/kqVwi9kcqaZhXntSbW/Fw959bIYXczjmeVQsilYvBWW4YvSZA==}
     dependencies:
@@ -352,12 +344,20 @@ packages:
       '@algolia/transporter': 4.17.2
     dev: true
 
-  /@algolia/logger-common@4.17.0:
-    resolution: {integrity: sha512-DGuoZqpTmIKJFDeyAJ7M8E/LOenIjWiOsg1XJ1OqAU/eofp49JfqXxbfgctlVZVmDABIyOz8LqEoJ6ZP4DTyvw==}
+  /@algolia/client-search@4.23.3:
+    resolution: {integrity: sha512-P4VAKFHqU0wx9O+q29Q8YVuaowaZ5EM77rxfmGnkHUJggh28useXQdopokgwMeYw2XUht49WX5RcTQ40rZIabw==}
+    dependencies:
+      '@algolia/client-common': 4.23.3
+      '@algolia/requester-common': 4.23.3
+      '@algolia/transporter': 4.23.3
     dev: true
 
   /@algolia/logger-common@4.17.2:
     resolution: {integrity: sha512-EfXuweUE+1HiSMsQidaDWA5Lv4NnStYIlh7PO5pLkI+sdhbMX0e5AO5nUAMIFM1VkEANes70RA8fzhP6OqCqQQ==}
+    dev: true
+
+  /@algolia/logger-common@4.23.3:
+    resolution: {integrity: sha512-y9kBtmJwiZ9ZZ+1Ek66P0M68mHQzKRxkW5kAAXYN/rdzgDN0d2COsViEFufxJ0pb45K4FRcfC7+33YB4BLrZ+g==}
     dev: true
 
   /@algolia/logger-console@4.17.2:
@@ -372,12 +372,12 @@ packages:
       '@algolia/requester-common': 4.17.2
     dev: true
 
-  /@algolia/requester-common@4.17.0:
-    resolution: {integrity: sha512-XJjmWFEUlHu0ijvcHBoixuXfEoiRUdyzQM6YwTuB8usJNIgShua8ouFlRWF8iCeag0vZZiUm4S2WCVBPkdxFgg==}
-    dev: true
-
   /@algolia/requester-common@4.17.2:
     resolution: {integrity: sha512-Rfim23ztAhYpE9qm+KCfCRo+YLJCjiiTG+IpDdzUjMpYPhUtirQT0A35YEd/gKn86YNyydxS9w8iRSjwKh+L0A==}
+    dev: true
+
+  /@algolia/requester-common@4.23.3:
+    resolution: {integrity: sha512-xloIdr/bedtYEGcXCiF2muajyvRhwop4cMZo+K2qzNht0CMzlRkm8YsDdj5IaBhshqfgmBb3rTg4sL4/PpvLYw==}
     dev: true
 
   /@algolia/requester-node-http@4.17.2:
@@ -386,20 +386,20 @@ packages:
       '@algolia/requester-common': 4.17.2
     dev: true
 
-  /@algolia/transporter@4.17.0:
-    resolution: {integrity: sha512-6xL6H6fe+Fi0AEP3ziSgC+G04RK37iRb4uUUqVAH9WPYFI8g+LYFq6iv5HS8Cbuc5TTut+Bwj6G+dh/asdb9uA==}
-    dependencies:
-      '@algolia/cache-common': 4.17.0
-      '@algolia/logger-common': 4.17.0
-      '@algolia/requester-common': 4.17.0
-    dev: true
-
   /@algolia/transporter@4.17.2:
     resolution: {integrity: sha512-m8pXlz5OnNzjD1rcw+duCN4jG4yEzkJBsvKYMoN22Oq6rQwy1AY5muZ+IQUs4dL+A364CYkRMLRWhvXpCZ1x+g==}
     dependencies:
       '@algolia/cache-common': 4.17.2
       '@algolia/logger-common': 4.17.2
       '@algolia/requester-common': 4.17.2
+    dev: true
+
+  /@algolia/transporter@4.23.3:
+    resolution: {integrity: sha512-Wjl5gttqnf/gQKJA+dafnD0Y6Yw97yvfY8R9h0dQltX1GXTgNs1zWgvtWW0tHl1EgMdhAyw189uWiZMnL3QebQ==}
+    dependencies:
+      '@algolia/cache-common': 4.23.3
+      '@algolia/logger-common': 4.23.3
+      '@algolia/requester-common': 4.23.3
     dev: true
 
   /@ampproject/remapping@2.2.1:
@@ -2705,7 +2705,7 @@ packages:
     resolution: {integrity: sha512-rODCdDtGyudLj+Va8b6w6Y85KE85bXRsps/R4Yjwt5vueXKXZQKYw0aA9knxLBT6a/bI/GMrAcmCR75KYOM6hg==}
     dev: true
 
-  /@docsearch/react@3.3.0(@algolia/client-search@4.17.0)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0):
+  /@docsearch/react@3.3.0(@algolia/client-search@4.23.3)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-fhS5adZkae2SSdMYEMVg6pxI5a/cE+tW16ki1V0/ur4Fdok3hBRkmN/H8VvlXnxzggkQIIRIVvYPn00JPjen3A==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -2720,7 +2720,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.2
-      '@algolia/autocomplete-preset-algolia': 1.7.2(@algolia/client-search@4.17.0)(algoliasearch@4.17.2)
+      '@algolia/autocomplete-preset-algolia': 1.7.2(@algolia/client-search@4.23.3)(algoliasearch@4.17.2)
       '@docsearch/css': 3.3.0
       '@types/react': 18.0.25
       algoliasearch: 4.17.2
