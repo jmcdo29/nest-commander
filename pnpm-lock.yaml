@@ -48,8 +48,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0(@algolia/client-search@4.17.0)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
       '@golevelup/nestjs-discovery':
-        specifier: 4.0.0
-        version: 4.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
+        specifier: 4.0.1
+        version: 4.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
       '@mdx-js/react':
         specifier: 2.3.0
         version: 2.3.0(react@18.2.0)
@@ -195,8 +195,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(commander@11.1.0)
       '@golevelup/nestjs-discovery':
-        specifier: 4.0.0
-        version: 4.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
+        specifier: 4.0.1
+        version: 4.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
       '@nestjs/common':
         specifier: ^8.0.0 || ^9.0.0 || ^10.0.0
         version: 10.0.0(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -2718,8 +2718,8 @@ packages:
       prettier: 3.1.0
     dev: false
 
-  /@golevelup/nestjs-discovery@4.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
-    resolution: {integrity: sha512-iyZLYip9rhVMR0C93vo860xmboRrD5g5F5iEOfpeblGvYSz8ymQrL9RAST7x/Fp3n+TAXSeOLzDIASt+rak68g==}
+  /@golevelup/nestjs-discovery@4.0.1(@nestjs/common@10.0.0)(@nestjs/core@10.0.0):
+    resolution: {integrity: sha512-HFXBJayEkYcU/bbxOztozONdWaZR34ZeJ2zRbZIWY8d5K26oPZQTvJ4L0STW3XVRGWtoE0WBpmx2YPNgYvcmJQ==}
     peerDependencies:
       '@nestjs/common': ^10.x
       '@nestjs/core': ^10.x
