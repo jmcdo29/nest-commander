@@ -43,7 +43,7 @@ importers:
         version: 18.6.3
       '@docsearch/css':
         specifier: ^3.3.0
-        version: 3.3.0
+        version: 3.6.0
       '@docsearch/react':
         specifier: ^3.3.0
         version: 3.3.0(@algolia/client-search@4.23.3)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0)
@@ -2703,6 +2703,10 @@ packages:
 
   /@docsearch/css@3.3.0:
     resolution: {integrity: sha512-rODCdDtGyudLj+Va8b6w6Y85KE85bXRsps/R4Yjwt5vueXKXZQKYw0aA9knxLBT6a/bI/GMrAcmCR75KYOM6hg==}
+    dev: true
+
+  /@docsearch/css@3.6.0:
+    resolution: {integrity: sha512-+sbxb71sWre+PwDK7X2T8+bhS6clcVMLwBPznX45Qu6opJcgRjAp7gYSDzVFp187J+feSj5dNBN1mJoi6ckkUQ==}
     dev: true
 
   /@docsearch/react@3.3.0(@algolia/client-search@4.23.3)(@types/react@18.0.25)(react-dom@18.2.0)(react@18.2.0):
