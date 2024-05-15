@@ -25,7 +25,7 @@ importers:
         version: 14.0.5
       '@astrojs/preact':
         specifier: ^2.1.0
-        version: 2.2.2(preact@10.21.0)
+        version: 2.2.2(preact@10.22.0)
       '@astrojs/react':
         specifier: ^2.1.1
         version: 2.3.2(@types/react-dom@18.3.0)(@types/react@18.3.2)(react-dom@18.3.1)(react@18.3.1)
@@ -157,7 +157,7 @@ importers:
         version: 3.0.0
       preact:
         specifier: ^10.13.2
-        version: 10.21.0
+        version: 10.22.0
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -590,7 +590,7 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/preact@2.2.2(preact@10.21.0):
+  /@astrojs/preact@2.2.2(preact@10.22.0):
     resolution: {integrity: sha512-4B9h73z6qNtDokwvw9ztpcpxdowdqJnaXU0GNgjrdkBXlDl57IzqIpJ0JpNd5nP+LUGywyp/n6kJndDnOkWO6w==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -598,10 +598,10 @@ packages:
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.24.5)
-      '@preact/signals': 1.2.3(preact@10.21.0)
+      '@preact/signals': 1.2.3(preact@10.22.0)
       babel-plugin-module-resolver: 5.0.2
-      preact: 10.21.0
-      preact-render-to-string: 5.2.6(preact@10.21.0)
+      preact: 10.22.0
+      preact-render-to-string: 5.2.6(preact@10.22.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3569,7 +3569,6 @@ packages:
       rxjs: 7.8.1
       tslib: 2.5.3
       uid: 2.0.2
-    dev: true
 
   /@nestjs/core@10.0.0(@nestjs/common@10.0.0)(reflect-metadata@0.1.14)(rxjs@7.8.1):
     resolution: {integrity: sha512-HFTdj4vsF+2qOaq97ZPRDle6Q/KyL5lmMah0/ZR0ie+e1/tnlvmlqw589xFACTemLJFFOjZMy763v+icO9u72w==}
@@ -3630,7 +3629,6 @@ packages:
       uid: 2.0.2
     transitivePeerDependencies:
       - encoding
-    dev: true
 
   /@nestjs/schematics@10.0.1(chokidar@3.6.0)(typescript@5.3.3):
     resolution: {integrity: sha512-buxpYtSwOmWyf0nUJWJCkCkYITwbOfIEKHTnGS7sDbcfaajrOFXb5pPAGD2E1CUb3C1+NkQIURPKzs0IouZTQg==}
@@ -3675,8 +3673,8 @@ packages:
       '@nestjs/platform-express':
         optional: true
     dependencies:
-      '@nestjs/common': 10.0.0(reflect-metadata@0.1.14)(rxjs@7.8.1)
-      '@nestjs/core': 10.0.0(@nestjs/common@10.0.0)(reflect-metadata@0.1.14)(rxjs@7.8.1)
+      '@nestjs/common': 10.0.0(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 10.0.0(@nestjs/common@10.0.0)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       tslib: 2.5.3
 
   /@nodelib/fs.scandir@2.1.5:
@@ -4154,13 +4152,13 @@ packages:
     resolution: {integrity: sha512-O/XGxwP85h1F7+ouqTMOIZ3+V1whfaV9ToIVcuyGriD4JkSD00cQo54BKdqjvBJxbenvp7ynfqRHEwI6e+NIhw==}
     dev: true
 
-  /@preact/signals@1.2.3(preact@10.21.0):
+  /@preact/signals@1.2.3(preact@10.22.0):
     resolution: {integrity: sha512-M2DXse3Wi8HwjI1d2vQWOLJ3lHogvqTsJYvl4ofXRXgMFQzJ7kmlZvlt5i8x5S5VwgZu0ghru4HkLqOoFfU2JQ==}
     peerDependencies:
       preact: 10.x
     dependencies:
       '@preact/signals-core': 1.6.0
-      preact: 10.21.0
+      preact: 10.22.0
     dev: true
 
   /@sinclair/typebox@0.25.24:
@@ -10272,17 +10270,17 @@ packages:
       source-map-js: 1.2.0
     dev: true
 
-  /preact-render-to-string@5.2.6(preact@10.21.0):
+  /preact-render-to-string@5.2.6(preact@10.22.0):
     resolution: {integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==}
     peerDependencies:
       preact: '>=10'
     dependencies:
-      preact: 10.21.0
+      preact: 10.22.0
       pretty-format: 3.8.0
     dev: true
 
-  /preact@10.21.0:
-    resolution: {integrity: sha512-aQAIxtzWEwH8ou+OovWVSVNlFImL7xUCwJX3YMqA3U8iKCNC34999fFOnWjYNsylgfPgMexpbk7WYOLtKr/mxg==}
+  /preact@10.22.0:
+    resolution: {integrity: sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw==}
     dev: true
 
   /preferred-pm@3.0.3:
@@ -10527,7 +10525,6 @@ packages:
 
   /reflect-metadata@0.2.2:
     resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
-    dev: true
 
   /regenerate-unicode-properties@10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
