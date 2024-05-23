@@ -54,6 +54,9 @@ ${cliPluginError(
   this.options.pluginsAvailable,
 )}`);
     }
+    if (this.options.helpConfiguration) {
+      this.commander.configureHelp(this.options.helpConfiguration);
+    }
     if (this.options.errorHandler) {
       this.commander.exitOverride(this.options.errorHandler);
     }
@@ -133,6 +136,9 @@ ${cliPluginError(
     command.instance.setCommand(newCommand);
     if (this.options.outputConfiguration) {
       newCommand.configureOutput(this.options.outputConfiguration);
+    }
+    if (this.options.helpConfiguration) {
+      newCommand.configureHelp(this.options.helpConfiguration);
     }
     if (command.command.arguments) {
       this.mapArgumentDescriptions(

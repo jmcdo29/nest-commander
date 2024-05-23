@@ -98,6 +98,7 @@ export class CommandFactory {
       options.enablePassThroughOptions || false;
     options.outputConfiguration = options.outputConfiguration || undefined;
     options.completion = options.completion || false;
+    options.helpConfiguration = options.helpConfiguration || undefined;
 
     return options as DefinedCommandFactoryRunOptions;
   }
