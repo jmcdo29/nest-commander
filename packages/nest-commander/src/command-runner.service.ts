@@ -61,8 +61,10 @@ ${cliPluginError(
       this.commander.exitOverride(this.options.errorHandler);
     }
     if (!this.options.serviceErrorHandler) {
-      this.options.serviceErrorHandler = (err: Error) =>
+      this.options.serviceErrorHandler = async (err: Error) => {
         process.stderr.write(err.toString());
+        throw err;
+      };
     }
     if (this.options.outputConfiguration) {
       this.commander.configureOutput(this.options.outputConfiguration);
