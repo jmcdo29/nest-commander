@@ -10,12 +10,12 @@ runs:
       run: pnpm build
       shell: bash
     - name: Run Integration Tests
-      run: pnpm e2e -- --skip-nx-cache
+      run: pnpm e2e --skip-nx-cache
       shell: bash
       env:
         NX_CLOUD_DISTRIBUTED_EXECUTION: false
     - name: Stop Nx Cloud Agents
-      run: pnpx -y nx-cloud stop-all-agents
+      run: pnpx nx-cloud stop-all-agents
       shell: bash
     - name: Debug Coverage
       run: cat coverage/lcov.info

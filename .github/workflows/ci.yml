@@ -49,39 +49,39 @@ jobs:
         uses: ./.github/actions/lint-build-test
       - name: Stop Nx Cloud Agents
         run: pnpm nx-cloud stop-all-agents
-  
+
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: javascript
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-  
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
   auto-merge:
     needs: pr
     if: contains(github.event.pull_request.user.login, 'dependabot') || contains(github.event.pull_request.user.login, 'renovate')
     runs-on: ubuntu-latest
     steps:
-    - name: automerge
-      uses: pascalgn/automerge-action@v0.16.3
-      env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        MERGE_LABELS: ""
-        MERGE_METHOD: rebase
+      - name: automerge
+        uses: pascalgn/automerge-action@v0.16.3
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          MERGE_LABELS: ''
+          MERGE_METHOD: rebase
 
   send-coverage:
     runs-on: ubuntu-latest
@@ -105,7 +105,7 @@ jobs:
     name: Nx Agent
     strategy:
       matrix:
-        agent: [ 1, 2, 3 ]
+        agent: [1, 2, 3]
     steps:
       - uses: actions/checkout@v4
       - name: Setup
