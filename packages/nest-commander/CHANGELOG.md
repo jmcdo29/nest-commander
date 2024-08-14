@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.15.0
+
+### Minor Changes
+
+- 886be2d: feat: allow async `serviceErrorHandler` method
+
 ## 3.14.0
 
 ### Minor Changes
