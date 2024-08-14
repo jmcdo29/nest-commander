@@ -4,6 +4,7 @@ import { Help, OutputConfiguration } from 'commander';
 import type { CompletionFactoryOptions } from './completion.factory.interface';
 
 export type ErrorHandler = (err: Error) => void;
+export type ServiceErrorHandler = (err: Error) => PromiseLike<void> | void;
 export type NestLogger = LoggerService | LogLevel[] | false;
 
 export interface DefinedCommandFactoryRunOptions
@@ -18,7 +19,7 @@ export interface CommandFactoryRunOptions
   errorHandler?: ErrorHandler;
   usePlugins?: boolean;
   cliName?: string;
-  serviceErrorHandler?: ErrorHandler;
+  serviceErrorHandler?: ServiceErrorHandler;
   enablePositionalOptions?: boolean;
   enablePassThroughOptions?: boolean;
   outputConfiguration?: OutputConfiguration;
