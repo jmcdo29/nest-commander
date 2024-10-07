@@ -13,7 +13,8 @@
         "tsConfig": "packages/nest-commander-schematics/tsconfig.build.json",
         "assets": [
           "packages/nest-commander-schematics/*.md",
-          "packages/nest-commander-schematics/src/**/*.json"
+          "packages/nest-commander-schematics/src/**/*.json",
+          "packages/nest-commander-schematics/src/**/*.template"
         ]
       }
     },
