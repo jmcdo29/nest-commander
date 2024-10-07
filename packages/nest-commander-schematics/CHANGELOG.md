@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 3.0.1
+
+### Patch Changes
+
+- 15b0d87: Actually publish the schematic templates
+
 ## 3.0.0
 
 ### Major Changes
