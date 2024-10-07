@@ -52,6 +52,7 @@
     "@nestjs/cli": "10.3.2",
     "@nestjs/common": "10.0.0",
     "@nestjs/core": "10.0.0",
+    "@nestjs/schematics": "^10.1.4",
     "@nestjs/testing": "10.0.0",
     "@nrwl/js": "16.10.0",
     "@nrwl/node": "16.10.0",
