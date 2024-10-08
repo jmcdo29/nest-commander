@@ -58,7 +58,7 @@
     "@nrwl/node": "16.10.0",
     "@nrwl/nx-cloud": "15.3.5",
     "@nrwl/workspace": "16.10.0",
-    "@swc/core": "1.5.7",
+    "@swc/core": "1.7.26",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.10",
     "@types/node": "18.19.55",
