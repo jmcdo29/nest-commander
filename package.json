@@ -47,7 +47,7 @@
     "@commitlint/config-conventional": "19.5.0",
     "@docsearch/css": "^3.3.0",
     "@docsearch/react": "^3.3.0",
-    "@golevelup/nestjs-discovery": "4.0.1",
+    "@golevelup/nestjs-discovery": "4.0.2",
     "@mdx-js/react": "3.0.1",
     "@nestjs/cli": "10.4.5",
     "@nestjs/common": "10.4.4",
