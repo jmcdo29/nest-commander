@@ -4,7 +4,7 @@
   "type": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "options": {
         "deleteOutputPath": true,
         "main": "packages/nest-commander-schematics/src/collection.json",

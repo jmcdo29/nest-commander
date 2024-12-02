@@ -5,7 +5,7 @@
   "sourceRoot": "packages/nest-commander/src",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "options": {
         "outputPath": "dist/nest-commander",
         "main": "packages/nest-commander/src/index.ts",
