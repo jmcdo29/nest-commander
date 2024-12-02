@@ -56,7 +56,7 @@
     "@nestjs/testing": "10.4.4",
     "@nrwl/js": "16.10.0",
     "@nrwl/node": "16.10.0",
-    "@nrwl/nx-cloud": "15.3.5",
+    "@nrwl/nx-cloud": "16.5.2",
     "@nrwl/workspace": "16.10.0",
     "@swc/core": "1.7.26",
     "@swc/register": "0.1.10",
