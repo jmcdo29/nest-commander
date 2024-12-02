@@ -1,14 +1,9 @@
 {
-  "npmScope": "nest-commander",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "test", "lint", "package", "prepare", "e2e"],
         "canTrackAnalytics": false,
-        "showUsageWarnings": true,
-        "accessToken": "MzRiYTQyYzMtNmQ2Zi00YjE1LWJhNTgtOTIxNDM0ZGU4YjMyfHJlYWQtd3JpdGU=",
-        "parallel": 1
+        "showUsageWarnings": true
       }
     }
   },
@@ -20,17 +15,37 @@
       }
     ]
   },
-  "affected": {
-    "defaultBase": "main"
-  },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "sharedGlobals": ["{workspaceRoot}/workspace.json", "{workspaceRoot}/nx.json"],
+    "sharedGlobals": [
+      "{workspaceRoot}/workspace.json",
+      "{workspaceRoot}/nx.json"
+    ],
     "production": ["default"]
   },
   "targetDefaults": {
     "build": {
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "package": {
+      "cache": true
+    },
+    "prepare": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
     }
-  }
+  },
+  "nxCloudAccessToken": "MzRiYTQyYzMtNmQ2Zi00YjE1LWJhNTgtOTIxNDM0ZGU4YjMyfHJlYWQtd3JpdGU=",
+  "parallel": 1,
+  "useInferencePlugins": false,
+  "defaultBase": "main"
 }

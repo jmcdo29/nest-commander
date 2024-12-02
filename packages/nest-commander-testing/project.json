@@ -4,7 +4,7 @@
   "type": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "dependsOn": [
         {
           "target": "build",
