@@ -60,7 +60,7 @@
     "@swc/core": "1.7.26",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.10",
-    "@types/node": "18.19.55",
+    "@types/node": "18.19.67",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "6.21.0",
