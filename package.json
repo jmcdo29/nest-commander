@@ -76,7 +76,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "hanbi": "1.0.3",
-    "hastscript": "^7.2.0",
+    "hastscript": "^9.0.0",
     "husky": "8.0.3",
     "inquirer": "8.2.6",
     "lint-staged": "13.3.0",
