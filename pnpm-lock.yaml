@@ -106,8 +106,8 @@ importers:
         specifier: ^4.0.0
         version: 4.16.16(@types/node@22.10.1)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2)
       c8:
-        specifier: 8.0.1
-        version: 8.0.1
+        specifier: 10.1.2
+        version: 10.1.2
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -2579,10 +2579,15 @@ packages:
   buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
 
-  c8@8.0.1:
-    resolution: {integrity: sha512-EINpopxZNH1mETuI0DzRA4MZpAUH+IFiRhnmFD3vFr3vdrgxqi3VfE3KL0AIL+zDq8rC9bZqwM/VDmmoe04y7w==}
-    engines: {node: '>=12'}
+  c8@10.1.2:
+    resolution: {integrity: sha512-Qr6rj76eSshu5CgRYvktW0uM0CFY0yi4Fd5D0duDXO6sYinyopmftUiJVuzBQxQcwQLor7JWDVRP+dUfCmzgJw==}
+    engines: {node: '>=18'}
     hasBin: true
+    peerDependencies:
+      monocart-coverage-reports: ^2
+    peerDependenciesMeta:
+      monocart-coverage-reports:
+        optional: true
 
   cachedir@2.3.0:
     resolution: {integrity: sha512-A+Fezp4zxnit6FanDmv9EqXNAi3vt9DWp51/71UEhXukb7QUuvtv9344h91dyAxuTLoSYJFU299qzR3tzwPAhw==}
@@ -3415,10 +3420,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-
-  foreground-child@2.0.0:
-    resolution: {integrity: sha512-dCIq9FpEcyQyXKCkyzmlPTFNgrCzPudOe+mhvJU5zAtlBnGVy2yKxtfsxK2tQBThwq225jcvBjpw1Gr40uzZCA==}
-    engines: {node: '>=8.0.0'}
 
   foreground-child@3.3.0:
     resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
@@ -5533,6 +5534,10 @@ packages:
   test-exclude@6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}
     engines: {node: '>=8'}
+
+  test-exclude@7.0.1:
+    resolution: {integrity: sha512-pFYqmTw68LXVjeWJMST4+borgQP2AyMNbg1BpZh9LbyhUeNkeaPF9gzfPGUAnSMV3qPYdWUwDIjjCLiSDOl7vg==}
+    engines: {node: '>=18'}
 
   text-extensions@1.9.0:
     resolution: {integrity: sha512-wiBrwC1EhBelW12Zy26JeOUkQ5mRu+5o8rpsJk5+2t+Y5vE7e842qtZDQ2g1NpX/29HdyFeJ4nSIhI47ENSxlQ==}
@@ -9098,17 +9103,16 @@ snapshots:
       base64-js: 1.5.1
       ieee754: 1.2.1
 
-  c8@8.0.1:
+  c8@10.1.2:
     dependencies:
       '@bcoe/v8-coverage': 0.2.3
       '@istanbuljs/schema': 0.1.3
       find-up: 5.0.0
-      foreground-child: 2.0.0
+      foreground-child: 3.3.0
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
       istanbul-reports: 3.1.7
-      rimraf: 3.0.2
-      test-exclude: 6.0.0
+      test-exclude: 7.0.1
       v8-to-istanbul: 9.3.0
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -9967,11 +9971,6 @@ snapshots:
   flattie@1.1.1: {}
 
   follow-redirects@1.15.9: {}
-
-  foreground-child@2.0.0:
-    dependencies:
-      cross-spawn: 7.0.6
-      signal-exit: 3.0.7
 
   foreground-child@3.3.0:
     dependencies:
@@ -12732,6 +12731,12 @@ snapshots:
       '@istanbuljs/schema': 0.1.3
       glob: 7.2.3
       minimatch: 3.1.2
+
+  test-exclude@7.0.1:
+    dependencies:
+      '@istanbuljs/schema': 0.1.3
+      glob: 10.4.2
+      minimatch: 9.0.5
 
   text-extensions@1.9.0: {}
 
