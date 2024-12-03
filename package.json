@@ -73,7 +73,7 @@
     "cosmiconfig": "8.3.6",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.57.1",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "hanbi": "1.0.3",
     "hastscript": "^7.2.0",
