@@ -57,7 +57,7 @@
     "@nx/js": "20.1.4",
     "@nx/node": "20.1.4",
     "@nx/workspace": "20.1.4",
-    "@swc/core": "1.9.3",
+    "@swc/core": "1.10.0",
     "@swc/register": "0.1.10",
     "@types/inquirer": "8.2.10",
     "@types/node": "22.10.1",
