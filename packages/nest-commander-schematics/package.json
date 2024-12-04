@@ -33,7 +33,7 @@
     "@angular-devkit/core": "17.3.8",
     "@angular-devkit/schematics": "17.3.8",
     "rxjs": "7.8.1",
-    "@nestjs/schematics": "10.1.4",
+    "@nestjs/schematics": "10.2.3",
     "typescript": "5.7.2"
   }
 }
