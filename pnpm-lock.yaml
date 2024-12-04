@@ -104,7 +104,7 @@ importers:
         version: 6.21.0(eslint@8.57.1)(typescript@5.7.2)
       astro:
         specifier: ^5.0.0
-        version: 5.0.1(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2)(yaml@2.5.1)
+        version: 5.0.2(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2)(yaml@2.5.1)
       c8:
         specifier: 10.1.2
         version: 10.1.2
@@ -2584,8 +2584,8 @@ packages:
     resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
     engines: {node: '>=8'}
 
-  astro@5.0.1:
-    resolution: {integrity: sha512-7XzFq3eFdSkeT/aCNealVv4klwmKoOYb6LZymbyZQrdUA9vEoUCKFcujVo4YbJJ8WXyEm515ZHPCxHTdDneEug==}
+  astro@5.0.2:
+    resolution: {integrity: sha512-MKf82vUiTZ2aK+c/8EDnLYIsToBdVVk4PuhhGdE8F/PcuUyS+oIcuCPf30iVf8WCQwXOfnYGnv1JbRjzkqUc3w==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -5553,8 +5553,8 @@ packages:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
-  type-fest@4.29.1:
-    resolution: {integrity: sha512-Y1zUveI92UYM/vo1EFlQSsNf74+hfKH+7saZJslF0Fw92FRaiTAnHPIvo9d7SLxXt/gAYqA4RXyDTioMQCCp0A==}
+  type-fest@4.30.0:
+    resolution: {integrity: sha512-G6zXWS1dLj6eagy6sVhOMQiLtJdxQBHIA9Z6HFUNLOlr6MFOgzV8wvmidtPONfPtEUv0uZsy77XJNzTAfwPDaA==}
     engines: {node: '>=16'}
 
   typescript@5.3.3:
@@ -8800,7 +8800,7 @@ snapshots:
 
   array-union@2.1.0: {}
 
-  astro@5.0.1(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2)(yaml@2.5.1):
+  astro@5.0.2(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2)(yaml@2.5.1):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
@@ -9030,7 +9030,7 @@ snapshots:
       chalk: 5.3.0
       cli-boxes: 3.0.0
       string-width: 7.2.0
-      type-fest: 4.29.1
+      type-fest: 4.30.0
       widest-line: 5.0.0
       wrap-ansi: 9.0.0
 
@@ -11807,7 +11807,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.26.2
       index-to-position: 0.1.2
-      type-fest: 4.29.1
+      type-fest: 4.30.0
 
   parse-latin@7.0.0:
     dependencies:
@@ -11942,14 +11942,14 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.29.1
+      type-fest: 4.30.0
 
   read-pkg@9.0.1:
     dependencies:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.29.1
+      type-fest: 4.30.0
       unicorn-magic: 0.1.0
 
   read-yaml-file@1.1.0:
@@ -12582,7 +12582,7 @@ snapshots:
 
   type-fest@0.21.3: {}
 
-  type-fest@4.29.1: {}
+  type-fest@4.30.0: {}
 
   typescript@5.3.3: {}
 
