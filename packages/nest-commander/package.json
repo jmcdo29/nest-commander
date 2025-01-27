@@ -24,14 +24,14 @@
   "homepage": "https://nest-commander.jaymcdoniel.dev",
   "dependencies": {
     "@fig/complete-commander": "^3.0.0",
-    "@golevelup/nestjs-discovery": "4.0.2",
+    "@golevelup/nestjs-discovery": "4.0.3",
     "commander": "11.1.0",
     "cosmiconfig": "8.3.6",
     "inquirer": "8.2.6"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.0 || ^9.0.0 || ^10.0.0",
-    "@nestjs/core": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@nestjs/common": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
+    "@nestjs/core": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
     "@types/inquirer": "^8.1.3"
   }
 }
