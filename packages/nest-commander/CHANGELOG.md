@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.16.0
+
+### Minor Changes
+
+- ce3d4f4: Support NestJS v11
+
 ## 3.15.0
 
 ### Minor Changes
