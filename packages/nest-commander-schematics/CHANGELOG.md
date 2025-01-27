@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 3.1.0
+
+### Minor Changes
+
+- ce3d4f4: Support NestJS v11
+
 ## 3.0.2
 
 ### Patch Changes
