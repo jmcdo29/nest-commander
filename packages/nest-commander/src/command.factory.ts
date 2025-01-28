@@ -19,8 +19,11 @@ export class CommandFactory {
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<void> {
     const app = await this.createWithoutRunning(rootModule, optionsOrLogger);
-    await this.runApplication(app);
-    await app.close();
+    try {
+      await this.runApplication(app);
+    } finally {
+      await app.close();
+    }
   }
 
   static async runWithoutClosing(
