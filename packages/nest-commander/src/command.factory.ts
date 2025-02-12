@@ -15,7 +15,7 @@ import { CompletionFactory } from './completion.factory';
 
 export class CommandFactory {
   static async run(
-    rootModule: Type<any>,
+    rootModule: Type<any> | DynamicModule,
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<void> {
     const app = await this.createWithoutRunning(rootModule, optionsOrLogger);
@@ -24,7 +24,7 @@ export class CommandFactory {
   }
 
   static async runWithoutClosing(
-    rootModule: Type<any>,
+    rootModule: Type<any> | DynamicModule,
     optionsOrLogger?: CommandFactoryRunOptions | NestLogger,
   ): Promise<INestApplicationContext> {
     const app = await this.createWithoutRunning(rootModule, optionsOrLogger);
@@ -33,7 +33,7 @@ export class CommandFactory {
   }
 
   static async createWithoutRunning(
-    rootModule: Type<any>,
+    rootModule: Type<any> | DynamicModule,
     optionsOrLogger: CommandFactoryRunOptions | NestLogger = false,
   ): Promise<INestApplicationContext> {
     const options = this.getOptions(optionsOrLogger);

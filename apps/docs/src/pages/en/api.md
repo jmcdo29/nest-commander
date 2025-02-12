@@ -9,8 +9,9 @@ layout: ../../layouts/MainLayout.astro
 
 #### @Command()
 
-This class decorator is pretty much what everything else in this package relies on existing. This is
-the decorator that sets up the sub commands for the application that are to be consumed.
+This class decorator is pretty much what everything else in this package relies
+on existing. This is the decorator that sets up the sub commands for the
+application that are to be consumed.
 
 | Property        | Type                     | Required | Description                                                                                                                                                              |
 | --------------- | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -24,15 +25,15 @@ the decorator that sets up the sub commands for the application that are to be c
 
 :::note
 
-The above information holds for `@SubCommand()` as well, though `default` under `options` has no
-effect.
+The above information holds for `@SubCommand()` as well, though `default` under
+`options` has no effect.
 
 :::
 
 #### @RootCommand()
 
-Just like `@Command()` except without the `name` property, and can only be used once per
-application.
+Just like `@Command()` except without the `name` property, and can only be used
+once per application.
 
 | Property        | Type                     | Required | Description                                                                                                                                                              |
 | --------------- | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -45,9 +46,9 @@ application.
 
 #### @Option()
 
-This method decorator allows for users to pass in extra options for commands defined with
-`@Command()`. These options allow for the program to act in slightly different, yet predictable
-ways.
+This method decorator allows for users to pass in extra options for commands
+defined with `@Command()`. These options allow for the program to act in
+slightly different, yet predictable ways.
 
 | Property     | Type                      | Required | Description                                                                                                                                                                                                                                       |
 | ------------ | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,9 +61,9 @@ ways.
 
 #### @OptionChoicesFor()
 
-This method decorator allows you to get chocies for an `@Option()` in a dynamic manner rather than
-hard coding them into the `@Option()` decorator. The method this decorator decorates should return a
-string array of options.
+This method decorator allows you to get chocies for an `@Option()` in a dynamic
+manner rather than hard coding them into the `@Option()` decorator. The method
+this decorator decorates should return a string array of options.
 
 | Property | Type     | Requried | Description                                                                                            |
 | -------- | -------- | -------- | ------------------------------------------------------------------------------------------------------ |
@@ -70,8 +71,8 @@ string array of options.
 
 #### @Help()
 
-This method decorator allows you to add custom help text for your command in a specified position
-with respect to the original help text
+This method decorator allows you to add custom help text for your command in a
+specified position with respect to the original help text
 
 ```ts
 Help(position: 'before' | 'beforeAll' | 'after' | 'afterAll'): MethodDecorator
@@ -81,8 +82,8 @@ Help(position: 'before' | 'beforeAll' | 'after' | 'afterAll'): MethodDecorator
 
 #### `ask<T>`
 
-An asynchronous command to allow for getting user input based on existing options from commander and
-the name of a question set.
+An asynchronous command to allow for getting user input based on existing
+options from commander and the name of a question set.
 
 ```typescript
 ask<T>(name: string, options: Partial<T> | undefined): Promise<T>
@@ -107,9 +108,9 @@ This class decorator allows for the setup of a set of questions to ask.
 
 #### @Question()
 
-This method decorator allows for creating questions to ask the user. For information on each
-specific kind of question, [Inquirer's docs](https://www.npmjs.com/package/inquirer) should be
-consulted.
+This method decorator allows for creating questions to ask the user. For
+information on each specific kind of question,
+[Inquirer's docs](https://www.npmjs.com/package/inquirer) should be consulted.
 
 | Property    | Type                                                                                                             | Required | Description                                                                                                                                                                                   |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,19 +130,19 @@ consulted.
 
 :::note
 
-When you use the `@*For()` decorator factories, the equivalent option on `@Question()` (eg:
-`message`) will not be used.
+When you use the `@*For()` decorator factories, the equivalent option on
+`@Question()` (eg: `message`) will not be used.
 
 :::
 
-\* The property itself is not required, but there must be a value for this, whether through dynamic
-decorator or the `@Question()` decorator.
+\* The property itself is not required, but there must be a value for this,
+whether through dynamic decorator or the `@Question()` decorator.
 
 #### @ValidateFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `validate` option for
-the named question. The method this decorator decorates takes in the user input and answer hashes
-and returns a boolean.
+This method decorator allows a user to define a dynamic value for inquirer's
+`validate` option for the named question. The method this decorator decorates
+takes in the user input and answer hashes and returns a boolean.
 
 | Property | Type     | Required | Description                                      |
 | -------- | -------- | -------- | ------------------------------------------------ |
@@ -149,10 +150,11 @@ and returns a boolean.
 
 #### @TransformFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `transform` option for
-the named question. The method this decorator decorates takes in the user input, answer hashes, and
-option flags and returns the input after transformation. This transformation **does not** impact
-what is returned by Inquirer, only what is shown back to the user.
+This method decorator allows a user to define a dynamic value for inquirer's
+`transform` option for the named question. The method this decorator decorates
+takes in the user input, answer hashes, and option flags and returns the input
+after transformation. This transformation **does not** impact what is returned
+by Inquirer, only what is shown back to the user.
 
 | Property | Type     | Required | Description                                      |
 | -------- | -------- | -------- | ------------------------------------------------ |
@@ -160,9 +162,10 @@ what is returned by Inquirer, only what is shown back to the user.
 
 #### @WhenFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `when` option for the
-named question. The method this decorator decorates takes in the answer hashes and returns a boolean
-for if the question should be shown or not.
+This method decorator allows a user to define a dynamic value for inquirer's
+`when` option for the named question. The method this decorator decorates takes
+in the answer hashes and returns a boolean for if the question should be shown
+or not.
 
 | Property | Type     | Required | Description                                      |
 | -------- | -------- | -------- | ------------------------------------------------ |
@@ -170,9 +173,9 @@ for if the question should be shown or not.
 
 #### @MessageFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `message` option for
-the named question. The method this decorator decorates takes in the current set of answers and
-returns a string.
+This method decorator allows a user to define a dynamic value for inquirer's
+`message` option for the named question. The method this decorator decorates
+takes in the current set of answers and returns a string.
 
 | Property | Type     | Required | Description                                      |
 | -------- | -------- | -------- | ------------------------------------------------ |
@@ -180,10 +183,11 @@ returns a string.
 
 #### @ChoicesFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `choices` option for
-the named question. The method this decorator decorates takes in the current answer hashes and
-returns an array of choices. These choices can be an array of `string`, `number`, or objects
-containing a `name`, `value`, and `short`. The choices array can also contain a separator which can
+This method decorator allows a user to define a dynamic value for inquirer's
+`choices` option for the named question. The method this decorator decorates
+takes in the current answer hashes and returns an array of choices. These
+choices can be an array of `string`, `number`, or objects containing a `name`,
+`value`, and `short`. The choices array can also contain a separator which can
 be read about in [Inquirer's docs](https://www.npmjs.com/package/inquirer).
 
 | Property | Type     | Required | Description                                      |
@@ -192,9 +196,10 @@ be read about in [Inquirer's docs](https://www.npmjs.com/package/inquirer).
 
 #### @DefaultFor()
 
-This method decorator allows a user to define a dynamic value for inquirer's `default` option for
-the named question. The method this decorator decorates takes in the current hash of answers and
-returns a `number`, `string`, or `boolean`.
+This method decorator allows a user to define a dynamic value for inquirer's
+`default` option for the named question. The method this decorator decorates
+takes in the current hash of answers and returns a `number`, `string`, or
+`boolean`.
 
 | Property | Type     | Required | Description                                      |
 | -------- | -------- | -------- | ------------------------------------------------ |
@@ -202,8 +207,8 @@ returns a `number`, `string`, or `boolean`.
 
 :::tip
 
-Most of the decorators for the `@QuestionSet()` decorated class are just dynamic setters for
-inquirer's options.
+Most of the decorators for the `@QuestionSet()` decorated class are just dynamic
+setters for inquirer's options.
 [Their docs will go more in depth about what each one does](https://www.npmjs.com/package/inquirer).
 
 :::
@@ -245,25 +250,28 @@ A simple wrapper around `Number.parseFloat()`
 
 #### run
 
-A static method that kicks off the command and manages the Nest application lifecycle.
+A static method that kicks off the command and manages the Nest application
+lifecycle.
 
 ```typescript
-CommandFactory.run(rootModule: Type<any>, optionsOrLogger?: CommandFactoryRunOptions | NestLogger): Promise<void>
+CommandFactory.run(rootModule: Type<any> | DynamicModule, optionsOrLogger?: CommandFactoryRunOptions | NestLogger): Promise<void>
 ```
 
 | Parameter       | Type                                       | Required | Description                                                                                                                   |
 | --------------- | ------------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| rootModule      | `Type<any>`                                | true     | The module, or module metadata, required to run the command. This is the same module metadata passed to `NestFactory.create`. |
+| rootModule      | `Type<any>` or `DynamicModule`             | true     | The module, or module metadata, required to run the command. This is the same module metadata passed to `NestFactory.create`. |
 | optionsOrLogger | `CommandFactoryRunOptions` or `NestLogger` | false    | Options or a Nest logger instance for the `CommandFactory` to pass on to `NestLogger`. See below for more information.        |
 
 #### runWithoutClosing
 
-The same static method as above, but without handling the closing of the Nest application when the
-command finishes. This is to allow the setup of things like file watchers or pollers.
+The same static method as above, but without handling the closing of the Nest
+application when the command finishes. This is to allow the setup of things like
+file watchers or pollers.
 
 #### CommandFactoryRunOptions
 
-Options that can be passed to the `run` or `runWithoutClosing` method to modify the behavior.
+Options that can be passed to the `run` or `runWithoutClosing` method to modify
+the behavior.
 
 | Property                | Type         | Required | Description                                                                                                                                                                                   |
 | ----------------------- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -277,14 +285,15 @@ Options that can be passed to the `run` or `runWithoutClosing` method to modify 
 
 ### CommandRunner
 
-The `CommandRunner` is abstract class to define your command. You define the command in the class
-inherits it.
+The `CommandRunner` is abstract class to define your command. You define the
+command in the class inherits it.
 
 #### registerWithSubCommands
 
-A static method that returns a list of the root command class, which calls this api, and all sub
-command classes set via the metadata of the `@Command()` and `@SubCommand()` decorators in the scope
-of module tree that the root command class traverses.
+A static method that returns a list of the root command class, which calls this
+api, and all sub command classes set via the metadata of the `@Command()` and
+`@SubCommand()` decorators in the scope of module tree that the root command
+class traverses.
 
 ```typescript title="src/app.module.ts"
 @Module({
@@ -299,8 +308,8 @@ export class AppModule {}
 
 ### @RequestModule()
 
-A wrapper decorator for Nest's `@Module()` that exposes a way to set a request object mock for the
-`REQUEST` injection token.
+A wrapper decorator for Nest's `@Module()` that exposes a way to set a request
+object mock for the `REQUEST` injection token.
 
 ```typescript
 @RequestModule({
@@ -324,9 +333,9 @@ export class SomeCommandModule {}
 
 #### createTestingCommand
 
-Similar to `@nestjs/testing`'s `createTestingModule`, this static method sets up a
-`TestingModuleBuilder` that can be used with Nest's `overrideProvider` and `compile` methods for
-creating a `TestingModule`.
+Similar to `@nestjs/testing`'s `createTestingModule`, this static method sets up
+a `TestingModuleBuilder` that can be used with Nest's `overrideProvider` and
+`compile` methods for creating a `TestingModule`.
 
 ```typescript
 CommandFactory.createTestingCommand(moduleMetadata: CommandModuleMetadata): TestingModuleBuilder
@@ -351,7 +360,8 @@ CommandTestFactory.run(app: TestingModule, args?: string[]): Promise<void>
 
 #### setAnswers
 
-A command to mock the gathering of information from a user, to help with automated testing.
+A command to mock the gathering of information from a user, to help with
+automated testing.
 
 ```typescript
 CommandFactory.setAnswers(value: any | any[]): void
@@ -363,8 +373,9 @@ CommandFactory.setAnswers(value: any | any[]): void
 
 #### useDefaultInquirer
 
-A method to sub back in the regular `Inquirer` instance instead of the mock used for testing. If
-this is used, the `setAnswers` will have no effect, and `stdin` data must be passed manually
+A method to sub back in the regular `Inquirer` instance instead of the mock used
+for testing. If this is used, the `setAnswers` will have no effect, and `stdin`
+data must be passed manually
 
 ```typescript
 CommandFactory.useDefaultInquirer(): typeof CommandTestFactory
