@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.16.1
+
+### Patch Changes
+
+- f2d6228: Support dynamic modules in `CommandFactory.run()`
+
 ## 3.16.0
 
 ### Minor Changes
