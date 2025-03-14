@@ -141,6 +141,12 @@ ${cliPluginError(
     if (this.options.helpConfiguration) {
       newCommand.configureHelp(this.options.helpConfiguration);
     }
+    if (command.command.allowUnknownOptions) {
+      newCommand.allowUnknownOption();
+    }
+    if (command.command.allowExcessArgs) {
+      newCommand.allowExcessArguments();
+    }
     if (command.command.arguments) {
       this.mapArgumentDescriptions(
         newCommand,
