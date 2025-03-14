@@ -60,6 +60,8 @@ export interface CommandMetadata {
   options?: CommandOptions;
   subCommands?: Array<Type<CommandRunner>>;
   aliases?: string[];
+  allowUnknownOptions?: boolean;
+  allowExcessArgs?: boolean;
 }
 
 export type RootCommandMetadata = Omit<CommandMetadata, 'name'> & {
