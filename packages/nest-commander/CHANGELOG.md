@@ -1,5 +1,13 @@
 # nest-commander
 
+## 3.17.0
+
+### Minor Changes
+
+- 97ef074: Two new options exist, `allowUnknownOptions` and `allowExcessArgs`.
+  Both are optional booleans that will tell the underlying commander command to
+  allow for extra options and arguments, as is already supported by commander.
+
 ## 3.16.1
 
 ### Patch Changes
