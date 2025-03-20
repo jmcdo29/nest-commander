@@ -113,5 +113,5 @@ access `inquirer` directly using `this.inquirerService.inquirer`.
 
 :::
 
-Visit the [api docs](../api) to learn more about the `InquirerService`'s `ask` command and extra
+Visit the [api docs](../api.md) to learn more about the `InquirerService`'s `ask` command and extra
 decorators.
