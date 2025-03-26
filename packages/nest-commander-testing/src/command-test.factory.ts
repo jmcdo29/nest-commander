@@ -77,22 +77,34 @@ export class CommandTestFactory {
     return answers;
   }
 
-  static async run(app: TestingModule, args: string[] = []) {
-    const application = await this.runApplication(app, args);
+  static async run(
+    app: TestingModule,
+    args: string[] = [],
+    options: Record<string, any> = {},
+  ) {
+    const application = await this.runApplication(app, args, options);
     await application.close();
   }
 
-  static async runWithoutClosing(app: TestingModule, args: string[] = []) {
-    return this.runApplication(app, args);
+  static async runWithoutClosing(
+    app: TestingModule,
+    args: string[] = [],
+    options: Record<string, any> = {},
+  ) {
+    return this.runApplication(app, args, options);
   }
 
-  private static async runApplication(app: TestingModule, args: string[] = []) {
+  private static async runApplication(
+    app: TestingModule,
+    args: string[] = [],
+    options: Record<string, any> = {},
+  ) {
     if (args?.length && args[0] !== 'node') {
       args = ['node', randomBytes(8).toString('hex') + '.js'].concat(args);
     }
     await app.init();
     const runner = app.get(CommandRunnerService);
-    await runner.run(args);
+    await runner.run(args, options);
     return app;
   }
 
