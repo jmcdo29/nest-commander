@@ -55,7 +55,7 @@ function removeDups(arr: Commit[]) {
 	const map = new Map<string, Commit['author']>();
 
 	for (let item of arr) {
-		const author = item.author;
+		const author = item.author ?? {id: '', login: ''};
 		// Deduplicate based on author.id
 		map.set(author.id, { login: author.login, id: author.id });
 	}
