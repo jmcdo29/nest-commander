@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.5.0
+
+### Minor Changes
+
+- ca7ee4b: Bump @golevelup/nestjs-discovery from v4 to v5
+
 ## 3.4.0
 
 ### Minor Changes

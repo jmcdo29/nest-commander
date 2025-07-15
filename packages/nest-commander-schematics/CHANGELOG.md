@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 3.2.0
+
+### Minor Changes
+
+- ca7ee4b: Bump @golevelup/nestjs-discovery from v4 to v5
+
 ## 3.1.0
 
 ### Minor Changes
