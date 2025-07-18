@@ -84,7 +84,7 @@
     "nx-uvu": "1.3.1",
     "pinst": "3.0.0",
     "preact": "^10.13.2",
-    "prettier": "2.8.8",
+    "prettier": "3.6.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "reflect-metadata": "0.2.2",
