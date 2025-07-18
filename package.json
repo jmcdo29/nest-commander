@@ -59,7 +59,7 @@
     "@nx/workspace": "20.2.1",
     "@swc/core": "1.10.11",
     "@swc/register": "0.1.10",
-    "@types/inquirer": "8.2.10",
+    "@types/inquirer": "8.2.11",
     "@types/node": "22.10.10",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
