@@ -26,7 +26,7 @@ importers:
         version: 19.1.3(@types/node@22.10.10)(chokidar@4.0.3)
       '@astrojs/preact':
         specifier: ^4.0.0
-        version: 4.0.3(@babel/core@7.26.7)(@types/node@22.10.10)(jiti@2.4.2)(preact@10.25.1)(terser@5.36.0)(yaml@2.6.1)
+        version: 4.0.3(@babel/core@7.26.7)(@types/node@22.10.10)(jiti@2.4.2)(preact@10.26.9)(terser@5.36.0)(yaml@2.6.1)
       '@astrojs/react':
         specifier: ^4.0.0
         version: 4.2.0(@types/node@22.10.10)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(jiti@2.4.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(terser@5.36.0)(yaml@2.6.1)
@@ -158,7 +158,7 @@ importers:
         version: 3.0.0
       preact:
         specifier: ^10.13.2
-        version: 10.25.1
+        version: 10.26.9
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -197,13 +197,13 @@ importers:
         version: 3.2.0(commander@11.1.0)
       '@golevelup/nestjs-discovery':
         specifier: 4.0.3
-        version: 4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
+        version: 4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
       '@nestjs/common':
         specifier: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
         version: 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core':
         specifier: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
-        version: 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        version: 11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@types/inquirer':
         specifier: ^8.1.3
         version: 8.2.10
@@ -4927,8 +4927,8 @@ packages:
     peerDependencies:
       preact: '>=10'
 
-  preact@10.25.1:
-    resolution: {integrity: sha512-frxeZV2vhQSohQwJ7FvlqC40ze89+8friponWUFeVEkaCfhC6Eu4V0iND5C9CXz8JLndV07QRDeXzH1+Anz5Og==}
+  preact@10.26.9:
+    resolution: {integrity: sha512-SSjF9vcnF27mJK1XyFMNJzFd5u3pQiATFqoaDy03XuN00u4ziveVVEGt5RKJrDR8MHE/wJo9Nnad56RLzS2RMA==}
 
   preferred-pm@4.0.0:
     resolution: {integrity: sha512-gYBeFTZLu055D8Vv3cSPox/0iTPtkzxpLroSYYA7WXgRi31WCJ51Uyl8ZiPeUUjyvs2MBzK+S8v9JVUgHU/Sqw==}
@@ -6176,15 +6176,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/preact@4.0.3(@babel/core@7.26.7)(@types/node@22.10.10)(jiti@2.4.2)(preact@10.25.1)(terser@5.36.0)(yaml@2.6.1)':
+  '@astrojs/preact@4.0.3(@babel/core@7.26.7)(@types/node@22.10.10)(jiti@2.4.2)(preact@10.26.9)(terser@5.36.0)(yaml@2.6.1)':
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.7)
       '@babel/plugin-transform-react-jsx-development': 7.25.9(@babel/core@7.26.7)
-      '@preact/preset-vite': 2.8.2(@babel/core@7.26.7)(preact@10.25.1)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))
-      '@preact/signals': 2.0.1(preact@10.25.1)
+      '@preact/preset-vite': 2.8.2(@babel/core@7.26.7)(preact@10.26.9)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))
+      '@preact/signals': 2.0.1(preact@10.26.9)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.26.7)
-      preact: 10.25.1
-      preact-render-to-string: 6.5.13(preact@10.25.1)
+      preact: 10.26.9
+      preact-render-to-string: 6.5.13(preact@10.26.9)
       vite: 6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@babel/core'
@@ -7575,10 +7575,10 @@ snapshots:
       '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
       lodash: 4.17.21
 
-  '@golevelup/nestjs-discovery@4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))':
+  '@golevelup/nestjs-discovery@4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))':
     dependencies:
       '@nestjs/common': 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
       lodash: 4.17.21
 
   '@golevelup/nestjs-discovery@5.0.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))':
@@ -8379,12 +8379,12 @@ snapshots:
 
   '@pkgr/core@0.3.4': {}
 
-  '@preact/preset-vite@2.8.2(@babel/core@7.26.7)(preact@10.25.1)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))':
+  '@preact/preset-vite@2.8.2(@babel/core@7.26.7)(preact@10.26.9)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))':
     dependencies:
       '@babel/core': 7.26.7
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.7)
       '@babel/plugin-transform-react-jsx-development': 7.25.9(@babel/core@7.26.7)
-      '@prefresh/vite': 2.4.6(preact@10.25.1)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))
+      '@prefresh/vite': 2.4.6(preact@10.26.9)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))
       '@rollup/pluginutils': 4.2.1
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.26.7)
       debug: 4.4.0
@@ -8401,27 +8401,27 @@ snapshots:
 
   '@preact/signals-core@1.8.0': {}
 
-  '@preact/signals@2.0.1(preact@10.25.1)':
+  '@preact/signals@2.0.1(preact@10.26.9)':
     dependencies:
       '@preact/signals-core': 1.8.0
-      preact: 10.25.1
+      preact: 10.26.9
 
   '@prefresh/babel-plugin@0.5.1': {}
 
-  '@prefresh/core@1.5.3(preact@10.25.1)':
+  '@prefresh/core@1.5.3(preact@10.26.9)':
     dependencies:
-      preact: 10.25.1
+      preact: 10.26.9
 
   '@prefresh/utils@1.2.0': {}
 
-  '@prefresh/vite@2.4.6(preact@10.25.1)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))':
+  '@prefresh/vite@2.4.6(preact@10.26.9)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1))':
     dependencies:
       '@babel/core': 7.26.7
       '@prefresh/babel-plugin': 0.5.1
-      '@prefresh/core': 1.5.3(preact@10.25.1)
+      '@prefresh/core': 1.5.3(preact@10.26.9)
       '@prefresh/utils': 1.2.0
       '@rollup/pluginutils': 4.2.1
-      preact: 10.25.1
+      preact: 10.26.9
       vite: 6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.36.0)(yaml@2.6.1)
     transitivePeerDependencies:
       - supports-color
@@ -11954,11 +11954,11 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  preact-render-to-string@6.5.13(preact@10.25.1):
+  preact-render-to-string@6.5.13(preact@10.26.9):
     dependencies:
-      preact: 10.25.1
+      preact: 10.26.9
 
-  preact@10.25.1: {}
+  preact@10.26.9: {}
 
   preferred-pm@4.0.0:
     dependencies:
