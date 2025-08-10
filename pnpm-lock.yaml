@@ -85,8 +85,8 @@ importers:
         specifier: 0.1.10
         version: 0.1.10(@swc/core@1.10.11)
       '@types/inquirer':
-        specifier: 8.2.11
-        version: 8.2.11
+        specifier: 8.2.12
+        version: 8.2.12
       '@types/node':
         specifier: 22.10.10
         version: 22.10.10
@@ -142,8 +142,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       inquirer:
-        specifier: 8.2.6
-        version: 8.2.6
+        specifier: 8.2.7
+        version: 8.2.7(@types/node@22.10.10)
       lint-staged:
         specifier: 15.2.10
         version: 15.2.10
@@ -214,8 +214,8 @@ importers:
         specifier: 8.3.6
         version: 8.3.6(typescript@5.7.3)
       inquirer:
-        specifier: 8.2.6
-        version: 8.2.6
+        specifier: 8.2.7
+        version: 8.2.7(@types/node@22.10.10)
 
   packages/nest-commander-schematics:
     dependencies:
@@ -248,7 +248,7 @@ importers:
         version: 11.0.6(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
       nest-commander:
         specifier: ^2.5.0 || ^3.0.0
-        version: 3.15.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))(@types/inquirer@8.2.11)(typescript@5.7.3)
+        version: 3.15.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))(@types/inquirer@8.2.12)(typescript@5.7.3)
 
 packages:
 
@@ -1588,6 +1588,12 @@ packages:
     peerDependencies:
       '@types/node': '>=18'
 
+  '@inquirer/external-editor@1.0.0':
+    resolution: {integrity: sha512-5v3YXc5ZMfL6OJqXPrX9csb4l7NlQA2doO1yynUjpUChT9hg4JcuBVP0RbsEJ/3SL/sxWEyFjT2W69ZhtoBWqg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@types/node': '>=18'
+
   '@inquirer/figures@1.0.9':
     resolution: {integrity: sha512-BXvGj0ehzrngHTPTDqUoDT3NXL8U0RxUk2zJm2A66RhCEIWdtU1v6GuUqNAgArW4PQ9CinqIWyHdQgdwOj06zQ==}
     engines: {node: '>=18'}
@@ -2310,8 +2316,8 @@ packages:
   '@types/inquirer@8.2.10':
     resolution: {integrity: sha512-IdD5NmHyVjWM8SHWo/kPBgtzXatwPkfwzyP3fN1jF2g9BWt5WO+8hL2F4o2GKIYsU40PpqeevuUWvkS/roXJkA==}
 
-  '@types/inquirer@8.2.11':
-    resolution: {integrity: sha512-15UboTvxb9SOaPG7CcXZ9dkv8lNqfiAwuh/5WxJDLjmElBt9tbx1/FDsEnJddUBKvN4mlPKvr8FyO1rAmBanzg==}
+  '@types/inquirer@8.2.12':
+    resolution: {integrity: sha512-YxURZF2ZsSjU5TAe06tW0M3sL4UI9AMPA6dd8I72uOtppzNafcY38xkYgCZ/vsVOAyNdzHmvtTpLWilOrbP0dQ==}
 
   '@types/istanbul-lib-coverage@2.0.6':
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
@@ -2859,6 +2865,9 @@ packages:
 
   chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
+
+  chardet@2.1.0:
+    resolution: {integrity: sha512-bNFETTG/pM5ryzQ9Ad0lJOTa6HWD/YsScAR3EnCPZRPlQh77JocYktSHOUHelyhm8IARL+o4c4F1bP5KVOjiRA==}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -3874,6 +3883,10 @@ packages:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
 
+  iconv-lite@0.6.3:
+    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+    engines: {node: '>=0.10.0'}
+
   identity-obj-proxy@3.0.0:
     resolution: {integrity: sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA==}
     engines: {node: '>=4'}
@@ -3920,6 +3933,10 @@ packages:
 
   inquirer@8.2.6:
     resolution: {integrity: sha512-M1WuAmb7pn9zdFRtQYk26ZBoY043Sse0wVDdk4Bppr+JOXyQYybdtvK+l9wUibhtjdjvtoiNy8tk+EgsYIUqKg==}
+    engines: {node: '>=12.0.0'}
+
+  inquirer@8.2.7:
+    resolution: {integrity: sha512-UjOaSel/iddGZJ5xP/Eixh6dY1XghiBw4XK13rCCIJcJfyhhoul/7KhLLUGtebEj6GDYM6Vnx/mVsjx2L/mFIA==}
     engines: {node: '>=12.0.0'}
 
   iron-webcrypto@1.2.1:
@@ -7403,7 +7420,7 @@ snapshots:
       '@commitlint/execute-rule': 19.5.0
       '@commitlint/resolve-extends': 19.5.0
       '@commitlint/types': 19.5.0
-      chalk: 5.3.0
+      chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.7.2)
       cosmiconfig-typescript-loader: 5.1.0(@types/node@22.10.10)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
       lodash.isplainobject: 4.0.6
@@ -7766,6 +7783,12 @@ snapshots:
       '@inquirer/type': 3.0.2(@types/node@22.10.10)
       '@types/node': 22.10.10
       yoctocolors-cjs: 2.1.2
+
+  '@inquirer/external-editor@1.0.0(@types/node@22.10.10)':
+    dependencies:
+      '@types/node': 22.10.10
+      chardet: 2.1.0
+      iconv-lite: 0.6.3
 
   '@inquirer/figures@1.0.9': {}
 
@@ -8735,7 +8758,7 @@ snapshots:
       '@types/through': 0.0.33
       rxjs: 7.8.1
 
-  '@types/inquirer@8.2.11':
+  '@types/inquirer@8.2.12':
     dependencies:
       '@types/through': 0.0.33
       rxjs: 7.8.1
@@ -9459,6 +9482,8 @@ snapshots:
   character-reference-invalid@2.0.1: {}
 
   chardet@0.7.0: {}
+
+  chardet@2.1.0: {}
 
   chokidar@3.6.0:
     dependencies:
@@ -10588,6 +10613,10 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
+  iconv-lite@0.6.3:
+    dependencies:
+      safer-buffer: 2.1.2
+
   identity-obj-proxy@3.0.0:
     dependencies:
       harmony-reflect: 1.6.2
@@ -10653,6 +10682,26 @@ snapshots:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 6.2.0
+
+  inquirer@8.2.7(@types/node@22.10.10):
+    dependencies:
+      '@inquirer/external-editor': 1.0.0(@types/node@22.10.10)
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-width: 3.0.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      mute-stream: 0.0.8
+      ora: 5.4.1
+      run-async: 2.4.1
+      rxjs: 7.8.1
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      through: 2.3.8
+      wrap-ansi: 6.2.0
+    transitivePeerDependencies:
+      - '@types/node'
 
   iron-webcrypto@1.2.1: {}
 
@@ -11693,13 +11742,13 @@ snapshots:
 
   neotraverse@0.6.18: {}
 
-  nest-commander@3.15.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))(@types/inquirer@8.2.11)(typescript@5.7.3):
+  nest-commander@3.15.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))(@types/inquirer@8.2.12)(typescript@5.7.3):
     dependencies:
       '@fig/complete-commander': 3.2.0(commander@11.1.0)
       '@golevelup/nestjs-discovery': 4.0.1(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
       '@nestjs/common': 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@types/inquirer': 8.2.11
+      '@types/inquirer': 8.2.12
       commander: 11.1.0
       cosmiconfig: 8.3.6(typescript@5.7.3)
       inquirer: 8.2.6
