@@ -50,7 +50,7 @@
     "@golevelup/nestjs-discovery": "5.0.0",
     "@mdx-js/react": "3.1.0",
     "@nestjs/cli": "11.0.2",
-    "@nestjs/common": "11.0.6",
+    "@nestjs/common": "11.0.16",
     "@nestjs/core": "11.0.6",
     "@nestjs/schematics": "11.0.0",
     "@nestjs/testing": "11.0.6",
