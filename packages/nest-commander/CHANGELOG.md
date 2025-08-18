@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.19.0
+
+### Minor Changes
+
+- 1ba3506: Update dependencies to get rid of CVE in inquirer's dependencies
+
 ## 3.18.0
 
 ### Minor Changes
