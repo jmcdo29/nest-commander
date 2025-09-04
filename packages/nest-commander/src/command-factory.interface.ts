@@ -23,7 +23,7 @@ export interface CommandFactoryRunOptions
   enablePositionalOptions?: boolean;
   enablePassThroughOptions?: boolean;
   outputConfiguration?: OutputConfiguration;
-  helpConfiguration?: Help;
+  helpConfiguration?: Partial<Help>;
   version?: string;
 
   /**
