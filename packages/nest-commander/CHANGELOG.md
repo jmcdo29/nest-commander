@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.19.1
+
+### Patch Changes
+
+- 7b489e6: Make helpConfiguration typing Partial
+
 ## 3.19.0
 
 ### Minor Changes
