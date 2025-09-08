@@ -196,8 +196,8 @@ importers:
         specifier: ^3.0.0
         version: 3.2.0(commander@11.1.0)
       '@golevelup/nestjs-discovery':
-        specifier: 4.0.3
-        version: 4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))
+        specifier: 5.0.0
+        version: 5.0.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))
       '@nestjs/common':
         specifier: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
         version: 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -1425,12 +1425,6 @@ packages:
     peerDependencies:
       '@nestjs/common': ^10.x
       '@nestjs/core': ^10.x
-
-  '@golevelup/nestjs-discovery@4.0.3':
-    resolution: {integrity: sha512-8w3CsXHN7+7Sn2i419Eal1Iw/kOjAd6Kb55M/ZqKBBwACCMn4WiEuzssC71LpBMI1090CiDxuelfPRwwIrQK+A==}
-    peerDependencies:
-      '@nestjs/common': ^10.x || ^11.0.0
-      '@nestjs/core': ^10.x || ^11.0.0
 
   '@golevelup/nestjs-discovery@5.0.0':
     resolution: {integrity: sha512-NaIWLCLI+XvneUK05LH2idHLmLNITYT88YnpOuUQmllKtiJNIS3woSt7QXrMZ5k3qUWuZpehEVz1JtlX4I1KyA==}
@@ -7643,16 +7637,16 @@ snapshots:
       '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       lodash: 4.17.21
 
-  '@golevelup/nestjs-discovery@4.0.3(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))':
-    dependencies:
-      '@nestjs/common': 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      lodash: 4.17.21
-
   '@golevelup/nestjs-discovery@5.0.0(@nestjs/common@11.0.16(file-type@20.5.0)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.6(@nestjs/common@11.0.16(file-type@20.5.0)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))':
     dependencies:
       '@nestjs/common': 11.0.16(file-type@20.5.0)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.0.6(@nestjs/common@11.0.16(file-type@20.5.0)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      lodash: 4.17.21
+
+  '@golevelup/nestjs-discovery@5.0.0(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))':
+    dependencies:
+      '@nestjs/common': 11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/core': 10.4.4(@nestjs/common@11.0.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       lodash: 4.17.21
 
   '@humanwhocodes/config-array@0.13.0':
