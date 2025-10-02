@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.5.1
+
+### Patch Changes
+
+- 0e8288b: Fix relative directory to package in repository
+
 ## 3.5.0
 
 ### Minor Changes
