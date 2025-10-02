@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.20.1
+
+### Patch Changes
+
+- 0e8288b: Fix relative directory to package in repository
+
 ## 3.20.0
 
 ### Minor Changes
