@@ -5,7 +5,7 @@
   "repository": {
     "type": "github",
     "url": "https://github.com/jmcdo29/nest-commander.git",
-    "directory": "pacakges/nest-commander"
+    "directory": "packages/nest-commander"
   },
   "keywords": [
     "cli",
