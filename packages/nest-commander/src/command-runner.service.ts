@@ -11,6 +11,7 @@ import {
   HelpOptions,
   OptionChoiceForMetadata,
   OptionMetadata,
+  OptionsMetadata,
   RootCommandMetadata,
   RunnerMeta,
 } from './command-runner.interface';
@@ -21,10 +22,24 @@ import {
   HelpMeta,
   OptionChoiceMeta,
   OptionMeta,
+  OptionsMeta,
   RootCommandMeta,
   SubCommandMeta,
 } from './constants';
 import { InjectCommander } from './command.decorators';
+
+function createVariadicArgParser(
+  handler: (value: string) => unknown,
+  defaultValue: unknown,
+): (value: string, previous: unknown) => unknown[] {
+  return (value: string, previous: unknown) => {
+    const transformed = handler(value);
+    if (previous === defaultValue || !Array.isArray(previous)) {
+      return [transformed];
+    }
+    return [...previous, transformed];
+  };
+}
 
 export class CommandRunnerService implements OnModuleInit {
   private subCommands?: DiscoveredClassWithMeta<CommandMetadata>[];
@@ -110,6 +125,11 @@ ${cliPluginError(
           OptionMeta,
           (found) => found.name === provider.discoveredClass.name,
         );
+      const variadicOptionProviders =
+        await this.discoveryService.providerMethodsWithMetaAtKey<OptionsMetadata>(
+          OptionsMeta,
+          (found) => found.name === provider.discoveredClass.name,
+        );
       const helpProviders =
         await this.discoveryService.providerMethodsWithMetaAtKey<HelpOptions>(
           HelpMeta,
@@ -119,6 +139,7 @@ ${cliPluginError(
         command: provider.meta,
         instance: provider.discoveredClass.instance as CommandRunner,
         params: optionProviders,
+        variadicParams: variadicOptionProviders,
         help: helpProviders,
       });
     }
@@ -167,47 +188,29 @@ ${cliPluginError(
 
     const optionNameMap: Record<string, string> = {};
 
+    // Process @Option params (existing behavior, unchanged)
     for (const option of command.params) {
-      const {
-        flags,
-        description,
-        defaultValue = undefined,
-        required = false,
-        choices = [],
-        name: optionName = '',
-        env = undefined,
-      } = option.meta;
       const handler = option.discoveredMethod.handler.bind(command.instance);
-      const commandOption = new Option(flags, description)
-        .default(defaultValue)
-        .preset(defaultValue)
-        .makeOptionMandatory(required);
-      // choices can be a true boolean or an array of string options for commander.
-      // If a boolean, then we know that we are expected to go find the OptionChoiceFOr method.
-      if (choices === true || (Array.isArray(choices) && choices.length)) {
-        let optionChoices = [];
-        if (choices === true) {
-          const choicesMethods =
-            await this.discoveryService.providerMethodsWithMetaAtKey<OptionChoiceForMetadata>(
-              OptionChoiceMeta,
-              (item) => item.instance === command.instance,
-            );
-          const cMethod = choicesMethods
-            .filter((choiceMethod) => choiceMethod.meta.name === optionName)
-            .map((method) => method.discoveredMethod)[0];
-          optionChoices = cMethod.handler.call(command.instance);
-        } else {
-          optionChoices = choices;
-        }
-        commandOption.choices(optionChoices);
-      }
-      if (env) {
-        commandOption.env(env);
-      }
-      commandOption.argParser(handler);
-      newCommand.addOption(commandOption);
-      optionNameMap[commandOption.attributeName()] =
-        optionName || commandOption.attributeName();
+      const commandOption = await this.configureCommandOption(
+        command,
+        newCommand,
+        option,
+        optionNameMap,
+        handler,
+      );
+      commandOption.preset(option.meta.defaultValue);
+    }
+
+    // Process @Options params (variadic with auto-accumulation)
+    for (const option of command.variadicParams) {
+      const handler = option.discoveredMethod.handler.bind(command.instance);
+      await this.configureCommandOption(
+        command,
+        newCommand,
+        option,
+        optionNameMap,
+        createVariadicArgParser(handler, option.meta.defaultValue),
+      );
     }
     for (const help of command.help ?? []) {
       newCommand.addHelpText(
@@ -259,6 +262,59 @@ ${cliPluginError(
       }
     }
     return newCommand;
+  }
+
+  private async configureCommandOption(
+    command: RunnerMeta,
+    newCommand: Command,
+    option: { meta: OptionMetadata | OptionsMetadata; discoveredMethod: any },
+    optionNameMap: Record<string, string>,
+    argParser: (value: string, previous: unknown) => unknown,
+  ): Promise<Option> {
+    const {
+      flags,
+      description,
+      defaultValue = undefined,
+      required = false,
+      choices = [],
+      name: optionName = '',
+      env = undefined,
+    } = option.meta;
+
+    const commandOption = new Option(flags, description)
+      .default(defaultValue)
+      .makeOptionMandatory(required);
+
+    // choices can be a true boolean or an array of string options for commander.
+    // If a boolean, then we know that we are expected to go find the OptionChoiceFor method.
+    if (choices === true || (Array.isArray(choices) && choices.length)) {
+      let optionChoices = [];
+      if (choices === true) {
+        const choicesMethods =
+          await this.discoveryService.providerMethodsWithMetaAtKey<OptionChoiceForMetadata>(
+            OptionChoiceMeta,
+            (item) => item.instance === command.instance,
+          );
+        const cMethod = choicesMethods
+          .filter((choiceMethod) => choiceMethod.meta.name === optionName)
+          .map((method) => method.discoveredMethod)[0];
+        optionChoices = cMethod.handler.call(command.instance);
+      } else {
+        optionChoices = choices;
+      }
+      commandOption.choices(optionChoices);
+    }
+
+    if (env) {
+      commandOption.env(env);
+    }
+
+    commandOption.argParser(argParser);
+    newCommand.addOption(commandOption);
+    optionNameMap[commandOption.attributeName()] =
+      optionName || commandOption.attributeName();
+
+    return commandOption;
   }
 
   private mapArgumentDescriptions(

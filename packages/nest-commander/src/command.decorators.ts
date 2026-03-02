@@ -5,6 +5,7 @@ import {
   HelpOptions,
   OptionChoiceForMetadata,
   OptionMetadata,
+  OptionsMetadata,
   QuestionMetadata,
   QuestionNameMetadata,
   RootCommandMetadata,
@@ -18,6 +19,7 @@ import {
   MessageMeta,
   OptionChoiceMeta,
   OptionMeta,
+  OptionsMeta,
   QuestionMeta,
   QuestionSetMeta,
   RootCommandMeta,
@@ -70,6 +72,12 @@ export const DefaultCommand = RootCommand;
 
 export const Option = (options: OptionMetadata): MethodDecorator => {
   return applyMethodMetadata(options, OptionMeta);
+};
+
+export const Options = <T extends unknown[] = string[]>(
+  options: OptionsMetadata<T>,
+): MethodDecorator => {
+  return applyMethodMetadata(options, OptionsMeta);
 };
 
 export const OptionChoiceFor = (
