@@ -1,5 +1,10 @@
-import { INestApplicationContext, LoggerService, Type } from '@nestjs/common';
-import { DynamicModule, ModuleMetadata } from '@nestjs/common/interfaces';
+import {
+  DynamicModule,
+  INestApplicationContext,
+  LoggerService,
+  ModuleMetadata,
+  Type,
+} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { cosmiconfig } from 'cosmiconfig';
 import {

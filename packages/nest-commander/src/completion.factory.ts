@@ -49,7 +49,7 @@ export class CompletionFactory {
 
     if (parsedOptions.fig) {
       try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         const { addCompletionSpecCommand } = require('@fig/complete-commander');
         addCompletionSpecCommand(commander);
       } catch {
