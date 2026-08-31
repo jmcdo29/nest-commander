@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 env:
   NX_RUN_GROUP: ${{ github.run_id }}
   NX_CLOUD_DISTRIBUTED_EXECUTION: true
@@ -40,7 +45,7 @@ jobs:
           publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: '' # intentionally left blank for trusted publishing
 
       - name: Stop Nx Cloud Agents
         run: pnpm nx-cloud stop-all-agents
