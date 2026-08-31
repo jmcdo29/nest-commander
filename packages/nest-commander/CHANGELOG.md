@@ -1,5 +1,11 @@
 # nest-commander
 
+## 3.21.0
+
+### Minor Changes
+
+- d4d9b80: Support NestJS v12
+
 ## 3.20.1
 
 ### Patch Changes

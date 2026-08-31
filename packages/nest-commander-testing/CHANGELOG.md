@@ -1,5 +1,11 @@
 # nest-commander-testing
 
+## 3.6.0
+
+### Minor Changes
+
+- d4d9b80: Support NestJS v12
+
 ## 3.5.1
 
 ### Patch Changes

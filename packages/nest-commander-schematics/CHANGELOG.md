@@ -1,5 +1,11 @@
 # nest-commander-schematics
 
+## 3.3.0
+
+### Minor Changes
+
+- d4d9b80: Support NestJS v12
+
 ## 3.2.0
 
 ### Minor Changes
