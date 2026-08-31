@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common/decorators';
+import { Module } from '@nestjs/common';
 import { LogService } from '../../common/log.service';
 import { ThisHandlerCommand } from './this-handler.command';
 
