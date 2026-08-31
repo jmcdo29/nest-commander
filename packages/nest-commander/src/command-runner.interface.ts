@@ -78,6 +78,16 @@ export interface OptionMetadata {
   env?: string;
 }
 
+export interface OptionsMetadata<T extends unknown[] = string[]> {
+  flags: string;
+  description?: string;
+  defaultValue?: T;
+  required?: boolean;
+  name?: string;
+  choices?: string[] | true;
+  env?: string;
+}
+
 export interface OptionChoiceForMetadata {
   name: string;
 }
@@ -86,6 +96,7 @@ export interface RunnerMeta {
   instance: CommandRunner;
   command: RootCommandMetadata;
   params: DiscoveredMethodWithMeta<OptionMetadata>[];
+  variadicParams: DiscoveredMethodWithMeta<OptionsMetadata>[];
   help?: DiscoveredMethodWithMeta<HelpOptions>[];
 }
 
