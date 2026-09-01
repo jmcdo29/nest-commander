@@ -268,7 +268,7 @@ ${cliPluginError(
   ): void {
     const trueArgDefs: Record<string, string> = {};
 
-    const splitArgs = args.split(' ');
+    const splitArgs = args.match(/\[(.*?)]|<(.*?)>/gm) || [];
     for (const arg of splitArgs) {
       let added = false;
       for (const key of Object.keys(argDescriptions).filter((key) =>
