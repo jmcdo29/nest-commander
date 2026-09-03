@@ -30,8 +30,8 @@
     "directory": "packages/nest-commander-schematics"
   },
   "dependencies": {
-    "@angular-devkit/core": "22.1.5",
-    "@angular-devkit/schematics": "22.1.5",
+    "@angular-devkit/core": "22.1.7",
+    "@angular-devkit/schematics": "22.1.7",
     "rxjs": "7.8.2",
     "@nestjs/schematics": "12.0.0",
     "typescript": "6.0.3"
