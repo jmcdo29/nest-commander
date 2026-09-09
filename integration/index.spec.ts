@@ -20,6 +20,7 @@ import { RegisterWithSubCommandsSuite } from './register-provider/test/register-
 import { RequestProviderSuite } from './request-provider-override/test/index.spec';
 import { RootCommandSuite } from './root-command/test/root-command.spec';
 import { OutputConfigSuite } from './output-config/test/output.config.spec';
+import { VariadicOptionSuite } from './variadic-option/test/variadic-option.spec';
 import { VersionOptionSuite } from './version-option/test/version.option.spec';
 
 BasicFactorySuite.run();
@@ -42,4 +43,5 @@ DefaultSubCommandSuite.run();
 RequestProviderSuite.run();
 RootCommandSuite.run();
 OutputConfigSuite.run();
+VariadicOptionSuite.run();
 VersionOptionSuite.run();
