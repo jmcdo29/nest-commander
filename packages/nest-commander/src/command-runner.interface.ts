@@ -71,7 +71,7 @@ export type RootCommandMetadata = Omit<CommandMetadata, 'name'> & {
 export interface OptionMetadata {
   flags: string;
   description?: string;
-  defaultValue?: string | boolean | number;
+  defaultValue?: unknown;
   required?: boolean;
   name?: string;
   choices?: string[] | true;
