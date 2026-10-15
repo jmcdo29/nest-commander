@@ -1,3 +1,4 @@
+import { RequiredOptionErrorHandlerSuite } from './basic/test/required-option.command.spec';
 import { BasicFactorySuite } from './basic/test/basic.command.factory.spec';
 import {
   BooleanCommandSuite,
@@ -27,6 +28,7 @@ StringCommandSuite.run();
 NumberCommandSuite.run();
 BooleanCommandSuite.run();
 UnknownCommandSuite.run();
+RequiredOptionErrorHandlerSuite.run();
 HelpSuite.run();
 MultipleCommandSuite.run();
 PizzaSuite.run();
