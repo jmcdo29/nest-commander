@@ -9,11 +9,12 @@ import { ExpectedParam, setArgv } from './utils';
 const outputHelp = `Usage: basic.command [options] [command]
 
 Options:
-  -h, --help       display help for command
+  -h, --help                 display help for command
 
 Commands:
-  basic [options]  A parameter parse
-  help [command]   display help for command
+  basic [options]            A parameter parse
+  required-option [options]  A command with a required option
+  help [command]             display help for command
 `;
 
 const logSpySuite = (name: string) => {

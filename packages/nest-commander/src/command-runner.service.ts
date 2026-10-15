@@ -161,6 +161,12 @@ ${cliPluginError(
     if (this.options.enablePositionalOptions) {
       newCommand.enablePositionalOptions(true);
     }
+    // Same reason as above: without this a failure on a subcommand (a missing
+    // required option, for instance) exits the process instead of reaching the
+    // error handler that was given to the factory.
+    if (this.options.errorHandler) {
+      newCommand.exitOverride(this.options.errorHandler);
+    }
     if (this.options.enablePassThroughOptions) {
       newCommand.passThroughOptions(true);
     }
