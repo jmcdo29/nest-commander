@@ -51,7 +51,7 @@
     "@docsearch/css": "^3.3.0",
     "@docsearch/react": "^3.3.0",
     "@golevelup/nestjs-discovery": "7.0.3",
-    "@mdx-js/react": "3.1.0",
+    "@mdx-js/react": "3.1.1",
     "@nestjs/cli": "12.0.0",
     "@nestjs/common": "12.0.0",
     "@nestjs/core": "12.0.1",
